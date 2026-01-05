@@ -104,17 +104,36 @@ export function BlogGrid() {
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Filter */}
+        {/* Coming Soon Message */}
         <ScrollReveal>
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
+          <div className="text-center py-16">
+            <div className="max-w-md mx-auto">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
+                <Clock className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Blog Coming Soon</h3>
+              <p className="text-muted-foreground mb-6">
+                We're working on bringing you insightful articles about AI, technology, and digital innovation. Stay tuned!
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                <Clock className="w-4 h-4" />
+                Coming Soon
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Filter - Disabled */}
+        <ScrollReveal>
+          <div className="flex flex-wrap justify-center gap-2 mb-12 opacity-50 pointer-events-none">
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => setActiveCategory(category)}
+                disabled
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   activeCategory === category
                     ? "bg-primary text-primary-foreground"
-                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/50"
+                    : "bg-card border border-border text-muted-foreground"
                 }`}
               >
                 {category}
@@ -123,8 +142,8 @@ export function BlogGrid() {
           </div>
         </ScrollReveal>
 
-        {/* Featured Post */}
-        {featuredPost && (
+        {/* Featured Post - Hidden */}
+        {false && featuredPost && (
           <ScrollReveal>
             <Link href={`/blog/${featuredPost.id}`} className="group block mb-12">
               <article className="grid lg:grid-cols-2 gap-8 rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/50 transition-all duration-300">
@@ -165,7 +184,8 @@ export function BlogGrid() {
           </ScrollReveal>
         )}
 
-        {/* Regular Posts Grid */}
+        {/* Regular Posts Grid - Hidden */}
+        {false && (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {regularPosts.map((post, index) => (
             <ScrollReveal key={post.id} delay={index * 100}>
@@ -197,8 +217,10 @@ export function BlogGrid() {
             </ScrollReveal>
           ))}
         </div>
+        )}
 
-        {/* Load More */}
+        {/* Load More - Hidden */}
+        {false && (
         <ScrollReveal delay={400}>
           <div className="mt-12 text-center">
             <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border text-sm font-medium hover:border-primary hover:text-primary transition-colors group">
@@ -207,6 +229,7 @@ export function BlogGrid() {
             </button>
           </div>
         </ScrollReveal>
+        )}
       </div>
     </section>
   )

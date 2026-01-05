@@ -155,11 +155,9 @@ export function CaseStudiesSection() {
             <ScrollReveal delay={300}>
               <div className="flex items-center gap-4">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button asChild>
-                    <Link href={currentStudy.href}>
-                      View Case Study
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
+                  <Button disabled className="opacity-60 cursor-not-allowed">
+                    Coming Soon
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </motion.div>
                 <div className="flex gap-2">

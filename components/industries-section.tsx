@@ -82,11 +82,9 @@ export function IndustriesSection() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={300}>
-              <Button size="lg" variant="outline" asChild className="group bg-transparent">
-                <Link href="/industries">
-                  Explore All Industries
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+              <Button size="lg" variant="outline" disabled className="group bg-transparent opacity-60 cursor-not-allowed">
+                Coming Soon
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </ScrollReveal>
           </div>
@@ -96,21 +94,22 @@ export function IndustriesSection() {
             <div className="grid sm:grid-cols-2 gap-4">
               {industries.map((industry, index) => (
                 <ScrollReveal key={industry.title} delay={index * 75}>
-                  <Link href={industry.href} className="group block">
-                    <div className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 h-full">
+                  <div className="group block cursor-not-allowed">
+                    <div className="p-6 rounded-2xl bg-card border border-border opacity-60 h-full">
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                           <industry.icon className="w-6 h-6 text-primary" />
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                          <h3 className="text-lg font-semibold mb-2">
                             {industry.title}
                           </h3>
                           <p className="text-sm text-muted-foreground leading-relaxed">{industry.description}</p>
+                          <p className="text-xs text-primary mt-2 font-medium">Coming Soon</p>
                         </div>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 </ScrollReveal>
               ))}
             </div>
