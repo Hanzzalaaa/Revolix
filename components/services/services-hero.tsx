@@ -1,0 +1,90 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { ScrollReveal } from "@/components/scroll-reveal"
+import { ParallaxSection } from "@/components/parallax-section"
+import { FloatingParticles } from "@/components/floating-particles"
+import { Sparkles } from "lucide-react"
+
+export function ServicesHero() {
+  return (
+    <section className="relative pt-32 pb-24 overflow-hidden">
+      {/* Floating Particles */}
+      <FloatingParticles count={25} />
+
+      {/* Enhanced Parallax Background */}
+      <div className="absolute inset-0">
+        <ParallaxSection
+          speed={0.3}
+          mouseParallax
+          mouseIntensity={0.02}
+          className="absolute top-0 right-0 w-[600px] h-[600px] opacity-20"
+        >
+          <div className="w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--primary)_0%,_transparent_50%)] animate-pulse-glow" />
+        </ParallaxSection>
+        <ParallaxSection
+          speed={0.2}
+          direction="down"
+          mouseParallax
+          mouseIntensity={0.015}
+          className="absolute bottom-0 left-0 w-[400px] h-[400px] opacity-15"
+        >
+          <div className="w-full h-full bg-[radial-gradient(ellipse_at_bottom_left,_var(--accent)_0%,_transparent_50%)] animate-pulse-glow" />
+        </ParallaxSection>
+        <ParallaxSection speed={0.4} rotateOnScroll className="absolute top-1/4 left-1/3 w-32 h-32 opacity-10">
+          <div className="w-full h-full rounded-full bg-primary blur-2xl" />
+        </ParallaxSection>
+
+        {/* Animated grid */}
+        <motion.div
+          className="absolute inset-0 bg-[linear-gradient(rgba(79,209,197,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(79,209,197,0.03)_1px,transparent_1px)] bg-[size:64px_64px]"
+          animate={{ backgroundPosition: ["0px 0px", "64px 64px"] }}
+          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl">
+          <ScrollReveal direction="scale">
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
+              whileHover={{ scale: 1.05 }}
+            >
+              <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+              <span className="text-sm text-primary font-medium uppercase tracking-wider">Our Services</span>
+            </motion.div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 text-balance">
+              Comprehensive Tech Services for <span className="gradient-text">Modern Enterprises</span>
+            </h1>
+          </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              From AI-powered solutions to cloud infrastructure, we provide end-to-end technology services designed to
+              transform your business and accelerate growth.
+            </p>
+          </ScrollReveal>
+        </div>
+
+        {/* Floating decorative elements */}
+        <ParallaxSection
+          speed={0.5}
+          mouseParallax
+          mouseIntensity={0.05}
+          className="absolute right-20 top-20 hidden lg:block"
+        >
+          <motion.div
+            className="w-20 h-20 rounded-2xl glass flex items-center justify-center"
+            animate={{ rotate: [0, 10, 0], y: [0, -10, 0] }}
+            transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY }}
+          >
+            <div className="w-10 h-10 rounded-lg bg-primary/30" />
+          </motion.div>
+        </ParallaxSection>
+      </div>
+    </section>
+  )
+}
