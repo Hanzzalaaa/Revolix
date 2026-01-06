@@ -10,48 +10,48 @@ const categories = ["All", "Healthcare", "Fintech", "Entertainment", "eCommerce"
 
 const caseStudies = [
   {
-    id: "lymelyt",
-    title: "LymeLyt",
+    id: "AuroraEvents",
+    title: "AuroraEvents",
     category: "Entertainment",
     tags: ["AI Platform", "Mobile App", "Event Tech"],
     description:
       "An AI-powered artist booking and event planning platform that revolutionized how event organizers find and book performers, creating a reliable marketplace with over 10,000 artists.",
     results: ["300% increase in bookings", "10K+ artists onboarded", "50% reduction in search time"],
     image: "/entertainment-app-dark-purple-neon.jpg",
-    href: "/case-studies/lymelyt",
+    href: "/case-studies/AuroraEvents",
   },
   {
-    id: "appiell",
-    title: "Appiell",
+    id: "MediSync",
+    title: "MediSync",
     category: "Healthcare",
     tags: ["AI/ML", "Clinical Trials", "Image Recognition"],
     description:
       "A digital health platform leveraging AI and advanced image capture technology to improve clinical trial enrollment, management, and patient monitoring with unprecedented accuracy.",
     results: ["85% enrollment improvement", "40% faster trial completion", "99.2% image accuracy"],
     image: "/healthcare-app-medical-blue-technology.jpg",
-    href: "/case-studies/appiell",
+    href: "/case-studies/MediSync",
   },
   {
-    id: "lawli",
-    title: "Lawli AI",
+    id: "LexaSuite",
+    title: "LexaSuite",
     category: "Legal Tech",
     tags: ["AI Assistant", "Contract Analysis", "NLP"],
     description:
       "An AI-powered personal legal assistant that streamlines legal processes, enabling users to draft contracts, analyze risks, research case law, and visualize complex legal scenarios.",
     results: ["70% time savings", "95% accuracy rate", "$2M+ in saved legal fees"],
     image: "/legal-tech-app-scales-justice-dark.jpg",
-    href: "/case-studies/lawli",
+    href: "/case-studies/LexaSuite",
   },
   {
-    id: "intercompliant",
-    title: "InterCompliant",
+    id: "FinSight",
+    title: "FinSight",
     category: "Fintech",
     tags: ["Compliance", "Internal Audit", "Process Automation"],
     description:
       "A comprehensive platform enhancing companies' financial health with top-tier internal audit consulting, using AI-driven analysis to review and improve compliance processes.",
     results: ["60% audit efficiency gain", "Zero compliance violations", "40% cost reduction"],
     image: "/fintech-compliance-dashboard-dark-green.jpg",
-    href: "/case-studies/intercompliant",
+    href: "/case-studies/FinSight",
   },
   {
     id: "wits",

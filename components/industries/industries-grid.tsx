@@ -26,7 +26,7 @@ const industries = [
     title: "Healthcare",
     shortDesc: "AI-powered healthcare solutions",
     description:
-      "NexaFlow brings AI to healthcare, cutting costs, boosting care quality, securing patient data, and streamlining systems for smarter, faster, and more personalized patient experiences.",
+      "Revolix AI brings AI to healthcare, cutting costs, boosting care quality, securing patient data, and streamlining systems for smarter, faster, and more personalized patient experiences.",
     solutions: [
       "Clinical decision support systems",
       "Medical imaging AI",
@@ -62,7 +62,7 @@ const industries = [
     title: "Energy",
     shortDesc: "Smart grid & sustainability",
     description:
-      "NexaFlow powers the energy shift with AI tech stack. We optimize grids, cut emissions, predict demand, and build smarter, cleaner, and more secure energy systems for a sustainable future.",
+      "Revolix AI powers the energy shift with AI tech stack. We optimize grids, cut emissions, predict demand, and build smarter, cleaner, and more secure energy systems for a sustainable future.",
     solutions: [
       "Smart grid management",
       "Energy demand forecasting",
@@ -80,7 +80,7 @@ const industries = [
     title: "Fintech",
     shortDesc: "Secure financial innovation",
     description:
-      "NexaFlow powers fintech with AI. It smartly improves processes, boosts security, personalizes experiences, ensures compliance, and delivers seamless digital journeys that earn trust and drive growth.",
+      "Revolix AI powers fintech with AI. It smartly improves processes, boosts security, personalizes experiences, ensures compliance, and delivers seamless digital journeys that earn trust and drive growth.",
     solutions: [
       "Risk assessment models",
       "Fraud prevention",
@@ -98,7 +98,7 @@ const industries = [
     title: "Hospitality",
     shortDesc: "Elevated guest experiences",
     description:
-      "NexaFlow uses AI to transform hospitality, streamline operations, personalize stays, cut costs, and deliver eco-smart and guest-first experiences that keep customers coming back.",
+      "Revolix AI uses AI to transform hospitality, streamline operations, personalize stays, cut costs, and deliver eco-smart and guest-first experiences that keep customers coming back.",
     solutions: [
       "Revenue management",
       "Guest personalization",
@@ -116,7 +116,7 @@ const industries = [
     title: "Manufacturing",
     shortDesc: "Industry 4.0 solutions",
     description:
-      "NexaFlow powers smart manufacturing with AI. It can optimize supply chains, boost uptime, secure operations, and drive sustainability without slowing production.",
+      "Revolix AI powers smart manufacturing with AI. It can optimize supply chains, boost uptime, secure operations, and drive sustainability without slowing production.",
     solutions: [
       "Predictive maintenance",
       "Quality control AI",
@@ -134,7 +134,7 @@ const industries = [
     title: "Real Estate",
     shortDesc: "Intelligent property solutions",
     description:
-      "NexaFlow AI helps real estate professionals price smart, predict demand, and personalize buyer journeys, and market properties faster and smoother regardless of market mood.",
+      "Revolix AI helps real estate professionals price smart, predict demand, and personalize buyer journeys, and market properties faster and smoother regardless of market mood.",
     solutions: [
       "Property valuation AI",
       "Market prediction",
@@ -152,7 +152,7 @@ const industries = [
     title: "Logistics",
     shortDesc: "Optimized supply chains",
     description:
-      "NexaFlow brings AI to logistics industry. We optimize routes, forecast workforce needs, and build resilient supply chains that move faster, waste less, and deliver every time.",
+      "Revolix AI brings AI to the logistics industry. We optimize routes, forecast workforce needs, and build resilient supply chains that move faster, waste less, and deliver every time.",
     solutions: [
       "Route optimization",
       "Warehouse automation",
@@ -170,7 +170,7 @@ const industries = [
     title: "Oil & Gas",
     shortDesc: "Upstream to downstream AI",
     description:
-      "NexaFlow applies AI to oil and gas industry. It predicts failures, optimizes exploration, streamlines logistics, and improves safety across upstream, midstream, and downstream operations.",
+      "Revolix AI applies AI to oil and gas industry. It predicts failures, optimizes exploration, streamlines logistics, and improves safety across upstream, midstream, and downstream operations.",
     solutions: [
       "Predictive maintenance",
       "Exploration optimization",
@@ -188,7 +188,7 @@ const industries = [
     title: "Entertainment",
     shortDesc: "Content & engagement AI",
     description:
-      "NexaFlow brings AI to entertainment. We predict trends, personalize content, streamline production, and boost audience engagement with data that steals the spotlight.",
+      "Revolix AI brings AI to entertainment. We predict trends, personalize content, streamline production, and boost audience engagement with data that steals the spotlight.",
     solutions: [
       "Content recommendation",
       "Audience analytics",

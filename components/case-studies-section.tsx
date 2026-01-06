@@ -12,43 +12,43 @@ import { ArrowRight, ChevronLeft, ChevronRight, Briefcase } from "lucide-react"
 const caseStudies = [
   {
     id: 1,
-    title: "LymeLyt",
+    title: "AuroraEvents",
     industry: "Entertainment",
     tags: ["Evaluation and Design", "PWA", "Mobile Development"],
     description:
       "An AI-powered artist booking and event planning platform aimed at creating a reliable, intuitive space where event organizers can easily find and book performers.",
     image: "/entertainment-app-dark-purple-neon.jpg",
-    href: "/case-studies/lymelyt",
+    href: "/case-studies/auroraEvents",
   },
   {
     id: 2,
-    title: "Appiell",
+    title: "MediSync",
     industry: "Healthcare",
     tags: ["AI Integration", "Image Recognition", "Clinical Trials"],
     description:
       "A digital health platform leveraging artificial intelligence and advanced image capture technology to improve clinical trial enrollment and monitoring.",
     image: "/healthcare-app-medical-blue-technology.jpg",
-    href: "/case-studies/appiell",
+    href: "/case-studies/mediSync",
   },
   {
     id: 3,
-    title: "Lawli AI",
+    title: "LexaSuite",
     industry: "Legal Tech",
     tags: ["AI Assistant", "Contract Analysis", "Risk Assessment"],
     description:
       "An AI-powered personal legal assistant that streamlines legal processes, enables users to draft contracts, analyze risks, and research case law efficiently.",
     image: "/legal-tech-app-scales-justice-dark.jpg",
-    href: "/case-studies/lawli",
+    href: "/case-studies/LexaSuite",
   },
   {
     id: 4,
-    title: "InterCompliant",
+    title: "FinSight",
     industry: "Fintech",
     tags: ["Internal Audit", "Compliance", "Process Optimization"],
     description:
       "A platform enhancing companies' financial health with top-tier internal audit consulting using a top-down approach to review and improve processes.",
     image: "/fintech-compliance-dashboard-dark-green.jpg",
-    href: "/case-studies/intercompliant",
+    href: "/case-studies/finSight",
   },
 ]
 
