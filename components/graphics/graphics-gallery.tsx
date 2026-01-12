@@ -14,7 +14,7 @@ const artworks = [
     title: "Cyber Vtuber",
     category: "Vtubers",
     description: "Cyberpunk-themed vtuber character design with holographic elements",
-    image: "/graphics/vtuber-cyber.jpg",
+    image: "/Vtuber/1.jpg",
     tags: ["Vtuber", "Cyberpunk", "Character Design"],
   },
   {
@@ -22,7 +22,7 @@ const artworks = [
     title: "Fantasy Mage",
     category: "Anime",
     description: "Anime-style fantasy mage character with elemental magic",
-    image: "/graphics/anime-mage.jpg",
+    image: "/Digital%20Art/2.jpg",
     tags: ["Anime", "Fantasy", "Magic"],
   },
   {
@@ -30,7 +30,7 @@ const artworks = [
     title: "Neko Streamer",
     category: "Vtubers",
     description: "Cute cat-eared streamer vtuber avatar design",
-    image: "/graphics/vtuber-neko.jpg",
+    image: "/Vtuber/3.jpg",
     tags: ["Vtuber", "Kawaii", "Neko"],
   },
   {
@@ -38,7 +38,7 @@ const artworks = [
     title: "Warrior Princess",
     category: "Characters",
     description: "Strong female warrior character with detailed armor",
-    image: "/graphics/character-warrior.jpg",
+    image: "/Digital%20Art/4.jpg",
     tags: ["Character", "Warrior", "Fantasy"],
   },
   {
@@ -46,7 +46,7 @@ const artworks = [
     title: "Sakura Dreams",
     category: "Illustrations",
     description: "Peaceful spring scene with cherry blossoms",
-    image: "/graphics/illustration-sakura.jpg",
+    image: "/Digital%20Art/5.jpg",
     tags: ["Illustration", "Nature", "Peaceful"],
   },
   {
@@ -54,7 +54,7 @@ const artworks = [
     title: "Dragon Slayer",
     category: "Fan Art",
     description: "Epic dragon battle scene fan art",
-    image: "/graphics/fanart-dragon.jpg",
+    image: "/Digital%20Art/6.jpg",
     tags: ["Fan Art", "Dragon", "Action"],
   },
   {
@@ -62,7 +62,7 @@ const artworks = [
     title: "Idol Singer",
     category: "Anime",
     description: "Pop idol character in stage outfit",
-    image: "/graphics/anime-idol.jpg",
+    image: "/Digital%20Art/7.jpg",
     tags: ["Anime", "Idol", "Music"],
   },
   {
@@ -70,7 +70,7 @@ const artworks = [
     title: "Tech Witch",
     category: "Characters",
     description: "Modern witch with tech gadgets and magical elements",
-    image: "/graphics/character-witch.jpg",
+    image: "/Digital%20Art/8.jpg",
     tags: ["Character", "Tech", "Magic"],
   },
   {
@@ -78,7 +78,7 @@ const artworks = [
     title: "Demon Vtuber",
     category: "Vtubers",
     description: "Demonic vtuber design with wings and horns",
-    image: "/graphics/vtuber-demon.jpg",
+    image: "/Vtuber/9.png",
     tags: ["Vtuber", "Demon", "Dark"],
   },
 ]
@@ -144,13 +144,12 @@ export function GraphicsGallery() {
                 {/* Placeholder Image */}
                 <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-blue-500/20" />
                 
-                {/* Image would go here when you have actual files */}
-                {/* <Image
+                <Image
                   src={artwork.image}
                   alt={artwork.title}
                   fill
                   className="object-cover"
-                /> */}
+                />
 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -235,13 +234,12 @@ export function GraphicsGallery() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-blue-500/20 mb-6">
-                {/* Placeholder - replace with actual image */}
-                {/* <Image
+                <Image
                   src={selectedImage.image}
                   alt={selectedImage.title}
                   fill
                   className="object-contain"
-                /> */}
+                />
               </div>
 
               <div className="text-center text-white">
