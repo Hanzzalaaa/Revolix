@@ -8,9 +8,15 @@ import { IndustryStats } from "@/components/industries/industry-stats"
 import { CTASection } from "@/components/cta-section"
 
 export const metadata: Metadata = {
-  title: "Industries | NexaFlow - AI Solutions Across Sectors",
-  description:
-    "Discover how NexaFlow delivers tailored AI and digital solutions across healthcare, fintech, eCommerce, energy, real estate, and more.",
+  title: "Industries We Work With | Revolix",
+  description: "We've built AI systems for healthcare, fintech, e-commerce, manufacturing, and more. Each industry has different challenges - here's how we approach them.",
+  keywords: [
+    "AI for healthcare",
+    "fintech software development",
+    "e-commerce AI solutions",
+    "manufacturing automation",
+    "industry-specific AI",
+  ],
 }
 
 export default function IndustriesPage() {

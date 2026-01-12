@@ -7,9 +7,15 @@ import { BlogGrid } from "@/components/blog/blog-grid"
 import { NewsletterSection } from "@/components/blog/newsletter-section"
 
 export const metadata: Metadata = {
-  title: "Blog & Insights | NexaFlow - Tech Trends & AI News",
-  description:
-    "Stay updated with the latest in AI, technology trends, digital transformation insights, and expert analysis from NexaFlow.",
+  title: "Blog | Revolix - Technical Insights & Case Studies",
+  description: "Real stories from the trenches. We write about what actually works (and what doesn't) when building AI systems and shipping software.",
+  keywords: [
+    "AI blog",
+    "software development insights",
+    "ML engineering",
+    "tech case studies",
+    "engineering blog",
+  ],
 }
 
 export default function BlogPage() {

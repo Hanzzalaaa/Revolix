@@ -7,9 +7,15 @@ import { CaseStudiesFilter } from "@/components/case-studies/case-studies-filter
 import { CTASection } from "@/components/cta-section"
 
 export const metadata: Metadata = {
-  title: "Case Studies | NexaFlow - Our Work & Success Stories",
-  description:
-    "Explore our portfolio of successful projects across healthcare, fintech, entertainment, and more. See how we've helped businesses transform with AI.",
+  title: "Case Studies | Revolix - Real Projects, Real Results",
+  description: "See what we've built for other companies. These are real projects with actual numbers - no marketing fluff, just what worked and what we learned.",
+  keywords: [
+    "AI case studies",
+    "software development portfolio",
+    "client success stories",
+    "ML project examples",
+    "tech consulting results",
+  ],
 }
 
 export default function CaseStudiesPage() {

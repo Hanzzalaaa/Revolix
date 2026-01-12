@@ -4,7 +4,11 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ScrollReveal } from "./scroll-reveal"
 import { ParallaxSection } from "./parallax-section"
-import { FloatingParticles } from "./floating-particles"
+import dynamic from "next/dynamic"
+
+const FloatingParticles = dynamic(() => import("./floating-particles").then((m) => m.FloatingParticles), {
+  ssr: false,
+})
 import { Button } from "@/components/ui/button"
 import { Brain, Code2, Cloud, BarChart3, Shield, Palette, Cpu, Database, ArrowRight, Sparkles } from "lucide-react"
 

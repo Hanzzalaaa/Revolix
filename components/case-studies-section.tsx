@@ -3,9 +3,14 @@
 import { useState } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 import { ScrollReveal } from "./scroll-reveal"
 import { ParallaxSection } from "./parallax-section"
-import { FloatingParticles } from "./floating-particles"
+import dynamic from "next/dynamic"
+
+const FloatingParticles = dynamic(() => import("./floating-particles").then((m) => m.FloatingParticles), {
+  ssr: false,
+})
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ChevronLeft, ChevronRight, Briefcase } from "lucide-react"
 
@@ -18,7 +23,7 @@ const caseStudies = [
     description:
       "An AI-powered artist booking and event planning platform aimed at creating a reliable, intuitive space where event organizers can easily find and book performers.",
     image: "/entertainment-app-dark-purple-neon.jpg",
-    href: "/case-studies/auroraEvents",
+    href: "/case-studies/aurora-events",
   },
   {
     id: 2,
@@ -28,7 +33,7 @@ const caseStudies = [
     description:
       "A digital health platform leveraging artificial intelligence and advanced image capture technology to improve clinical trial enrollment and monitoring.",
     image: "/healthcare-app-medical-blue-technology.jpg",
-    href: "/case-studies/mediSync",
+    href: "/case-studies/medi-sync",
   },
   {
     id: 3,
@@ -38,7 +43,7 @@ const caseStudies = [
     description:
       "An AI-powered personal legal assistant that streamlines legal processes, enables users to draft contracts, analyze risks, and research case law efficiently.",
     image: "/legal-tech-app-scales-justice-dark.jpg",
-    href: "/case-studies/LexaSuite",
+    href: "/case-studies/lexa-suite",
   },
   {
     id: 4,
@@ -48,7 +53,7 @@ const caseStudies = [
     description:
       "A platform enhancing companies' financial health with top-tier internal audit consulting using a top-down approach to review and improve processes.",
     image: "/fintech-compliance-dashboard-dark-green.jpg",
-    href: "/case-studies/finSight",
+    href: "/case-studies/finsight",
   },
 ]
 
@@ -198,10 +203,12 @@ export function CaseStudiesSection() {
                     transition={{ duration: 0.5 }}
                     whileHover={{ scale: 1.02 }}
                   >
-                    <img
+                    <Image
                       src={currentStudy.image || "/placeholder.svg"}
                       alt={currentStudy.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
 

@@ -7,9 +7,14 @@ import { ContactForm } from "@/components/contact/contact-form"
 import { ContactInfo } from "@/components/contact/contact-info"
 
 export const metadata: Metadata = {
-  title: "Contact Us | NexaFlow - Get in Touch",
-  description:
-    "Ready to transform your business with AI? Contact NexaFlow for a free strategy consultation. Let's discuss your project.",
+  title: "Contact Us | Revolix - Let's Talk",
+  description: "Got a project in mind? Not sure where to start? Drop us a line and we'll figure it out together. No sales pitch, just an honest conversation about what you need.",
+  keywords: [
+    "contact AI developers",
+    "software consulting inquiry",
+    "get in touch",
+    "project quote",
+  ],
 }
 
 export default function ContactPage() {
