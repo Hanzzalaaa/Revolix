@@ -37,13 +37,13 @@ export default function Head() {
       <meta property="og:title" content="Revolix Technologies" />
       <meta property="og:description" content="Revolix Technologies — digital products and engineering" />
       <meta property="og:url" content={SITE_URL} />
-      <meta property="og:image" content={`${SITE_URL}/og-image.png`} />
+      <meta property="og:image" content={`${SITE_URL}/icon.svg`} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@revolix" />
       <meta name="twitter:title" content="Revolix Technologies" />
       <meta name="twitter:description" content="Revolix Technologies — digital products and engineering" />
-      <meta name="twitter:image" content={`${SITE_URL}/og-image.png`} />
+      <meta name="twitter:image" content={`${SITE_URL}/icon.svg`} />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJson) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJson) }} />
