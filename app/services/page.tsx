@@ -9,9 +9,17 @@ import { TechStackSection } from "@/components/services/tech-stack-section"
 import { CTASection } from "@/components/cta-section"
 
 export const metadata: Metadata = {
-  title: "Services | NexaFlow - AI-Powered Digital Solutions",
+  title: "Our Services | Revolix - What We Build",
   description:
-    "Explore our comprehensive range of services including AI development, software engineering, cloud infrastructure, data analytics, and UX design.",
+    "We handle everything from training ML models to setting up cloud infrastructure. Whether you need a full AI system or just help debugging your pipeline, we've got you covered.",
+  keywords: [
+    "AI development services",
+    "custom software development",
+    "cloud infrastructure setup",
+    "ML model training",
+    "data pipeline engineering",
+    "software consulting",
+  ],
 }
 
 export default function ServicesPage() {

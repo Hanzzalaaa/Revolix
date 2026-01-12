@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import Image from "next/image"
 import { ParallaxSection } from "@/components/parallax-section"
 import { ArrowUpRight } from "lucide-react"
 
@@ -18,7 +19,7 @@ const caseStudies = [
       "An AI-powered artist booking and event planning platform that revolutionized how event organizers find and book performers, creating a reliable marketplace with over 10,000 artists.",
     results: ["300% increase in bookings", "10K+ artists onboarded", "50% reduction in search time"],
     image: "/entertainment-app-dark-purple-neon.jpg",
-    href: "/case-studies/AuroraEvents",
+    href: "/case-studies/aurora-events",
   },
   {
     id: "MediSync",
@@ -29,7 +30,7 @@ const caseStudies = [
       "A digital health platform leveraging AI and advanced image capture technology to improve clinical trial enrollment, management, and patient monitoring with unprecedented accuracy.",
     results: ["85% enrollment improvement", "40% faster trial completion", "99.2% image accuracy"],
     image: "/healthcare-app-medical-blue-technology.jpg",
-    href: "/case-studies/MediSync",
+    href: "/case-studies/medi-sync",
   },
   {
     id: "LexaSuite",
@@ -40,7 +41,7 @@ const caseStudies = [
       "An AI-powered personal legal assistant that streamlines legal processes, enabling users to draft contracts, analyze risks, research case law, and visualize complex legal scenarios.",
     results: ["70% time savings", "95% accuracy rate", "$2M+ in saved legal fees"],
     image: "/legal-tech-app-scales-justice-dark.jpg",
-    href: "/case-studies/LexaSuite",
+    href: "/case-studies/lexa-suite",
   },
   {
     id: "FinSight",
@@ -51,7 +52,7 @@ const caseStudies = [
       "A comprehensive platform enhancing companies' financial health with top-tier internal audit consulting, using AI-driven analysis to review and improve compliance processes.",
     results: ["60% audit efficiency gain", "Zero compliance violations", "40% cost reduction"],
     image: "/fintech-compliance-dashboard-dark-green.jpg",
-    href: "/case-studies/FinSight",
+    href: "/case-studies/finsight",
   },
   {
     id: "wits",
@@ -145,10 +146,12 @@ export function CaseStudiesFilter() {
                 <article className="rounded-2xl bg-card border border-border overflow-hidden transition-all duration-500 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5">
                   {/* Image */}
                   <div className="relative aspect-video overflow-hidden">
-                    <img
+                    <Image
                       src={study.image || "/placeholder.svg"}
                       alt={study.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
 

@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import Image from "next/image"
 import { ParallaxSection } from "@/components/parallax-section"
 import { Clock, ArrowRight } from "lucide-react"
 
@@ -142,16 +143,18 @@ export function BlogGrid() {
           </div>
         </ScrollReveal>
 
-        {/* Featured Post - Hidden */}
-        {false && featuredPost && (
+        {/* Featured Post */}
+        {featuredPost && (
           <ScrollReveal>
             <Link href={`/blog/${featuredPost.id}`} className="group block mb-12">
               <article className="grid lg:grid-cols-2 gap-8 rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/50 transition-all duration-300">
                 <div className="relative aspect-video lg:aspect-auto overflow-hidden">
-                  <img
+                  <Image
                     src={featuredPost.image || "/placeholder.svg"}
                     alt={featuredPost.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full">
@@ -184,18 +187,20 @@ export function BlogGrid() {
           </ScrollReveal>
         )}
 
-        {/* Regular Posts Grid - Hidden */}
-        {false && (
+        {/* Regular Posts Grid */}
+        {regularPosts.length > 0 && (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {regularPosts.map((post, index) => (
             <ScrollReveal key={post.id} delay={index * 100}>
               <Link href={`/blog/${post.id}`} className="group block h-full">
                 <article className="h-full rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col">
                   <div className="relative aspect-video overflow-hidden">
-                    <img
+                    <Image
                       src={post.image || "/placeholder.svg"}
                       alt={post.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-1">

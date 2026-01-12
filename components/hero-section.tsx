@@ -5,7 +5,11 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ParallaxSection } from "./parallax-section"
 import { ScrollReveal } from "./scroll-reveal"
-import { FloatingParticles } from "./floating-particles"
+import dynamic from "next/dynamic"
+
+const FloatingParticles = dynamic(() => import("./floating-particles").then((m) => m.FloatingParticles), {
+  ssr: false,
+})
 import { ArrowRight, Sparkles } from "lucide-react"
 
 export function HeroSection() {

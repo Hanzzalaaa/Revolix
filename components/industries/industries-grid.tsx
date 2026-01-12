@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import Image from "next/image"
 import { ParallaxSection } from "@/components/parallax-section"
 import {
   Heart,
@@ -259,10 +260,12 @@ export function IndustriesGrid() {
               >
                 {/* Image Background */}
                 <div className="relative h-48 overflow-hidden">
-                  <img
+                  <Image
                     src={industry.image || "/placeholder.svg"}
                     alt={industry.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t ${industry.color} to-background/90`} />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-transparent" />

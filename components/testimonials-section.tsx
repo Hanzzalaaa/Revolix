@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 import { ScrollReveal } from "./scroll-reveal"
 import { ParallaxSection } from "./parallax-section"
 import { ChevronLeft, ChevronRight, Quote, MessageSquare } from "lucide-react"
@@ -130,10 +131,12 @@ export function TestimonialsSection() {
                         whileHover={{ scale: 1.1 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                       >
-                        <img
+                        <Image
                           src={currentTestimonial.avatar || "/placeholder.svg"}
                           alt={currentTestimonial.author}
-                          className="w-14 h-14 rounded-full object-cover border-2 border-primary/30"
+                          width={56}
+                          height={56}
+                          className="rounded-full object-cover border-2 border-primary/30"
                         />
                         <motion.div
                           className="absolute inset-0 rounded-full border-2 border-primary"

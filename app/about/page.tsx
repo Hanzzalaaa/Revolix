@@ -10,9 +10,16 @@ import { AboutValues } from "@/components/about/about-values"
 import { CTASection } from "@/components/cta-section"
 
 export const metadata: Metadata = {
-  title: "About Us | NexaFlow - Our Story & Mission",
+  title: "About Us | Revolix - Who We Are & What We Do",
   description:
-    "Learn about NexaFlow's mission to transform businesses with AI-powered solutions. Meet our team and discover our journey.",
+    "We're a team of engineers who got tired of seeing AI projects fail. Now we help companies build systems that actually work in production. Meet the team and see how we got here.",
+  keywords: [
+    "AI consulting team",
+    "software engineering company",
+    "tech consulting",
+    "AI experts",
+    "about Revolix",
+  ],
 }
 
 export default function AboutPage() {

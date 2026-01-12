@@ -3,7 +3,11 @@
 import { motion } from "framer-motion"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
-import { FloatingParticles } from "@/components/floating-particles"
+import dynamic from "next/dynamic"
+
+const FloatingParticles = dynamic(() => import("@/components/floating-particles").then((m) => m.FloatingParticles), {
+  ssr: false,
+})
 import { Sparkles } from "lucide-react"
 
 export function ServicesHero() {

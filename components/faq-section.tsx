@@ -4,32 +4,33 @@ import { useState } from "react"
 import { ScrollReveal } from "./scroll-reveal"
 import { ParallaxSection } from "./parallax-section"
 import { ChevronDown } from "lucide-react"
+import { FAQJsonLd } from "./seo/json-ld"
 
 const faqs = [
   {
-    question: "How does NexaFlow scale AI solutions?",
+    question: "How do you scale AI solutions?",
     answer:
-      "NexaFlow designs modular, scalable AI solutions starting from agile proofs-of-concept, leveraging robust platforms like Kubeflow and Feast. Solutions transition smoothly to production through Kubernetes-driven CI/CD and MLflow-based model tracking. Continuous performance monitoring ensures scalability, agility, and efficiency.",
+      "We start with a proof of concept, then build it out piece by piece. Using tools like Kubeflow and MLflow, we set up proper tracking and deployment pipelines. Once it's working, we handle the monitoring and scaling so your models don't break when traffic increases.",
   },
   {
-    question: "Why choose NexaFlow for cloud migration?",
+    question: "Why work with Revolix for cloud migration?",
     answer:
-      "NexaFlow utilizes a cloud-agnostic, infrastructure-as-code (IaC) approach, employing Terraform for seamless workload portability between AWS, Azure, and GCP. With containerized workloads supporting multiple architectures, automated security guardrails, and zero-downtime transitions, clients experience enhanced agility and significant cost reductions of 20–30%.",
+      "We use infrastructure-as-code (mostly Terraform) so your setup works the same way on AWS, Azure, or GCP. Everything runs in containers, we automate the security checks, and migrations happen without downtime. Most clients see their cloud costs drop 20-30% after we optimize things.",
   },
   {
-    question: "How does NexaFlow handle AI compliance?",
+    question: "How do you handle AI compliance and data privacy?",
     answer:
-      "NexaFlow integrates strict compliance controls into AI workflows, employing frameworks like OpenMetadata for robust data governance and Great Expectations for data-quality validation. Advanced privacy-preserving techniques ensure sensitive data remains secure, while automated policy checks maintain GDPR, HIPAA, and SOC 2 compliance.",
+      "We bake compliance into the workflow from day one. That means proper data governance with tools like OpenMetadata, validation checks with Great Expectations, and privacy-preserving techniques where needed. We make sure everything passes GDPR, HIPAA, and SOC 2 audits.",
   },
   {
-    question: "How is ROI measured at NexaFlow?",
+    question: "How do you measure ROI on AI projects?",
     answer:
-      "NexaFlow defines clear baseline KPIs at project inception, tracking progress via Objective Key Results (OKRs) aligned to business goals. AI impact is evaluated through leading indicators (model accuracy, adoption rates) and lagging indicators (revenue uplift, cost reductions). Transparent reporting demonstrates substantial ROI within 6–12 months.",
+      "Before we start, we agree on specific metrics - things like model accuracy, how many people actually use it, and impact on revenue or costs. We track everything openly and most clients see clear ROI within 6-12 months. If a project isn't working, we tell you early and adjust.",
   },
   {
-    question: "What support models does NexaFlow offer?",
+    question: "What kind of support do you offer?",
     answer:
-      "NexaFlow offers flexible engagement options including dedicated innovation pods, outcome-based retainers tied to performance, and comprehensive managed MLOps services. Strict SLAs guarantee system uptime and rapid issue resolution, alongside regular model retraining and drift monitoring.",
+      "We're flexible. Some clients want dedicated teams (we call them innovation pods), others prefer outcome-based contracts where we get paid when you hit goals. We also do managed MLOps where we handle everything - monitoring, retraining, fixing issues. Whatever makes sense for your situation.",
   },
 ]
 
@@ -38,6 +39,7 @@ export function FAQSection() {
 
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden">
+      <FAQJsonLd faqs={faqs} />
       <ParallaxSection speed={0.1} className="absolute right-0 top-0 w-1/3 h-full opacity-5">
         <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--primary)_0%,_transparent_70%)]" />
       </ParallaxSection>
