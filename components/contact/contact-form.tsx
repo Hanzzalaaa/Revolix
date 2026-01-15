@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
@@ -20,7 +19,23 @@ const services = [
   "Other",
 ]
 
-const budgets = ["< $25,000", "$25,000 - $50,000", "$50,000 - $100,000", "$100,000 - $250,000", "$250,000+"]
+const budgets = [
+  "< $25,000",
+  "$25,000 - $50,000",
+  "$50,000 - $100,000",
+  "$100,000 - $250,000",
+  "$250,000+",
+]
+
+interface FormData {
+  first_name: string
+  last_name: string
+  email: string
+  company: string
+  service: string
+  budget: string
+  about: string
+}
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -28,12 +43,44 @@ export function ContactForm() {
   const [selectedService, setSelectedService] = useState("")
   const [selectedBudget, setSelectedBudget] = useState("")
 
+  const [formData, setFormData] = useState<FormData>({
+    first_name: "",
+    last_name: "",
+    email: "",
+    company: "",
+    service: "",
+    budget: "",
+    about: "",
+  })
+
+  // INPUT & TEXTAREA HANDLER
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    const payload = {
+      ...formData,
+      service: selectedService,
+      budget: selectedBudget,
+    }
+
+    console.log("FORM DATA 👉", payload)
+
+    await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
 
     setIsSubmitting(false)
     setIsSubmitted(true)
@@ -67,37 +114,56 @@ export function ContactForm() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-5 gap-12">
-          {/* Form */}
           <div className="lg:col-span-3">
             <ScrollReveal>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium mb-2">
-                      First Name *
-                    </label>
-                    <Input id="firstName" required placeholder="John" className="bg-card" />
+                    <label className="block text-sm font-medium mb-2">First Name *</label>
+                    <Input
+                      name="first_name"
+                      value={formData.first_name}
+                      onChange={handleChange}
+                      required
+                      placeholder="John"
+                      className="bg-card"
+                    />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium mb-2">
-                      Last Name *
-                    </label>
-                    <Input id="lastName" required placeholder="Doe" className="bg-card" />
+                    <label className="block text-sm font-medium mb-2">Last Name *</label>
+                    <Input
+                      name="last_name"
+                      value={formData.last_name}
+                      onChange={handleChange}
+                      required
+                      placeholder="Doe"
+                      className="bg-card"
+                    />
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email *
-                    </label>
-                    <Input id="email" type="email" required placeholder="john@company.com" className="bg-card" />
+                    <label className="block text-sm font-medium mb-2">Email *</label>
+                    <Input
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      placeholder="john@company.com"
+                      className="bg-card"
+                    />
                   </div>
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium mb-2">
-                      Company
-                    </label>
-                    <Input id="company" placeholder="Your Company" className="bg-card" />
+                    <label className="block text-sm font-medium mb-2">Company</label>
+                    <Input
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      placeholder="Your Company"
+                      className="bg-card"
+                    />
                   </div>
                 </div>
 
@@ -109,11 +175,10 @@ export function ContactForm() {
                         key={service}
                         type="button"
                         onClick={() => setSelectedService(service)}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                          selectedService === service
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedService === service
                             ? "bg-primary text-primary-foreground"
                             : "bg-card border border-border text-muted-foreground hover:border-primary/50"
-                        }`}
+                          }`}
                       >
                         {service}
                       </button>
@@ -129,11 +194,10 @@ export function ContactForm() {
                         key={budget}
                         type="button"
                         onClick={() => setSelectedBudget(budget)}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                          selectedBudget === budget
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedBudget === budget
                             ? "bg-primary text-primary-foreground"
                             : "bg-card border border-border text-muted-foreground hover:border-primary/50"
-                        }`}
+                          }`}
                       >
                         {budget}
                       </button>
@@ -142,19 +206,21 @@ export function ContactForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2">
                     Tell us about your project *
                   </label>
                   <Textarea
-                    id="message"
+                    name="about"
+                    value={formData.about}
+                    onChange={handleChange}
                     required
                     rows={6}
-                    placeholder="Describe your project, goals, and any specific requirements..."
+                    placeholder="Describe your project..."
                     className="bg-card resize-none"
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={isSubmitting}>
+                <Button type="submit" size="lg" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -165,50 +231,6 @@ export function ContactForm() {
                   )}
                 </Button>
               </form>
-            </ScrollReveal>
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-2">
-            <ScrollReveal delay={200}>
-              <div className="p-8 rounded-2xl bg-card border border-border sticky top-32">
-                <h3 className="text-xl font-semibold mb-6">What Happens Next?</h3>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <span className="text-sm font-bold text-primary">1</span>
-                    </div>
-                    <div>
-                      <h4 className="font-medium mb-1">We&apos;ll Reach Out</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Our team will contact you within 24 hours to schedule a discovery call.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <span className="text-sm font-bold text-primary">2</span>
-                    </div>
-                    <div>
-                      <h4 className="font-medium mb-1">Discovery Call</h4>
-                      <p className="text-sm text-muted-foreground">
-                        We&apos;ll dive deep into your needs and discuss potential solutions.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <span className="text-sm font-bold text-primary">3</span>
-                    </div>
-                    <div>
-                      <h4 className="font-medium mb-1">Custom Proposal</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Receive a tailored proposal with timeline, scope, and investment details.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </ScrollReveal>
           </div>
         </div>
