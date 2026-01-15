@@ -47,7 +47,7 @@ export function GraphicsHero() {
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Yeah, we build AI systems and software. But we also love creating art.
+              We also love creating art.
               <br />
               Anime characters, vtuber designs, illustrations - whatever catches our imagination.
             </p>
