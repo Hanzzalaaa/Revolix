@@ -62,7 +62,7 @@ export function IndustriesSection() {
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden">
       <ParallaxSection speed={0.15} className="absolute left-0 top-0 w-1/3 h-full opacity-5">
-        <div className="w-full h-full bg-[linear-gradient(135deg,_var(--accent)_25%,_transparent_25%,_transparent_75%,_var(--accent)_75%)] bg-[size:80px_80px]" />
+        <div className="w-full h-full `bg-[linear-gradient(135deg,_var(--accent)_25%,_transparent_25%,_transparent_75%,_var(--accent)_75%)] bg-[size:80px_80px]`" />
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -73,7 +73,7 @@ export function IndustriesSection() {
               <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Industries</p>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Industries Empowered by NexaFlow</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Industries Empowered by </h2>
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <p className="text-muted-foreground text-lg mb-8">

@@ -38,8 +38,8 @@ export function ContactInfo() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Email Us</h3>
-                <p className="text-sm text-muted-foreground">hello@nexaflow.com</p>
-                <p className="text-sm text-muted-foreground">support@nexaflow.com</p>
+                <p className="text-sm text-muted-foreground">hello@revolix.com</p>
+                <p className="text-sm text-muted-foreground">support@revolix.com</p>
               </div>
             </div>
           </ScrollReveal>

@@ -8,7 +8,7 @@ const milestones = [
     year: "2018",
     title: "Founded",
     description:
-      "NexaFlow was born from a vision to democratize AI technology for businesses of all sizes, starting with a small team of passionate engineers.",
+      "Revolix was born from a vision to democratize AI technology for businesses of all sizes, starting with a small team of passionate engineers.",
   },
   {
     year: "2019",
@@ -52,7 +52,7 @@ export function AboutTimeline() {
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden">
       <ParallaxSection speed={0.1} className="absolute inset-0 opacity-5">
-        <div className="w-full h-full bg-[linear-gradient(45deg,_var(--primary)_25%,_transparent_25%,_transparent_75%,_var(--primary)_75%)] bg-[size:100px_100px]" />
+        <div className="w-full h-full `bg-[linear-gradient(45deg,_var(--primary)_25%,_transparent_25%,_transparent_75%,_var(--primary)_75%)] bg-[size:100px_100px]`" />
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

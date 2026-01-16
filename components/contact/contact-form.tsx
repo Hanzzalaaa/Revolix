@@ -9,6 +9,9 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Check, Loader2 } from "lucide-react"
 
+
+
+
 const services = [
   "AI & Machine Learning",
   "Software Development",
@@ -36,6 +39,10 @@ interface FormData {
   budget: string
   about: string
 }
+
+
+
+
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -82,6 +89,7 @@ export function ContactForm() {
       body: JSON.stringify(payload),
     })
 
+
     setIsSubmitting(false)
     setIsSubmitted(true)
   }
@@ -109,7 +117,7 @@ export function ContactForm() {
   return (
     <section className="py-16 relative overflow-hidden">
       <ParallaxSection speed={0.1} className="absolute inset-0 opacity-5">
-        <div className="w-full h-full bg-[linear-gradient(45deg,_var(--primary)_25%,_transparent_25%,_transparent_75%,_var(--primary)_75%)] bg-[size:80px_80px]" />
+        <div className="w-full h-full `bg-[linear-gradient(45deg,_var(--primary)_25%,_transparent_25%,_transparent_75%,_var(--primary)_75%)] bg-[size:80px_80px]`" />
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

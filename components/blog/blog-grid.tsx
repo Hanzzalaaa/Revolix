@@ -7,7 +7,8 @@ import Image from "next/image"
 import { ParallaxSection } from "@/components/parallax-section"
 import { Clock, ArrowRight } from "lucide-react"
 
-const categories = ["All", "AI & ML", "Engineering", "Design", "Strategy", "Industry News"]
+
+const categories = ["All", "AI & ML", "App development", "Web development", "UI/UX Design"]
 
 const posts = [
   {
@@ -20,7 +21,7 @@ const posts = [
     authorRole: "CEO",
     date: "Dec 15, 2024",
     readTime: "8 min read",
-    image: "/blog-ai-enterprise-future.jpg",
+    image: "/Blog/1.jpg",
     featured: true,
   },
   {
@@ -28,12 +29,12 @@ const posts = [
     title: "Building Scalable ML Pipelines: A Practical Guide",
     excerpt:
       "Learn best practices for designing and implementing machine learning pipelines that can scale with your business needs.",
-    category: "Engineering",
+    category: "App development",
     author: "Marcus Rodriguez",
     authorRole: "CTO",
     date: "Dec 10, 2024",
     readTime: "12 min read",
-    image: "/blog-ml-pipelines-code.jpg",
+    image: "/Blog/2.jpg",
     featured: false,
   },
   {
@@ -41,12 +42,12 @@ const posts = [
     title: "Design Systems for AI-Powered Products",
     excerpt:
       "How to create consistent, accessible design systems that adapt to the unique challenges of AI-driven interfaces.",
-    category: "Design",
+    category: "App development",
     author: "Sarah Kim",
     authorRole: "CDO",
     date: "Dec 5, 2024",
     readTime: "6 min read",
-    image: "/blog-design-systems-ui.jpg",
+    image: "/Blog/3.png",
     featured: false,
   },
   {
@@ -54,25 +55,12 @@ const posts = [
     title: "Creating a Digital Transformation Roadmap",
     excerpt:
       "A step-by-step guide to planning and executing successful digital transformation initiatives in your organization.",
-    category: "Strategy",
+    category: "App development",
     author: "David Thompson",
     authorRole: "VP Engineering",
     date: "Nov 28, 2024",
     readTime: "10 min read",
-    image: "/blog-digital-transformation.jpg",
-    featured: false,
-  },
-  {
-    id: "llm-fine-tuning-production",
-    title: "LLM Fine-Tuning for Production Applications",
-    excerpt:
-      "Deep dive into techniques for fine-tuning large language models for specific business use cases and production deployment.",
-    category: "AI & ML",
-    author: "Alexandra Chen",
-    authorRole: "CEO",
-    date: "Nov 20, 2024",
-    readTime: "15 min read",
-    image: "/blog-llm-fine-tuning.jpg",
+    image: "/Blog/4.jpg",
     featured: false,
   },
   {
@@ -80,12 +68,77 @@ const posts = [
     title: "AI in Healthcare: Trends Shaping 2025",
     excerpt:
       "From diagnostic AI to personalized treatment plans, discover the innovations transforming healthcare delivery.",
-    category: "Industry News",
+    category: "Web development",
     author: "Marcus Rodriguez",
     authorRole: "CTO",
     date: "Nov 15, 2024",
     readTime: "7 min read",
-    image: "/blog-healthcare-ai.jpg",
+    image: "/Blog/6.jpg",
+    featured: false,
+  },
+    {
+    id: "healthcare-ai-trends",
+    title: "AI in Healthcare: Trends Shaping 2025",
+    excerpt:
+      "From diagnostic AI to personalized treatment plans, discover the innovations transforming healthcare delivery.",
+    category: "Web development",
+    author: "Marcus Rodriguez",
+    authorRole: "CTO",
+    date: "Nov 15, 2024",
+    readTime: "7 min read",
+    image: "/Blog/6.jpg",
+    featured: false,
+  },
+    {
+    id: "healthcare-ai-trends",
+    title: "AI in Healthcare: Trends Shaping 2025",
+    excerpt:
+      "From diagnostic AI to personalized treatment plans, discover the innovations transforming healthcare delivery.",
+    category: "Web development",
+    author: "Marcus Rodriguez",
+    authorRole: "CTO",
+    date: "Nov 15, 2024",
+    readTime: "7 min read",
+    image: "/Blog/6.jpg",
+    featured: false,
+  },
+  {
+    id: "healthcare-ai-trends",
+    title: "AI in Healthcare: Trends Shaping 2025",
+    excerpt:
+      "From diagnostic AI to personalized treatment plans, discover the innovations transforming healthcare delivery.",
+    category: "UI/UX Design",
+    author: "Marcus Rodriguez",
+    authorRole: "CTO",
+    date: "Nov 15, 2024",
+    readTime: "7 min read",
+    image: "/Blog/6.jpg",
+    featured: false,
+  },
+    {
+    id: "healthcare-ai-trends",
+    title: "AI in Healthcare: Trends Shaping 2025",
+    excerpt:
+      "From diagnostic AI to personalized treatment plans, discover the innovations transforming healthcare delivery.",
+    category: "UI/UX Design",
+    author: "Marcus Rodriguez",
+    authorRole: "CTO",
+    date: "Nov 15, 2024",
+    readTime: "7 min read",
+    image: "/Blog/6.jpg",
+    featured: false,
+  },
+    {
+    id: "healthcare-ai-trends",
+    title: "AI in Healthcare: Trends Shaping 2025",
+    excerpt:
+      "From diagnostic AI to personalized treatment plans, discover the innovations transforming healthcare delivery.",
+    category: "UI/UX Design",
+    author: "Marcus Rodriguez",
+    authorRole: "CTO",
+    date: "Nov 15, 2024",
+    readTime: "7 min read",
+    image: "/Blog/6.jpg",
     featured: false,
   },
 ]
@@ -98,6 +151,8 @@ export function BlogGrid() {
   const featuredPost = filteredPosts.find((post) => post.featured)
   const regularPosts = filteredPosts.filter((post) => !post.featured)
 
+
+console.log(activeCategory);
   return (
     <section className="py-12 relative overflow-hidden">
       <ParallaxSection speed={0.1} className="absolute inset-0 opacity-5">
@@ -123,19 +178,16 @@ export function BlogGrid() {
             </div>
           </div>
         </ScrollReveal>
-
-        {/* Filter - Disabled */}
         <ScrollReveal>
-          <div className="flex flex-wrap justify-center gap-2 mb-12 opacity-50 pointer-events-none">
+          <div className="flex flex-wrap justify-center gap-2 mb-12 opacity-50">
             {categories.map((category) => (
               <button
                 key={category}
-                disabled
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  activeCategory === category
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all ${activeCategory === category
                     ? "bg-primary text-primary-foreground"
                     : "bg-card border border-border text-muted-foreground"
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -189,51 +241,51 @@ export function BlogGrid() {
 
         {/* Regular Posts Grid */}
         {regularPosts.length > 0 && (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {regularPosts.map((post, index) => (
-            <ScrollReveal key={post.id} delay={index * 100}>
-              <Link href={`/blog/${post.id}`} className="group block h-full">
-                <article className="h-full rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col">
-                  <div className="relative aspect-video overflow-hidden">
-                    <Image
-                      src={post.image || "/placeholder.svg"}
-                      alt={post.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6 flex flex-col flex-1">
-                    <span className="text-xs text-primary font-medium mb-2">{post.category}</span>
-                    <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2 flex-1">{post.excerpt}</p>
-                    <div className="flex items-center justify-between pt-4 border-t border-border">
-                      <p className="text-xs text-muted-foreground">{post.date}</p>
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <Clock className="w-3 h-3" />
-                        {post.readTime}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {regularPosts.map((post, index) => (
+              <ScrollReveal key={post.id} delay={index * 100}>
+                <Link href={`/blog/${post.id}`} className="group block h-full">
+                  <article className="h-full rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col">
+                    <div className="relative aspect-video overflow-hidden">
+                      <Image
+                        src={post.image || "/placeholder.svg"}    
+                        alt={post.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-6 flex flex-col flex-1">
+                      <span className="text-xs text-primary font-medium mb-2">{post.category}</span>
+                      <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                        {post.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2 flex-1">{post.excerpt}</p>
+                      <div className="flex items-center justify-between pt-4 border-t border-border">
+                        <p className="text-xs text-muted-foreground">{post.date}</p>
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                          <Clock className="w-3 h-3" />
+                          {post.readTime}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </article>
-              </Link>
-            </ScrollReveal>
-          ))}
-        </div>
+                  </article>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
         )}
 
         {/* Load More - Hidden */}
         {false && (
-        <ScrollReveal delay={400}>
-          <div className="mt-12 text-center">
-            <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border text-sm font-medium hover:border-primary hover:text-primary transition-colors group">
-              Load More Articles
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </ScrollReveal>
+          <ScrollReveal delay={400}>
+            <div className="mt-12 text-center">
+              <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border text-sm font-medium hover:border-primary hover:text-primary transition-colors group">
+                Load More Articles
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </ScrollReveal>
         )}
       </div>
     </section>
