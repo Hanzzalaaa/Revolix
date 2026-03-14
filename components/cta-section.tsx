@@ -1,5 +1,6 @@
 "use client"
 
+import type { ElementType } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -12,7 +13,12 @@ const FloatingParticles = dynamic(() => import("./floating-particles").then((m) 
 })
 import { ArrowRight, Rocket } from "lucide-react"
 
-export function CTASection() {
+type CTASectionProps = {
+  headingAs?: ElementType
+  subheadingAs?: ElementType
+}
+
+export function CTASection({ headingAs: HeadingTag = "h2", subheadingAs: SubheadingTag = "h3" }: CTASectionProps) {
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden">
       <FloatingParticles count={25} />
@@ -53,15 +59,20 @@ export function CTASection() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-6 text-balance">
-            Ready to <span className="gradient-text">Transform</span> Your Business?
-          </h2>
+          <HeadingTag className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-6 text-balance">
+            Contact Us
+          </HeadingTag>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            We help entrepreneurs bring their brilliant projects to market and make money from them. Let&apos;s discuss
-            how we can accelerate your growth.
+          <SubheadingTag className="text-lg text-muted-foreground mb-3 max-w-2xl mx-auto">
+            Get Free Consultation
+          </SubheadingTag>
+        </ScrollReveal>
+        <ScrollReveal delay={150}>
+          <p className="text-base text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Tell us about your goals, and we will map a clear plan for web development, SEO, or digital marketing that
+            fits your budget and timeline.
           </p>
         </ScrollReveal>
 

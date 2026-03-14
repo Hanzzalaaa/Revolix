@@ -1,60 +1,34 @@
 "use client"
 
-import Link from "next/link"
 import { ScrollReveal } from "./scroll-reveal"
 import { ParallaxSection } from "./parallax-section"
 import { Button } from "@/components/ui/button"
-import { Heart, ShoppingCart, Zap, Building2, Hotel, Factory, Home, Truck, ArrowRight } from "lucide-react"
+import { Heart, ShoppingCart, Building2, Briefcase, ArrowRight } from "lucide-react"
 
 const industries = [
   {
-    icon: Heart,
-    title: "Healthcare",
-    description:
-      "AI solutions cutting costs, boosting care, securing data, and streamlining systems for smarter patient experiences.",
-    href: "/industries#healthcare",
-  },
-  {
     icon: ShoppingCart,
-    title: "eCommerce",
-    description: "Fuel your eCommerce growth with AI, fight fraud, streamline ops, and personalize customer journeys.",
+    title: "Ecommerce",
+    description: "High-converting ecommerce platforms, product catalogs, and checkout flows built to scale.",
     href: "/industries#ecommerce",
   },
   {
-    icon: Zap,
-    title: "Energy",
-    description: "Optimize grids, cut emissions, predict demand, and build smarter, cleaner energy systems.",
-    href: "/industries#energy",
-  },
-  {
     icon: Building2,
-    title: "Fintech",
-    description: "Boost security, personalize experiences, ensure compliance, and deliver seamless digital journeys.",
-    href: "/industries#fintech",
-  },
-  {
-    icon: Hotel,
-    title: "Hospitality",
-    description: "Streamline operations, personalize stays, cut costs, and deliver eco-smart guest experiences.",
-    href: "/industries#hospitality",
-  },
-  {
-    icon: Factory,
-    title: "Manufacturing",
-    description: "Optimize supply chains, boost uptime, secure operations, and drive sustainability.",
-    href: "/industries#manufacturing",
-  },
-  {
-    icon: Home,
     title: "Real Estate",
-    description: "Price smart, predict demand, and personalize buyer journeys for faster property transactions.",
-    href: "/industries#realestate",
+    description: "Property listings, lead generation, and CRM-ready websites for real estate teams.",
+    href: "/industries#real-estate",
   },
   {
-    icon: Truck,
-    title: "Logistics",
-    description: "Optimize routes, forecast workforce needs, and build resilient supply chains that deliver.",
-    href: "/industries#logistics",
+    icon: Heart,
+    title: "Healthcare",
+    description: "HIPAA-aware digital experiences for clinics, labs, and healthcare startups.",
+    href: "/industries#healthcare",
+  },
+  {
+    icon: Briefcase,
+    title: "Business Websites",
+    description: "Professional business websites that build trust, authority, and qualified leads.",
+    href: "/industries#business-websites",
   },
 ]
 
@@ -73,7 +47,7 @@ export function IndustriesSection() {
               <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Industries</p>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Industries Empowered by </h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Industries We Serve</h2>
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <p className="text-muted-foreground text-lg mb-8">

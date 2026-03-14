@@ -1,7 +1,10 @@
 "use client"
 
+import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
+import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
 
 export function BlogHero() {
   return (
@@ -24,7 +27,7 @@ export function BlogHero() {
 
           <ScrollReveal delay={100}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-              Thoughts on AI, Tech & Digital Innovation
+              Latest SEO, Web Development &amp; Digital Marketing Blog
             </h1>
           </ScrollReveal>
 
@@ -33,6 +36,44 @@ export function BlogHero() {
               Explore our latest articles, case studies, and expert insights on artificial intelligence, digital
               transformation, and emerging technologies.
             </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={240}>
+            <p className="text-sm text-muted-foreground mt-4">
+              We follow{" "}
+              <a
+                href="https://developers.google.com/search/docs"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                Google Search documentation
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://www.nngroup.com/articles/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                Nielsen Norman research
+              </a>{" "}
+              to keep our guidance practical and evidence-based.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={280}>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button size="lg" asChild>
+                <Link href="/contact">
+                  Get Content Support
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="glass border-primary/30 hover:bg-primary/10 bg-transparent">
+                <Link href="/services">Explore SEO Services</Link>
+              </Button>
+            </div>
           </ScrollReveal>
         </div>
       </div>

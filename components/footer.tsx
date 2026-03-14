@@ -67,7 +67,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground mb-4 font-display">Services</h3>
+            <p className="text-sm font-semibold text-foreground mb-4 font-display">Services</p>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
@@ -81,7 +81,7 @@ export function Footer() {
 
           {/* Industries */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground mb-4 font-display">Industries</h3>
+            <p className="text-sm font-semibold text-foreground mb-4 font-display">Industries</p>
             <ul className="space-y-3">
               {footerLinks.industries.map((link) => (
                 <li key={link.name}>
@@ -95,7 +95,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground mb-4 font-display">Company</h3>
+            <p className="text-sm font-semibold text-foreground mb-4 font-display">Company</p>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -111,7 +111,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Revolix Technologies. All rights reserved.
+            (c) {new Date().getFullYear()} Revolix Technologies. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">

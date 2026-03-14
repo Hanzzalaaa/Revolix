@@ -30,6 +30,12 @@ export function ContactInfo() {
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <ScrollReveal>
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-bold">Get In Touch</h2>
+          </div>
+        </ScrollReveal>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           <ScrollReveal>
             <div className="flex gap-4">
@@ -63,7 +69,7 @@ export function ContactInfo() {
                 <Clock className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold mb-1">Business Hours</h3>
+                <p className="font-semibold mb-1">Business Hours</p>
                 <p className="text-sm text-muted-foreground">Mon - Fri: 9AM - 6PM</p>
                 <p className="text-sm text-muted-foreground">Weekend: By appointment</p>
               </div>
@@ -76,7 +82,7 @@ export function ContactInfo() {
                 <MapPin className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold mb-1">Global Presence</h3>
+                <h3 className="font-semibold mb-1">Visit Us</h3>
                 <p className="text-sm text-muted-foreground">Offices in 3 continents</p>
                 <p className="text-sm text-muted-foreground">Serving 35+ countries</p>
               </div>
@@ -86,7 +92,7 @@ export function ContactInfo() {
 
         <ScrollReveal>
           <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold">Our Offices</h2>
+            <p className="text-2xl font-bold">Our Offices</p>
           </div>
         </ScrollReveal>
 
@@ -94,7 +100,7 @@ export function ContactInfo() {
           {offices.map((office, index) => (
             <ScrollReveal key={office.city} delay={index * 100}>
               <div className="p-6 rounded-2xl bg-background border border-border text-center hover:border-primary/50 transition-colors">
-                <h3 className="text-lg font-semibold mb-2">{office.city}</h3>
+                <p className="text-lg font-semibold mb-2">{office.city}</p>
                 <p className="text-sm text-muted-foreground">{office.address}</p>
                 <p className="text-sm text-muted-foreground">{office.country}</p>
               </div>

@@ -12,15 +12,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const study = getCaseStudyBySlug(params.slug)
   if (!study) return { title: "Case study not found" }
 
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolix.example"
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
 
   return {
-    title: `${study.title} — Case Study | Revolix Technologies`,
+    title: `${study.title} - Case Study | Revolix Technologies`,
     description: study.description,
     metadataBase: new URL(SITE_URL),
     alternates: { canonical: `${SITE_URL}/case-studies/${study.slug}` },
     openGraph: {
-      title: `${study.title} — Case Study | Revolix Technologies`,
+      title: `${study.title} - Case Study | Revolix Technologies`,
       description: study.description,
       url: `${SITE_URL}/case-studies/${study.slug}`,
       images: study.image ? [{ url: `${SITE_URL}${study.image}`, alt: study.title }] : [],
@@ -42,6 +42,12 @@ export default function CaseStudyPage({ params }: Props) {
   const study = getCaseStudyBySlug(params.slug)
   if (!study) return notFound()
 
+  const altTextBySlug: Record<string, string> = {
+    "medi-sync": "best case studies in the world - MediSync AI Healthcare Solution",
+    "aurora-events": "case studies in AI - Aurora Events Digital Transformation",
+  }
+  const imageAlt = altTextBySlug[study.slug] || `${study.title} - case studies in AI`
+
   return (
     <main className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
       <article>
@@ -49,7 +55,7 @@ export default function CaseStudyPage({ params }: Props) {
         <p className="text-sm text-muted-foreground mb-6">{study.industry}</p>
         {study.image && (
           <div className="relative w-full h-72 mb-6 rounded-lg overflow-hidden">
-            <Image src={study.image} alt={study.title} fill sizes="100vw" className="object-cover" />
+            <Image src={study.image} alt={imageAlt} fill sizes="100vw" className="object-cover" />
           </div>
         )}
 
@@ -57,8 +63,9 @@ export default function CaseStudyPage({ params }: Props) {
           <p>{study.description}</p>
         </div>
 
-        <ArticleJsonLd title={study.title} description={study.description || ""} authorName="Revolix Team" datePublished={new Date().toISOString()} url={`${process.env.NEXT_PUBLIC_SITE_URL || "https://revolix.example"}/case-studies/${study.slug}`} image={study.image} />
+        <ArticleJsonLd title={study.title} description={study.description || ""} authorName="Revolix Team" datePublished={new Date().toISOString()} url={`${process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"}/case-studies/${study.slug}`} image={study.image} />
       </article>
     </main>
   )
 }
+

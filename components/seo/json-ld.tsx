@@ -51,4 +51,52 @@ export function FAQJsonLd({
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
 }
 
+export function BreadcrumbJsonLd({
+  items,
+}: {
+  items: Array<{ name: string; item: string }>
+}) {
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((entry, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: entry.name,
+      item: entry.item,
+    })),
+  }
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
+}
+
+export function ServiceJsonLd({
+  name,
+  description,
+  url,
+  serviceType,
+  providerName,
+}: {
+  name: string
+  description: string
+  url: string
+  serviceType: string
+  providerName: string
+}) {
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    serviceType,
+    provider: {
+      "@type": "Organization",
+      name: providerName,
+    },
+    url,
+  }
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
+}
+
 export default ArticleJsonLd

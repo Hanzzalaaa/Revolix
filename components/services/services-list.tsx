@@ -1,276 +1,175 @@
 "use client"
 
-import { useState } from "react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
-import {
-  Brain,
-  Code2,
-  Cloud,
-  BarChart3,
-  Shield,
-  Palette,
-  Cpu,
-  Database,
-  Rocket,
-  Settings,
-  Globe,
-  ChevronDown,
-} from "lucide-react"
 
-const services = [
+const SHOW_GRAPHICS = process.env.NEXT_PUBLIC_SHOW_GRAPHICS === "true"
+
+const serviceSections = [
   {
-    id: "ai",
-    icon: Brain,
-    title: "AI Model & Algorithm Development",
-    shortDesc: "Custom AI solutions leveraging cutting-edge machine learning.",
-    description:
-      "We design and deploy custom AI models tailored to your specific business needs. Our expertise spans natural language processing, computer vision, predictive analytics, and recommendation systems.",
-    features: [
-      "Custom ML model development",
-      "Natural Language Processing",
-      "Computer Vision solutions",
-      "Predictive analytics",
-      "Recommendation engines",
-      "AI model optimization",
+    title: "Website Development",
+    description: "Professional website builds tailored for speed, SEO, and conversions.",
+    items: [
+      {
+        title: "Business Website",
+        detail: "Corporate and service websites built to generate qualified leads.",
+      },
+      {
+        title: "Ecommerce Website",
+        detail: "Conversion-first storefronts with secure checkout and scalable catalogs.",
+      },
+      {
+        title: "Custom Website",
+        detail: "Unique, feature-rich websites designed around your business model.",
+      },
     ],
   },
   {
-    id: "software",
-    icon: Code2,
-    title: "Software & Product Development",
-    shortDesc: "End-to-end development from concept to deployment.",
-    description:
-      "From ideation to deployment, we build robust, scalable software products. Our team specializes in web applications, mobile apps, enterprise software, and SaaS platforms.",
-    features: [
-      "Web application development",
-      "Mobile app development (iOS/Android)",
-      "Enterprise software solutions",
-      "SaaS platform development",
-      "API development & integration",
-      "Legacy system modernization",
+    title: "SEO Services",
+    description: "Full-spectrum SEO that improves rankings and drives high-intent traffic.",
+    items: [
+      {
+        title: "On Page SEO",
+        detail: "Keyword alignment, metadata, and content structure tuned for ranking.",
+      },
+      {
+        title: "Off Page SEO",
+        detail: "Authority building through quality backlinks and brand mentions.",
+      },
+      {
+        title: "Technical SEO",
+        detail: "Site speed, crawlability, and index health improvements.",
+      },
     ],
   },
   {
-    id: "cloud",
-    icon: Cloud,
-    title: "Cloud & Infrastructure Optimization",
-    shortDesc: "Scalable cloud solutions with AWS, Azure, and GCP.",
-    description:
-      "We architect and implement cloud-native solutions that scale with your business. Our cloud-agnostic approach ensures optimal performance, security, and cost efficiency.",
-    features: [
-      "Cloud migration strategy",
-      "Multi-cloud architecture",
-      "Infrastructure as Code (IaC)",
-      "Kubernetes orchestration",
-      "DevOps implementation",
-      "Cost optimization",
+    title: "Digital Marketing",
+    description: "Growth-focused campaigns across organic and paid channels.",
+    items: [
+      {
+        title: "Social Media Marketing",
+        detail: "Content and campaigns that build community and drive engagement.",
+      },
+      {
+        title: "Google Ads",
+        detail: "High-intent paid search and display campaigns that convert.",
+      },
+      {
+        title: "Content Marketing",
+        detail: "Authority content that supports SEO and lead generation.",
+      },
     ],
   },
-  {
-    id: "data",
-    icon: BarChart3,
-    title: "Data Science & Analytics",
-    shortDesc: "Transform raw data into actionable insights.",
-    description:
-      "Unlock the power of your data with our advanced analytics services. We help you build data pipelines, create visualizations, and derive meaningful insights that drive decisions.",
-    features: [
-      "Data pipeline architecture",
-      "Business intelligence dashboards",
-      "Advanced analytics & reporting",
-      "Data warehouse design",
-      "Real-time data processing",
-      "Data governance frameworks",
-    ],
-  },
-  {
-    id: "security",
-    icon: Shield,
-    title: "Security & Privacy",
-    shortDesc: "Enterprise-grade security ensuring compliance.",
-    description:
-      "Protect your digital assets with our comprehensive security solutions. We implement robust security measures that meet regulatory requirements while safeguarding your business.",
-    features: [
-      "Security audits & assessments",
-      "Compliance management (GDPR, HIPAA, SOC 2)",
-      "Penetration testing",
-      "Identity & access management",
-      "Data encryption solutions",
-      "Incident response planning",
-    ],
-  },
-  {
-    id: "ux",
-    icon: Palette,
-    title: "UX & Product Design",
-    shortDesc: "User-centered design creating engaging experiences.",
-    description:
-      "We craft intuitive, beautiful digital experiences that users love. Our design process is research-driven and focused on creating products that convert and retain users.",
-    features: [
-      "User research & testing",
-      "UI/UX design",
-      "Design systems",
-      "Prototyping & wireframing",
-      "Usability optimization",
-      "Accessibility compliance",
-    ],
-  },
-  {
-    id: "advanced",
-    icon: Cpu,
-    title: "Advanced Technologies & Innovations",
-    shortDesc: "Blockchain, IoT, AR/VR solutions.",
-    description:
-      "Stay ahead with emerging technologies. We help you explore and implement cutting-edge solutions including blockchain, IoT, augmented reality, and more.",
-    features: [
-      "Blockchain development",
-      "IoT solutions & integration",
-      "AR/VR applications",
-      "Edge computing",
-      "5G implementation",
-      "Quantum computing readiness",
-    ],
-  },
-  {
-    id: "strategy",
-    icon: Database,
-    title: "Branding & Digital Strategy",
-    shortDesc: "Strategic consulting aligning technology with business goals.",
-    description:
-      "Align your technology investments with business objectives. We provide strategic guidance to ensure your digital transformation delivers maximum value.",
-    features: [
-      "Digital transformation roadmaps",
-      "Technology assessment",
-      "Competitive analysis",
-      "Brand identity development",
-      "Content strategy",
-      "Growth marketing",
-    ],
-  },
-  {
-    id: "market",
-    icon: Globe,
-    title: "Market Insights & Strategy",
-    shortDesc: "Data-driven market intelligence and strategic planning.",
-    description:
-      "Make informed decisions with our market intelligence services. We analyze trends, competitors, and opportunities to position your business for success.",
-    features: [
-      "Market research & analysis",
-      "Competitive intelligence",
-      "Customer segmentation",
-      "Pricing strategy",
-      "Go-to-market planning",
-      "Market entry analysis",
-    ],
-  },
-  {
-    id: "qa",
-    icon: Settings,
-    title: "Software Quality Assurance",
-    shortDesc: "Comprehensive testing ensuring product excellence.",
-    description:
-      "Ensure your software meets the highest quality standards. Our QA services cover functional, performance, security, and automated testing.",
-    features: [
-      "Automated testing",
-      "Performance testing",
-      "Security testing",
-      "API testing",
-      "Mobile app testing",
-      "CI/CD integration",
-    ],
-  },
-  {
-    id: "migration",
-    icon: Rocket,
-    title: "Workspace Migration",
-    shortDesc: "Seamless migration with zero downtime.",
-    description:
-      "Migrate your systems with confidence. We handle the complexity of data migration, system integration, and change management to ensure smooth transitions.",
-    features: [
-      "Cloud migration",
-      "Data migration",
-      "Platform migration",
-      "Legacy system modernization",
-      "Zero-downtime migration",
-      "Post-migration support",
-    ],
-  },
+  ...(SHOW_GRAPHICS
+    ? [
+        {
+          title: "Graphic Design",
+          description: "Design systems and creative assets that elevate your brand presence.",
+          items: [
+            {
+              title: "Logo Design",
+              detail: "Memorable identities built with brand strategy in mind.",
+            },
+            {
+              title: "Social Media Posts",
+              detail: "Scroll-stopping creatives tailored for each platform.",
+            },
+            {
+              title: "Branding Design",
+              detail: "Cohesive visual systems across print and digital assets.",
+            },
+          ],
+        },
+      ]
+    : []),
 ]
 
 export function ServicesList() {
-  const [expandedId, setExpandedId] = useState<string | null>("ai")
-
   return (
     <section className="py-24 relative overflow-hidden">
       <ParallaxSection speed={0.1} className="absolute inset-0 opacity-5">
         <div className="w-full h-full bg-[linear-gradient(45deg,_var(--primary)_25%,_transparent_25%,_transparent_75%,_var(--primary)_75%)] bg-[size:120px_120px]" />
       </ParallaxSection>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Expertise</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Comprehensive solutions tailored to your industry and business needs
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-16">
+        {serviceSections.map((section, sectionIndex) => (
+          <ScrollReveal key={section.title} delay={sectionIndex * 100}>
+            <div className="rounded-2xl border border-border bg-card p-8 lg:p-10">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">{section.title}</h2>
+              <p className="text-muted-foreground text-lg mb-6">{section.description}</p>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                {section.items.map((item) => (
+                  <div key={item.title} className="p-5 rounded-xl bg-background border border-border">
+                    <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
+
+        <div className="rounded-2xl border border-border bg-card p-8 lg:p-10">
+          <p className="text-muted-foreground text-lg mb-6">
+            Revolix Technologies delivers end-to-end web development, SEO services, and digital marketing tailored to
+            the exact stage of your business. We start by understanding your goals, audience, and competitive
+            landscape, then build a strategy that connects discovery, design, and conversion. This approach keeps your
+            message consistent while ensuring every page answers search intent and drives action.
+          </p>
+          <div className="space-y-4 text-muted-foreground">
+            <p>
+              For web development, we focus on performance, usability, and a scalable architecture so your site can
+              grow without slowing down. We build business websites that showcase credibility, ecommerce experiences
+              that convert traffic into revenue, and custom platforms that support unique workflows. Each build includes
+              clean structure, fast load times, and responsive layouts optimized for every screen size.
+            </p>
+            <p>
+              Our SEO services cover on-page SEO, off-page SEO, and technical SEO as one unified plan. That means
+              keyword strategy, metadata optimization, internal linking, image alt text, and crawlability improvements
+              are all executed together. We avoid keyword stuffing and keep density natural by mapping intent to the
+              right sections, making content clear to both users and search engines.
+            </p>
+            <p>
+              Digital marketing is designed to amplify what your website already does well. We align social media,
+              Google Ads, and content marketing to the same value proposition used in your landing pages. That creates a
+              consistent journey from first click to inquiry, improving CTR and reducing bounce rate across campaigns.
+            </p>
+            {SHOW_GRAPHICS && (
+              <p>
+                Graphic design supports brand trust at every touchpoint. From logo design and social media posts to full
+                branding design systems, we make sure every asset feels cohesive. This consistency helps your business
+                look professional, credible, and ready to win competitive deals.
+              </p>
+            )}
+            <p>
+              We also prioritize security, accessibility, and maintenance. Each launch includes performance checks,
+              image optimization, and a clean codebase that is easy to extend. If you need ongoing support, we provide
+              monitoring, content updates, and campaign iteration so your site keeps improving after the initial release.
+            </p>
+            <p>
+              When you work with Revolix, you get a partner that understands the full stack of growth: strategy,
+              execution, and optimization. That means we can launch a new landing page, connect it to ads, improve its
+              SEO over time, and evolve the design as your brand matures. It is a complete system, not a one-off project.
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Keyword-driven website development for commercial and transactional searches.</li>
+              <li>Technical SEO improvements that raise visibility and site quality.</li>
+              <li>Digital marketing campaigns that target high-intent buyers.</li>
+              {SHOW_GRAPHICS && <li>Graphic design assets that reinforce brand recognition.</li>}
+            </ul>
+            <p>
+              This integrated approach reduces handoffs and ensures the strategy stays consistent. It also helps your
+              team move faster, because design, development, and marketing are planned together. If you are comparing
+              web development companies or deciding which SEO services to invest in, our process gives you clarity and
+              measurable outcomes.
+            </p>
+            <p>
+              Our delivery process includes documentation, performance checks, and growth recommendations so you can
+              scale confidently. Whether you are a startup or a growing enterprise, Revolix keeps every project focused
+              on measurable results and long-term SEO value.
             </p>
           </div>
-        </ScrollReveal>
-
-        <div className="space-y-4">
-          {services.map((service, index) => (
-            <ScrollReveal key={service.id} delay={index * 50}>
-              <div
-                id={service.id}
-                className="rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary/30"
-              >
-                <button
-                  onClick={() => setExpandedId(expandedId === service.id ? null : service.id)}
-                  className="w-full flex items-center gap-6 p-6 text-left"
-                  aria-expanded={expandedId === service.id}
-                >
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <service.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-xl font-semibold mb-1">{service.title}</h3>
-                    <p className="text-muted-foreground text-sm">{service.shortDesc}</p>
-                  </div>
-                  <ChevronDown
-                    className={`w-6 h-6 text-muted-foreground shrink-0 transition-transform duration-300 ${
-                      expandedId === service.id ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-
-                <div
-                  className={`overflow-hidden transition-all duration-500 ${
-                    expandedId === service.id ? "max-h-[500px]" : "max-h-0"
-                  }`}
-                >
-                  <div className="px-6 pb-6 pt-2 border-t border-border">
-                    <div className="grid md:grid-cols-2 gap-8">
-                      <div>
-                        <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-semibold uppercase tracking-wider text-primary mb-4">
-                          Key Capabilities
-                        </h4>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {service.features.map((feature) => (
-                            <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
         </div>
       </div>
     </section>

@@ -10,65 +10,50 @@ const FloatingParticles = dynamic(() => import("./floating-particles").then((m) 
   ssr: false,
 })
 import { Button } from "@/components/ui/button"
-import { Brain, Code2, Cloud, BarChart3, Shield, Palette, Cpu, Database, ArrowRight, Sparkles } from "lucide-react"
+import { Code2, Search, Megaphone, Palette, ArrowRight, Sparkles } from "lucide-react"
+
+const SHOW_GRAPHICS = process.env.NEXT_PUBLIC_SHOW_GRAPHICS === "true"
 
 const services = [
   {
-    icon: Brain,
-    title: "AI Model & Algorithm Development",
-    description: "Custom AI solutions leveraging cutting-edge machine learning and deep learning technologies.",
-    href: "/services#ai",
-    color: "from-cyan-500/20 to-teal-500/20",
-  },
-  {
     icon: Code2,
-    title: "Software & Product Development",
-    description: "End-to-end software development from concept to deployment with modern tech stacks.",
-    href: "/services#software",
+    title: "Web Development",
+    description: "Business, ecommerce, and custom websites built for speed, security, and conversions.",
+    href: "/services",
     color: "from-blue-500/20 to-indigo-500/20",
   },
   {
-    icon: Cloud,
-    title: "Cloud & Infrastructure",
-    description: "Scalable cloud solutions with AWS, Azure, and GCP. Infrastructure as code and DevOps.",
-    href: "/services#cloud",
-    color: "from-purple-500/20 to-pink-500/20",
-  },
-  {
-    icon: BarChart3,
-    title: "Data Science & Analytics",
-    description: "Transform raw data into actionable insights with advanced analytics and visualization.",
-    href: "/services#data",
-    color: "from-amber-500/20 to-orange-500/20",
-  },
-  {
-    icon: Shield,
-    title: "Security & Privacy",
-    description: "Enterprise-grade security solutions ensuring compliance and protecting your assets.",
-    href: "/services#security",
-    color: "from-red-500/20 to-rose-500/20",
-  },
-  {
-    icon: Palette,
-    title: "UX & Product Design",
-    description: "User-centered design creating intuitive, engaging digital experiences that convert.",
-    href: "/services#ux",
-    color: "from-pink-500/20 to-fuchsia-500/20",
-  },
-  {
-    icon: Cpu,
-    title: "Advanced Technologies",
-    description: "Blockchain, IoT, AR/VR solutions pushing the boundaries of what's possible.",
-    href: "/services#advanced",
+    icon: Search,
+    title: "SEO Services",
+    description: "On-page, off-page, and technical SEO to rank higher and bring qualified traffic.",
+    href: "/services",
     color: "from-emerald-500/20 to-green-500/20",
   },
   {
-    icon: Database,
-    title: "Digital Strategy",
-    description: "Strategic consulting to align technology investments with business objectives.",
-    href: "/services#strategy",
+    icon: Megaphone,
+    title: "Digital Marketing",
+    description: "Campaigns that drive leads with social media, paid ads, and content strategy.",
+    href: "/services",
+    color: "from-amber-500/20 to-orange-500/20",
+  },
+  {
+    icon: Code2,
+    title: "Software Quality Assurance",
+    description: "Manual and automated testing that keeps releases stable, secure, and bug-free.",
+    href: "/services",
     color: "from-sky-500/20 to-cyan-500/20",
   },
+  ...(SHOW_GRAPHICS
+    ? [
+        {
+          icon: Palette,
+          title: "Graphic Design",
+          description: "Branding, social creatives, and marketing assets that elevate your identity.",
+          href: "/services",
+          color: "from-pink-500/20 to-fuchsia-500/20",
+        },
+      ]
+    : []),
 ]
 
 export function ServicesSection() {
@@ -107,13 +92,11 @@ export function ServicesSection() {
             </motion.div>
           </ScrollReveal>
           <ScrollReveal delay={100}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-6 text-balance">
-              Areas of <span className="gradient-text">Expertise</span>
-            </h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-6 text-balance">Our Services</h2>
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our collection of tech services spans various needs at every stage of the transformation process.
+              Everything you need to build, rank, and grow your digital presence with confidence.
             </p>
           </ScrollReveal>
         </div>

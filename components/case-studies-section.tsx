@@ -23,6 +23,7 @@ const caseStudies = [
     description:
       "An AI-powered artist booking and event planning platform aimed at creating a reliable, intuitive space where event organizers can easily find and book performers.",
     image: "/entertainment-app-dark-purple-neon.jpg",
+    imageAlt: "case studies in AI - Aurora Events Digital Transformation, best institute for web development",
     href: "/case-studies/aurora-events",
   },
   {
@@ -33,6 +34,7 @@ const caseStudies = [
     description:
       "A digital health platform leveraging artificial intelligence and advanced image capture technology to improve clinical trial enrollment and monitoring.",
     image: "/healthcare-app-medical-blue-technology.jpg",
+    imageAlt: "best case studies in the world - MediSync AI Healthcare Solution, best institute for web development",
     href: "/case-studies/medi-sync",
   },
   {
@@ -148,7 +150,7 @@ export function CaseStudiesSection() {
                 </ScrollReveal>
 
                 <ScrollReveal delay={200}>
-                  <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6">{currentStudy.title}</h2>
+                  <p className="text-4xl lg:text-5xl font-display font-bold mb-6">{currentStudy.title}</p>
                 </ScrollReveal>
 
                 <ScrollReveal delay={250}>
@@ -205,7 +207,7 @@ export function CaseStudiesSection() {
                   >
                     <Image
                       src={currentStudy.image || "/placeholder.svg"}
-                      alt={currentStudy.title}
+                      alt={currentStudy.imageAlt || currentStudy.title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       className="object-cover"

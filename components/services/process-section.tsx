@@ -54,7 +54,7 @@ export function ProcessSection() {
         <ScrollReveal>
           <div className="text-center mb-16">
             <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Our Process</p>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">How We Work</h2>
+            <p className="text-3xl sm:text-4xl font-bold mb-4">How We Work</p>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               A proven methodology that ensures successful project delivery and exceeds expectations
             </p>
@@ -79,7 +79,7 @@ export function ProcessSection() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
+                  <p className="text-xl font-semibold mb-3">{step.title}</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
                 </div>
               </ScrollReveal>

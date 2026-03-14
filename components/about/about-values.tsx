@@ -2,38 +2,23 @@
 
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
-import { Lightbulb, Users, Shield, Zap, Heart, Globe } from "lucide-react"
+import { ShieldCheck, Timer, ThumbsUp } from "lucide-react"
 
 const values = [
   {
-    icon: Lightbulb,
-    title: "Innovation First",
-    description: "We constantly push boundaries and embrace new technologies to deliver cutting-edge solutions.",
+    icon: ShieldCheck,
+    title: "Professional Work",
+    description: "We deliver clean, scalable, and secure solutions with a focus on long-term value.",
   },
   {
-    icon: Users,
-    title: "Client Partnership",
-    description: "We view every client as a partner, working collaboratively to achieve shared success.",
+    icon: Timer,
+    title: "Fast Delivery",
+    description: "Streamlined workflows and clear milestones keep projects moving without surprises.",
   },
   {
-    icon: Shield,
-    title: "Trust & Integrity",
-    description: "We operate with complete transparency and maintain the highest ethical standards.",
-  },
-  {
-    icon: Zap,
-    title: "Excellence Driven",
-    description: "We are committed to delivering exceptional quality in everything we do.",
-  },
-  {
-    icon: Heart,
-    title: "Human-Centric",
-    description: "Technology should serve people. We design solutions that enhance human potential.",
-  },
-  {
-    icon: Globe,
-    title: "Global Mindset",
-    description: "We embrace diversity and think globally while acting locally for our clients.",
+    icon: ThumbsUp,
+    title: "Trusted Company",
+    description: "We build lasting partnerships through transparency, quality, and measurable results.",
   },
 ]
 
@@ -47,8 +32,8 @@ export function AboutValues() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Our Values</p>
-            <h2 className="text-3xl sm:text-4xl font-bold">What Drives Us Forward</h2>
+            <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Why Choose Us</p>
+            <h2 className="text-3xl sm:text-4xl font-bold">Why Choose Us</h2>
           </div>
         </ScrollReveal>
 

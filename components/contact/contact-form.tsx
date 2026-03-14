@@ -81,8 +81,6 @@ export function ContactForm() {
       budget: selectedBudget,
     }
 
-    console.log("FORM DATA 👉", payload)
-
     await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -103,7 +101,7 @@ export function ContactForm() {
               <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                 <Check className="w-10 h-10 text-primary" />
               </div>
-              <h2 className="text-2xl font-bold mb-4">Thank You!</h2>
+              <p className="text-2xl font-bold mb-4">Thank You!</p>
               <p className="text-muted-foreground">
                 We&apos;ve received your message and will get back to you within 24 hours.
               </p>
@@ -115,7 +113,7 @@ export function ContactForm() {
   }
 
   return (
-    <section className="py-16 relative overflow-hidden">
+    <section id="contact-form" className="py-16 relative overflow-hidden">
       <ParallaxSection speed={0.1} className="absolute inset-0 opacity-5">
         <div className="w-full h-full `bg-[linear-gradient(45deg,_var(--primary)_25%,_transparent_25%,_transparent_75%,_var(--primary)_75%)] bg-[size:80px_80px]`" />
       </ParallaxSection>
@@ -124,6 +122,12 @@ export function ContactForm() {
         <div className="grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-3">
             <ScrollReveal>
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold mb-2">Free Consultation</h2>
+                <p className="text-muted-foreground">
+                  Share your goals and we will propose a plan that fits your business.
+                </p>
+              </div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>

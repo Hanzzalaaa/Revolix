@@ -59,7 +59,7 @@ export function AboutTimeline() {
         <ScrollReveal>
           <div className="text-center mb-16">
             <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Our Journey</p>
-            <h2 className="text-3xl sm:text-4xl font-bold">Building the Future, One Milestone at a Time</h2>
+            <p className="text-3xl sm:text-4xl font-bold">Building the Future, One Milestone at a Time</p>
           </div>
         </ScrollReveal>
 
@@ -82,7 +82,7 @@ export function AboutTimeline() {
                         }`}
                       >
                         <span className="text-4xl font-bold text-primary">{milestone.year}</span>
-                        <h3 className="text-xl font-semibold mt-2 mb-3">{milestone.title}</h3>
+                        <p className="text-xl font-semibold mt-2 mb-3">{milestone.title}</p>
                         <p className="text-muted-foreground text-sm leading-relaxed">{milestone.description}</p>
                       </div>
                     </ParallaxSection>

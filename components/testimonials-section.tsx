@@ -91,9 +91,9 @@ export function TestimonialsSection() {
               <MessageSquare className="w-4 h-4 text-primary animate-pulse" />
               <span className="text-sm text-primary font-medium uppercase tracking-wider">Testimonials</span>
             </motion.div>
-            <h2 className="text-3xl sm:text-4xl font-display font-bold">
+            <p className="text-3xl sm:text-4xl font-display font-bold">
               What Our <span className="gradient-text">Clients Say</span>
-            </h2>
+            </p>
           </div>
         </ScrollReveal>
 
@@ -133,7 +133,7 @@ export function TestimonialsSection() {
                       >
                         <Image
                           src={currentTestimonial.avatar || "/placeholder.svg"}
-                          alt={currentTestimonial.author}
+                          alt={`${currentTestimonial.author} - best institute for web development testimonial`}
                           width={56}
                           height={56}
                           className="rounded-full object-cover border-2 border-primary/30"

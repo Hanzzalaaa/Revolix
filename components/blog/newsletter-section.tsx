@@ -31,7 +31,7 @@ export function NewsletterSection() {
       <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
         <ScrollReveal>
           <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Newsletter</p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Stay Ahead of the Curve</h2>
+          <p className="text-3xl sm:text-4xl font-bold mb-4">Stay Ahead of the Curve</p>
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
             Get the latest insights on AI, technology trends, and digital transformation delivered to your inbox weekly.
           </p>

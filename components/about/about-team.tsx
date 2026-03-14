@@ -1,42 +1,27 @@
 "use client"
 
 import { ScrollReveal } from "@/components/scroll-reveal"
-import Image from "next/image"
 import { ParallaxSection } from "@/components/parallax-section"
-import { Linkedin, Twitter } from "lucide-react"
+import { Code2, Search, Sparkles } from "lucide-react"
 
-const team = [
+const teamGroups = [
   {
-    name: "Alexandra Chen",
-    role: "CEO & Co-Founder",
-    bio: "Former Google AI researcher with 15+ years in tech leadership.",
-    image: "/team-ceo-woman-professional.jpg",
-    linkedin: "#",
-    twitter: "#",
+    icon: Code2,
+    title: "Developers",
+    description: "Full-stack engineers focused on performance, security, and scalable architecture.",
+    highlights: ["Frontend & backend", "Next.js & React", "API integration"],
   },
   {
-    name: "Marcus Rodriguez",
-    role: "CTO & Co-Founder",
-    bio: "Ex-Amazon principal engineer, specializing in scalable AI systems.",
-    image: "/team-cto-man-professional.jpg",
-    linkedin: "#",
-    twitter: "#",
+    icon: Sparkles,
+    title: "AI Solutions",
+    description: "AI specialists delivering practical automation and intelligent systems.",
+    highlights: ["Machine learning", "Data pipelines", "Model deployment"],
   },
   {
-    name: "Sarah Kim",
-    role: "Chief Design Officer",
-    bio: "Award-winning designer with a passion for human-centered design.",
-    image: "/team-cdo-woman-creative.jpg",
-    linkedin: "#",
-    twitter: "#",
-  },
-  {
-    name: "David Thompson",
-    role: "VP of Engineering",
-    bio: "20+ years building enterprise software for Fortune 500 companies.",
-    image: "/team-vp-man-engineering.jpg",
-    linkedin: "#",
-    twitter: "#",
+    icon: Search,
+    title: "SEO Experts",
+    description: "Search specialists improving visibility with technical and on-page optimization.",
+    highlights: ["On-page SEO", "Technical audits", "Content planning"],
   },
 ]
 
@@ -51,48 +36,30 @@ export function AboutTeam() {
         <ScrollReveal>
           <div className="text-center mb-16">
             <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Our Team</p>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Meet the Leadership</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Team</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Our diverse team of experts brings together decades of experience in AI, engineering, design, and business
-              strategy.
+              A focused, cross-functional team built to deliver results across development, design, and SEO.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member, index) => (
-            <ScrollReveal key={member.name} delay={index * 100}>
-              <div className="group text-center">
-                <div className="relative mb-6 rounded-2xl overflow-hidden aspect-square">
-                  <Image
-                    src={member.image || "/placeholder.svg"}
-                    alt={member.name}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                    <div className="flex gap-3">
-                      <a
-                        href={member.linkedin}
-                        className="p-2 rounded-full bg-primary/90 text-primary-foreground hover:bg-primary transition-colors"
-                        aria-label={`${member.name}'s LinkedIn`}
-                      >
-                        <Linkedin className="w-4 h-4" />
-                      </a>
-                      <a
-                        href={member.twitter}
-                        className="p-2 rounded-full bg-primary/90 text-primary-foreground hover:bg-primary transition-colors"
-                        aria-label={`${member.name}'s Twitter`}
-                      >
-                        <Twitter className="w-4 h-4" />
-                      </a>
-                    </div>
-                  </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {teamGroups.map((group, index) => (
+            <ScrollReveal key={group.title} delay={index * 100}>
+              <div className="p-8 rounded-2xl bg-background border border-border h-full">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <group.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold mb-1">{member.name}</h3>
-                <p className="text-sm text-primary mb-2">{member.role}</p>
-                <p className="text-sm text-muted-foreground">{member.bio}</p>
+                <h3 className="text-lg font-semibold mb-2">{group.title}</h3>
+                <p className="text-sm text-muted-foreground mb-4">{group.description}</p>
+                <ul className="space-y-2">
+                  {group.highlights.map((item) => (
+                    <li key={item} className="text-sm text-muted-foreground flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </ScrollReveal>
           ))}

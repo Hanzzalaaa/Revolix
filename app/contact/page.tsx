@@ -5,23 +5,32 @@ import { Footer } from "@/components/footer"
 import { ContactHero } from "@/components/contact/contact-hero"
 import { ContactForm } from "@/components/contact/contact-form"
 import { ContactInfo } from "@/components/contact/contact-info"
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld"
 
 export const metadata: Metadata = {
   title: "Contact Us | Revolix - Let's Talk",
-  description: "Got a project in mind? Not sure where to start? Drop us a line and we'll figure it out together. No sales pitch, just an honest conversation about what you need.",
+  description: "Contact Revolix Tech for AI, software, and cloud solutions. Get a free consultation.",
   keywords: [
-    "contact AI developers",
-    "software consulting inquiry",
-    "get in touch",
-    "project quote",
+    "starting a business",
+    "small business",
+    "contact Revolix",
   ],
+  alternates: { canonical: "https://revolixtech.com/contact" },
 }
 
 export default function ContactPage() {
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
+
   return (
     <ParallaxProvider>
       <Header />
       <main>
+        <BreadcrumbJsonLd
+          items={[
+            { name: "Home", item: SITE_URL },
+            { name: "Contact", item: `${SITE_URL}/contact` },
+          ]}
+        />
         <ContactHero />
         <ContactForm />
         <ContactInfo />

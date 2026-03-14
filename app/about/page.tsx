@@ -8,31 +8,39 @@ import { AboutTimeline } from "@/components/about/about-timeline"
 import { AboutTeam } from "@/components/about/about-team"
 import { AboutValues } from "@/components/about/about-values"
 import { CTASection } from "@/components/cta-section"
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld"
 
 export const metadata: Metadata = {
   title: "About Us | Revolix - Who We Are & What We Do",
   description:
-    "We're a team of engineers who got tired of seeing AI projects fail. Now we help companies build systems that actually work in production. Meet the team and see how we got here.",
+    "We're engineers who got tired of seeing AI projects fail. Now we build AI that works.",
   keywords: [
-    "AI consulting team",
-    "software engineering company",
-    "tech consulting",
-    "AI experts",
-    "about Revolix",
+    "AI website",
+    "IT solutions company",
+    "digital solutions company",
   ],
+  alternates: { canonical: "https://revolixtech.com/about" },
 }
 
 export default function AboutPage() {
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
+
   return (
     <ParallaxProvider>
       <Header />
       <main>
+        <BreadcrumbJsonLd
+          items={[
+            { name: "Home", item: SITE_URL },
+            { name: "About", item: `${SITE_URL}/about` },
+          ]}
+        />
         <AboutHero />
         <AboutMission />
         <AboutTimeline />
         <AboutValues />
         <AboutTeam />
-        <CTASection />
+        <CTASection headingAs="p" subheadingAs="p" />
       </main>
       <Footer />
     </ParallaxProvider>

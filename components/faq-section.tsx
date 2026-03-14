@@ -8,29 +8,24 @@ import { FAQJsonLd } from "./seo/json-ld"
 
 const faqs = [
   {
-    question: "How do you scale AI solutions?",
+    question: "Experienced Team",
     answer:
-      "We start with a proof of concept, then build it out piece by piece. Using tools like Kubeflow and MLflow, we set up proper tracking and deployment pipelines. Once it's working, we handle the monitoring and scaling so your models don't break when traffic increases.",
+      "Certified developers, designers, and SEO specialists with proven delivery across web, e-commerce, and marketing.",
   },
   {
-    question: "Why work with Revolix for cloud migration?",
+    question: "Modern Technology",
     answer:
-      "We use infrastructure-as-code (mostly Terraform) so your setup works the same way on AWS, Azure, or GCP. Everything runs in containers, we automate the security checks, and migrations happen without downtime. Most clients see their cloud costs drop 20-30% after we optimize things.",
+      "We build on modern stacks like Next.js, React, and secure cloud hosting to ensure speed and reliability.",
   },
   {
-    question: "How do you handle AI compliance and data privacy?",
+    question: "Client Satisfaction",
     answer:
-      "We bake compliance into the workflow from day one. That means proper data governance with tools like OpenMetadata, validation checks with Great Expectations, and privacy-preserving techniques where needed. We make sure everything passes GDPR, HIPAA, and SOC 2 audits.",
+      "Clear communication, predictable timelines, and measurable results are built into every engagement.",
   },
   {
-    question: "How do you measure ROI on AI projects?",
+    question: "Affordable Pricing",
     answer:
-      "Before we start, we agree on specific metrics - things like model accuracy, how many people actually use it, and impact on revenue or costs. We track everything openly and most clients see clear ROI within 6-12 months. If a project isn't working, we tell you early and adjust.",
-  },
-  {
-    question: "What kind of support do you offer?",
-    answer:
-      "We're flexible. Some clients want dedicated teams (we call them innovation pods), others prefer outcome-based contracts where we get paid when you hit goals. We also do managed MLOps where we handle everything - monitoring, retraining, fixing issues. Whatever makes sense for your situation.",
+      "Flexible packages that fit startups and growing businesses without compromising on quality.",
   },
 ]
 
@@ -47,8 +42,8 @@ export function FAQSection() {
       <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">FAQ</p>
-            <h2 className="text-3xl sm:text-4xl font-bold">Frequently Asked Questions</h2>
+            <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Why Choose</p>
+            <h2 className="text-3xl sm:text-4xl font-bold">Why Choose Revolix Tech</h2>
           </div>
         </ScrollReveal>
 

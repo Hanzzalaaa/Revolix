@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { notFound } from "next/navigation"
 import { ParallaxProvider } from "@/components/parallax-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -20,6 +21,11 @@ export const metadata: Metadata = {
 }
 
 export default function GraphicsPage() {
+  const SHOW_GRAPHICS = process.env.NEXT_PUBLIC_SHOW_GRAPHICS === "true"
+  if (!SHOW_GRAPHICS) {
+    return notFound()
+  }
+
   return (
     <ParallaxProvider>
       <Header />

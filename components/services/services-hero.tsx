@@ -8,7 +8,9 @@ import dynamic from "next/dynamic"
 const FloatingParticles = dynamic(() => import("@/components/floating-particles").then((m) => m.FloatingParticles), {
   ssr: false,
 })
-import { Sparkles } from "lucide-react"
+import Link from "next/link"
+import { Sparkles, ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export function ServicesHero() {
   return (
@@ -61,7 +63,7 @@ export function ServicesHero() {
 
           <ScrollReveal delay={100}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 text-balance">
-              Comprehensive Tech Services for <span className="gradient-text">Modern Enterprises</span>
+              Our Web Development, SEO &amp; Digital Marketing Services
             </h1>
           </ScrollReveal>
 
@@ -70,6 +72,44 @@ export function ServicesHero() {
               From AI-powered solutions to cloud infrastructure, we provide end-to-end technology services designed to
               transform your business and accelerate growth.
             </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={240}>
+            <p className="text-sm text-muted-foreground mt-4">
+              Our delivery standards align with{" "}
+              <a
+                href="https://vercel.com/docs"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                Vercel best practices
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://aws.amazon.com/architecture/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                AWS Well-Architected
+              </a>{" "}
+              guidance.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={280}>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button size="lg" asChild>
+                <Link href="/contact">
+                  Book a Strategy Call
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="glass border-primary/30 hover:bg-primary/10 bg-transparent">
+                <Link href="/case-studies">View Our Work</Link>
+              </Button>
+            </div>
           </ScrollReveal>
         </div>
 

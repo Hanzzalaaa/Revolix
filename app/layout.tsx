@@ -15,21 +15,9 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: "Revolix Technologies | AI & Software Development",
-    template: "%s | Revolix",
-  },
+  title: "Revolix Technologies | AI & Software Development",
   description:
     "We build AI systems and software that works. From ML pipelines to cloud infrastructure, we help teams ship production-ready solutions without the usual headaches.",
-  keywords: [
-    "AI development",
-    "machine learning engineering",
-    "software development",
-    "cloud infrastructure",
-    "data engineering",
-    "MLOps consulting",
-    "enterprise software",
-  ],
   authors: [{ name: "Revolix Technologies" }],
   creator: "Revolix Technologies",
   publisher: "Revolix Technologies",
@@ -89,7 +77,7 @@ export default function RootLayout({
     name: "Revolix Technologies",
     url: SITE_URL,
     logo: `${SITE_URL}/icon.svg`,
-    description: "AI and software development company",
+    description: "AI solutions, web development & digital marketing",
     sameAs: [
       "https://twitter.com/revolixtech",
       "https://www.linkedin.com/company/revolixtech",
@@ -101,7 +89,7 @@ export default function RootLayout({
     "@type": "WebSite",
     url: SITE_URL,
     name: "Revolix Technologies",
-    description: "AI systems and software development",
+    description: "AI solutions, web development & digital marketing",
     publisher: {
       "@type": "Organization",
       name: "Revolix Technologies",

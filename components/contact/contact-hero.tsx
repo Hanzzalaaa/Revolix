@@ -1,7 +1,10 @@
 "use client"
 
+import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
+import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
 
 export function ContactHero() {
   return (
@@ -21,7 +24,7 @@ export function ContactHero() {
 
           <ScrollReveal delay={100}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-              Let&apos;s Build Something Amazing Together
+              Contact Revolix Tech
             </h1>
           </ScrollReveal>
 
@@ -30,6 +33,44 @@ export function ContactHero() {
               Ready to transform your business with AI? Get in touch for a free strategy consultation. Our team is here
               to help you navigate your digital transformation journey.
             </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={240}>
+            <p className="text-sm text-muted-foreground mt-4">
+              For location guidance, see{" "}
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                Google Maps
+              </a>{" "}
+              and our{" "}
+              <a
+                href="https://support.google.com/business/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                business listing guidelines
+              </a>
+              .
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={280}>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button size="lg" asChild>
+                <Link href="/contact#contact-form">
+                  Get Free Consultation
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="glass border-primary/30 hover:bg-primary/10 bg-transparent">
+                <Link href="/services">View Services</Link>
+              </Button>
+            </div>
           </ScrollReveal>
         </div>
       </div>

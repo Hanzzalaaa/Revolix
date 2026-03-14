@@ -11,32 +11,43 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
+import { ServiceJsonLd } from "@/components/seo/json-ld"
 
 export const metadata: Metadata = {
-  title: "Revolix Technologies - AI Solutions That Actually Work",
+  title: "Revolix Tech - AI Solutions That Actually Work",
   description:
-    "We build AI systems that solve real problems. From machine learning pipelines to cloud infrastructure, we help companies ship better products faster. No buzzwords, just results.",
+    "We build AI systems that solve real problems. Ship better products faster.",
   keywords: [
-    "AI development",
-    "machine learning solutions",
-    "custom software development",
-    "cloud infrastructure",
-    "data engineering",
-    "MLOps",
-    "enterprise AI",
-    "digital transformation",
+    "best institute for web development",
+    "web development",
+    "SEO services",
   ],
+  alternates: { canonical: "https://revolixtech.com/" },
   openGraph: {
-    title: "Revolix Technologies - AI Solutions That Actually Work",
-    description: "We build AI systems that solve real problems. No buzzwords, just results.",
+    title: "Revolix Tech - AI Solutions That Actually Work",
+    description: "We build AI systems that solve real problems. Ship better products faster.",
   },
 }
 
 export default function HomePage() {
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
+  const SHOW_GRAPHICS = process.env.NEXT_PUBLIC_SHOW_GRAPHICS === "true"
+
   return (
     <ParallaxProvider>
       <Header />
       <main>
+        <ServiceJsonLd
+          name="Professional Web Development, SEO & Digital Marketing Services"
+          description={
+            SHOW_GRAPHICS
+              ? "Web development, SEO services, digital marketing, and graphic design for businesses ready to grow."
+              : "Web development, SEO services, and digital marketing for businesses ready to grow."
+          }
+          url={SITE_URL}
+          serviceType={SHOW_GRAPHICS ? "Web Development, SEO, Digital Marketing, Graphic Design" : "Web Development, SEO, Digital Marketing"}
+          providerName="Revolix Technologies"
+        />
         <HeroSection />
         <TrustedBySection />
         <ServicesSection />

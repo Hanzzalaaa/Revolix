@@ -146,7 +146,7 @@ export function GraphicsGallery() {
                 
                 <Image
                   src={artwork.image}
-                  alt={artwork.title}
+                  alt={`${artwork.title} - graphic design artwork`}
                   fill
                   className="object-cover"
                 />
@@ -236,7 +236,7 @@ export function GraphicsGallery() {
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-blue-500/20 mb-6">
                 <Image
                   src={selectedImage.image}
-                  alt={selectedImage.title}
+                  alt={`${selectedImage.title} - graphic design artwork`}
                   fill
                   className="object-contain"
                 />

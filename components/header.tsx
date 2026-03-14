@@ -8,12 +8,14 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { RevolixLogo } from "./revolix-logo"
 
+const SHOW_GRAPHICS = process.env.NEXT_PUBLIC_SHOW_GRAPHICS === "true"
+
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "Industries", href: "/industries" },
   { name: "Case Studies", href: "/case-studies" },
-  { name: "Graphics", href: "/graphics" },
+  ...(SHOW_GRAPHICS ? [{ name: "Graphics", href: "/graphics" }] : []),
   { name: "About", href: "/about" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },

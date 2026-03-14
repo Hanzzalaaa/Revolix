@@ -72,7 +72,7 @@ export function HeroSection() {
 
             <ScrollReveal delay={100}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.1] mb-6 text-balance">
-                Your Partner in Leading the <span className="gradient-text">Future with AI</span>
+                Professional Web Development, SEO &amp; Digital Marketing Services
               </h1>
             </ScrollReveal>
 
@@ -80,6 +80,30 @@ export function HeroSection() {
               <p className="text-lg lg:text-xl text-muted-foreground mb-8 max-w-xl leading-relaxed">
                 We offer IT solutions featuring intelligent products designed to support growth-stage, fast-growing, and
                 established enterprises. Optimize operations and accelerate in the right direction.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={240}>
+              <p className="text-sm text-muted-foreground mb-6 max-w-xl">
+                Our web development process aligns with{" "}
+                <a
+                  href="https://developers.google.com/search/docs"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-primary underline underline-offset-4"
+                >
+                  Google Search guidance
+                </a>{" "}
+                and{" "}
+                <a
+                  href="https://vercel.com/docs"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-primary underline underline-offset-4"
+                >
+                  Vercel performance best practices
+                </a>
+                .
               </p>
             </ScrollReveal>
 

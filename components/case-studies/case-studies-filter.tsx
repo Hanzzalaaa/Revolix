@@ -148,7 +148,7 @@ export function CaseStudiesFilter() {
                   <div className="relative aspect-video overflow-hidden">
                     <Image
                       src={study.image || "/placeholder.svg"}
-                      alt={study.title}
+                      alt={`${study.title} - best case studies in the world, case studies in AI`}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"

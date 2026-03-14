@@ -1,9 +1,12 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
 import { Palette, Sparkles } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
 
 export function GraphicsHero() {
   return (
@@ -51,6 +54,40 @@ export function GraphicsHero() {
               <br />
               Anime characters, vtuber designs, illustrations - whatever catches our imagination.
             </p>
+
+            <p className="text-sm text-muted-foreground mb-6">
+              Inspiration from{" "}
+              <a
+                href="https://www.behance.net/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                Behance
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://dribbble.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                Dribbble
+              </a>{" "}
+              keeps our graphic design fresh and trend-aware.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <Button size="lg" asChild>
+                <Link href="/contact">
+                  Request Design Work
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="glass border-primary/30 hover:bg-primary/10 bg-transparent">
+                <Link href="/services">Explore Services</Link>
+              </Button>
+            </div>
 
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">

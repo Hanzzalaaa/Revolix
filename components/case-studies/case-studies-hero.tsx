@@ -1,7 +1,10 @@
 "use client"
 
+import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
+import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
 
 export function CaseStudiesHero() {
   return (
@@ -33,6 +36,44 @@ export function CaseStudiesHero() {
               Explore how we&apos;ve helped businesses across industries transform their operations, enhance customer
               experiences, and achieve remarkable growth through technology.
             </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={240}>
+            <p className="text-sm text-muted-foreground mt-4">
+              We benchmark impact using{" "}
+              <a
+                href="https://hbr.org/topic/strategy"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                Harvard Business Review
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://www.mckinsey.com/capabilities/digital"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                McKinsey digital insights
+              </a>
+              .
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={280}>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button size="lg" asChild>
+                <Link href="/contact">
+                  Start Your Project
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="glass border-primary/30 hover:bg-primary/10 bg-transparent">
+                <Link href="/services">View Services</Link>
+              </Button>
+            </div>
           </ScrollReveal>
         </div>
       </div>

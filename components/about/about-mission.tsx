@@ -12,6 +12,11 @@ export function AboutMission() {
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <ScrollReveal>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold">Who We Are</h2>
+          </div>
+        </ScrollReveal>
         <div className="grid lg:grid-cols-3 gap-8">
           <ScrollReveal>
             <div className="p-8 rounded-2xl bg-background border border-border h-full">
@@ -44,7 +49,7 @@ export function AboutMission() {
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                 <Sparkles className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold mb-4">Our Purpose</h3>
+              <p className="text-2xl font-bold mb-4">Our Purpose</p>
               <p className="text-muted-foreground leading-relaxed">
                 To bridge the gap between cutting-edge technology and real business value, making AI accessible and
                 impactful for organizations of all sizes.

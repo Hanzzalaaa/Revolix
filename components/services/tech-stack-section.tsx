@@ -41,7 +41,7 @@ export function TechStackSection() {
         <ScrollReveal>
           <div className="text-center mb-16">
             <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Technology</p>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Tech Stack</h2>
+            <p className="text-3xl sm:text-4xl font-bold mb-4">Our Tech Stack</p>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               We work with the latest and most reliable technologies to build robust solutions
             </p>
@@ -52,7 +52,7 @@ export function TechStackSection() {
           {techCategories.map((tech, index) => (
             <ScrollReveal key={tech.category} delay={index * 100}>
               <div className="p-6 rounded-2xl bg-card border border-border">
-                <h3 className="text-lg font-semibold text-primary mb-4">{tech.category}</h3>
+                <p className="text-lg font-semibold text-primary mb-4">{tech.category}</p>
                 <div className="flex flex-wrap gap-2">
                   {tech.items.map((item) => (
                     <span

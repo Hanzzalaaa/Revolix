@@ -5,27 +5,35 @@ import { Footer } from "@/components/footer"
 import { CaseStudiesHero } from "@/components/case-studies/case-studies-hero"
 import { CaseStudiesFilter } from "@/components/case-studies/case-studies-filter"
 import { CTASection } from "@/components/cta-section"
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld"
 
 export const metadata: Metadata = {
-  title: "Case Studies | Revolix - Real Projects, Real Results",
-  description: "See what we've built for other companies. These are real projects with actual numbers - no marketing fluff, just what worked and what we learned.",
+  title: "Case Studies | Revolix - Real Results",
+  description: "See how Revolix delivered results. Real case studies from real clients.",
   keywords: [
+    "best case studies in the world",
+    "case studies in ai",
     "AI case studies",
-    "software development portfolio",
-    "client success stories",
-    "ML project examples",
-    "tech consulting results",
   ],
+  alternates: { canonical: "https://revolixtech.com/case-studies" },
 }
 
 export default function CaseStudiesPage() {
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
+
   return (
     <ParallaxProvider>
       <Header />
       <main>
+        <BreadcrumbJsonLd
+          items={[
+            { name: "Home", item: SITE_URL },
+            { name: "Case Studies", item: `${SITE_URL}/case-studies` },
+          ]}
+        />
         <CaseStudiesHero />
         <CaseStudiesFilter />
-        <CTASection />
+        <CTASection headingAs="p" subheadingAs="p" />
       </main>
       <Footer />
     </ParallaxProvider>

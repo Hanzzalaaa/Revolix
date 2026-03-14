@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
 import dynamic from "next/dynamic"
@@ -8,7 +9,8 @@ import dynamic from "next/dynamic"
 const FloatingParticles = dynamic(() => import("@/components/floating-particles").then((m) => m.FloatingParticles), {
   ssr: false,
 })
-import { Users } from "lucide-react"
+import { Users, ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export function AboutHero() {
   return (
@@ -58,7 +60,7 @@ export function AboutHero() {
 
           <ScrollReveal delay={100}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 text-balance">
-              Where Deep Tech Meets <span className="gradient-text">Human Mindset</span>
+              About Revolix Tech - IT &amp; Digital Solutions Company
             </h1>
           </ScrollReveal>
 
@@ -67,6 +69,44 @@ export function AboutHero() {
               We are a collective of curious and passionate technologists bound together by our deep tech knowledge, our
               human-centric mindset, and a passion for using technology to drive business transformation.
             </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={240}>
+            <p className="text-sm text-muted-foreground mt-4">
+              We follow{" "}
+              <a
+                href="https://developers.google.com/search/docs/essentials"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                Google Search Essentials
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://www.w3.org/WAI/standards-guidelines/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                W3C accessibility guidelines
+              </a>{" "}
+              to keep every AI website compliant and user-friendly.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={280}>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button size="lg" asChild>
+                <Link href="/contact">
+                  Get Free Consultation
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="glass border-primary/30 hover:bg-primary/10 bg-transparent">
+                <Link href="/services">View Our Services</Link>
+              </Button>
+            </div>
           </ScrollReveal>
         </div>
 

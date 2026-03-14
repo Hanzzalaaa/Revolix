@@ -6,10 +6,10 @@ import { ParallaxSection } from "./parallax-section"
 import { AnimatedCounter } from "./animated-counter"
 
 const stats = [
-  { value: 200, suffix: "+", label: "Clients Worldwide", icon: "🌍" },
-  { value: 95, suffix: "%", label: "Client Satisfaction", icon: "⭐" },
-  { value: 150, suffix: "+", label: "Projects Delivered", icon: "🚀" },
-  { value: 50, suffix: "+", label: "AI Models Deployed", icon: "🤖" },
+  { value: 200, suffix: "+", label: "Clients Worldwide" },
+  { value: 95, suffix: "%", label: "Client Satisfaction" },
+  { value: 150, suffix: "+", label: "Projects Delivered" },
+  { value: 50, suffix: "+", label: "AI Models Deployed" },
 ]
 
 export function StatsSection() {
@@ -40,13 +40,6 @@ export function StatsSection() {
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <motion.div
-                  className="text-4xl mb-4"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: index * 0.2 }}
-                >
-                  {stat.icon}
-                </motion.div>
                 <div className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-primary mb-2">
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                 </div>

@@ -1,7 +1,10 @@
 "use client"
 
+import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
+import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
 
 export function IndustriesHero() {
   return (
@@ -33,6 +36,44 @@ export function IndustriesHero() {
               We specialize in tailor-made software solutions designed to enhance the growth and advancement of
               businesses across various industries globally.
             </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={240}>
+            <p className="text-sm text-muted-foreground mt-4">
+              We align with{" "}
+              <a
+                href="https://www.worldbank.org/en/research"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                World Bank research
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://www.oecd.org/digital/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                OECD digital insights
+              </a>{" "}
+              for industry benchmarks.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={280}>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button size="lg" asChild>
+                <Link href="/contact">
+                  Discuss Your Industry
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="glass border-primary/30 hover:bg-primary/10 bg-transparent">
+                <Link href="/case-studies">See Case Studies</Link>
+              </Button>
+            </div>
           </ScrollReveal>
         </div>
       </div>
