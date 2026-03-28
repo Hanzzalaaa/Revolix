@@ -7,18 +7,20 @@ import { ServicesList } from "@/components/services/services-list"
 import { ProcessSection } from "@/components/services/process-section"
 import { TechStackSection } from "@/components/services/tech-stack-section"
 import { CTASection } from "@/components/cta-section"
-import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo/json-ld"
+import { ServiceJsonLd } from "@/components/seo/json-ld"
 
-export const metadata: Metadata = {
-  title: "Our Services | Revolix - What We Build",
-  description:
-    "From ML models to cloud infrastructure — we build complete AI systems for your business.",
-  keywords: [
-    "best data science companies",
-    "best security companies",
-    "ai software development company",
-  ],
-  alternates: { canonical: "https://revolixtech.com/services" },
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Web Development, SEO Services & AI Software | Revolix",
+    description:
+      "Web development, SEO services, and AI software built to drive qualified leads and measurable growth.",
+    keywords: [
+      "best data science companies",
+      "best security companies",
+      "ai software development company",
+    ],
+    alternates: { canonical: "https://revolixtech.com/services" },
+  }
 }
 
 export default function ServicesPage() {
@@ -29,12 +31,6 @@ export default function ServicesPage() {
     <ParallaxProvider>
       <Header />
       <main>
-        <BreadcrumbJsonLd
-          items={[
-            { name: "Home", item: SITE_URL },
-            { name: "Services", item: `${SITE_URL}/services` },
-          ]}
-        />
         <ServiceJsonLd
           name="Web Development, SEO & Digital Marketing Services"
           description={
@@ -56,3 +52,6 @@ export default function ServicesPage() {
     </ParallaxProvider>
   )
 }
+
+
+

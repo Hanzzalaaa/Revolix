@@ -4,6 +4,7 @@ import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
 import { Button } from "@/components/ui/button"
+import { InternalLinksRow } from "@/components/internal-links-row"
 import { ArrowRight } from "lucide-react"
 
 export function BlogHero() {
@@ -38,29 +39,10 @@ export function BlogHero() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={240}>
-            <p className="text-sm text-muted-foreground mt-4">
-              We follow{" "}
-              <a
-                href="https://developers.google.com/search/docs"
-                target="_blank"
-                rel="noreferrer"
-                className="text-primary underline underline-offset-4"
-              >
-                Google Search documentation
-              </a>{" "}
-              and{" "}
-              <a
-                href="https://www.nngroup.com/articles/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-primary underline underline-offset-4"
-              >
-                Nielsen Norman research
-              </a>{" "}
-              to keep our guidance practical and evidence-based.
-            </p>
+          <ScrollReveal delay={220}>
+            <InternalLinksRow className="mt-6" />
           </ScrollReveal>
+
 
           <ScrollReveal delay={280}>
             <div className="mt-8 flex flex-wrap gap-4">

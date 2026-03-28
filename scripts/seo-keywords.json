@@ -1,0 +1,56 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "primaryKeyword": "web development company",
+      "secondaryKeywords": [
+        "website development services",
+        "software house in pakistan",
+        "seo services",
+        "best web development company"
+      ],
+      "minWords": 1200,
+      "maxDensity": 0.03
+    },
+
+    {
+      "path": "/services",
+      "primaryKeyword": "web development services",
+      "secondaryKeywords": [
+        "seo services",
+        "app development",
+        "ui ux design",
+        "software development company"
+      ],
+      "minWords": 1200,
+      "maxDensity": 0.03
+    },
+
+    {
+      "path": "/blog",
+      "primaryKeyword": "web development blog",
+      "secondaryKeywords": [
+        "seo tips",
+        "digital marketing",
+        "web design tutorial",
+        "software development tips"
+      ],
+      "minWords": 1500,
+      "maxDensity": 0.03
+    },
+
+    {
+      "path": "/contact",
+      "primaryKeyword": "software house contact",
+      "secondaryKeywords": [
+        "contact web development company",
+        "hire web developer",
+        "software company in pakistan"
+      ],
+      "minWords": 400,
+      "maxDensity": 0.03
+    }
+
+  ]
+}
+ 

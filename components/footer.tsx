@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Linkedin, Twitter, Github } from "lucide-react"
+import { Linkedin, Facebook, Instagram, Twitter } from "lucide-react"
 import { RevolixLogo } from "./revolix-logo"
 
 const footerLinks = {
@@ -42,25 +42,32 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/revolix-technology"
                 className="p-2 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/Revolixtech"
                 className="p-2 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="Twitter"
               >
-                <Twitter className="h-5 w-5" />
+                <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/revolixtechnologies/?hl=en"
                 className="p-2 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="GitHub"
               >
-                <Github className="h-5 w-5" />
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://x.com/Revolixtech"
+                className="p-2 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
+                aria-label="GitHub"
+              >
+                <Twitter className="h-5 w-5" />
               </a>
             </div>
           </div>

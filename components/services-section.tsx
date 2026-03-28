@@ -10,9 +10,7 @@ const FloatingParticles = dynamic(() => import("./floating-particles").then((m) 
   ssr: false,
 })
 import { Button } from "@/components/ui/button"
-import { Code2, Search, Megaphone, Palette, ArrowRight, Sparkles } from "lucide-react"
-
-const SHOW_GRAPHICS = process.env.NEXT_PUBLIC_SHOW_GRAPHICS === "true"
+import { Code2, Search, Megaphone, Sparkles, ArrowRight } from "lucide-react"
 
 const services = [
   {
@@ -37,23 +35,12 @@ const services = [
     color: "from-amber-500/20 to-orange-500/20",
   },
   {
-    icon: Code2,
-    title: "Software Quality Assurance",
-    description: "Manual and automated testing that keeps releases stable, secure, and bug-free.",
+    icon: Sparkles,
+    title: "AI ML",
+    description: "Machine learning solutions, data pipelines, and intelligent automation.",
     href: "/services",
-    color: "from-sky-500/20 to-cyan-500/20",
+    color: "from-violet-500/20 to-indigo-500/20",
   },
-  ...(SHOW_GRAPHICS
-    ? [
-        {
-          icon: Palette,
-          title: "Graphic Design",
-          description: "Branding, social creatives, and marketing assets that elevate your identity.",
-          href: "/services",
-          color: "from-pink-500/20 to-fuchsia-500/20",
-        },
-      ]
-    : []),
 ]
 
 export function ServicesSection() {

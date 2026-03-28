@@ -13,9 +13,9 @@ const teamGroups = [
   },
   {
     icon: Sparkles,
-    title: "AI Solutions",
-    description: "AI specialists delivering practical automation and intelligent systems.",
-    highlights: ["Machine learning", "Data pipelines", "Model deployment"],
+    title: "Designers",
+    description: "Product and brand designers focused on UI/UX and visual clarity.",
+    highlights: ["UI/UX design", "Design systems", "Brand consistency"],
   },
   {
     icon: Search,

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { ParallaxSection } from "./parallax-section"
 import { ScrollReveal } from "./scroll-reveal"
 import dynamic from "next/dynamic"
+import { InternalLinksRow } from "@/components/internal-links-row"
 
 const FloatingParticles = dynamic(() => import("./floating-particles").then((m) => m.FloatingParticles), {
   ssr: false,
@@ -72,41 +73,27 @@ export function HeroSection() {
 
             <ScrollReveal delay={100}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.1] mb-6 text-balance">
-                Professional Web Development, SEO &amp; Digital Marketing Services
+                Professional web Development, SEO &amp; Digital Marketing Services
               </h1>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
               <p className="text-lg lg:text-xl text-muted-foreground mb-8 max-w-xl leading-relaxed">
-                We offer IT solutions featuring intelligent products designed to support growth-stage, fast-growing, and
-                established enterprises. Optimize operations and accelerate in the right direction.
+                We offer IT solutions featuring intelligent products designed to support growth-stage, fast-growing, and established enterprises. Optimize operations and accelerate in the right direction.
               </p>
             </ScrollReveal>
 
-            <ScrollReveal delay={240}>
+            <ScrollReveal delay={220}>
               <p className="text-sm text-muted-foreground mb-6 max-w-xl">
-                Our web development process aligns with{" "}
-                <a
-                  href="https://developers.google.com/search/docs"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-primary underline underline-offset-4"
-                >
-                  Google Search guidance
-                </a>{" "}
-                and{" "}
-                <a
-                  href="https://vercel.com/docs"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-primary underline underline-offset-4"
-                >
-                  Vercel performance best practices
-                </a>
-                .
+                If you are comparing the best web development company in Pakistan, we are built for results and speed.
               </p>
             </ScrollReveal>
 
+            <ScrollReveal delay={220}>
+              <InternalLinksRow className="mb-6" />
+            </ScrollReveal>
+
+          
             <ScrollReveal delay={300}>
               <div className="flex flex-wrap gap-4">
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>

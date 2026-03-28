@@ -1,11 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { Inter, Space_Grotesk, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { CursorGlow } from "@/components/cursor-glow"
 import "./globals.css"
+import  GTM  from "@/components/GTM"
+import TrackPageView from "@/components/TrackPageView"
 
 const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const _spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" })
@@ -33,12 +36,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: "/icon-light-32x32.png", media: "(prefers-color-scheme: light)" },
-      { url: "/icon-dark-32x32.png", media: "(prefers-color-scheme: dark)" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-    apple: "/apple-icon.png",
+    icon: "/icon.png", // single favicon for simplicity
+    apple: "/icon.png", // same for Apple devices
   },
   openGraph: {
     title: "Revolix Technologies | AI & Software Development",
@@ -48,9 +47,9 @@ export const metadata: Metadata = {
     siteName: "Revolix Technologies",
     images: [
       {
-        url: `${SITE_URL}/og-default.jpg`,
-        width: 1200,
-        height: 630,
+        url: `${SITE_URL}/icon.png`,
+        width: 512,
+        height: 512,
         alt: "Revolix Technologies - AI & Software Development",
       },
     ],
@@ -62,7 +61,7 @@ export const metadata: Metadata = {
     title: "Revolix Technologies",
     description:
       "Building AI systems and software that actually works in production.",
-    images: [`${SITE_URL}/og-default.jpg`],
+    images: [`${SITE_URL}/icon.png`],
   },
 }
 
@@ -75,25 +74,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Revolix Technologies",
-    url: SITE_URL,
-    logo: `${SITE_URL}/icon.svg`,
+    url: "https://www.revolixtech.com",
     description: "AI solutions, web development & digital marketing",
-    sameAs: [
-      "https://twitter.com/revolixtech",
-      "https://www.linkedin.com/company/revolixtech",
-    ],
-  }
-
-  const webSiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    url: SITE_URL,
-    name: "Revolix Technologies",
-    description: "AI solutions, web development & digital marketing",
-    publisher: {
-      "@type": "Organization",
-      name: "Revolix Technologies",
-    },
+    logo: "https://www.revolixtech.com/icon.png", // important for Google
   }
 
   return (
@@ -103,12 +86,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
-        />
       </head>
       <body className={`font-sans antialiased ${_inter.variable} ${_spaceGrotesk.variable} ${_geistMono.variable}`}>
+        <GTM />
+        <Suspense fallback={null}>
+          <TrackPageView />
+        </Suspense>
         <CursorGlow />
         <SmoothScrollProvider>
           <ScrollToTop />

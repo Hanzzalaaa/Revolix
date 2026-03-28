@@ -4,6 +4,7 @@ import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
 import { Button } from "@/components/ui/button"
+import { InternalLinksRow } from "@/components/internal-links-row"
 import { ArrowRight } from "lucide-react"
 
 export function IndustriesHero() {
@@ -27,7 +28,7 @@ export function IndustriesHero() {
 
           <ScrollReveal delay={100}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-              Transforming Industries with Intelligent Solutions
+              Industries We Serve for AI Software &amp; Web Development
             </h1>
           </ScrollReveal>
 
@@ -38,29 +39,11 @@ export function IndustriesHero() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={240}>
-            <p className="text-sm text-muted-foreground mt-4">
-              We align with{" "}
-              <a
-                href="https://www.worldbank.org/en/research"
-                target="_blank"
-                rel="noreferrer"
-                className="text-primary underline underline-offset-4"
-              >
-                World Bank research
-              </a>{" "}
-              and{" "}
-              <a
-                href="https://www.oecd.org/digital/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-primary underline underline-offset-4"
-              >
-                OECD digital insights
-              </a>{" "}
-              for industry benchmarks.
-            </p>
+          <ScrollReveal delay={220}>
+            <InternalLinksRow className="mt-6" />
           </ScrollReveal>
+
+         
 
           <ScrollReveal delay={280}>
             <div className="mt-8 flex flex-wrap gap-4">

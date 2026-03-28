@@ -8,28 +8,35 @@ export const revalidate = 60 // ISR: revalidate every 60s
 
 type Props = { params: { slug: string } }
 
+const clampMeta = (value: string, maxLength: number) => {
+  if (value.length <= maxLength) return value
+  return `${value.slice(0, Math.max(0, maxLength - 1)).trimEnd()}…`
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(params.slug)
   if (!post) return { title: "Post not found" }
 
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
+  const title = clampMeta(post.title, 60)
+  const description = clampMeta(post.excerpt || "", 160)
 
   return {
-    title: post.title,
-    description: post.excerpt,
+    title,
+    description,
     metadataBase: new URL(SITE_URL),
     alternates: { canonical: `${SITE_URL}/blog/${post.slug}` },
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
       url: `${SITE_URL}/blog/${post.slug}`,
       images: post.image ? [{ url: `${SITE_URL}${post.image}`, alt: post.title }] : [],
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
     },
   }
 }

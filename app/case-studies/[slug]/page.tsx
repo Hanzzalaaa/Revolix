@@ -8,28 +8,36 @@ export const revalidate = 60
 
 type Props = { params: { slug: string } }
 
+const clampMeta = (value: string, maxLength: number) => {
+  if (value.length <= maxLength) return value
+  return `${value.slice(0, Math.max(0, maxLength - 1)).trimEnd()}…`
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const study = getCaseStudyBySlug(params.slug)
   if (!study) return { title: "Case study not found" }
 
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
+  const baseTitle = `Case Study: ${study.title} | Revolix`
+  const title = clampMeta(baseTitle, 60)
+  const description = clampMeta(study.description || "", 160)
 
   return {
-    title: `${study.title} - Case Study | Revolix Technologies`,
-    description: study.description,
+    title,
+    description,
     metadataBase: new URL(SITE_URL),
     alternates: { canonical: `${SITE_URL}/case-studies/${study.slug}` },
     openGraph: {
-      title: `${study.title} - Case Study | Revolix Technologies`,
-      description: study.description,
+      title,
+      description,
       url: `${SITE_URL}/case-studies/${study.slug}`,
       images: study.image ? [{ url: `${SITE_URL}${study.image}`, alt: study.title }] : [],
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
-      title: study.title,
-      description: study.description,
+      title,
+      description,
     },
   }
 }

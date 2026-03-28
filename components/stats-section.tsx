@@ -6,10 +6,10 @@ import { ParallaxSection } from "./parallax-section"
 import { AnimatedCounter } from "./animated-counter"
 
 const stats = [
-  { value: 200, suffix: "+", label: "Clients Worldwide" },
-  { value: 95, suffix: "%", label: "Client Satisfaction" },
-  { value: 150, suffix: "+", label: "Projects Delivered" },
-  { value: 50, suffix: "+", label: "AI Models Deployed" },
+  { value: 12, suffix: "+", label: "Experienced Team" },
+  { value: 25, suffix: "+", label: "Modern Technology" },
+  { value: 98, suffix: "%", label: "Client Satisfaction" },
+  { value: 30, suffix: "%", label: "Affordable Pricing" },
 ]
 
 export function StatsSection() {
@@ -32,6 +32,11 @@ export function StatsSection() {
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <ScrollReveal>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold">Why Choose Revolix Tech</h2>
+          </div>
+        </ScrollReveal>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {stats.map((stat, index) => (
             <ScrollReveal key={stat.label} delay={index * 100} direction="scale">
@@ -43,7 +48,7 @@ export function StatsSection() {
                 <div className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-primary mb-2">
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                 </div>
-                <p className="text-sm sm:text-base text-muted-foreground">{stat.label}</p>
+                <h3 className="text-sm sm:text-base text-muted-foreground">{stat.label}</h3>
               </motion.div>
             </ScrollReveal>
           ))}

@@ -6,6 +6,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import Image from "next/image"
 import { ParallaxSection } from "@/components/parallax-section"
 import { ArrowUpRight } from "lucide-react"
+import { InternalLinksRow } from "@/components/internal-links-row"
 
 const categories = ["All", "Healthcare", "Fintech", "Entertainment", "eCommerce", "Education", "Legal Tech", "Gaming"]
 
@@ -19,6 +20,7 @@ const caseStudies = [
       "An AI-powered artist booking and event planning platform that revolutionized how event organizers find and book performers, creating a reliable marketplace with over 10,000 artists.",
     results: ["300% increase in bookings", "10K+ artists onboarded", "50% reduction in search time"],
     image: "/entertainment-app-dark-purple-neon.jpg",
+    imageAlt: "case studies in AI - Aurora Events Digital Transformation",
     href: "/case-studies/aurora-events",
   },
   {
@@ -30,6 +32,7 @@ const caseStudies = [
       "A digital health platform leveraging AI and advanced image capture technology to improve clinical trial enrollment, management, and patient monitoring with unprecedented accuracy.",
     results: ["85% enrollment improvement", "40% faster trial completion", "99.2% image accuracy"],
     image: "/healthcare-app-medical-blue-technology.jpg",
+    imageAlt: "best case studies in the world - MediSync AI Healthcare Solution",
     href: "/case-studies/medi-sync",
   },
   {
@@ -55,38 +58,38 @@ const caseStudies = [
     href: "/case-studies/finsight",
   },
   {
-    id: "wits",
-    title: "What Is The Sentence",
-    category: "Gaming",
-    tags: ["Educational Game", "Mobile App", "Gamification"],
-    description:
-      "An educational gaming app that sparks creativity and tests vocabulary skills through unique sentence generation challenges, making learning fun and engaging for all ages.",
-    results: ["500K+ downloads", "4.8 star rating", "15M+ games played"],
-    image: "/gaming-education-app-dark-colorful.jpg",
-    href: "/case-studies/wits",
-  },
-  {
-    id: "tapnswap",
-    title: "TapnSwap",
-    category: "eCommerce",
-    tags: ["Marketplace", "Sustainability", "Community"],
-    description:
-      "A groundbreaking platform for free bartering within communities, promoting sustainability by encouraging reuse and fostering community connections through seamless item exchanges.",
-    results: ["100K+ successful swaps", "50 tons diverted from landfill", "4.9 user satisfaction"],
-    image: "/ecommerce-barter-app-dark-eco.jpg",
-    href: "/case-studies/tapnswap",
-  },
-  {
-    id: "medconnect",
-    title: "MedConnect",
-    category: "Healthcare",
-    tags: ["Telemedicine", "Patient Portal", "Integration"],
-    description:
-      "A comprehensive telemedicine platform connecting patients with healthcare providers, featuring seamless EHR integration, video consultations, and AI-powered symptom assessment.",
-    results: ["200K+ consultations", "98% patient satisfaction", "30% reduced no-shows"],
-    image: "/telemedicine-app-dark-health.jpg",
-    href: "/case-studies/medconnect",
-  },
+  id: "wits",
+  title: "What Is The Sentence",
+  category: "Gaming",
+  tags: ["Educational Game", "Mobile App", "Gamification"],
+  description:
+    "An educational gaming app that sparks creativity and tests vocabulary skills through unique sentence generation challenges, making learning fun and engaging for all ages.",
+  results: ["500K+ downloads", "4.8 star rating", "15M+ games played"],
+  image: "https://images.unsplash.com/photo-1611996575749-79a3a250f948",
+  href: "/case-studies/wits",
+},
+{
+  id: "tapnswap",
+  title: "TapnSwap",
+  category: "eCommerce",
+  tags: ["Marketplace", "Sustainability", "Community"],
+  description:
+    "A groundbreaking platform for free bartering within communities, promoting sustainability by encouraging reuse and fostering community connections through seamless item exchanges.",
+  results: ["100K+ successful swaps", "50 tons diverted from landfill", "4.9 user satisfaction"],
+  image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d",
+  href: "/case-studies/tapnswap",
+},
+{
+  id: "medconnect",
+  title: "MedConnect",
+  category: "Healthcare",
+  tags: ["Telemedicine", "Patient Portal", "Integration"],
+  description:
+    "A comprehensive telemedicine platform connecting patients with healthcare providers, featuring seamless EHR integration, video consultations, and AI-powered symptom assessment.",
+  results: ["200K+ consultations", "98% patient satisfaction", "30% reduced no-shows"],
+  image: "https://images.unsplash.com/photo-1584515933487-779824d29309",
+  href: "/case-studies/medconnect",
+},
   {
     id: "edulearn",
     title: "EduLearn Pro",
@@ -114,6 +117,11 @@ export function CaseStudiesFilter() {
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Internal Links */}
+        <ScrollReveal>
+          <InternalLinksRow className="justify-center mb-6" />
+        </ScrollReveal>
+
         {/* Filter Tabs */}
         <ScrollReveal>
           <div className="flex flex-wrap justify-center gap-2 mb-12">
@@ -148,7 +156,7 @@ export function CaseStudiesFilter() {
                   <div className="relative aspect-video overflow-hidden">
                     <Image
                       src={study.image || "/placeholder.svg"}
-                      alt={`${study.title} - best case studies in the world, case studies in AI`}
+                      alt={study.imageAlt || `${study.title} - case studies in AI`}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"

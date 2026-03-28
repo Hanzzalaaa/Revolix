@@ -21,7 +21,7 @@ const posts = [
     authorRole: "CEO",
     date: "Dec 15, 2024",
     readTime: "8 min read",
-    image: "/Blog/1.jpg",
+    image: "/Blog/",
     featured: true,
   },
   {

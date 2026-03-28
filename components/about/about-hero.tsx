@@ -11,6 +11,7 @@ const FloatingParticles = dynamic(() => import("@/components/floating-particles"
 })
 import { Users, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { InternalLinksRow } from "@/components/internal-links-row"
 
 export function AboutHero() {
   return (
@@ -71,29 +72,10 @@ export function AboutHero() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={240}>
-            <p className="text-sm text-muted-foreground mt-4">
-              We follow{" "}
-              <a
-                href="https://developers.google.com/search/docs/essentials"
-                target="_blank"
-                rel="noreferrer"
-                className="text-primary underline underline-offset-4"
-              >
-                Google Search Essentials
-              </a>{" "}
-              and{" "}
-              <a
-                href="https://www.w3.org/WAI/standards-guidelines/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-primary underline underline-offset-4"
-              >
-                W3C accessibility guidelines
-              </a>{" "}
-              to keep every AI website compliant and user-friendly.
-            </p>
+          <ScrollReveal delay={220}>
+            <InternalLinksRow className="mt-6" />
           </ScrollReveal>
+
 
           <ScrollReveal delay={280}>
             <div className="mt-8 flex flex-wrap gap-4">

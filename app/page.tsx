@@ -13,20 +13,21 @@ import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 import { ServiceJsonLd } from "@/components/seo/json-ld"
 
-export const metadata: Metadata = {
-  title: "Revolix Tech - AI Solutions That Actually Work",
-  description:
-    "We build AI systems that solve real problems. Ship better products faster.",
-  keywords: [
-    "best institute for web development",
-    "web development",
-    "SEO services",
-  ],
-  alternates: { canonical: "https://revolixtech.com/" },
-  openGraph: {
+export async function generateMetadata(): Promise<Metadata> {
+  return {
     title: "Revolix Tech - AI Solutions That Actually Work",
     description: "We build AI systems that solve real problems. Ship better products faster.",
-  },
+    keywords: [
+      "best institute for web development",
+      "web development",
+      "SEO services",
+    ],
+    alternates: { canonical: "https://revolixtech.com/" },
+    openGraph: {
+      title: "Revolix Tech - AI Solutions That Actually Work",
+      description: "We build AI systems that solve real problems. Ship better products faster.",
+    },
+  }
 }
 
 export default function HomePage() {
@@ -62,3 +63,6 @@ export default function HomePage() {
     </ParallaxProvider>
   )
 }
+
+
+

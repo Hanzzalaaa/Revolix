@@ -11,6 +11,7 @@ const FloatingParticles = dynamic(() => import("@/components/floating-particles"
 import Link from "next/link"
 import { Sparkles, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { InternalLinksRow } from "@/components/internal-links-row"
 
 export function ServicesHero() {
   return (
@@ -69,33 +70,14 @@ export function ServicesHero() {
 
           <ScrollReveal delay={200}>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              From AI-powered solutions to cloud infrastructure, we provide end-to-end technology services designed to
-              transform your business and accelerate growth.
+              As a web development company trusted among web development companies in Pakistan, we deliver AI solution
+              roadmaps and AI solutions built on machine learning, data pipelines, and cloud infrastructure. Buy SEO
+              services that drive qualified leads and predictable growth.
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={240}>
-            <p className="text-sm text-muted-foreground mt-4">
-              Our delivery standards align with{" "}
-              <a
-                href="https://vercel.com/docs"
-                target="_blank"
-                rel="noreferrer"
-                className="text-primary underline underline-offset-4"
-              >
-                Vercel best practices
-              </a>{" "}
-              and{" "}
-              <a
-                href="https://aws.amazon.com/architecture/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-primary underline underline-offset-4"
-              >
-                AWS Well-Architected
-              </a>{" "}
-              guidance.
-            </p>
+          <ScrollReveal delay={220}>
+            <InternalLinksRow className="mt-6" />
           </ScrollReveal>
 
           <ScrollReveal delay={280}>

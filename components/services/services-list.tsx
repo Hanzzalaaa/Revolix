@@ -3,8 +3,6 @@
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
 
-const SHOW_GRAPHICS = process.env.NEXT_PUBLIC_SHOW_GRAPHICS === "true"
-
 const serviceSections = [
   {
     title: "Website Development",
@@ -60,28 +58,24 @@ const serviceSections = [
       },
     ],
   },
-  ...(SHOW_GRAPHICS
-    ? [
-        {
-          title: "Graphic Design",
-          description: "Design systems and creative assets that elevate your brand presence.",
-          items: [
-            {
-              title: "Logo Design",
-              detail: "Memorable identities built with brand strategy in mind.",
-            },
-            {
-              title: "Social Media Posts",
-              detail: "Scroll-stopping creatives tailored for each platform.",
-            },
-            {
-              title: "Branding Design",
-              detail: "Cohesive visual systems across print and digital assets.",
-            },
-          ],
-        },
-      ]
-    : []),
+  {
+    title: "Ai ML",
+    description: "AI and machine learning solutions that automate, predict, and scale.",
+    items: [
+      {
+        title: "Machine Learning",
+        detail: "Model design, training, and deployment for real business use cases.",
+      },
+      {
+        title: "Data Pipelines",
+        detail: "Reliable data ingestion, transformation, and analytics workflows.",
+      },
+      {
+        title: "Branding Design",
+        detail: "Branding support for AI products, dashboards, and growth assets.",
+      },
+    ],
+  },
 ]
 
 export function ServicesList() {
@@ -135,13 +129,6 @@ export function ServicesList() {
               Google Ads, and content marketing to the same value proposition used in your landing pages. That creates a
               consistent journey from first click to inquiry, improving CTR and reducing bounce rate across campaigns.
             </p>
-            {SHOW_GRAPHICS && (
-              <p>
-                Graphic design supports brand trust at every touchpoint. From logo design and social media posts to full
-                branding design systems, we make sure every asset feels cohesive. This consistency helps your business
-                look professional, credible, and ready to win competitive deals.
-              </p>
-            )}
             <p>
               We also prioritize security, accessibility, and maintenance. Each launch includes performance checks,
               image optimization, and a clean codebase that is easy to extend. If you need ongoing support, we provide
@@ -156,7 +143,6 @@ export function ServicesList() {
               <li>Keyword-driven website development for commercial and transactional searches.</li>
               <li>Technical SEO improvements that raise visibility and site quality.</li>
               <li>Digital marketing campaigns that target high-intent buyers.</li>
-              {SHOW_GRAPHICS && <li>Graphic design assets that reinforce brand recognition.</li>}
             </ul>
             <p>
               This integrated approach reduces handoffs and ensures the strategy stays consistent. It also helps your

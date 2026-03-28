@@ -23,7 +23,7 @@ const caseStudies = [
     description:
       "An AI-powered artist booking and event planning platform aimed at creating a reliable, intuitive space where event organizers can easily find and book performers.",
     image: "/entertainment-app-dark-purple-neon.jpg",
-    imageAlt: "case studies in AI - Aurora Events Digital Transformation, best institute for web development",
+    imageAlt: "case studies in AI - Aurora Events Digital Transformation",
     href: "/case-studies/aurora-events",
   },
   {
@@ -34,7 +34,7 @@ const caseStudies = [
     description:
       "A digital health platform leveraging artificial intelligence and advanced image capture technology to improve clinical trial enrollment and monitoring.",
     image: "/healthcare-app-medical-blue-technology.jpg",
-    imageAlt: "best case studies in the world - MediSync AI Healthcare Solution, best institute for web development",
+    imageAlt: "best case studies in the world - MediSync AI Healthcare Solution",
     href: "/case-studies/medi-sync",
   },
   {
@@ -160,11 +160,18 @@ export function CaseStudiesSection() {
             </AnimatePresence>
 
             <ScrollReveal delay={300}>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button disabled className="opacity-60 cursor-not-allowed">
-                    Coming Soon
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                  <Button asChild>
+                    <Link href="/case-studies">
+                      View All Case Studies
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button variant="outline" asChild className="glass border-primary/30 hover:bg-primary/10 bg-transparent">
+                    <Link href="/contact">Start a Project</Link>
                   </Button>
                 </motion.div>
                 <div className="flex gap-2">
