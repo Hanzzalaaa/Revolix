@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev --webpack",
+    "dev": "next dev --turbo",
     "lint": "eslint .",
     "postbuild": "next-sitemap",
     "seo:audit": "node ./scripts/seo-audit.js",
