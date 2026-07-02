@@ -3,8 +3,7 @@
 import Script from 'next/script';
 
 export default function GTM() {
-  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
-
+  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-TGB3BJW4';
   return (
     <>
       {/* GTM Script */}
