@@ -22,6 +22,19 @@ export type CaseStudy = {
 
 export const posts: Post[] = [
   {
+    slug: "on-page-seo-checklist-2026",
+    title: "On-Page SEO Checklist 2026: 15 Steps to Actually Rank Higher",
+    excerpt:
+      "A practical SEO checklist for publishers and business owners who want better rankings without relying on guesswork.",
+    category: "SEO",
+    author: "Revolix Team",
+    date: "2026-07-07",
+    readTime: "8 min read",
+    image: "/Blog/seo-checklist-cover.svg",
+    content:
+      "## Why on-page SEO still matters\n\nOn-page SEO is the foundation for content that gets discovered, trusted, and clicked. It helps search engines understand the page, while giving readers a better experience.\n\n## 15 practical checks to use today\n\n- Nail your title tag with a clear keyword and a human-friendly promise.\n- Write a meta description that creates curiosity without sounding spammy.\n- Use one clear H1 and structure the page with H2s and H3s.\n- Match the page to search intent rather than stuffing keywords.\n- Add internal links to help users and crawlers move through your site.\n- Optimize images with descriptive alt text and compression.\n- Make the page fast and mobile-friendly.\n- Refresh outdated content regularly so it stays relevant.\n\n## What to do next\n\nStart with one page, apply the checklist, and improve it step by step. Small changes often produce the biggest gains over time.",
+  },
+  {
     slug: "future-of-ai-enterprise",
     title: "The Future of AI in Enterprise: 2025 and Beyond",
     excerpt:

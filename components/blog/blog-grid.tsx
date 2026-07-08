@@ -5,76 +5,25 @@ import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import Image from "next/image"
 import { ParallaxSection } from "@/components/parallax-section"
+import { RevolixLogo } from "@/components/revolix-logo"
 import { Clock, ArrowRight } from "lucide-react"
 
 
-const categories = ["All", "AI & ML", "App development", "Web development", "UI/UX Design"]
+const categories = ["All", "AI & ML", "App development", "Web development", "UI/UX Design", "SEO"]
 
 const posts = [
   {
-    id: "future-of-ai-enterprise",
-    title: "The Future of AI in Enterprise: 2025 and Beyond",
+    id: "on-page-seo-checklist-2026",
+    title: "On-Page SEO Checklist 2026: 15 Steps to Actually Rank Higher",
     excerpt:
-      "Explore how artificial intelligence is reshaping enterprise operations, from automated decision-making to predictive analytics and beyond.",
-    category: "AI & ML",
-    author: "Alexandra Chen",
-    authorRole: "CEO",
-    date: "Dec 15, 2024",
+      "A practical SEO checklist for publishers and business owners who want better rankings without relying on guesswork.",
+    category: "SEO",
+    author: "Revolix Team",
+    authorRole: "SEO Team",
+    date: "Jul 7, 2026",
     readTime: "8 min read",
-    image: "/Blog/",
+    image: "/Blog/seo-checklist-cover.svg",
     featured: true,
-  },
-  {
-    id: "building-scalable-ml-pipelines",
-    title: "Building Scalable ML Pipelines: A Practical Guide",
-    excerpt:
-      "Learn best practices for designing and implementing machine learning pipelines that can scale with your business needs.",
-    category: "App development",
-    author: "Marcus Rodriguez",
-    authorRole: "CTO",
-    date: "Dec 10, 2024",
-    readTime: "12 min read",
-    image: "/Blog/2.jpg",
-    featured: false,
-  },
-  {
-    id: "design-systems-ai-products",
-    title: "Design Systems for AI-Powered Products",
-    excerpt:
-      "How to create consistent, accessible design systems that adapt to the unique challenges of AI-driven interfaces.",
-    category: "App development",
-    author: "Sarah Kim",
-    authorRole: "CDO",
-    date: "Dec 5, 2024",
-    readTime: "6 min read",
-    image: "/Blog/3.png",
-    featured: false,
-  },
-  {
-    id: "digital-transformation-roadmap",
-    title: "Creating a Digital Transformation Roadmap",
-    excerpt:
-      "A step-by-step guide to planning and executing successful digital transformation initiatives in your organization.",
-    category: "App development",
-    author: "David Thompson",
-    authorRole: "VP Engineering",
-    date: "Nov 28, 2024",
-    readTime: "10 min read",
-    image: "/Blog/4.jpg",
-    featured: false,
-  },
-  {
-    id: "healthcare-ai-trends",
-    title: "AI in Healthcare: Trends Shaping 2025",
-    excerpt:
-      "From diagnostic AI to personalized treatment plans, discover the innovations transforming healthcare delivery.",
-    category: "Web development",
-    author: "Marcus Rodriguez",
-    authorRole: "CTO",
-    date: "Nov 15, 2024",
-    readTime: "7 min read",
-    image: "/Blog/6.jpg",
-    featured: false,
   },
 ]
 
@@ -205,25 +154,6 @@ export function BlogGrid() {
             </p>
           </div>
         </ScrollReveal>
-
-        {/* Coming Soon Message */}
-        <ScrollReveal>
-          <div className="text-center py-16">
-            <div className="max-w-md mx-auto">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                <Clock className="w-8 h-8 text-primary" />
-              </div>
-              <p className="text-2xl font-bold mb-4">Blog Coming Soon</p>
-              <p className="text-muted-foreground mb-6">
-                We're working on bringing you insightful articles about AI, technology, and digital innovation. Stay tuned!
-              </p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                <Clock className="w-4 h-4" />
-                Coming Soon
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
         <ScrollReveal>
           <div className="flex flex-wrap justify-center gap-2 mb-12 opacity-50">
             {categories.map((category) => (
@@ -268,7 +198,7 @@ export function BlogGrid() {
                   <p className="text-muted-foreground mb-6 leading-relaxed">{featuredPost.excerpt}</p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-secondary" />
+                      <RevolixLogo size="sm" showText={false} />
                       <div>
                         <p className="text-sm font-medium">{featuredPost.author}</p>
                         <p className="text-xs text-muted-foreground">{featuredPost.date}</p>
@@ -294,7 +224,7 @@ export function BlogGrid() {
                   <article className="h-full rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col">
                     <div className="relative aspect-video overflow-hidden">
                       <Image
-                        src={post.image || "/placeholder.svg"}    
+                        src={post.image || "/placeholder.svg"}
                         alt={`${post.title} - frontend developer and backend developer blog`}
                         fill
                         sizes="(max-width: 1024px) 100vw, 33vw"
