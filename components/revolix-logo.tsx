@@ -10,21 +10,22 @@ interface RevolixLogoProps {
 
 export function RevolixLogo({ className = "", showText = true, size = "md" }: RevolixLogoProps) {
   const sizes = {
-    sm: { logo: "h-8 w-8", text: "text-lg" },
-    md: { logo: "h-10 w-10", text: "text-xl" },
-    lg: { logo: "h-14 w-14", text: "text-2xl" },
+    sm: { logo: "h-9 w-9", text: "text-lg" },
+    md: { logo: "h-12 w-12", text: "text-xl" },
+    lg: { logo: "h-16 w-16", text: "text-2xl" },
   }
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       {/* Creative Logo Mark */}
-      <motion.div
-        className={`${sizes[size].logo} relative`}
-        whileHover={{ scale: 1.05 }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-      >
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-          {/* Gradient definitions */}
+      <div className={`${sizes[size].logo} relative flex-shrink-0`}>
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          style={{ width: "100%", height: "100%" }}
+        >
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" width="48" height="48">
+            {/* Gradient definitions */}
           <defs>
             <linearGradient id="logoGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="oklch(0.75 0.15 180)" />
@@ -109,8 +110,9 @@ export function RevolixLogo({ className = "", showText = true, size = "md" }: Re
               ease: "easeInOut",
             }}
           />
-        </svg>
-      </motion.div>
+          </svg>
+        </motion.div>
+      </div>
 
       {/* Text Logo */}
       {showText && (
