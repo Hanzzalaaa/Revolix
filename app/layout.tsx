@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   creator: "Revolix Technologies",
   publisher: "Revolix Technologies",
   robots: { index: true, follow: true },
-  icons: { icon: "/icon.png", apple: "/icon.png" },
+  icons: { icon: "/icon.svg", apple: "/icon.svg" },
   openGraph: { title: "Revolix Technologies | AI & Software Development", description: "We build AI systems and software that works.", url: SITE_URL, siteName: "Revolix Technologies", images: [{ url: `${SITE_URL}/icon.png`, width: 512, height: 512, alt: "Revolix Technologies" }], locale: "en_US", type: "website" },
   twitter: { card: "summary_large_image", title: "Revolix Technologies", description: "Building AI systems and software that actually works in production.", images: [`${SITE_URL}/icon.png`] },
 }
