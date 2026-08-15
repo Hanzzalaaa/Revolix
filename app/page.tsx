@@ -24,7 +24,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.startsWith('http')
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    metadataBase: new URL(SITE_URL),
+    metadataBase: new URL(SITE_URL), 
     title: 'Revolix Technologies — AI Systems, CRM Automation & Custom Software',
     description: 'We build production AI agents, GoHighLevel automation, and backend infrastructure.',
     alternates: {
