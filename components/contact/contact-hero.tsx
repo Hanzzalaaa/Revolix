@@ -38,8 +38,8 @@ export function ContactHero() {
 
           <ScrollReveal delay={220}>
             <InternalLinksRow className="mt-6" />
-          </ScrollReveal>
-
+          </ScrollReveal> 
+          
           <ScrollReveal delay={280}>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" asChild>

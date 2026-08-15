@@ -9,25 +9,25 @@ const industries = [
   {
     icon: ShoppingCart,
     title: "Ecommerce",
-    description: "High-converting ecommerce platforms, product catalogs, and checkout flows built to scale.",
+    description: "High-converting ecommerce platforms, product catalogs and checkout flows built to scale.",
     href: "/industries#ecommerce",
   },
   {
     icon: Building2,
     title: "Real Estate",
-    description: "Property listings, lead generation, and CRM-ready websites for real estate teams.",
+    description: "Property listings, lead generation and CRM-ready websites for real estate teams.",
     href: "/industries#real-estate",
   },
   {
     icon: Heart,
     title: "Healthcare",
-    description: "HIPAA-aware digital experiences for clinics, labs, and healthcare startups.",
+    description: "HIPAA-aware digital experiences for modern clinics, labs and healthcare startups.",
     href: "/industries#healthcare",
   },
   {
     icon: Briefcase,
     title: "Business Websites",
-    description: "Professional business websites that build trust, authority, and qualified leads.",
+    description: "Professional business websites that build trust, authority and qualified leads.",
     href: "/industries#business-websites",
   },
 ]

@@ -30,7 +30,7 @@ export default function AboutPage() {
       <main>
         <AboutHero />
         <AboutMission />
-        <AboutTimeline />
+        {/* <AboutTimeline /> */}
         <AboutValues />
         <AboutTeam />
         <CTASection headingAs="p" subheadingAs="p" />

@@ -73,19 +73,20 @@ export function HeroSection() {
 
             <ScrollReveal delay={100}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.1] mb-6 text-balance">
-                Professional web Development, SEO &amp; Digital Marketing Services
+               Engineering Team · Karachi <br />
+                AI Systems,CRM Automation & Custom Software      
               </h1>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
               <p className="text-lg lg:text-xl text-muted-foreground mb-8 max-w-xl leading-relaxed">
-                We offer IT solutions featuring intelligent products designed to support growth-stage, fast-growing, and established enterprises. Optimize operations and accelerate in the right direction.
+                We build production AI agents, GoHighLevel automation and the backend infrastructure that runs them.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={220}>
               <p className="text-sm text-muted-foreground mb-6 max-w-xl">
-                If you are comparing the best web development company in Pakistan, we are built for results and speed.
+                If you are comparing, we are built for results and speed.
               </p>
             </ScrollReveal>
 
@@ -100,7 +101,7 @@ export function HeroSection() {
                   <Button size="lg" asChild className="group relative overflow-hidden">
                     <Link href="/contact">
                       <span className="relative z-10 flex items-center">
-                        Free Strategy Call
+                         Book a Free Consultation
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </span>
                     </Link>
@@ -113,14 +114,14 @@ export function HeroSection() {
                     asChild
                     className="glass border-primary/30 hover:bg-primary/10 bg-transparent"
                   >
-                    <Link href="/case-studies">View Our Work</Link>
+                    <Link href="/portfolio">See Our Work</Link>
                   </Button>
                 </motion.div>
               </div>
             </ScrollReveal>
 
             {/* Stats row */}
-            <ScrollReveal delay={400}>
+            {/* <ScrollReveal delay={400}>
               <div className="flex gap-8 mt-12 pt-8 border-t border-border/50">
                 {[
                   { value: "150+", label: "Projects Delivered" },
@@ -138,7 +139,7 @@ export function HeroSection() {
                   </motion.div>
                 ))}
               </div>
-            </ScrollReveal>
+            </ScrollReveal> */}
           </div>
 
           {/* Right Content - Floating Cards */}

@@ -37,7 +37,7 @@ export function TrustedBySection() {
               </div>
             </ScrollReveal>
           ))}
-        </div>
+        </div> 
       </div>
     </section>
   )

@@ -3,10 +3,10 @@
 import { useState } from "react"
 import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import Image from "next/image"
 import { ParallaxSection } from "@/components/parallax-section"
 import { RevolixLogo } from "@/components/revolix-logo"
 import { Clock, ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 
 const categories = ["All", "AI & ML", "App development", "Web development", "UI/UX Design", "SEO"]

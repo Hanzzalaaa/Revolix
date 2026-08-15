@@ -4,23 +4,6 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
 import { MapPin, Mail, Phone, Clock } from "lucide-react"
 
-const offices = [
-  {
-    city: "San Francisco",
-    address: "100 Market Street, Suite 400",
-    country: "United States",
-  },
-  {
-    city: "London",
-    address: "30 St Mary Axe",
-    country: "United Kingdom",
-  },
-  {
-    city: "Singapore",
-    address: "1 Raffles Place, Tower 1",
-    country: "Singapore",
-  },
-]
 
 export function ContactInfo() {
   return (
@@ -36,7 +19,7 @@ export function ContactInfo() {
           </div>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="  mb-16 flex justify-center gap-23">
           <ScrollReveal>
             <div className="flex gap-4">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
@@ -70,7 +53,7 @@ export function ContactInfo() {
               </div>
               <div>
                 <p className="font-semibold mb-1">Business Hours</p>
-                <p className="text-sm text-muted-foreground">Mon - Fri: 9AM - 6PM</p>
+                <p className="text-sm text-muted-foreground">Mon - Fri ; 24/7</p>
                 <p className="text-sm text-muted-foreground">Weekend: By appointment</p>
               </div>
             </div>
@@ -78,35 +61,16 @@ export function ContactInfo() {
 
           <ScrollReveal delay={300}>
             <div className="flex gap-4">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                <MapPin className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold mb-1">Visit Us</h3>
-                <p className="text-sm text-muted-foreground">Offices in 3 continents</p>
-                <p className="text-sm text-muted-foreground">Serving 35+ countries</p>
-              </div>
             </div>
           </ScrollReveal>
         </div>
 
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="text-2xl font-bold">Our Offices</p>
           </div>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {offices.map((office, index) => (
-            <ScrollReveal key={office.city} delay={index * 100}>
-              <div className="p-6 rounded-2xl bg-background border border-border text-center hover:border-primary/50 transition-colors">
-                <p className="text-lg font-semibold mb-2">{office.city}</p>
-                <p className="text-sm text-muted-foreground">{office.address}</p>
-                <p className="text-sm text-muted-foreground">{office.country}</p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
+        
       </div>
     </section>
   )

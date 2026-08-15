@@ -18,9 +18,9 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Revolix Technologies | AI & Software Development",
+  title: "Revolix Technologies — AI Systems, CRM Automation & Custom Software",
   description:
-    "We build AI systems and software that works. From ML pipelines to cloud infrastructure, we help teams ship production-ready solutions without the usual headaches.",
+    "We build production AI agents, GoHighLevel automation, and backend infrastructure... ",
   authors: [{ name: "Revolix Technologies" }],
   creator: "Revolix Technologies",
   publisher: "Revolix Technologies",

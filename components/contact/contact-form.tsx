@@ -11,7 +11,6 @@ import { Check, Loader2 } from "lucide-react"
 
 
 
-
 const services = [
   "AI & Machine Learning",
   "Software Development",

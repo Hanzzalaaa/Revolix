@@ -18,7 +18,7 @@ const values = [
   {
     icon: ThumbsUp,
     title: "Trusted Company",
-    description: "We build lasting partnerships through transparency, quality, and measurable results.",
+    description: "We focus on clear communication while building long-term relationships with every client we work with.",
   },
 ]
 
