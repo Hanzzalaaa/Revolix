@@ -70,7 +70,7 @@ export default function HomePage() {
         <IndustriesSection />
         <InfiniteServices />
         <StatsSection />
-        <Portfoliosection />
+        {/* <Portfoliosection /> */}
         <ProcessSection />
         <AboutTeam />
         {/* <TestimonialsSection /> */}

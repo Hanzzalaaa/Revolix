@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import {
   ArrowRight,
-  ExternalLink,
   X,
   ChevronLeft,
   ChevronRight,
@@ -74,9 +73,8 @@ const projects = [
   {
     title: "Crave Express",
     category: "UI/UX Design",
-   description:
-  "A modern food delivery platform designed to simplify browsing, ordering, and managing food deliveries while providing customers with a smooth and intuitive experience.",
-      
+    description:
+      "A modern food delivery platform designed to simplify browsing, ordering, and managing food deliveries while providing customers with a smooth and intuitive experience.",
     technologies: ["UI/UX Design", "Mobile App", "Food Delivery"],
     image: craveExpress,
 
@@ -209,21 +207,12 @@ const projects = [
   },
 ]
 
-// ======================================================
-// PORTFOLIO PAGE
-// ======================================================
-
 export default function PortfolioPage() {
-  // Currently selected project
+ 
   const [selectedProject, setSelectedProject] =
     useState<(typeof projects)[number] | null>(null)
 
-  // Currently selected image
   const [currentImage, setCurrentImage] = useState(0)
-
-  // ======================================================
-  // OPEN IMAGE VIEWER
-  // ======================================================
 
   const openViewer = (
     project: (typeof projects)[number]
@@ -232,18 +221,10 @@ export default function PortfolioPage() {
     setCurrentImage(0)
   }
 
-  // ======================================================
-  // CLOSE IMAGE VIEWER
-  // ======================================================
-
   const closeViewer = () => {
     setSelectedProject(null)
     setCurrentImage(0)
   }
-
-  // ======================================================
-  // NEXT IMAGE
-  // ======================================================
 
   const nextImage = () => {
     if (!selectedProject) return
@@ -360,40 +341,55 @@ export default function PortfolioPage() {
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-            <div className="grid gap-8 md:grid-cols-2">
+            {/* 
+              MOBILE:
+              1 column / full width
+
+              DESKTOP:
+              2 columns
+
+              LAST CARD:
+              Full width on mobile,
+              centered half-width on desktop
+            */}
+
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
 
               {projects.map((project, index) => (
-    <ScrollReveal
-      key={`${project.title}-${index}`}
-      delay={index * 100}
-      className={
-        index === projects.length - 1
-          ? "md:col-span-2 flex justify-center"
-          : ""
-      }
-    >
 
-      <article
-        className={
-          index === projects.length - 1
-            ? "w-full max-w-[calc(50%-1rem)] group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-            : "group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-        }
-      >
+                <ScrollReveal
+                  key={`${project.title}-${index}`}
+                  delay={index * 100}
+                  className={
+                    index === projects.length - 1
+                      ? "md:col-span-2 flex justify-center"
+                      : ""
+                  }
+                >
+
+                  <article
+                    className={
+                      index === projects.length - 1
+                        ? "w-full md:w-[calc(50%-1rem)] group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                        : "w-full group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                    }
+                  >
+
                     {/* ==================================================
                         OUTER PROJECT CARD IMAGE
                     ================================================== */}
 
                     <div className="relative aspect-video overflow-hidden bg-black">
-                      <Image
-                          src={project.image}
-                          alt={`${project.title} project`}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          className="object-contain transition-transform duration-500 group-hover:scale-105"
-                        />
-                    </div>
 
+                      <Image
+                        src={project.image}
+                        alt={`${project.title} project`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
+
+                    </div>
 
                     {/* ==================================================
                         PROJECT CONTENT

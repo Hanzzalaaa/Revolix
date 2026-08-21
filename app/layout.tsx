@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   icons: { icon: "/icon.svg", apple: "/icon.svg" },
   openGraph: { title: "Revolix Technologies | AI & Software Development", description: "We build AI systems and software that works.", url: SITE_URL, siteName: "Revolix Technologies", images: [{ url: `${SITE_URL}/icon.png`, width: 512, height: 512, alt: "Revolix Technologies" }], locale: "en_US", type: "website" },
-  twitter: { card: "summary_large_image", title: "Revolix Technologies", description: "Building AI systems and software that actually works in production.", images: [`${SITE_URL}/icon.png`] },
+  twitter: { card: "summary_large_image", title: "Revolix Technologies", description: "Building AI systems and software that actually works in production.", images: [`${SITE_URL}/icon.svg`] },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: "Revolix Technologies",
     url: "https://www.revolixtech.com",
     description: "AI solutions, web development & digital marketing",
-    logo: "https://www.revolixtech.com/icon.png",
+    logo: "/icon.svg",
   }
 
   return (
