@@ -27,9 +27,32 @@ export const metadata: Metadata = {
   creator: "Revolix Technologies",
   publisher: "Revolix Technologies",
   robots: { index: true, follow: true },
-  icons: { icon: "/image.jpg", apple: "/image.jpg" },
-  openGraph: { title: "Revolix Technologies | AI & Software Development", description: "We design, build, and scale intelligent digital solutions—from software and AI to automation, cloud, and business technology.", url: SITE_URL, siteName: "Revolix Technologies", images: [{ url: `${SITE_URL}/image.jpg`, width: 512, height: 512, alt: "Revolix Technologies" }], locale: "en_US", type: "website" },
-  twitter: { card: "summary_large_image", title: "Revolix Technologies", description: "Building AI systems and software that actually works in production.", images: [`${SITE_URL}/image.jpg`] },
+
+  openGraph: {
+    title: "Revolix Technologies | AI & Software Development",
+    description:
+      "We design, build, and scale intelligent digital solutions—from software and AI to automation, cloud, and business technology.",
+    url: SITE_URL,
+    siteName: "Revolix Technologies",
+    images: [
+      {
+        url: `${SITE_URL}/image.jpg`,
+        width: 512,
+        height: 512,
+        alt: "Revolix Technologies",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Revolix Technologies",
+    description:
+      "Building AI systems and software that actually works in production.",
+    images: [`${SITE_URL}/image.jpg`],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
