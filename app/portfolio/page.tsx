@@ -53,7 +53,7 @@ import llmOrchestrator4 from "./images/LLM Orchistrator (4).png"
 import hrm from "./images/Hrm project.png"
 import hrm2 from "./images/Hrm project (2).png"
 import hrm3 from "./images/Hrm project (3).png"
-import hrm4 from "./images/Hrm project (4).png"
+import hrm4 from "./images/Hrm project (4).png" 
 
 // ================= CRAVE EXPRESS =================
 import craveExpress from "./images/crave express.png"
