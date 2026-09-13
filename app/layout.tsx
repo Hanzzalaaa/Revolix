@@ -10,6 +10,8 @@ import "./globals.css"
 import GTM from "@/components/GTM"
 import TrackPageView from "@/components/TrackPageView"
 
+
+
 const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const _spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" })
 const _geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
@@ -25,29 +27,9 @@ export const metadata: Metadata = {
   creator: "Revolix Technologies",
   publisher: "Revolix Technologies",
   robots: { index: true, follow: true },
-  
-  // CHANGED: Updated from /image.jpg to /logo.png
-  icons: { icon: "/logo.png", apple: "/logo.png" },
-  
-  openGraph: { 
-    title: "Revolix Technologies | AI & Software Development", 
-    description: "We design, build, and scale intelligent digital solutions—from software and AI to automation, cloud, and business technology.", 
-    url: SITE_URL, 
-    siteName: "Revolix Technologies", 
-    
-    // CHANGED: Updated from /image.jpg to /logo.png
-    images: [{ url: `${SITE_URL}/logo.png`, width: 512, height: 512, alt: "Revolix Technologies" }], 
-    locale: "en_US", 
-    type: "website" 
-  },
-  twitter: { 
-    card: "summary_large_image", 
-    title: "Revolix Technologies", 
-    description: "Building AI systems and software that actually works in production.", 
-    
-    // CHANGED: Updated from /image.jpg to /logo.png
-    images: [`${SITE_URL}/logo.png`] 
-  },
+  icons: { icon: "/image.jpg", apple: "/image.jpg" },
+  openGraph: { title: "Revolix Technologies | AI & Software Development", description: "We design, build, and scale intelligent digital solutions—from software and AI to automation, cloud, and business technology.", url: SITE_URL, siteName: "Revolix Technologies", images: [{ url: `${SITE_URL}/image.jpg`, width: 512, height: 512, alt: "Revolix Technologies" }], locale: "en_US", type: "website" },
+  twitter: { card: "summary_large_image", title: "Revolix Technologies", description: "Building AI systems and software that actually works in production.", images: [`${SITE_URL}/image.jpg`] },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -63,9 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       logo: {
         "@type": "ImageObject",
         "@id": `${SITE_URL}/#logo`,
-        
-        // CHANGED: Updated from /image.jpg to /logo.png
-        url: `${SITE_URL}/logo.png`,
+        url: `${SITE_URL}/image.jpg`,
         width: 512,
         height: 512,
       },
@@ -94,14 +74,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     },
   ],
 }
-  
+ 
   return (
     <html lang="en">
       <head>
         <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_ORG_GRAPH) }}
-        />
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_ORG_GRAPH) }}
+/>
       </head>
       <body className={`font-sans antialiased ${_inter.variable} ${_spaceGrotesk.variable} ${_geistMono.variable}`}>
         <GTM />
