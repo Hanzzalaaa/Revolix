@@ -11,11 +11,15 @@ import {
   Cloud,
   Layers3,
   GitBranch,
+  Terminal,
+  Shield
 } from "lucide-react"
 
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
+import { TiltCard } from "@/components/interactive/page"
 
 const services = [
   {
@@ -75,53 +79,120 @@ export default function BackendDevelopmentPage() {
   return (
     <>
       <Header />
-
+ 
       <main className="overflow-hidden">
+        <BreadcrumbJsonLd items={[
+         { name: "Home", item: "https://revolixtech.com/" },
+         { name: "Backend Development", item: "https://revolixtech.com/backend-deve" },
+        ]} />
 
         {/* Hero */}
         <section className="relative overflow-hidden py-28 lg:py-36">
-          <div className="absolute inset-0 -z-10 opacity-10">
-            <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,_var(--primary)_0%,_transparent_70%)]" />
-          </div>
+      {/* Background decoration */}
+      <div className="absolute inset-0 -z-10 opacity-10">
+        <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,_var(--primary)_0%,_transparent_70%)]" />
+      </div>
 
-          <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
-            <ScrollReveal>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+       
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+            
+            {/* Left Side: Hero Text Content */}
+          <ScrollReveal>
+            <div className="text-left">
               <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-primary">
                 Backend Development
               </p>
-
-              <h1 className="mx-auto max-w-5xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 Powerful Backend Systems{" "}
-                <span className="text-primary">
-                  Built to Scale
-                </span>
+                <span className="text-primary"> Built to Scale </span>
               </h1>
-
-              <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-                We build secure APIs, scalable backend architectures,
-                databases, integrations, and real-time systems that power
-                modern digital products.
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                We build secure APIs, scalable backend architectures, databases, integrations, and real-time systems that power modern digital products.
               </p>
-
-              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Link
-                  href="/contact"
+              <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row">
+                <Link 
+                  href="/contact" 
                   className="group inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
                 >
-                  Start Your Project
+                  Start Your Project 
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-
-                <Link
-                  href="/portfolio"
+                <Link 
+                  href="/portfolio" 
                   className="inline-flex items-center rounded-lg border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-secondary"
                 >
                   View Our Work
                 </Link>
               </div>
-            </ScrollReveal>
+            </div>
+          </ScrollReveal>   
+
+            {/* Right Side: Backend Widget Visualizer */}
+          <ScrollReveal delay={150} className="hidden md:block">
+          <TiltCard className="mx-auto w-full max-w-xl">
+            <div className="relative flex justify-center lg:justify-end">
+              <div className="w-full max-w-md rounded-xl border border-border bg-card p-6 shadow-xl backdrop-blur-sm">
+                
+                {/* Window header */}
+                <div className="mb-4 flex items-center justify-between border-b border-border pb-3">
+                  <div className="flex space-x-1.5">
+                    <span className="h-3 w-3 rounded-full bg-destructive/60" />
+                    <span className="h-3 w-3 rounded-full bg-amber-500/60" />
+                    <span className="h-3 w-3 rounded-full bg-green-500/60" />
+                  </div>
+                  <div className="flex items-center text-xs font-mono text-muted-foreground gap-1">
+                    <Terminal className="h-3 w-3" /> main_server.py
+                  </div>
+                </div>
+
+                {/* API Request Block */}
+                <div className="space-y-4 font-mono text-xs">
+                  <div className="rounded-lg bg-muted/100 p-3 border border-border/50">
+                    <div className="flex items-center justify-between">
+                      <span className="rounded bg-green-500/10 px-1.5 py-0.5 text-green-500 font-bold">POST</span>
+                      <span className="text-muted-foreground">/api/v1/users/deploy</span>
+                    </div>
+                    <div className="mt-2 text-muted-foreground/80 pl-2 border-l border-primary/30">
+                      <code>{`{ status: "200 OK", latency: "14ms" }`}</code>
+                    </div>
+                  </div>
+
+                  {/* Architecture Stats */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="flex items-center gap-3 rounded-lg border border-border/50 p-3 bg-muted/100">
+                      <Database className="h-4 w-4 text-primary" />
+                      <div>
+                        <p className="text-[10px] text-muted-foreground uppercase">Database</p>
+                        <p className="font-semibold text-card-foreground">PostgreSQL</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 rounded-lg border border-border/50 p-3 bg-muted/100">
+                      <Shield className="h-4 w-4 text-primary" />
+                      <div>
+                        <p className="text-[10px] text-muted-foreground uppercase">Security</p>
+                        <p className="font-semibold text-card-foreground">OAuth 2.0 / JWT</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Live Console Output */}
+                  <div className="rounded-lg bg-muted/100 p-4 text-emerald-400 shadow-inner">
+                    <p className="text-muted-foreground text-[10px] mb-1">// Event Listener Active</p>
+                    <p className="text-white">&gt; npm run worker:cluster</p>
+                    <p className="mt-1 text-emerald-500">✔ [Redis] Connected to cache server</p>
+                    <p className="text-emerald-500">✔ [GraphQL] Playground running on port 4000</p>
+                    <p className="text-amber-400 animate-pulse">⚡ Spawning 4 background workers...</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </TiltCard>
+          </ScrollReveal>
           </div>
-        </section>
+      </div>
+    </section>
 
         {/* Introduction */}
         <section className="border-y border-border py-20 lg:py-28">
@@ -259,45 +330,10 @@ export default function BackendDevelopmentPage() {
           </div>
         </section>
 
-        {/* Process */}
-        <div className="mx-auto max-w-3xl mt-14 grid gap-6 md:grid-cols-2">
-  {[
-    {
-      number: "01",
-      title: "Understand",
-      text: "We learn about your product, users, requirements, and technical goals.",
-    },
-    {
-      number: "02",
-      title: "Architect",
-      text: "We plan the backend structure, APIs, database, integrations, and infrastructure.",
-    },
-    {
-      number: "03",
-      title: "Build",
-      text: "Our engineers develop and test the backend using an iterative development process.",
-    },
-    {
-      number: "04",
-      title: "Deploy",
-      text: "We prepare the system for production, help establish reliable deployment workflows.",
-    },
-  ].map((step, index) => (
-    <ScrollReveal key={step.number} delay={index * 100} className="h-full">
-      <div className="relative h-full rounded-2xl border border-border bg-card p-6 flex flex-col">
-        <span className="text-sm font-bold text-primary">{step.number}</span>
-        <h3 className="mt-4 text-xl font-semibold">{step.title}</h3>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          {step.text}
-        </p>
-      </div>
-    </ScrollReveal> 
-  ))} 
-</div>
+        
 
 
-
-        {/* CTA */}
+        {/* CTA */} 
         <section className="py-24 lg:py-32">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
 

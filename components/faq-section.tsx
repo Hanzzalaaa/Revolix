@@ -8,27 +8,26 @@ import { FAQJsonLd } from "./seo/json-ld"
 
 const faqs = [
   {
-    question: "Experienced Team",
+    question: "What kind of projects do you work on?",
     answer:
-      "Certified developers, designers, and SEO specialists with proven delivery across web, e-commerce, and marketing.",
+      "We work on websites, custom software, AI systems, automation, e-commerce platforms, and other digital products depending on the project.",
   },
   {
-    question: "Modern Technology",
+    question: "Can you work with an existing project?",
     answer:
-      "We build on modern stacks like Next.js, React, and secure cloud hosting to ensure speed and reliability.",
+      "Yes. We can work with an existing codebase, improve an existing system, or build new features around what you already have.",
   },
   {
-    question: "Client Satisfaction",
+    question: "How does a typical project start?",
     answer:
-      "Clear communication, predictable timelines, and measurable results are built into every engagement.",
+      "We start by understanding your requirements, goals, and existing setup. From there, we discuss the scope, approach, timeline, and next steps.",
   },
   {
-    question: "Affordable Pricing",
+    question: "Do you provide support after launch?",
     answer:
-      "Flexible packages that fit startups and growing businesses without compromising on quality.",
+      "Yes. Depending on the project, we can continue with maintenance, improvements, troubleshooting, and additional features after launch.",
   },
 ]
-
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
@@ -42,7 +41,7 @@ export function FAQSection() {
       <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Why Choose us
+            <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Frequently Asked Questions
             </p>
           </div>
         </ScrollReveal>

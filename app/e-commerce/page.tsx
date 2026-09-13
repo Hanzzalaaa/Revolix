@@ -16,6 +16,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { TiltCard } from "@/components/interactive/page"
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 const services = [
   {
@@ -104,6 +105,10 @@ export default function EcommercePage() {
       <Header /> 
 
       <main className="overflow-hidden">
+        <BreadcrumbJsonLd items={[
+         { name: "Home", item: "https://revolixtech.com/" },
+         { name: "E-commerce", item: "https://revolixtech.com/e-commerce" },
+        ]} />
         {/* Hero */}
 <section className="relative py-24 pt-32 lg:py-32 lg:pt-40">
   <div className="absolute inset-0 -z-10 opacity-10">
@@ -181,7 +186,7 @@ export default function EcommercePage() {
       </ScrollReveal>
     </div>
   </div>
-</section>
+</section> 
 
 
         {/* Services */}

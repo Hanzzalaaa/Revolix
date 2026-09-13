@@ -32,7 +32,7 @@ export function AboutValues() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Why Choose Us</p>
+            <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">The Advantage</p>
             <h2 className="text-3xl sm:text-4xl font-bold">Why Choose Us</h2>
           </div>
         </ScrollReveal>

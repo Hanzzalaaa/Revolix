@@ -20,7 +20,9 @@ export function ArticleJsonLd({
     "@type": "Article",
     headline: title,
     description,
-    author: { "@type": "Person", name: authorName || "Revolix Team" },
+    author: authorName
+  ? { "@type": "Person", name: authorName }
+  : { "@type": "Organization", name: "Revolix Team" },
     datePublished: datePublished,
   }
 

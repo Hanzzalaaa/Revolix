@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import {
   Menu,
   X,
@@ -10,8 +9,8 @@ import {
   ArrowRight,
 } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { RevolixLogo } from "./revolix-logo"
+import { usePathname } from "next/navigation"
 
 const SHOW_GRAPHICS =
   process.env.NEXT_PUBLIC_SHOW_GRAPHICS === "true"
@@ -172,6 +171,21 @@ const navigation = [
 ]
 
 // ============================================================
+// LEGAL LINKS
+// ============================================================
+
+const legalLinks = [
+  {
+    name: "Privacy Policy",
+    href: "/privacy-policy",
+  },
+  {
+    name: "Terms & Conditions",
+    href: "/terms-conditions",
+  },
+]
+
+// ============================================================
 // HEADER
 // ============================================================
 
@@ -181,11 +195,21 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] =
     useState(false)
 
+  // Desktop dropdown
   const [openDropdown, setOpenDropdown] =
     useState<string | null>(null)
 
+  // Mobile dropdown
   const [openMobileDropdown, setOpenMobileDropdown] =
     useState<string | null>(null)
+
+  // Desktop legal dropdown
+  const [isLegalOpen, setIsLegalOpen] =
+    useState(false)
+
+  // Mobile legal dropdown
+  const [isMobileLegalOpen, setIsMobileLegalOpen] =
+    useState(false)
 
   const pathname = usePathname()
 
@@ -214,6 +238,8 @@ export function Header() {
     setIsMobileMenuOpen(false)
     setOpenMobileDropdown(null)
     setOpenDropdown(null)
+    setIsLegalOpen(false)
+    setIsMobileLegalOpen(false)
   }, [pathname])
 
   // ==========================================================
@@ -248,6 +274,14 @@ export function Header() {
     pathname === "/industries"
 
   // ==========================================================
+  // LEGAL
+  // ==========================================================
+
+  const isLegalActive = legalLinks.some(
+    (link) => link.href === pathname
+  )
+
+  // ==========================================================
   // TOGGLE MOBILE MENU
   // ==========================================================
 
@@ -256,6 +290,7 @@ export function Header() {
 
     if (isMobileMenuOpen) {
       setOpenMobileDropdown(null)
+      setIsMobileLegalOpen(false)
     }
   }
 
@@ -561,42 +596,114 @@ export function Header() {
           </nav>
 
           {/* ==================================================
-              DESKTOP CTA
+              DESKTOP LEGAL TERMS DROPDOWN
           ================================================== */}
 
-          <div className="hidden lg:flex">
+          <div
+            className="relative hidden lg:flex"
+            onMouseEnter={() =>
+              setIsLegalOpen(true)
+            }
+            onMouseLeave={() =>
+              setIsLegalOpen(false)
+            }
+          >
 
-            <Button
-              asChild
-              className="relative overflow-hidden"
+            <button
+              type="button"
+              onClick={() =>
+                setIsLegalOpen(
+                  (previous) => !previous
+                )
+              }
+              className={`relative flex items-center gap-1 rounded-lg bg-primary px-4 py-2 text-sm font-medium transition-colors ${
+                isLegalActive
+                  ? "text-muted"
+                  : "text-muted"
+              }`}
+              aria-expanded={isLegalOpen}
+              aria-haspopup="true"
             >
 
-              <Link href="/contact">
-                <span className="relative z-10">
-                  Let&apos;s Connect
-                </span>
+              Legal Terms
+
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  isLegalOpen
+                    ? "rotate-180"
+                    : ""
+                }`}
+              />
+
+              {isLegalActive && (
+                <motion.div
+                  layoutId="activeNav"
+                  className="absolute inset-0 -z-10 rounded-lg bg-primary/10"
+                />
+              )}
+
+            </button>
+
+            <AnimatePresence>
+
+              {isLegalOpen && (
 
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary"
                   initial={{
-                    x: "-100%",
+                    opacity: 0,
+                    y: -10,
+                    scale: 0.98,
                   }}
-                  whileHover={{
-                    x: "100%",
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: -10,
+                    scale: 0.98,
                   }}
                   transition={{
-                    duration: 0.5,
+                    duration: 0.2,
                   }}
-                />
+                  className="absolute right-0 top-full w-56 pt-3"
+                >
 
-              </Link>
+                  <div className="rounded-2xl border border-border bg-background/95 p-2 shadow-2xl backdrop-blur-xl">
 
-            </Button>
+                    {legalLinks.map((link) => {
+
+                      const active =
+                        pathname ===
+                        link.href
+
+                      return (
+                        <Link
+                          key={link.name}
+                          href={link.href}
+                          className={`block rounded-lg px-4 py-2.5 text-sm transition-colors ${
+                            active
+                              ? "bg-primary/10 text-primary"
+                              : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                          }`}
+                        >
+                          {link.name}
+                        </Link>
+                      )
+                    })}
+
+                  </div>
+
+                </motion.div>
+              )}
+
+            </AnimatePresence>
 
           </div>
 
           {/* ==================================================
-              MOBILE BUTTON
+              MOBILE MENU BUTTON
           ================================================== */}
 
           <button
@@ -664,8 +771,6 @@ export function Header() {
 
       {/* ======================================================
           MOBILE MENU
-          IMPORTANT:
-          max-h + overflow-y-auto = MOBILE SCROLL BAR
       ====================================================== */}
 
       <AnimatePresence>
@@ -747,7 +852,8 @@ export function Header() {
                           x: 0,
                         }}
                         transition={{
-                          delay: index * 0.04,
+                          delay:
+                            index * 0.04,
                         }}
                       >
 
@@ -780,6 +886,7 @@ export function Header() {
                                 openMobileDropdown ===
                                 item.name
                               }
+                              aria-haspopup="true"
                             >
 
                               <span>
@@ -846,8 +953,7 @@ export function Header() {
                                       </Link>
 
                                       {/* ==================================================
-                                          ALL SERVICES FROM EVERY CATEGORY
-                                          INCLUDING CLOUD & DEVOPS
+                                          SERVICE CATEGORIES
                                       ================================================== */}
 
                                       <div className="mt-1">
@@ -909,7 +1015,7 @@ export function Header() {
                                   ) : (
 
                                     /* ==================================================
-                                        OTHER DROPDOWN
+                                        OTHER MOBILE DROPDOWN
                                     ================================================== */
 
                                     <div className="ml-3 mt-1 border-l-2 border-border pl-3">
@@ -977,21 +1083,101 @@ export function Header() {
                 )}
 
                 {/* ==================================================
-                    MOBILE CTA
+                    MOBILE LEGAL TERMS
                 ================================================== */}
 
-                <div className="pb-2 pt-4">
+                <div className="mt-1">
 
-                  <Button
-                    asChild
-                    className="w-full"
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setIsMobileLegalOpen(
+                        (previous) => !previous
+                      )
+                    }
+                    className={`flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                      isLegalActive
+                        ? "bg-primary/10 text-primary"
+                        : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                    }`}
+                    aria-expanded={isMobileLegalOpen}
+                    aria-haspopup="true"
                   >
 
-                    <Link href="/contact">
-                      Let&apos;s Connect
-                    </Link>
+                    <span>
+                      Legal Terms
+                    </span>
 
-                  </Button>
+                    <ChevronDown
+                      className={`h-5 w-5 shrink-0 transition-transform duration-200 ${
+                        isMobileLegalOpen
+                          ? "rotate-180"
+                          : ""
+                      }`}
+                    />
+
+                  </button>
+
+                  <AnimatePresence>
+
+                    {isMobileLegalOpen && (
+
+                      <motion.div
+                        initial={{
+                          opacity: 0,
+                          height: 0,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          height: "auto",
+                        }}
+                        exit={{
+                          opacity: 0,
+                          height: 0,
+                        }}
+                        transition={{
+                          duration: 0.2,
+                        }}
+                        className="overflow-hidden"
+                      >
+
+                        <div className="ml-3 mt-1 border-l-2 border-border pl-3">
+
+                          {legalLinks.map(
+                            (link) => {
+
+                              const active =
+                                pathname ===
+                                link.href
+
+                              return (
+                                <Link
+                                  key={
+                                    link.name
+                                  }
+                                  href={
+                                    link.href
+                                  }
+                                  className={`block rounded-lg px-4 py-3 text-sm transition-colors ${
+                                    active
+                                      ? "bg-primary/10 text-primary"
+                                      : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                                  }`}
+                                >
+                                  {
+                                    link.name
+                                  }
+                                </Link>
+                              )
+                            }
+                          )}
+
+                        </div>
+
+                      </motion.div>
+                    )}
+
+                  </AnimatePresence>
 
                 </div>
 
@@ -1000,7 +1186,6 @@ export function Header() {
             </div>
 
           </motion.div>
-
         )}
 
       </AnimatePresence>

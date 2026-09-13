@@ -13,12 +13,13 @@ import {
   FileSearch,
   BarChart3,
   Sparkles,
-} from "lucide-react"
+} from "lucide-react" 
 
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { TiltCard } from "@/components/interactive/page"
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 const services = [
   {
@@ -228,6 +229,10 @@ export default function SEOPage() {
       <Header />
 
       <main>
+        <BreadcrumbJsonLd items={[
+         { name: "Home", item: "https://revolixtech.com/" },
+         { name: "SEO", item: "https://revolixtech.com/seo" },
+        ]} />
 
         {/* hero */}
         <section className="relative overflow-hidden py-24 lg:py-32">

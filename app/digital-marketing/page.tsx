@@ -19,6 +19,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { TiltCard } from "@/components/interactive/page"
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 const services = [
   {
@@ -223,7 +224,7 @@ const faqs = [
     answer:
       "Yes. We can work as an extension of an existing marketing team or handle specific areas such as paid advertising, social media, content, or analytics.",
   },
-]
+] 
 
 export default function DigitalMarketingPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
@@ -233,6 +234,10 @@ export default function DigitalMarketingPage() {
       <Header />
 
       <main>
+        <BreadcrumbJsonLd items={[
+         { name: "Home", item: "https://revolixtech.com/" },
+         { name: "Digital Marketing", item: "https://revolixtech.com/digital-marketing" },
+       ]} />
 
         {/* ==================================================
             HERO
@@ -331,7 +336,7 @@ export default function DigitalMarketingPage() {
         </div>
       </div>
 
-    </div>
+    </div> 
   </div>
   </TiltCard>
 </ScrollReveal>

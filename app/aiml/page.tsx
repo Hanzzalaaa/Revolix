@@ -21,6 +21,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { TiltCard } from "@/components/interactive/page"
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 const services = [
   {
@@ -295,6 +296,10 @@ export default function AIMLPage() {
       <Header />
 
       <main>
+        <BreadcrumbJsonLd items={[
+         { name: "Home", item: "https://revolixtech.com/" },
+         { name: "AI & Machine Learning", item: "https://revolixtech.com/aiml" },
+        ]} />
 
         {/* =========================
             HERO
@@ -414,7 +419,7 @@ export default function AIMLPage() {
               </p>
             </div>
           </div>
-        </div> 
+        </div>  
       </div>
     </div>
   </div>

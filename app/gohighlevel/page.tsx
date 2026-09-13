@@ -19,7 +19,7 @@ import {
   ArrowRight,
   ChevronDown,
 } from "lucide-react"
-
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 const ghlFaqs = [
   {
@@ -52,6 +52,10 @@ export default function GoHighLevelPage() {
       <Header />
 
       <main>
+        <BreadcrumbJsonLd items={[
+          { name: "Home", item: "https://revolixtech.com/" },
+          { name: "GoHighLevel", item: "https://revolixtech.com/gohighlevel" },
+        ]} />
         {/* Hero Section */}
       
 <section className="relative overflow-hidden py-24 lg:py-32">
@@ -288,20 +292,19 @@ export default function GoHighLevelPage() {
               {[
                 { 
                   title: "Launch Setup",
-                  price: "$500",
-                  time: "7 Days",
+                  price: "$400",
+                 
                   features: [
                     "CRM Setup",
                     "Pipelines",
-                    "Calendars",
                     "Funnels",
                     "Forms",
                   ],
                 },
                 {
-                  title: "Speed-to-Lead",
-                  price: "$400",
-                  time: "5 Days",
+                  title: "Speed-to-Lead", 
+                  price: "$500",
+                 
                   features: [
                     "Missed Call Text Back",
                     "Lead Notifications",
@@ -312,7 +315,7 @@ export default function GoHighLevelPage() {
                 {
                   title: "AI Chat Agent",
                   price: "$1,200",
-                  time: "10 Days",
+                
                   features: [
                     "GPT Chatbot",
                     "Knowledge Base",
@@ -323,7 +326,7 @@ export default function GoHighLevelPage() {
                 {
                   title: "AI Voice Receptionist",
                   price: "$2,500",
-                  time: "14 Days",
+                  
                   features: [
                     "Voice AI",
                     "Appointment Booking",
@@ -336,13 +339,11 @@ export default function GoHighLevelPage() {
                   <CardContent className="p-8 flex flex-col h-full">
                     <h3 className="text-2xl font-bold">{pkg.title}</h3>
 
-                    <div className="mt-6 text-4xl font-bold text-primary">
+                    <div className="mt-6 text-4xl font-bold text-primary mb-7">
                       {pkg.price}
                     </div>
 
-                    <p className="text-sm text-muted-foreground mb-6">
-                      Timeline: {pkg.time}
-                    </p>
+                    
 
                     <div className="space-y-3 flex-grow">
                       {pkg.features.map((item) => (
@@ -353,7 +354,7 @@ export default function GoHighLevelPage() {
                       ))}
                     </div>
 
-                    <Button size="lg" asChild>
+                    <Button size="lg" asChild className="m-2 mt-12">
                       <Link href="./contact/contact-form">
                          Get Started
                       </Link>

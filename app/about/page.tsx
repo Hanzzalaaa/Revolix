@@ -8,6 +8,8 @@ import { AboutTimeline } from "@/components/about/about-timeline"
 import { AboutTeam } from "@/components/about/about-team"
 import { AboutValues } from "@/components/about/about-values"
 import { CTASection } from "@/components/cta-section"
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
+import { AboutServices } from "@/components/about/about-services"
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -28,10 +30,15 @@ export default function AboutPage() {
     <ParallaxProvider>
       <Header />
       <main>
+        <BreadcrumbJsonLd items={[
+          { name: "Home", item: "https://revolixtech.com/" },
+          { name: "About", item: "https://revolixtech.com/about" },
+        ]} />
         <AboutHero />
         <AboutMission />
         {/* <AboutTimeline /> */}
         <AboutValues />
+        <AboutServices />
         <AboutTeam />
         <CTASection headingAs="p" subheadingAs="p" />
       </main>

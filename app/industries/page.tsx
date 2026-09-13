@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer"
 import { IndustriesHero } from "@/components/industries/industries-hero"
 import { IndustriesGrid } from "@/components/industries/industries-grid"
 import { CTASection } from "@/components/cta-section"
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -19,8 +20,12 @@ export default function IndustriesPage() {
     <ParallaxProvider>
       <Header />
       <main>
+        <BreadcrumbJsonLd items={[
+         { name: "Home", item: "https://revolixtech.com/" },
+         { name: "Industries", item: "https://revolixtech.com/industries" },
+    ]} />
         <IndustriesHero />
-        <IndustriesGrid />
+        <IndustriesGrid /> 
    
         <CTASection headingAs="p" subheadingAs="p" />
       </main>

@@ -1,15 +1,10 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
-import { RevolixLogo } from "@/components/revolix-logo"
 import { Clock, ArrowRight } from "lucide-react"
 import Image from "next/image"
-
-
-const categories = ["All", "AI & ML", "App development", "Web development", "UI/UX Design", "SEO"]
 
 const posts = [
   {
@@ -25,189 +20,161 @@ const posts = [
     image: "/Blog/seo-checklist-cover.svg",
     featured: true,
   },
+
+  {
+    id: "ai-agents-for-business",
+    title: "AI Agents for Business: Where They Actually Make Sense",
+    excerpt:
+      "A practical look at how AI agents can handle repetitive tasks, support customers, qualify leads, and connect business workflows.",
+    category: "AI & Automation",
+    author: "Revolix Team",
+    authorRole: "AI Team",
+    date: "Aug 2, 2026",
+    readTime: "7 min read",
+    image: "/Blog/AI-auto.jpg",
+  },
+
+  {
+    id: "gohighlevel-automation-workflows",
+    title: "5 GoHighLevel Automations That Can Save Your Team Time",
+    excerpt:
+      "From missed-call text-back to lead follow-ups and appointment reminders, these workflows show where CRM automation can make a practical difference.",
+    category: "GoHighLevel",
+    author: "Revolix Team",
+    authorRole: "Automation Team",
+    date: "Aug 9, 2026",
+    readTime: "6 min read",
+    image: "/Blog/ghl.jpg",
+  },
+
+  {
+    id: "nextjs-performance-guide",
+    title: "How to Build a Faster Website Without Rebuilding Everything",
+    excerpt:
+      "A practical guide to improving website performance through image optimization, better rendering, cleaner code, and smarter architecture.",
+    category: "Web Development",
+    author: "Revolix Team",
+    authorRole: "Development Team",
+    date: "Aug 16, 2026",
+    readTime: "8 min read",
+    image: "/Blog/webDev.jpg",
+  },
+
+  {
+    id: "ui-ux-conversion-principles",
+    title: "UI/UX Design Principles That Make Business Websites Easier to Use",
+    excerpt:
+      "Simple interface decisions that improve navigation, clarity, usability, and the overall experience of a business website.",
+    category: "UI/UX Design",
+    author: "Revolix Team",
+    authorRole: "Design Team",
+    date: "Aug 23, 2026",
+    readTime: "6 min read",
+    image: "/Blog/uiux.jpg",
+  },
 ]
 
 export function BlogGrid() {
-  const [activeCategory, setActiveCategory] = useState("All")
+  const featuredPost = posts.find((post) => post.featured)
+  const regularPosts = posts.filter((post) => !post.featured)
 
-  const filteredPosts = activeCategory === "All" ? posts : posts.filter((post) => post.category === activeCategory)
-
-  const featuredPost = filteredPosts.find((post) => post.featured)
-  const regularPosts = filteredPosts.filter((post) => !post.featured)
   return (
-    <section className="py-12 relative overflow-hidden">
-      <ParallaxSection speed={0.1} className="absolute inset-0 opacity-5">
-        <div className="w-full h-full bg-[linear-gradient(135deg,_var(--primary)_25%,_transparent_25%,_transparent_75%,_var(--primary)_75%)] bg-[size:60px_60px]" />
+    <section className="relative overflow-hidden py-12">
+      {/* =========================================================
+          BACKGROUND
+      ========================================================= */}
+
+      <ParallaxSection
+        speed={0.1}
+        className="absolute inset-0 opacity-5"
+      >
+        <div className="h-full w-full bg-[linear-gradient(135deg,_var(--primary)_25%,_transparent_25%,_transparent_75%,_var(--primary)_75%)] bg-[size:60px_60px]" />
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* =======================================================
+            INTRO
+        ======================================================= */}
+
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">SEO Tips</h2>
-            <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              <div className="p-6 rounded-2xl bg-card border border-border">
-                <h3 className="text-lg font-semibold mb-2">On Page SEO</h3>
-                <p className="text-sm text-muted-foreground">Actionable on-page tactics for higher rankings.</p>
-              </div>
-              <div className="p-6 rounded-2xl bg-card border border-border">
-                <h3 className="text-lg font-semibold mb-2">Keyword Research</h3>
-                <p className="text-sm text-muted-foreground">Find the keywords your buyers actually search.</p>
-              </div>
-            </div>
+          <div className="mx-auto mb-16 max-w-4xl text-center">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-primary">
+              Insights & Guides
+            </p>
+
+            <h2 className="mb-5 text-3xl font-bold sm:text-4xl">
+              Practical Ideas for Building & Growing
+            </h2>
+
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              Explore practical insights across AI, automation, web
+              development, SEO, GoHighLevel, UI/UX, and digital growth.
+            </p>
           </div>
         </ScrollReveal>
 
-        <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Web Development</h2>
-            <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              <div className="p-6 rounded-2xl bg-card border border-border">
-                <h3 className="text-lg font-semibold mb-2">Website Design</h3>
-                <p className="text-sm text-muted-foreground">Design patterns that convert and build trust.</p>
-              </div>
-              <div className="p-6 rounded-2xl bg-card border border-border">
-                <h3 className="text-lg font-semibold mb-2">UI UX</h3>
-                <p className="text-sm text-muted-foreground">User-first experiences for better engagement.</p>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
+        {/* =======================================================
+            FEATURED POST
+        ======================================================= */}
 
-        <ScrollReveal>
-          <div className="text-center mb-20">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Digital Marketing</h2>
-            <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              <div className="p-6 rounded-2xl bg-card border border-border">
-                <h3 className="text-lg font-semibold mb-2">Social Media</h3>
-                <p className="text-sm text-muted-foreground">Content that grows reach and brand trust.</p>
-              </div>
-              <div className="p-6 rounded-2xl bg-card border border-border">
-                <h3 className="text-lg font-semibold mb-2">Ads Strategy</h3>
-                <p className="text-sm text-muted-foreground">Campaigns engineered for ROI and scale.</p>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <div className="max-w-4xl mx-auto mb-20 text-muted-foreground space-y-5">
-            <p>
-              This blog is where we document what actually works in SEO, web development, and digital marketing. We
-              publish clear, implementation-ready guidance for teams that want results without hype. Each article is
-              built to be practical for founders, marketing managers, and technical teams who need a real plan for
-              growth and visibility. You will find frameworks, templates, and examples that explain why something
-              matters and how to execute it correctly.
-            </p>
-            <p>
-              For SEO tips, we focus on the fundamentals that consistently move rankings: intent-aligned headings,
-              clean metadata, fast page speed, and internal links that guide users to the next best action. We cover
-              technical audits, on-page improvements, and content planning so your pages are easy to crawl and easy to
-              trust. Our recommendations avoid keyword stuffing and prioritize readability, because users and search
-              engines are both looking for clarity.
-            </p>
-            <p>
-              Web development content is written for both decision-makers and engineers. We break down how to structure
-              pages, optimize layout for conversion, and maintain accessibility as your site grows. Topics include
-              performance optimization, responsive design, and modern frameworks such as Next.js. Whether you are a
-              backend developer or a frontend developer, you will find workflow insights that connect engineering
-              quality with business outcomes.
-            </p>
-            <p>
-              On the digital marketing side, we show how to connect campaigns to landing pages that convert. That means
-              aligning ad copy, social messaging, and email flows with the same value proposition a visitor sees on
-              arrival. When marketing and product teams share a single message, conversion rates rise and bounce rates
-              drop. We also explain how to track results with clear KPIs that help you make confident decisions.
-            </p>
-            <p>
-              We publish with a simple editorial standard: actionable insights, real examples, and straightforward
-              steps. If something requires a specific tool, we describe the reasoning before pointing to the tool. If a
-              strategy depends on data, we show the measurement and the expected impact. This approach keeps the blog
-              useful for both newcomers and experienced practitioners who want to sharpen their process.
-            </p>
-            <p>
-              You can also expect posts that explain how to choose the right approach for your business. For example,
-              when to prioritize technical fixes over new content, how to decide between long-form guides and landing
-              pages, and what to measure after a redesign. These are practical decisions teams face every quarter, and
-              we break them down with clear trade-offs rather than generic advice.
-            </p>
-            <p>
-              If you are building internal capability, the blog is structured to help you train your team. Share posts
-              with designers, developers, and marketers so everyone understands the same goals and vocabulary. That
-              alignment makes SEO projects smoother, keeps timelines predictable, and improves quality across the board.
-            </p>
-            <p>
-              The goal is to help you build a sustainable content engine that supports long-term rankings, not just
-              short-term spikes. We show how to build topic clusters, map keywords to real business intent, and publish
-              content that answers specific questions your buyers ask. That is how you earn trust, improve CTR, and
-              convert visits into sales conversations.
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Step-by-step SEO checklists you can implement immediately.</li>
-              <li>Website architecture guides that improve usability and crawlability.</li>
-              <li>Digital marketing playbooks for paid and organic growth.</li>
-              <li>Conversion tactics for landing pages and lead capture.</li>
-            </ul>
-            <p>
-              As new content goes live, we will expand into deeper case studies and tactical tutorials. Until then, use
-              this section as a foundation for your content strategy, and reach out if you want help implementing any
-              of these ideas for your brand.
-            </p>
-          </div>
-        </ScrollReveal>
-        <ScrollReveal>
-          <div className="flex flex-wrap justify-center gap-2 mb-12 opacity-50">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all ${activeCategory === category
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-card border border-border text-muted-foreground"
-                  }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </ScrollReveal>
-
-        {/* Featured Post */}
         {featuredPost && (
           <ScrollReveal>
-            <Link href={`/blog/${featuredPost.id}`} className="group block mb-12">
-              <article className="grid lg:grid-cols-2 gap-8 rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/50 transition-all duration-300">
-                <div className="relative aspect-video lg:aspect-auto overflow-hidden">
+            <Link
+              href={`/blog/${featuredPost.id}`}
+              className="group mb-12 block"
+            >
+              <article className="grid overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-primary/50 lg:grid-cols-2">
+                {/* Featured image */}
+                <div className="relative aspect-video overflow-hidden lg:aspect-auto">
                   <Image
-                    src={featuredPost.image || "/placeholder.svg"}
-                    alt={`${featuredPost.title} - frontend developer and backend developer blog`}
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full">
+
+                  <div className="absolute left-4 top-4">
+                    <span className="rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">
                       Featured
                     </span>
                   </div>
                 </div>
-                <div className="p-8 flex flex-col justify-center">
-                  <span className="text-sm text-primary font-medium mb-3">{featuredPost.category}</span>
-                  <p className="text-2xl lg:text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
+
+                {/* Featured content */}
+                <div className="flex flex-col justify-center p-8 lg:p-10">
+                  <span className="mb-3 text-sm font-medium text-primary">
+                    {featuredPost.category}
+                  </span>
+
+                  <h3 className="mb-4 text-2xl font-bold transition-colors group-hover:text-primary lg:text-3xl">
                     {featuredPost.title}
+                  </h3>
+
+                  <p className="mb-6 leading-relaxed text-muted-foreground">
+                    {featuredPost.excerpt}
                   </p>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">{featuredPost.excerpt}</p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <RevolixLogo size="sm" showText={false} />
-                      <div>
-                        <p className="text-sm font-medium">{featuredPost.author}</p>
-                        <p className="text-xs text-muted-foreground">{featuredPost.date}</p>
-                      </div>
+
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                      <p className="text-sm font-medium">
+                        {featuredPost.author}
+                      </p>
+
+                      <p className="text-xs text-muted-foreground">
+                        {featuredPost.date}
+                      </p>
                     </div>
+
                     <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                      <Clock className="w-4 h-4" />
+                      <Clock className="h-4 w-4" />
                       {featuredPost.readTime}
                     </div>
+                  </div>
+
+                  <div className="mt-6 inline-flex items-center text-sm font-medium text-primary">
+                    Read Article
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </article>
@@ -215,55 +182,87 @@ export function BlogGrid() {
           </ScrollReveal>
         )}
 
-        {/* Regular Posts Grid */}
-        {regularPosts.length > 0 && (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {regularPosts.map((post, index) => (
-              <ScrollReveal key={`${post.id}-${index}`} delay={index * 100}>
-                <Link href={`/blog/${post.id}`} className="group block h-full">
-                  <article className="h-full rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col">
-                    <div className="relative aspect-video overflow-hidden">
-                      <Image
-                        src={post.image || "/placeholder.svg"}
-                        alt={`${post.title} - frontend developer and backend developer blog`}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 33vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="p-6 flex flex-col flex-1">
-                      <span className="text-xs text-primary font-medium mb-2">{post.category}</span>
-                      <p className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                        {post.title}
-                      </p>
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2 flex-1">{post.excerpt}</p>
-                      <div className="flex items-center justify-between pt-4 border-t border-border">
-                        <p className="text-xs text-muted-foreground">{post.date}</p>
-                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <Clock className="w-3 h-3" />
-                          {post.readTime}
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
-        )}
+        {/* =======================================================
+            REGULAR POSTS
+        ======================================================= */}
 
-        {/* Load More - Hidden */}
-        {false && (
-          <ScrollReveal delay={400}>
-            <div className="mt-12 text-center">
-              <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border text-sm font-medium hover:border-primary hover:text-primary transition-colors group">
-                Load More Articles
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+  {regularPosts.map((post, index) => (
+    <ScrollReveal
+      key={post.id}
+      delay={index * 100}
+    >
+      <Link
+        href={`/blog/${post.id}`}
+        className="group block h-full"
+      >
+        <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl">
+          {/* =================================================
+              POST IMAGE
+          ================================================= */}
+
+          <div className="relative aspect-[530/395] overflow-hidden bg-muted/30">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+
+          {/* =================================================
+              POST CONTENT
+          ================================================= */}
+
+          <div className="flex flex-1 flex-col p-6">
+            <span className="mb-2 text-xs font-medium text-primary">
+              {post.category}
+            </span>
+
+            <h3 className="mb-3 line-clamp-2 text-lg font-semibold transition-colors group-hover:text-primary">
+              {post.title}
+            </h3>
+
+            <p className="mb-5 line-clamp-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+              {post.excerpt}
+            </p>
+
+            <div className="flex items-center justify-between border-t border-border pt-4">
+              <p className="text-xs text-muted-foreground">
+                {post.date}
+              </p>
+
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Clock className="h-3 w-3" />
+                {post.readTime}
+              </div>
             </div>
-          </ScrollReveal>
-        )}
+          </div>
+        </article>
+      </Link>
+    </ScrollReveal>
+  ))}
+</div>
+
+        {/* =======================================================
+            BOTTOM LINK
+        ======================================================= */}
+
+        <ScrollReveal delay={400}>
+          <div className="mt-14 text-center">
+            <Link
+              href="/services"
+              className="group inline-flex items-center rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-muted-foreground transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-primary"
+            >
+              Explore Our Services
+
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )
 }
+

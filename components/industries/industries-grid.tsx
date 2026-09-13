@@ -19,6 +19,7 @@ import {
   Leaf,
   ArrowRight,
 } from "lucide-react"
+import Link from "next/link"
 
 const industries = [
   {
@@ -273,6 +274,19 @@ export function IndustriesGrid() {
                   }
                 >
                   {/* ==================================================
+                      MOBILE-ONLY COLOR SHADE
+                      Since the image (which normally carries the
+                      industry color) is hidden on mobile, add a soft
+                      glow in the top-right corner that matches the
+                      industry's theme color. Hidden from md breakpoint
+                      up, where the real image + gradient takes over.
+                  ================================================== */}
+
+                  <div
+                    className={`pointer-events-none absolute -right-8 -top-8 h-32 w-70 rounded-full bg-gradient-to-br ${industry.color} blur-2xl md:hidden`}
+                  />
+
+                  {/* ==================================================
                       DESKTOP IMAGE
                       Hidden completely on mobile
                   ================================================== */}
@@ -307,7 +321,7 @@ export function IndustriesGrid() {
                       Since image is hidden on mobile
                   ================================================== */}
 
-                  <div className="flex items-center px-6 pt-6 md:hidden">
+                  <div className="relative flex items-center px-6 pt-6 md:hidden">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/30 bg-primary/20">
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
@@ -317,7 +331,7 @@ export function IndustriesGrid() {
                       CONTENT
                   ================================================== */}
 
-                  <div className="p-6">
+                  <div className="relative p-6">
                     <h3 className="mb-2 text-xl font-semibold transition-colors group-hover:text-primary">
                       {industry.title}
                     </h3>
@@ -376,8 +390,12 @@ export function IndustriesGrid() {
                     ================================================== */}
 
                     <div className="mt-4 flex items-center gap-2 text-sm font-medium text-primary transition-all group-hover:gap-3">
-                      <span>Learn more</span>
-                      <ArrowRight className="h-4 w-4" />
+                      <Link href="/contact">
+                      <span className="relative z-10 flex items-center">
+                       Learn more
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </Link>
                     </div>
                   </div>
                 </div>

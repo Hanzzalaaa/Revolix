@@ -61,6 +61,8 @@ import craveExpress2 from "./images/crave express (2).png"
 import craveExpress3 from "./images/crave express (3).png"
 import craveExpress4 from "./images/crave express (4).png"
 
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
+
 // ======================================================
 // PORTFOLIO DATA
 // ======================================================
@@ -290,11 +292,15 @@ export default function PortfolioPage() {
   // RENDER
   // ======================================================
 
-  return (
+  return ( 
     <>
       <Header />
 
       <main>
+        <BreadcrumbJsonLd items={[
+         { name: "Home", item: "https://revolixtech.com/" },
+         { name: "Portfolio", item: "https://revolixtech.com/portfolio" },
+       ]} />  
 
         {/* ==================================================
             HERO
@@ -472,91 +478,169 @@ export default function PortfolioPage() {
             HOW WE WORK
         ================================================== */}
 
-        <section className="border-t border-border py-24 lg:py-32">
+<section className="border-t border-border py-24 lg:py-32">
 
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+  <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
-            <ScrollReveal>
+    <ScrollReveal>
 
-              <div className="text-center">
+      <div className="text-center">
 
-                <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
-                  Our Approach
-                </p>
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+          Our Approach
+        </p>
 
-                <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                  From Idea to Working Product
-                </h2>
+        <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+          From Idea to Working Product
+        </h2>
 
-                <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-                  We focus on understanding the problem first,
-                  then building practical solutions around the
-                  needs of the business.
+        <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+          We focus on understanding the problem first,
+          then building practical solutions around the
+          needs of the business.
+        </p>
+
+      </div>
+
+    </ScrollReveal>
+
+    
+
+    <div className="relative mt-14">
+
+      
+
+     
+
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 m-10">
+
+        {[
+          {
+            number: "01",
+            title: "Discovery",
+            description:
+              "Understand the business, requirements, users, and technical challenges.",
+          },
+          {
+            number: "02",
+            title: "Planning",
+            description:
+              "Define solution, technology stack, architecture, development plan.",
+          },
+          {
+            number: "03",
+            title: "Development",
+            description:
+              "Build, test, and refine the product through an iterative development process.",
+          },
+          {
+            number: "04",
+            title: "Launch",
+            description:
+              "Deploy the finished solution and continue improving it as the business grows.",
+          },
+        ].map((step, index) => (
+
+          <ScrollReveal
+            key={step.number}
+            delay={index * 100}
+          >
+
+            <div className="relative h-full">
+
+              {/* ==================================================
+                  CARD
+              ================================================== */}
+
+              <div
+                className="
+                  relative
+                  z-10
+                  h-full
+                  rounded-2xl
+                  border
+                  border-border
+                  bg-card
+                  p-6
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-primary/50
+                  hover:shadow-lg
+                "
+              >
+
+                {/* Process Number */}
+
+                <div
+                  className="
+                    relative
+                    mb-6
+                    flex
+                    h-12
+                    w-12
+                    items-center
+                    justify-center
+                    rounded-xl
+                    border
+                    border-primary/20
+                    bg-primary/10
+                  "
+                >
+                  <span className="text-sm font-bold text-primary">
+                    {step.number}
+                  </span>
+                </div>
+
+                {/* Title */}
+
+                <h3 className="text-xl font-semibold">
+                  {step.title}
+                </h3>
+
+                {/* Description */}
+
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {step.description}
                 </p>
 
               </div>
 
-            </ScrollReveal>
+              {/* ==================================================
+                  ARROW BETWEEN CARDS
+              ================================================== */}
 
-            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-
-              {[
-                {
-                  number: "01",
-                  title: "Discovery",
-                  description:
-                    "Understand the business, requirements, users, and technical challenges.",
-                },
-                {
-                  number: "02",
-                  title: "Planning",
-                  description:
-                    "Define the solution, technology stack, architecture, and development plan.",
-                },
-                {
-                  number: "03",
-                  title: "Development",
-                  description:
-                    "Build, test, and refine the product through an iterative development process.",
-                },
-                {
-                  number: "04",
-                  title: "Launch",
-                  description:
-                    "Deploy the finished solution and continue improving it as the business grows.",
-                },
-              ].map((step, index) => (
-
-                <ScrollReveal
-                  key={step.number}
-                  delay={index * 100}
+              {index < 3 && (
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    -right-5
+                    top-[111px]
+                    z-20
+                    hidden
+                    lg:flex
+                    items-center
+                    justify-center
+                  "
                 >
-
-                  <div className="h-full rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg">
-
-                    <span className="text-sm font-semibold text-primary">
-                      {step.number}
-                    </span>
-
-                    <h3 className="mt-4 text-xl font-semibold">
-                      {step.title}
-                    </h3>
-
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      {step.description}
-                    </p>
-
-                  </div>
-
-                </ScrollReveal>
-
-              ))}
+                  <ArrowRight className="h-5 w-5 text-primary/80" />
+                </div>
+              )}
 
             </div>
 
-          </div>
+          </ScrollReveal>
 
-        </section>
+        ))}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
         {/* ==================================================
             CTA

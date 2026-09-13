@@ -8,6 +8,7 @@ import { ProcessSection } from "@/components/services/process-section"
 import { TechStackSection } from "@/components/services/tech-stack-section"
 import { CTASection } from "@/components/cta-section"
 import { ServiceJsonLd } from "@/components/seo/json-ld"
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -31,6 +32,10 @@ export default function ServicesPage() {
     <ParallaxProvider>
       <Header />
       <main>
+        <BreadcrumbJsonLd items={[
+         { name: "Home", item: "https://revolixtech.com/" },
+         { name: "Services", item: "https://revolixtech.com/services" },
+        ]} />
         <ServiceJsonLd
           name="Web Development, SEO & Digital Marketing Services"
           description={

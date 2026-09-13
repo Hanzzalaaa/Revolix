@@ -93,7 +93,7 @@ export function CTASection({
               repeat: Number.POSITIVE_INFINITY,
             }}
           >
-            <Rocket className="w-4 h-4 text-primary" />
+          <Rocket className="w-4 h-4 text-primary" />
 
             <span className="text-sm text-primary font-medium">
               Start Your Journey

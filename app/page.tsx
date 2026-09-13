@@ -17,6 +17,8 @@ import { InfiniteServices} from '@/components/infinite-section';
 import { ProcessSection } from '@/components/process-section';
 import Portfoliosection from "@/components/portfolio-section";
 import { AboutTeam } from "@/components/about-team";
+import { BreadcrumbJsonLd, FAQJsonLd } from '@/components/seo/json-ld';
+
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.startsWith('http')
   ? process.env.NEXT_PUBLIC_SITE_URL
@@ -47,6 +49,7 @@ export default function HomePage() {
     <ParallaxProvider>
       <Header />
       <main>
+        <BreadcrumbJsonLd items={[{ name: "Home", item: `${SITE_URL}/` }]} />
         <ServiceJsonLd
           name="Professional Web Development, SEO & Digital Marketing Services"
           description={
@@ -75,8 +78,9 @@ export default function HomePage() {
         <AboutTeam />
         {/* <TestimonialsSection /> */}
         <FAQSection />
-        <CTASection />
+        
       </main>
+      
       <Footer />
     </ParallaxProvider>
   );

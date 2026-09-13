@@ -24,6 +24,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { TiltCard } from "@/components/interactive/page"
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 const automationServices = [
   {
@@ -219,9 +220,10 @@ const packages = [
       "AI use-case recommendations",
       "Automation roadmap",
     ],
+    popular: true,
   },
   {
-    name: "AI Automation Build",
+    name: "AI Automation Build", 
     price: "Let's Discuss",
     description:
       "For businesses ready to automate a specific workflow or customer-facing process.",
@@ -236,7 +238,7 @@ const packages = [
     popular: true,
   },
   {
-    name: "Custom Automation System",
+    name: "Custom Automation",
     price: "Let's Discuss",
     description:
       "For complex businesses that need multiple workflows, integrations, AI agents, or custom infrastructure.",
@@ -248,6 +250,7 @@ const packages = [
       "Monitoring",
       "Ongoing improvements",
     ],
+    popular: true,
   },
 ]
 
@@ -297,6 +300,10 @@ export default function AIAutomationPage() {
       <Header />
 
       <main>
+        <BreadcrumbJsonLd items={[
+         { name: "Home", item: "https://revolixtech.com/" },
+         { name: "AI Automation", item: "https://revolixtech.com/ai-automation" },
+       ]} />
 
         {/* =========================
             HERO

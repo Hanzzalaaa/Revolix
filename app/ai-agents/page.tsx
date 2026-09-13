@@ -17,6 +17,8 @@ import {
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
+import { TiltCard } from "@/components/interactive/page"
 
 const agentServices = [
   {
@@ -78,7 +80,7 @@ const technologies = [
   "Vector Databases",
   "REST APIs",
   "WebSockets",
-  "Node.js",
+  "Node.js", 
   "Python",
   "MongoDB",
   "PostgreSQL",
@@ -91,63 +93,74 @@ export default function AIAgentsPage() {
       <Header />
 
       <main className="overflow-hidden">
+        <BreadcrumbJsonLd items={[
+         { name: "Home", item: "https://revolixtech.com/" },
+         { name: "AI-Agents", item: "https://revolixtech.com/ai-agents" },
+        ]} />
 
         {/* ================= HERO ================= */}
-        <section className="relative overflow-hidden py-28 lg:py-36">
+       <section className="relative overflow-hidden py-28 lg:py-36"> 
+  <div className="absolute inset-0 -z-10 opacity-10 hidden lg:block"> 
+    <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,_var(--primary)_0%,_transparent_70%)]" /> 
+  </div> 
+  <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"> 
+    <div className="grid grid-cols-1 gap-12 items-center lg:grid-cols-2"> 
+      
+      {/* Left Side: Hero Content wrapped in its own ScrollReveal */} 
+      <ScrollReveal>
+        <div className="text-center lg:text-left"> 
+          <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-primary"> 
+            AI Agents 
+          </p> 
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"> 
+            AI Agents That{" "} 
+            <span className="text-primary"> Work for Your Business </span> 
+          </h1> 
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground"> 
+            We build intelligent AI agents that can communicate with customers, retrieve information, qualify leads, automate workflows, and connect with the systems your business already uses. 
+          </p> 
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"> 
+            <Link href="/contact" className="group inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90" > 
+              Build an AI Agent <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" /> 
+            </Link> 
+            <Link href="/gohighlevel" className="inline-flex items-center rounded-lg border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-secondary" > 
+              Explore AI + GoHighLevel 
+            </Link> 
+          </div> 
+        </div> 
+      </ScrollReveal>
 
-  <div className="absolute inset-0 -z-10 opacity-10 hidden lg:block">
-    <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,_var(--primary)_0%,_transparent_70%)]" />
-  </div>
+      {/* Right Side: Simplified AI Agents Widget wrapped in its own ScrollReveal with md:block */} 
+      <ScrollReveal className="hidden md:block">
+        <TiltCard className="mx-auto w-full max-w-xl"> 
+          <div className="flex justify-center lg:justify-end"> 
+            <div className="w-full max-w-md rounded-2xl border border-border bg-card p-6 shadow-sm"> 
+              <div className="flex items-center gap-3 border-b border-border pb-4 mb-4"> 
+                <div className="h-3 w-3 rounded-full bg-emerald-500 animate-pulse" /> 
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">AI Systems Active</span> 
+              </div> 
+              <div className="space-y-3"> 
+                <div className="flex items-center justify-between rounded-lg bg-secondary/50 p-3 text-sm"> 
+                  <span className="font-medium">Support Agent</span> 
+                  <span className="text-xs text-primary font-medium">Answering FAQs</span> 
+                </div> 
+                <div className="flex items-center justify-between rounded-lg bg-secondary/50 p-3 text-sm"> 
+                  <span className="font-medium">Lead Qualifier</span> 
+                  <span className="text-xs text-primary font-medium">Booking Calendar</span> 
+                </div> 
+                <div className="flex items-center justify-between rounded-lg bg-secondary/50 p-3 text-sm"> 
+                  <span className="font-medium">Workflow Automator</span> 
+                  <span className="text-xs text-muted-foreground">Syncing CRM</span> 
+                </div> 
+              </div> 
+            </div> 
+          </div> 
+        </TiltCard> 
+      </ScrollReveal>
 
-  <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
-
-    <ScrollReveal>
-
-      <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-primary">
-        AI Agents
-      </p>
-
-      <h1 className="mx-auto max-w-5xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-        AI Agents That{" "}
-        <span className="text-primary">
-          Work for Your Business
-        </span>
-      </h1>
-
-      <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-        We build intelligent AI agents that can communicate with
-        customers, retrieve information, qualify leads, automate
-        workflows, and connect with the systems your business already
-        uses.
-      </p>
-
-      <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-
-        <Link
-          href="/contact"
-          className="group inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-        >
-          Build an AI Agent
- 
-          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </Link>
-
-        <Link
-          href="/gohighlevel"
-          className="inline-flex items-center rounded-lg border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-secondary"
-        >
-          Explore AI + GoHighLevel
-        </Link>
-
-      </div>
-
-    </ScrollReveal>
-
-  </div>
-
+    </div> 
+  </div> 
 </section>
-
-
         {/* ================= INTRO ================= */}
         <section className="border-y border-border py-20 lg:py-28">
 

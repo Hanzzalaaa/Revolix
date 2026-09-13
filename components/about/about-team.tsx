@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
-import { Code2, Search, Sparkles, ArrowRight } from "lucide-react"
+import { Code2, Search, Sparkles, ArrowRight , Rocket} from "lucide-react"
 
 const teamGroups = [
   {
@@ -62,7 +62,7 @@ export function AboutTeam() {
           <div className="mb-16 text-center">
 
             <p className="mb-4 text-sm font-medium uppercase tracking-wider text-primary">
-              Our Team
+              Team
             </p>
 
             <h2 className="mb-4 text-3xl font-bold sm:text-4xl">
@@ -90,7 +90,7 @@ export function AboutTeam() {
               delay={index * 100}
             >
 
-              <div className="h-full rounded-2xl border border-border bg-background p-8">
+              <div className="h-full rounded-2xl border border-border bg-background p-8 group p-8 rounded-2xl bg-background border border-border h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/30">
 
                 {/* ICON */}
 

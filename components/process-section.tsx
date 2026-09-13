@@ -92,8 +92,9 @@ export function ProcessSection() {
                       damping: 20,
                     }}
                   >
-                    {/* Icon */}
+                    {/* Icon + Mobile Number */}
                     <div className="relative z-10 mb-7 flex items-center justify-between lg:justify-center">
+                      {/* Icon Container */}
                       <div
                         className="
                           flex
@@ -131,14 +132,24 @@ export function ProcessSection() {
                         </div>
                       </div>
 
-                      {/* Mobile/tablet number */}
-                      <span className="text-5xl font-bold text-primary/10 sm:hidden">
+                      {/* Mobile Process Number */}
+                      <span
+                        className="
+                          sm:hidden
+                          text-5xl
+                          font-bold
+                          tracking-tight
+                          text-primary
+                          drop-shadow-[0_0_12px_rgba(79,209,197,0.25)]
+                        "
+                      >
                         {step.number}
                       </span>
                     </div>
 
                     {/* Content */}
                     <div className="text-center">
+                      {/* Desktop / Tablet Step Label */}
                       <p className="mb-2 hidden text-xs font-semibold uppercase tracking-[0.2em] text-primary sm:block">
                         Step {step.number}
                       </p>
@@ -154,8 +165,8 @@ export function ProcessSection() {
 
                     {/* Arrow */}
                     {index < processSteps.length - 1 && (
-                      <div className="absolute right-[-22px] top-[52px] z-20 hidden lg:block">
-                        <ArrowRight className="h-5 w-5 text-primary/40" />
+                      <div className="absolute right-[-22px] top-[50.5px] z-20 hidden lg:block">
+                        <ArrowRight className="h-5 w-5 text-primary/80" />
                       </div>
                     )}
                   </motion.div>
@@ -166,7 +177,7 @@ export function ProcessSection() {
         </div>
 
         {/* Bottom CTA */}
-        <ScrollReveal delay={400}>
+        {/* <ScrollReveal delay={400}>
           <div className="mt-16 text-center">
             <p className="mb-5 text-sm text-muted-foreground">
               Have an idea you want to bring to life?
@@ -196,7 +207,7 @@ export function ProcessSection() {
               <ArrowRight className="h-4 w-4" />
             </motion.a>
           </div>
-        </ScrollReveal>
+        </ScrollReveal> */}
       </div>
     </section>
   )

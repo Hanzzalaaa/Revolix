@@ -1,5 +1,8 @@
 "use client"
 
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
 
@@ -11,6 +14,8 @@ const serviceSections = [
     title: "Website Development",
     description:
       "Professional website solutions built for performance, usability, SEO, and conversions.",
+    href: "/web-development",
+    linkLabel: "View Website Development",
     items: [
       {
         title: "Business Website",
@@ -34,9 +39,11 @@ const serviceSections = [
   // 02 — WEB & SOFTWARE DEVELOPMENT
   // ============================================================
   {
-    title: "Web & Software Development",
+    title: "Software Development",
     description:
       "Scalable software solutions designed around your business processes and technical requirements.",
+    href: "/custom-software",
+    linkLabel: "View Software Development",
     items: [
       {
         title: "Frontend Development",
@@ -63,6 +70,8 @@ const serviceSections = [
     title: "AI & Machine Learning",
     description:
       "AI and machine learning solutions that automate processes, analyze data, and improve decision-making.",
+    href: "/aiml",
+    linkLabel: "View AI & Machine Learning",
     items: [
       {
         title: "Machine Learning",
@@ -89,6 +98,8 @@ const serviceSections = [
     title: "AI Automation",
     description:
       "Intelligent automation systems that reduce repetitive work and improve business efficiency.",
+    href: "/ai-automation",
+    linkLabel: "View AI Automation",
     items: [
       {
         title: "Workflow Automation",
@@ -115,6 +126,8 @@ const serviceSections = [
     title: "GoHighLevel",
     description:
       "Complete GoHighLevel setup, CRM automation, funnels, workflows, and AI integrations built to turn leads into customers.",
+    href: "/gohighlevel",
+    linkLabel: "View GoHighLevel",
     items: [
       {
         title: "GHL Setup & Configuration",
@@ -141,6 +154,8 @@ const serviceSections = [
     title: "SEO Services",
     description:
       "Full-spectrum SEO strategies designed to improve visibility, rankings, and high-intent organic traffic.",
+    href: "/seo",
+    linkLabel: "View SEO Services",
     items: [
       {
         title: "On-Page SEO",
@@ -167,6 +182,8 @@ const serviceSections = [
     title: "Digital Marketing",
     description:
       "Growth-focused marketing strategies across organic, paid, social, and content channels.",
+    href: "/digital-marketing",
+    linkLabel: "View Digital Marketing",
     items: [
       {
         title: "Social Media Management",
@@ -193,6 +210,8 @@ const serviceSections = [
     title: "E-Commerce Solutions",
     description:
       "Complete e-commerce solutions designed to create better shopping experiences and increase online sales.",
+    href: "/e-commerce",
+    linkLabel: "View E-Commerce Solutions",
     items: [
       {
         title: "Shopify Stores",
@@ -219,6 +238,8 @@ const serviceSections = [
     title: "UI/UX Design",
     description:
       "User-centric design solutions that transform complex workflows into intuitive and engaging digital experiences.",
+    href: "/uiux",
+    linkLabel: "View UI/UX Design",
     items: [
       {
         title: "Figma Prototyping",
@@ -245,6 +266,8 @@ const serviceSections = [
     title: "Graphic Design & Branding",
     description:
       "Creative visual solutions that help businesses build recognizable and consistent brands.",
+    href: "/uiux",
+    linkLabel: "View Graphic Design & Branding",
     items: [
       {
         title: "Logo Design",
@@ -266,11 +289,14 @@ const serviceSections = [
 
   // ============================================================
   // 11 — CONTENT & CREATIVE
+  // NO DEDICATED PAGE → CONTACT
   // ============================================================
   {
     title: "Content & Creative Services",
     description:
       "Creative content services that help businesses communicate clearly and consistently across digital channels.",
+    href: "/contact",
+    linkLabel: "Discuss Content & Creative Services",
     items: [
       {
         title: "Content Writing",
@@ -297,6 +323,8 @@ const serviceSections = [
     title: "Cloud & DevOps",
     description:
       "Cloud infrastructure and DevOps solutions designed for reliable deployments, scalability, and performance.",
+    href: "/devops",
+    linkLabel: "View Cloud & DevOps",
     items: [
       {
         title: "Cloud Infrastructure",
@@ -318,11 +346,14 @@ const serviceSections = [
 
   // ============================================================
   // 13 — DATA, QA & CYBERSECURITY
+  // NO DEDICATED PAGE → CONTACT
   // ============================================================
   {
     title: "Data, QA & Cybersecurity",
     description:
       "Technical services that help businesses maintain reliable systems, clean data, and safer digital operations.",
+    href: "/contact",
+    linkLabel: "Discuss Data, QA & Cybersecurity",
     items: [
       {
         title: "Data Analysis",
@@ -344,11 +375,14 @@ const serviceSections = [
 
   // ============================================================
   // 14 — IT & TECH SUPPORT
+  // NO DEDICATED PAGE → CONTACT
   // ============================================================
   {
     title: "IT & Tech Support",
     description:
       "Practical technical support that helps businesses troubleshoot problems and maintain reliable digital operations.",
+    href: "/contact",
+    linkLabel: "Discuss IT & Tech Support",
     items: [
       {
         title: "IT Troubleshooting",
@@ -370,11 +404,14 @@ const serviceSections = [
 
   // ============================================================
   // 15 — BUSINESS & OPERATIONAL SUPPORT
+  // NO DEDICATED PAGE → CONTACT
   // ============================================================
   {
     title: "Business & Operational Support",
     description:
       "Flexible business support services that help teams handle research, operations, administration, and growth tasks.",
+    href: "/contact",
+    linkLabel: "Discuss Business Support",
     items: [
       {
         title: "Virtual Assistant Support",
@@ -397,130 +434,232 @@ const serviceSections = [
 
 export function ServicesList() {
   return (
-    <section className="py-24 relative overflow-hidden">
-      <ParallaxSection speed={0.1} className="absolute inset-0 opacity-5">
-        <div className="w-full h-full bg-[linear-gradient(45deg,_var(--primary)_25%,_transparent_25%,_transparent_75%,_var(--primary)_75%)] bg-[size:120px_120px]" />
+    <section className="relative overflow-hidden py-24">
+
+      {/* ==================================================
+          BACKGROUND
+      ================================================== */}
+
+      <ParallaxSection
+        speed={0.1}
+        className="absolute inset-0 opacity-5"
+      >
+        <div className="h-full w-full bg-[linear-gradient(45deg,_var(--primary)_25%,_transparent_25%,_transparent_75%,_var(--primary)_75%)] bg-[size:120px_120px]" />
       </ParallaxSection>
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-16">
-        {serviceSections.map((section, sectionIndex) => (
-          <ScrollReveal key={section.title} delay={sectionIndex * 100}>
-            <div className="rounded-2xl border border-border bg-card p-8 lg:p-10">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">{section.title}</h2>
-              <p className="text-muted-foreground text-lg mb-6">{section.description}</p>
+      <div className="relative mx-auto max-w-6xl space-y-16 px-4 sm:px-6 lg:px-8">
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        {serviceSections.map((section, sectionIndex) => (
+          <ScrollReveal
+            key={section.title}
+            delay={sectionIndex * 100}
+          >
+
+            <div className="rounded-2xl border border-border bg-card p-8 lg:p-10">
+
+              {/* ==================================================
+                  SECTION HEADING
+              ================================================== */}
+
+              <h2 className="mb-4 text-3xl font-bold sm:text-4xl">
+                {section.title}
+              </h2>
+
+              <p className="mb-6 text-lg text-muted-foreground">
+                {section.description}
+              </p>
+
+              {/* ==================================================
+                  SERVICE ITEMS
+              ================================================== */}
+
+              <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
                 {section.items.map((item) => (
-                  <div key={item.title} className="p-5 rounded-xl bg-background border border-border">
-                    <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.detail}</p>
+                  <div
+                    key={item.title}
+                    className="
+                      rounded-xl
+                      border
+                      border-border
+                      bg-background
+                      p-5
+                      transition-all
+                      duration-300
+                      hover:border-primary/40
+                      hover:shadow-lg
+                    "
+                  >
+
+                    <h3 className="mb-2 text-lg font-semibold">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {item.detail}
+                    </p>
+
                   </div>
                 ))}
+
               </div>
+
+              {/* ==================================================
+                  SERVICE PAGE / CONTACT LINK
+              ================================================== */}
+
+              <div className="mt-8">
+
+                <Link
+                  href={section.href}
+                  className="
+                    group
+                    inline-flex
+                    items-center
+                    text-sm
+                    font-medium
+                    text-primary
+                    transition-colors
+                    hover:text-primary/80
+                  "
+                >
+
+                  {section.linkLabel}
+
+                  <ArrowRight
+                    className="
+                      ml-2
+                      h-4
+                      w-4
+                      transition-transform
+                      duration-300
+                      group-hover:translate-x-1
+                    "
+                  />
+
+                </Link>
+
+              </div>
+
             </div>
+
           </ScrollReveal>
         ))}
 
+        {/* ==================================================
+            LONG-FORM SERVICES CONTENT
+        ================================================== */}
+
         <div className="rounded-2xl border border-border bg-card p-8 lg:p-10">
-  <p className="text-muted-foreground text-lg mb-6">
-    Revolix Technologies provides a broad range of digital, technology,
-    creative, and business services designed to help organizations build,
-    improve, and grow their digital presence. Our services cover everything
-    from websites and software development to AI automation, SEO,
-    cybersecurity, marketing, design, and technical support.
-  </p>
 
-  <div className="space-y-4 text-muted-foreground">
-    <p>
-      Our digital and technology services include custom website design,
-      web development, mobile app consultation, e-commerce solutions,
-      search engine optimization, paid advertising, email marketing,
-      social media management, and no-code automation. We combine strategy,
-      design, development, and technology to create practical solutions
-      that support real business goals.
-    </p>
+          <p className="mb-6 text-lg text-muted-foreground">
+            Revolix Technologies provides a broad range of digital, technology,
+            creative, and business services designed to help organizations build,
+            improve, and grow their digital presence. Our services cover everything
+            from websites and software development to AI automation, SEO,
+            cybersecurity, marketing, design, and technical support.
+          </p>
 
-    <p>
-      For businesses that need a stronger digital presence, we provide
-      content writing and copywriting, graphic design, logo and brand
-      identity design, video editing for short-form content, and other
-      creative services. These services help businesses maintain a
-      consistent visual identity and communicate their products or services
-      more effectively across websites and digital platforms.
-    </p>
+          <div className="space-y-4 text-muted-foreground">
 
-    <p>
-      Our technology services also extend into software quality assurance,
-      data analysis, data entry and cleanup, cybersecurity auditing for
-      small setups, IT troubleshooting, and domain and hosting management
-      consulting. These services are designed to help businesses maintain
-      reliable digital operations while identifying opportunities for
-      improvement.
-    </p>
+            <p>
+              Our digital and technology services include custom website design,
+              web development, mobile app consultation, e-commerce solutions,
+              search engine optimization, paid advertising, email marketing,
+              social media management, and no-code automation. We combine strategy,
+              design, development, and technology to create practical solutions
+              that support real business goals.
+            </p>
 
-    <p>
-      We also support business and operational needs through services such
-      as virtual assistance, bookkeeping support, payroll processing
-      management, business plan preparation, pitch deck creation, lead
-      generation research, customer support outsourcing, recruitment
-      assistance, market research, competitor analysis, and business
-      coaching.
-    </p>
+            <p>
+              For businesses that need a stronger digital presence, we provide
+              content writing and copywriting, graphic design, logo and brand
+              identity design, video editing for short-form content, and other
+              creative services. These services help businesses maintain a
+              consistent visual identity and communicate their products or services
+              more effectively across websites and digital platforms.
+            </p>
 
-    <p>
-      For marketing and creative teams, Revolix can provide product and
-      event photography, promotional video production, public relations
-      support, influencer outreach, press release preparation, brand voice
-      consulting, proofreading, scriptwriting, subtitles and captions,
-      motion graphics, presentation design, and community management.
-    </p>
+            <p>
+              Our technology services also extend into software quality assurance,
+              data analysis, data entry and cleanup, cybersecurity auditing for
+              small setups, IT troubleshooting, and domain and hosting management
+              consulting. These services are designed to help businesses maintain
+              reliable digital operations while identifying opportunities for
+              improvement.
+            </p>
 
-    <p>
-      Our approach is flexible because every business has different
-      requirements. Some clients may need a complete website and SEO
-      strategy, while others may need automation, design, content,
-      technical support, or individual business services. We can provide
-      focused support for a specific requirement or combine multiple
-      services into a larger digital growth strategy.
-    </p>
+            <p>
+              We also support business and operational needs through services such
+              as virtual assistance, bookkeeping support, payroll processing
+              management, business plan preparation, pitch deck creation, lead
+              generation research, customer support outsourcing, recruitment
+              assistance, market research, competitor analysis, and business
+              coaching.
+            </p>
 
-    <ul className="list-disc pl-6 space-y-2">
-      <li>
-        Digital services including web development, SEO, PPC, e-commerce,
-        email marketing, and social media management.
-      </li>
-      <li>
-        Technology services including software development, QA testing,
-        cybersecurity auditing, data analysis, automation, and IT support.
-      </li>
-      <li>
-        Creative services including graphic design, branding, video editing,
-        copywriting, presentations, motion graphics, and marketing content.
-      </li>
-      <li>
-        Business support services including virtual assistance, research,
-        bookkeeping support, lead generation, customer support, and
-        operational assistance.
-      </li>
-    </ul>
+            <p>
+              For marketing and creative teams, Revolix can provide product and
+              event photography, promotional video production, public relations
+              support, influencer outreach, press release preparation, brand voice
+              consulting, proofreading, scriptwriting, subtitles and captions,
+              motion graphics, presentation design, and community management.
+            </p>
 
-    <p>
-      By bringing these capabilities together, Revolix reduces the need for
-      businesses to coordinate multiple providers for every digital and
-      operational requirement. Our goal is to make the process simpler,
-      maintain consistent quality, and provide services that can adapt as
-      the business grows.
-    </p>
+            <p>
+              Our approach is flexible because every business has different
+              requirements. Some clients may need a complete website and SEO
+              strategy, while others may need automation, design, content,
+              technical support, or individual business services. We can provide
+              focused support for a specific requirement or combine multiple
+              services into a larger digital growth strategy.
+            </p>
 
-    <p>
-      Whether you are launching a new business, improving an existing
-      website, expanding your online marketing, automating repetitive
-      processes, strengthening your digital operations, or looking for
-      creative and business support, Revolix Technologies provides a
-      flexible service ecosystem built around your specific needs.
-    </p>
-  </div>
-</div>
+            <ul className="list-disc space-y-2 pl-6">
+
+              <li>
+                Digital services including web development, SEO, PPC, e-commerce,
+                email marketing, and social media management.
+              </li>
+
+              <li>
+                Technology services including software development, QA testing,
+                cybersecurity auditing, data analysis, automation, and IT support.
+              </li>
+
+              <li>
+                Creative services including graphic design, branding, video editing,
+                copywriting, presentations, motion graphics, and marketing content.
+              </li>
+
+              <li>
+                Business support services including virtual assistance, research,
+                bookkeeping support, lead generation, customer support, and
+                operational assistance.
+              </li>
+
+            </ul>
+
+            <p>
+              By bringing these capabilities together, Revolix reduces the need for
+              businesses to coordinate multiple providers for every digital and
+              operational requirement. Our goal is to make the process simpler,
+              maintain consistent quality, and provide services that can adapt as
+              the business grows.
+            </p>
+
+            <p>
+              Whether you are launching a new business, improving an existing
+              website, expanding your online marketing, automating repetitive
+              processes, strengthening your digital operations, or looking for
+              creative and business support, Revolix Technologies provides a
+              flexible service ecosystem built around your specific needs.
+            </p>
+
+          </div>
+
+        </div>
+
       </div>
     </section>
   )

@@ -13,13 +13,14 @@ export function AboutMission() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="text-center mb-12">
+          <div className="text-center mb-12"> 
+            <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">About Us</p>
             <h2 className="text-3xl sm:text-4xl font-bold">Who We Are</h2>
           </div>
         </ScrollReveal>
         <div className="grid lg:grid-cols-3 gap-8">
           <ScrollReveal>
-            <div className="p-8 rounded-2xl bg-background border border-border h-full">
+            <div className="p-8 rounded-2xl bg-background border border-border h-full group p-8 rounded-2xl bg-background border border-border h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/30">
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                 <Target className="w-7 h-7 text-primary" />
               </div>
@@ -32,8 +33,8 @@ export function AboutMission() {
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <div className="p-8 rounded-2xl bg-background border border-border h-full">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+            <div className="p-8 rounded-2xl bg-background border border-border h-full group p-8 rounded-2xl bg-background border border-border h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/30">
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 ">
                 <Eye className="w-7 h-7 text-primary" />
               </div>
               <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
@@ -45,7 +46,7 @@ export function AboutMission() {
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <div className="p-8 rounded-2xl bg-background border border-border h-full">
+            <div className="p-8 rounded-2xl bg-background border border-border h-full group p-8 rounded-2xl bg-background border border-border h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/30">
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                 <Sparkles className="w-7 h-7 text-primary" />
               </div>

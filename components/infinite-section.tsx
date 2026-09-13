@@ -90,6 +90,38 @@ const rowTwo = [
   },
 ]
 
+/*
+ * Mobile layout
+ *
+ * Instead of squeezing 16 services into 2 rows,
+ * we divide them into 3 scrolling rows.
+ */
+
+const mobileRowOne = [
+  rowOne[0],
+  rowOne[1],
+  rowTwo[0],
+  rowTwo[1],
+  rowOne[2],
+]
+
+const mobileRowTwo = [
+  rowOne[3],
+  rowOne[4],
+  rowTwo[2],
+  rowTwo[3],
+  rowOne[5],
+]
+
+const mobileRowThree = [
+  rowOne[6],
+  rowOne[7],
+  rowTwo[4],
+  rowTwo[5],
+  rowTwo[6],
+  rowTwo[7],
+]
+
 function ServiceCard({
   name,
   icon: Icon,
@@ -104,13 +136,13 @@ function ServiceCard({
         flex
         shrink-0
         items-center
-        gap-3
+        gap-2.5
         rounded-xl
         border
         border-border/70
         bg-background/80
-        px-5
-        py-4
+        px-4
+        py-3
         shadow-sm
         backdrop-blur-sm
         transition-all
@@ -118,13 +150,16 @@ function ServiceCard({
         hover:border-primary/40
         hover:bg-primary/5
         hover:shadow-lg
+        sm:gap-3
+        sm:px-5
+        sm:py-4
       "
     >
       <div
         className="
           flex
-          h-10
-          w-10
+          h-9
+          w-9
           shrink-0
           items-center
           justify-center
@@ -133,32 +168,128 @@ function ServiceCard({
           transition-transform
           duration-300
           group-hover:scale-110
+          sm:h-10
+          sm:w-10
         "
       >
-        <Icon className="h-5 w-5 text-primary" />
+        <Icon className="h-4 w-4 text-primary sm:h-5 sm:w-5" />
       </div>
 
-      <span className="whitespace-nowrap text-sm font-medium text-foreground">
+      <span className="whitespace-nowrap text-xs font-medium text-foreground sm:text-sm">
         {name}
       </span>
     </div>
   )
 }
 
-export function InfiniteServices() {
-  // Duplicate the array so the animation can loop seamlessly.
-  const firstRow = [...rowOne, ...rowOne]
-  const secondRow = [...rowTwo, ...rowTwo]
+/*
+ * Reusable infinite row
+ */
+function InfiniteRow({
+  services,
+  reverse = false,
+  duration = 30,
+}: {
+  services: typeof rowOne
+  reverse?: boolean
+  duration?: number
+}) {
+  const duplicatedServices = [...services, ...services]
 
   return (
+    <div className="relative overflow-hidden">
+      {/* Left fade */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          left-0
+          top-0
+          z-10
+          h-full
+          w-12
+          bg-gradient-to-r
+          from-background
+          to-transparent
+          sm:w-24
+          lg:w-40
+        "
+      />
+
+      {/* Right fade */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-0
+          top-0
+          z-10
+          h-full
+          w-12
+          bg-gradient-to-l
+          from-background
+          to-transparent
+          sm:w-24
+          lg:w-40
+        "
+      />
+
+      <motion.div
+        className="flex w-max gap-3 sm:gap-4"
+        animate={{
+          x: reverse ? ["-50%", "0%"] : ["0%", "-50%"],
+        }}
+        transition={{
+          x: {
+            duration,
+            repeat: Infinity,
+            ease: "linear",
+          },
+        }}
+      >
+        {duplicatedServices.map((service, index) => (
+          <ServiceCard
+            key={`${service.name}-${index}`}
+            name={service.name}
+            icon={service.icon}
+          />
+        ))}
+      </motion.div>
+    </div>
+  )
+}
+
+export function InfiniteServices() {
+  return (
     <section className="relative overflow-hidden py-20 lg:py-24">
-      {/* Background glow */}
+      {/* ==================================================
+          BACKGROUND GLOW
+      ================================================== */}
+
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
+        <div
+          className="
+            absolute
+            left-1/2
+            top-1/2
+            h-[400px]
+            w-[400px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-primary/5
+            blur-3xl
+            sm:h-[500px]
+            sm:w-[500px]
+          "
+        />
       </div>
 
       <div className="relative">
-        {/* Heading */}
+        {/* ==================================================
+            HEADING
+        ================================================== */}
+
         <ScrollReveal>
           <div className="mx-auto mb-12 max-w-3xl px-4 text-center sm:px-6 lg:px-8">
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-primary">
@@ -177,73 +308,72 @@ export function InfiniteServices() {
           </div>
         </ScrollReveal>
 
-        {/* First Row */}
-        <ScrollReveal delay={100}>
-          <div className="relative mb-5 overflow-hidden">
-            {/* Left fade */}
-            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-background to-transparent sm:w-24 lg:w-40" />
+        {/* ==================================================
+            DESKTOP + TABLET
+            ONLY 2 ROWS
+        ================================================== */}
 
-            {/* Right fade */}
-            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-background to-transparent sm:w-24 lg:w-40" />
+        <div className="hidden sm:block">
+          {/* First Row */}
+          <ScrollReveal delay={100}>
+            <div className="mb-5">
+              <InfiniteRow
+                services={rowOne}
+                duration={30}
+              />
+            </div>
+          </ScrollReveal>
 
-            <motion.div
-              className="flex w-max gap-4 hover:[animation-play-state:paused]"
-              animate={{
-                x: ["0%", "-50%"],
-              }}
-              transition={{
-                x: {
-                  duration: 30,
-                  repeat: Infinity,
-                  ease: "linear",
-                },
-              }}
-            >
-              {firstRow.map((service, index) => (
-                <ServiceCard
-                  key={`row-one-${service.name}-${index}`}
-                  name={service.name}
-                  icon={service.icon}
-                />
-              ))}
-            </motion.div>
-          </div>
-        </ScrollReveal>
+          {/* Second Row */}
+          <ScrollReveal delay={150}>
+            <InfiniteRow
+              services={rowTwo}
+              reverse
+              duration={34}
+            />
+          </ScrollReveal>
+        </div>
 
-        {/* Second Row */}
-        <ScrollReveal delay={150}>
-          <div className="relative overflow-hidden">
-            {/* Left fade */}
-            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-background to-transparent sm:w-24 lg:w-40" />
+        {/* ==================================================
+            MOBILE
+            3 ROWS
+        ================================================== */}
 
-            {/* Right fade */}
-            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-background to-transparent sm:w-24 lg:w-40" />
+        <div className="block sm:hidden">
+          {/* Mobile Row 1 */}
+          <ScrollReveal delay={100}>
+            <div className="mb-3">
+              <InfiniteRow
+                services={mobileRowOne}
+                duration={24}
+              />
+            </div>
+          </ScrollReveal>
 
-            <motion.div
-              className="flex w-max gap-4"
-              animate={{
-                x: ["-50%", "0%"],
-              }}
-              transition={{
-                x: {
-                  duration: 34,
-                  repeat: Infinity,
-                  ease: "linear",
-                },
-              }}
-            >
-              {secondRow.map((service, index) => (
-                <ServiceCard
-                  key={`row-two-${service.name}-${index}`}
-                  name={service.name}
-                  icon={service.icon}
-                />
-              ))}
-            </motion.div>
-          </div>
-        </ScrollReveal>
+          {/* Mobile Row 2 */}
+          <ScrollReveal delay={130}>
+            <div className="mb-3">
+              <InfiniteRow
+                services={mobileRowTwo}
+                reverse
+                duration={27}
+              />
+            </div>
+          </ScrollReveal>
 
-        {/* Bottom link */}
+          {/* Mobile Row 3 */}
+          <ScrollReveal delay={160}>
+            <InfiniteRow
+              services={mobileRowThree}
+              duration={30}
+            />
+          </ScrollReveal>
+        </div>
+
+        {/* ==================================================
+            BOTTOM LINK
+        ================================================== */}
+
         <ScrollReveal delay={200}>
           <div className="mt-10 text-center">
             <a
@@ -266,7 +396,8 @@ export function InfiniteServices() {
               "
             >
               Explore All Services
-              <span className="ml-2 transition-transform group-hover:translate-x-1">
+
+              <span className="ml-2 transition-transform">
                 →
               </span>
             </a>

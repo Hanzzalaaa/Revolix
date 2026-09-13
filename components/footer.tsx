@@ -208,23 +208,23 @@ export function Footer() {
           </p>
 
           {/* Privacy / Terms */}
-          {/* 
+          
           <div className="flex gap-6">
             <Link
-              href="/privacy"
+              href="/privacy-policy"
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               Privacy Policy
             </Link>
 
             <Link
-              href="/terms"
+              href="/terms-conditions"
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               Terms of Service
             </Link>
           </div>
-          */}
+         
 
         </div>
 

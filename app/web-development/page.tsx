@@ -17,6 +17,8 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import {TiltCard} from "@/components/interactive/page"
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
+import { motion } from "framer-motion"
 
 const services = [
   {
@@ -87,7 +89,7 @@ const process = [
 const packages = [
   {
     name: "Business Website",
-    price: "Starting from $500",
+    price: "Let's Discuss",
     description:
       "For businesses that need a professional website to establish their online presence.",
     features: [
@@ -102,9 +104,9 @@ const packages = [
   },
 {
   name: "E-commerce Website",
-  price: "Starting from $1,000",
+  price: "Let's Discuss",
   description:
-    "For businesses ready to sell online with a professional, responsive, and conversion-focused e-commerce store.",
+    "Ready to sell online with professional, responsive, and conversion-focused e-commerce store.",
   features: [
     "Everything in Business",
     "Product & category setup",
@@ -116,7 +118,7 @@ const packages = [
   popular: true,
 },
   {
-    name: "Custom Web Application",
+    name: "Custom Website",
     price: "Let's Discuss",
     description:
       "For businesses that need a custom application, dashboard, platform, or complex web system.",
@@ -173,6 +175,10 @@ export default function WebDevelopmentPage() {
       <Header />
 
       <main>
+        <BreadcrumbJsonLd items={[
+         { name: "Home", item: "https://revolixtech.com/" },
+         { name: "Web Development", item: "https://revolixtech.com/web-development" },
+       ]} />
 
         {/* hero */}
         <section className="relative overflow-hidden py-24 lg:py-32">
@@ -223,45 +229,120 @@ export default function WebDevelopmentPage() {
               </ScrollReveal>
 
               {/* Hero Visual */}
-              <ScrollReveal delay={150} className="hidden md:block">
-                <TiltCard className="mx-auto w-full max-w-xl">
-  <div className="relative mx-auto w-full max-w-xl">
-    
-    {/* Ambient Background Glow Layer */}
-    <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-tr from-primary/30 via-primary/10 to-transparent blur-3xl opacity-70 pointer-events-none" />
+<ScrollReveal delay={150} className="hidden md:block">
+  <TiltCard className="mx-auto w-full max-w-xl">
+    <div className="relative mx-auto w-full max-w-xl">
 
-    {/* Main Widget Container */}
-    <div className="relative rounded-3xl border border-border bg-card p-4 shadow-2xl">
-      <div className="rounded-2xl border border-border bg-background p-5">
+      {/* Ambient Glow */}
+      <div className="pointer-events-none absolute -inset-5 rounded-[2.5rem] bg-primary/15 blur-3xl" />
 
-        {/* Window Controls Header */}
-        <div className="flex items-center gap-2 border-b border-border pb-4">
-          <span className="h-3 w-3 rounded-full bg-primary/40" />
-          <span className="h-3 w-3 rounded-full bg-primary/30" />
-          <span className="h-3 w-3 rounded-full bg-primary/20" />
-          <div className="ml-3 h-3 flex-1 rounded-full bg-muted" />
-        </div>
+      {/* Main Browser Widget */}
+      <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-3 shadow-2xl">
 
-        {/* Skeleton Grid Content */}
-        <div className="grid gap-4 py-8">
-          <div className="h-8 w-3/4 rounded-lg bg-primary/20" />
-          <div className="h-4 w-full rounded bg-muted" />
-          <div className="h-4 w-5/6 rounded bg-muted" />
+        <div className="overflow-hidden rounded-2xl border border-border bg-background">
 
-          {/* Core Feature Matrix Stacks */}
-          <div className="grid grid-cols-3 gap-3 pt-4">
-            <div className="h-24 rounded-xl bg-primary/10" />
-            <div className="h-24 rounded-xl bg-muted" />
-            <div className="h-24 rounded-xl bg-primary/10" />
+          {/* Browser Header */}
+          <div className="flex items-center gap-2 border-b border-border px-4 py-3">
+
+            <span className="h-2.5 w-2.5 rounded-full bg-primary/50" />
+            <span className="h-2.5 w-2.5 rounded-full bg-primary/30" />
+            <span className="h-2.5 w-2.5 rounded-full bg-primary/20" />
+
+            <div className="ml-3 flex h-7 flex-1 items-center rounded-md border border-border bg-muted/50 px-3">
+              <span className="text-[10px] text-muted-foreground">
+                yourbusiness.com
+              </span>
+            </div>
+
           </div>
 
-          <div className="h-10 w-32 rounded-lg bg-primary/30" />
+          {/* Website Preview */}
+          <div className="p-5">
+
+            {/* Mini Navigation */}
+            <div className="mb-8 flex items-center justify-between">
+
+              <div className="h-5 w-24 rounded-md bg-primary/25" />
+
+              <div className="flex gap-2">
+                <div className="h-2 w-10 rounded-full bg-muted" />
+                <div className="h-2 w-10 rounded-full bg-muted" />
+                <div className="h-2 w-10 rounded-full bg-muted" />
+              </div>
+
+            </div>
+
+            {/* Hero Content */}
+            <div className="grid gap-6 sm:grid-cols-2">
+
+              <div className="flex flex-col justify-center">
+
+                <div className="mb-3 h-3 w-20 rounded-full bg-primary/30" />
+
+                <div className="h-7 w-full rounded-lg bg-primary/15" />
+
+                <div className="mt-2 h-7 w-4/5 rounded-lg bg-primary/10" />
+
+                <div className="mt-4 space-y-2">
+                  <div className="h-2.5 w-full rounded-full bg-muted" />
+                  <div className="h-2.5 w-5/6 rounded-full bg-muted" />
+                </div>
+
+                <div className="mt-5 h-9 w-28 rounded-lg bg-primary/25" />
+
+              </div>
+
+              {/* Website Visual */}
+              <div className="flex items-center justify-center rounded-2xl border border-border bg-muted/30 p-4">
+
+                <div className="w-full space-y-3">
+
+                  <div className="h-3 w-1/2 rounded-full bg-primary/20" />
+
+                  <div className="grid grid-cols-3 gap-2">
+                    <div className="h-14 rounded-lg bg-primary/10" />
+                    <div className="h-14 rounded-lg bg-muted" />
+                    <div className="h-14 rounded-lg bg-primary/10" />
+                  </div>
+
+                  <div className="h-16 rounded-lg bg-muted/70" />
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Lower Website Sections */}
+            <div className="mt-7 grid grid-cols-3 gap-3">
+
+              <div className="h-12 rounded-xl border border-border bg-muted/40" />
+              <div className="h-12 rounded-xl border border-primary/10 bg-primary/5" />
+              <div className="h-12 rounded-xl border border-border bg-muted/40" />
+
+            </div>
+
+          </div>
+
         </div>
-
       </div>
-    </div>
 
-  </div>
+      {/* Small Floating Responsive Badge */}
+      <motion.div
+        className="absolute -right-3 top-10 rounded-xl border border-border bg-background/90 px-3 py-2 shadow-xl backdrop-blur-xl"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
+      >
+        <p className="text-[10px] font-medium text-muted-foreground">
+          Responsive
+        </p>
+        <p className="text-xs font-semibold text-primary">
+          Web Experience
+        </p>
+      </motion.div>
+
+    </div>
   </TiltCard>
 </ScrollReveal>
 
@@ -407,7 +488,7 @@ export default function WebDevelopmentPage() {
               </div>
             </ScrollReveal>
 
-            <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4"> 
 
               {process.map((step, index) => (
                 <ScrollReveal

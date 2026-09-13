@@ -18,6 +18,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { TiltCard } from "@/components/interactive/page"
+import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 const services = [
   {
@@ -121,6 +122,10 @@ export default function CustomSoftwarePage() {
       <Header />
 
       <main className="overflow-hidden">
+        <BreadcrumbJsonLd items={[
+         { name: "Home", item: "https://revolixtech.com/" },
+         { name: "Custom Software", item: "https://revolixtech.com/custom-software" },
+        ]} />
 
         {/* ================= HERO ================= */}
         <section className="relative py-24 pt-32 lg:py-32 lg:pt-40">
@@ -564,9 +569,9 @@ export default function CustomSoftwarePage() {
                         key={item.title}
                         className="flex gap-4 rounded-2xl border border-border bg-card p-6"
                       >
-                        <div className="shrink-0 rounded-xl bg-primary/10 p-3 align-center flex items-center justify-center">
+                        {/* <div className="shrink-0 rounded-xl bg-primary/10 p-3 align-center flex items-center justify-center">
                           <Icon className="h-5 w-5 text-primary" />
-                        </div>
+                        </div> */}
 
                         <div>
                           <h3 className="font-semibold">
@@ -618,7 +623,7 @@ export default function CustomSoftwarePage() {
 
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-
+ 
               </div>
 
             </ScrollReveal>
