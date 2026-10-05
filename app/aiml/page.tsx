@@ -12,7 +12,7 @@ import {
   MessageSquare,
   Workflow, 
   BarChart3,
-  Cpu,
+  Cpu, 
   Search,
   Zap,
 } from "lucide-react"
@@ -22,6 +22,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { TiltCard } from "@/components/interactive/page"
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
+import { HeroAIML } from "@/components/service-hero-visuals";
 
 const services = [
   {
@@ -211,7 +212,7 @@ const packages = [
       "Technology recommendations",
       "Implementation roadmap",
     ],
-    popular: true,
+    
   },
   {
     name: "AI Application",
@@ -241,7 +242,7 @@ const packages = [
       "Cloud deployment",
       "Ongoing improvements",
     ],
-    popular: true,
+   
   },
 ]
 

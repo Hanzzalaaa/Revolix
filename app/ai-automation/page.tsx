@@ -23,8 +23,8 @@ import {
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { TiltCard } from "@/components/interactive/page"
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
+import { HeroAIAutomation } from "@/components/service-hero-visuals";
 
 const automationServices = [
   {
@@ -220,7 +220,7 @@ const packages = [
       "AI use-case recommendations",
       "Automation roadmap",
     ],
-    popular: true,
+    
   },
   {
     name: "AI Automation Build", 
@@ -250,7 +250,7 @@ const packages = [
       "Monitoring",
       "Ongoing improvements",
     ],
-    popular: true,
+    
   },
 ]
 
@@ -287,7 +287,7 @@ const faqs = [
   },
   {
     question: "How long does an automation project take?",
-    answer:
+    answer: 
       "The timeline depends on the number of workflows, systems involved, integrations, AI requirements, testing, and deployment complexity. A single focused workflow is significantly different from a company-wide automation system.",
   },
 ]
@@ -364,50 +364,7 @@ export default function AIAutomationPage() {
               </ScrollReveal>
 
               {/* AUTOMATION VISUAL */}
-
-              <ScrollReveal delay={150} className="hidden md:block">
-                <TiltCard className="mx-auto w-full max-w-xl">
-  <div className="mx-auto w-full max-w-xl">
-    <div className="rounded-3xl border border-border bg-card p-5 shadow-2xl">
-      <div className="rounded-2xl border border-border bg-background p-6">
-        <div className="flex items-center justify-between border-b border-border pb-5">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
-              <Workflow className="h-6 w-6 text-primary" />
-            </div>
-            <div>
-              <p className="font-semibold">
-                Automated Workflow
-              </p>
-              <p className="text-xs text-muted-foreground">
-                AI-powered business process
-              </p>
-            </div>
-          </div>
-          <div className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-            Active
-          </div>
-        </div>
-        <div className="space-y-3 py-6">
-          <div className="flex items-center gap-3 rounded-xl border border-border bg-card p-4">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
-              <MessageSquare className="h-4 w-4 text-primary" />
-            </div>
-            <div className="flex-1">
-              <p className="text-sm font-medium">
-                New Lead Received
-              </p>
-              <p className="text-xs text-muted-foreground">
-                Trigger workflow
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> 
-    </div>
-  </div>
-  </TiltCard>
-</ScrollReveal>
+              <HeroAIAutomation/>
 
 
             </div>

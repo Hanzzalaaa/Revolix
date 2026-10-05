@@ -27,7 +27,7 @@ const industries = [
   {
     icon: Briefcase,
     title: "Business Websites",
-    description: "Professional business websites that build trust, authority and qualified leads.",
+    description: "Professional, high-converting business websites that build trust, authority, and qualified leads.",
     href: "/industries#business-websites",
   },
 ]

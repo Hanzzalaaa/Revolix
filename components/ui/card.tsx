@@ -2,12 +2,24 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
-function Card({ className, ...props }: React.ComponentProps<'div'>) {
+function Card({
+  className,
+  interactive = false,
+  ...props
+}: React.ComponentProps<'div'> & {
+  /** Set true for clickable/hoverable cards (service cards, links) —
+   *  adds a 2px lift + border tint on hover and a scale-down on press.
+   *  Leave false for static cards (forms, stat blocks, etc). */
+  interactive?: boolean
+}) {
   return (
     <div
       data-slot="card"
+      data-interactive={interactive || undefined}
       className={cn(
-        'bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm',
+        'bg-card text-card-foreground flex flex-col gap-6 rounded-lg border py-6 shadow-sm',
+        interactive &&
+          'hover-lift press-feedback cursor-pointer transition-colors duration-200 ease-[var(--ease-out)] hover:border-primary/50',
         className,
       )}
       {...props}
@@ -32,7 +44,10 @@ function CardTitle({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="card-title"
-      className={cn('leading-none font-semibold', className)}
+      className={cn(
+        'leading-none font-semibold tracking-[var(--tracking-tight)]',
+        className,
+      )}
       {...props}
     />
   )

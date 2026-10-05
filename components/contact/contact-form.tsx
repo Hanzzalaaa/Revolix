@@ -11,23 +11,23 @@ import { Check, Loader2 } from "lucide-react"
 
 
 
-const services = [
-  "AI & Machine Learning",
-  "Software Development",
-  "Cloud Infrastructure",
-  "Data Analytics",
-  "UX Design",
-  "Digital Strategy",
-  "Other",
-]
+// const services = [
+//   "AI & Machine Learning",
+//   "Software Development",
+//   "Cloud Infrastructure",
+//   "Data Analytics",
+//   "UX Design",
+//   "Digital Strategy",
+//   "Other",
+// ]
 
-const budgets = [
-  "< $25,000",
-  "$25,000 - $50,000",
-  "$50,000 - $100,000",
-  "$100,000 - $250,000",
-  "$250,000+",
-]
+// const budgets = [
+//   "< $25,000",
+//   "$25,000 - $50,000",
+//   "$50,000 - $100,000",
+//   "$100,000 - $250,000",
+//   "$250,000+",
+// ]
 
 interface FormData {
   first_name: string
@@ -178,7 +178,7 @@ export function ContactForm() {
                   </div>
                 </div>
 
-                <div>
+                {/* <div>
                   <label className="block text-sm font-medium mb-3">Service Interested In *</label>
                   <div className="flex flex-wrap gap-2">
                     {services.map((service) => (
@@ -195,9 +195,9 @@ export function ContactForm() {
                       </button>
                     ))}
                   </div>
-                </div>
+                </div> */}
 
-                <div>
+                {/* <div>
                   <label className="block text-sm font-medium mb-3">Budget Range</label>
                   <div className="flex flex-wrap gap-2">
                     {budgets.map((budget) => (
@@ -214,7 +214,7 @@ export function ContactForm() {
                       </button>
                     ))}
                   </div>
-                </div>
+                </div> */}
 
                 <div>
                   <label className="block text-sm font-medium mb-2">

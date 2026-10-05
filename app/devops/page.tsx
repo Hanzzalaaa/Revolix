@@ -20,7 +20,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
-import { TiltCard } from "@/components/interactive/page"
+import { HeroCloudDevOps} from "@/components/service-hero-visuals";
 
 
 const services = [ 
@@ -153,86 +153,7 @@ export default function CloudDevOpsPage() {
           </div>
 
           {/* Right Side: DevOps & Cloud Widget */}
-          <div className="relative flex items-center justify-center lg:justify-end">
-            <ScrollReveal>
-              <TiltCard className="mx-auto w-full max-w-xl">
-              <div className="relative h-[400px] w-full max-w-[440px] rounded-2xl border border-border/60 bg-background/50 p-6 backdrop-blur-md shadow-2xl">
-                
-                {/* Visual Background grid lines */}
-                <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] rounded-2xl" />
-
-                {/* Top Terminal Header Component */}
-                <div className="flex items-center justify-between border-b border-border/80 pb-4 mb-6">
-                  <div className="flex gap-1.5">
-                    <span className="h-3 w-3 rounded-full bg-destructive/70" />
-                    <span className="h-3 w-3 rounded-full bg-amber-500/70" />
-                    <span className="h-3 w-3 rounded-full bg-emerald-500/70" />
-                  </div>
-                  <span className="text-xs font-mono text-muted-foreground">infrastructure.yaml</span>
-                </div>
-
-                {/* Floating Micro-widgets */}
-                <div className="space-y-4">
-                  
-                  {/* Central Cloud Controller */}
-                  <div className="flex items-center gap-4 rounded-xl border border-primary/20 bg-primary/5 p-4 transition-all hover:scale-[1.02]">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <Cloud className="h-5 w-5" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <p className="text-sm font-semibold">AWS / GCP Cluster</p>
-                        <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-500">Active</span>
-                      </div>
-                      <p className="text-xs text-muted-foreground font-mono mt-0.5">Uptime: 99.99%</p>
-                    </div>
-                  </div>
-
-                  {/* CI/CD Pipeline Widget */}
-                  <div className="flex items-center gap-4 rounded-xl border border-border bg-card/40 p-4 transition-all hover:scale-[1.02]">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
-                      <GitBranch className="h-5 w-5" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm font-semibold">CI/CD Pipeline</p>
-                      <div className="mt-1.5 h-1.5 w-full rounded-full bg-muted overflow-hidden">
-                        <div className="h-full w-4/5 rounded-full bg-amber-500 animate-pulse" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Microservices Container Status */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="flex items-center gap-2 rounded-xl border border-border bg-card/40 p-3">
-                      <Cpu className="h-4 w-4 text-primary" />
-                      <div>
-                        <p className="text-[11px] text-muted-foreground uppercase tracking-wider font-medium">CPU Usage</p>
-                        <p className="text-sm font-semibold font-mono">24%</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 rounded-xl border border-border bg-card/40 p-3">
-                      <Layers className="h-4 w-4 text-indigo-500" />
-                      <div>
-                        <p className="text-[11px] text-muted-foreground uppercase tracking-wider font-medium">Containers</p>
-                        <p className="text-sm font-semibold font-mono">12 Running</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Security Guard Widget */}
-                  <div className="flex items-center justify-between rounded-xl border border-border bg-card/40 px-4 py-3">
-                    <div className="flex items-center gap-2.5">
-                      <ShieldCheck className="h-4 w-4 text-emerald-500" />
-                      <span className="text-xs font-medium">SSL & IAM Security Policies</span>
-                    </div>
-                    <span className="text-[11px] font-mono text-muted-foreground">Enforced</span>
-                  </div>
-
-                </div>
-              </div>
-              </TiltCard>
-            </ScrollReveal>
-          </div>
+          <HeroCloudDevOps />
 
         </div>
       </div>

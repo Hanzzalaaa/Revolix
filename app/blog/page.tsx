@@ -10,7 +10,7 @@ import { CTASection } from "@/components/cta-section"
 
 function BlogGridSkeleton() {
   return (
-    <section className="py-12">
+        <section className="py-12 hidden md:block">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 6 }).map((_, index) => (
@@ -65,31 +65,44 @@ export default function BlogPage() {
     <ParallaxProvider>
       <Header />
 
-      <main>
-        <BreadcrumbJsonLd
-          items={[
-            {
-              name: "Home",
-              item: "https://revolixtech.com/",
-            },
-            {
-              name: "Blog",
-              item: "https://revolixtech.com/blog",
-            },
-          ]}
-        />
+      <main className="relative overflow-hidden">
+        
+        {/* Ambient background glows to make the page feel alive */}
+        <div className="pointer-events-none absolute left-0 top-0 -z-10 h-full w-full overflow-hidden">
+          <div className="absolute -left-1/4 top-[10%] h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="absolute -right-1/4 top-[40%] h-[600px] w-[600px] rounded-full bg-primary/5 blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '12s' }} />
+          <div className="absolute left-[10%] top-[80%] h-[400px] w-[400px] rounded-full bg-primary/5 blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '10s' }} />
+        </div>
 
-        <BlogHero />
+        {/* Global Page Vertical Border Framing Lines */}
+        <div className="absolute inset-y-0 left-0 w-[3px] bg-border hidden md:block" />
+<div className="absolute inset-y-0 right-0 w-[3px] bg-border hidden md:block" />
 
-        {/* Blog posts with images */}
-        <BlogGrid />
+        <div className="relative z-10">
+          <BreadcrumbJsonLd
+            items={[
+              {
+                name: "Home",
+                item: "https://revolixtech.com/",
+              },
+              {
+                name: "Blog",
+                item: "https://revolixtech.com/blog",
+              },
+            ]}
+          />
 
-        {/* Newsletter removed — CTA is now used instead */}
-        <CTASection />
+          <BlogHero />
+
+          {/* Blog posts with images */}
+          <BlogGrid />
+
+          {/* Newsletter removed — CTA is now used instead */}
+          <CTASection />
+        </div>
       </main>
 
       <Footer />
     </ParallaxProvider>
   )
 }
-

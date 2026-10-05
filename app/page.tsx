@@ -18,6 +18,7 @@ import { ProcessSection } from '@/components/process-section';
 import Portfoliosection from "@/components/portfolio-section";
 import { AboutTeam } from "@/components/about-team";
 import { BreadcrumbJsonLd, FAQJsonLd } from '@/components/seo/json-ld';
+import Script from "next/script";
 
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.startsWith('http')
@@ -64,6 +65,11 @@ export default function HomePage() {
               : 'Web Development, SEO, Digital Marketing'
           }
           providerName="Revolix Technologies"
+        /> 
+        <Script
+          src="https://vursell.duckdns.org/widget/widget.js"
+          data-bot-id="52487262-bb7d-4e51-beb0-9032efe42d85"
+          strategy="afterInteractive"
         />
         <HeroSection />
         {/* <TrustedBySection /> */}

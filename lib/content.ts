@@ -24,20 +24,15 @@ export const posts: Post[] = [
   // ============================================================
   // 01 — SEO
   // ============================================================
-
   {
     slug: "on-page-seo-checklist-2026",
-    title:
-      "On-Page SEO Checklist 2026: 15 Steps to Actually Rank Higher",
-    excerpt:
-      "A practical SEO checklist for publishers and business owners who want better rankings without relying on guesswork.",
+    title: "On-Page SEO Checklist 2026: 15 Steps to Actually Rank Higher",
+    excerpt: "A practical SEO checklist for publishers and business owners who want better rankings without relying on guesswork.",
     category: "SEO",
     author: "Revolix Team",
     date: "2026-07-07",
     readTime: "8 min read",
-    image: "/Blog/seo-checklist-cover.svg",
-    content:
-      `## Why on-page SEO still matters
+    content: `## Why on-page SEO still matters
 
 On-page SEO is the foundation for content that gets discovered, understood, trusted, and clicked. It helps search engines understand what a page is about while making the experience clearer for the people who visit it.
 
@@ -71,24 +66,18 @@ Start with pages that already receive traffic, target commercial searches, or su
 
 Use the checklist as a practical audit rather than a box-ticking exercise. The goal is to make every important page clearer, more useful, and easier to discover.`,
   },
-
   // ============================================================
   // 02 — AI & AUTOMATION
   // ============================================================
-
   {
     slug: "ai-agents-for-business",
-    title:
-      "AI Agents for Business: Where They Actually Make Sense",
-    excerpt:
-      "A practical look at where AI agents can handle repetitive work, support customers, qualify leads, and connect business workflows.",
+    title: "AI Agents for Business: Where They Actually Make Sense",
+    excerpt: "A practical look at where AI agents can handle repetitive work, support customers, qualify leads, and connect business workflows.",
     category: "AI & Automation",
     author: "Revolix Team",
     date: "2026-08-02",
     readTime: "7 min read",
-    
-    content:
-      `## What is an AI agent?
+    content: `## What is an AI agent?
 
 An AI agent is a software system that can interpret information, make decisions within defined boundaries, and take actions to complete a task.
 
@@ -149,24 +138,18 @@ The best AI agents are not built simply because AI is popular. They are built wh
 
 Start with the problem, then choose the technology.`,
   },
-
   // ============================================================
   // 03 — GOHIGHLEVEL
   // ============================================================
-
   {
     slug: "gohighlevel-automation-workflows",
-    title:
-      "5 GoHighLevel Automations That Can Save Your Team Time",
-    excerpt:
-      "From missed-call text-back to lead follow-ups and appointment reminders, these workflows show where CRM automation can make a practical difference.",
+    title: "5 GoHighLevel Automations That Can Save Your Team Time",
+    excerpt: "From missed-call text-back to lead follow-ups and appointment reminders, these workflows show where CRM automation can make a practical difference.",
     category: "GoHighLevel",
     author: "Revolix Team",
     date: "2026-08-09",
     readTime: "6 min read",
-   
-    content:
-      `## Why automation matters in a CRM
+    content: `## Why automation matters in a CRM
 
 A CRM becomes much more useful when routine actions happen automatically.
 
@@ -238,24 +221,18 @@ GoHighLevel automation works best when it removes repetitive work without making
 
 The goal is a faster, more consistent sales process — not simply more workflows.`,
   },
-
   // ============================================================
   // 04 — WEB DEVELOPMENT
   // ============================================================
-
   {
     slug: "nextjs-performance-guide",
-    title:
-      "How to Build a Faster Website Without Rebuilding Everything",
-    excerpt:
-      "A practical guide to improving website performance through image optimization, cleaner rendering, better assets, and smarter architecture.",
+    title: "How to Build a Faster Website Without Rebuilding Everything",
+    excerpt: "A practical guide to improving website performance through image optimization, cleaner rendering, better assets, and smarter architecture.",
     category: "Web Development",
     author: "Revolix Team",
     date: "2026-08-16",
     readTime: "8 min read",
-    
-    content:
-      `## You may not need a complete rebuild
+    content: `## You may not need a complete rebuild
 
 When a website feels slow, the first instinct is often to rebuild everything.
 
@@ -328,24 +305,18 @@ Before rebuilding a website, identify what is actually slowing it down.
 
 A focused performance pass can often accomplish more than replacing an entire codebase.`,
   },
-
   // ============================================================
   // 05 — UI/UX
   // ============================================================
-
   {
     slug: "ui-ux-conversion-principles",
-    title:
-      "UI/UX Design Principles That Make Business Websites Easier to Use",
-    excerpt:
-      "Simple interface decisions that improve navigation, clarity, usability, and the overall experience of a business website.",
+    title: "UI/UX Design Principles That Make Business Websites Easier to Use",
+    excerpt: "Simple interface decisions that improve navigation, clarity, usability, and the overall experience of a business website.",
     category: "UI/UX Design",
     author: "Revolix Team",
     date: "2026-08-23",
     readTime: "6 min read",
-    
-    content:
-      `## Good design starts with clarity
+    content: `## Good design starts with clarity
 
 A business website does not need to be complicated to look professional.
 
@@ -422,19 +393,16 @@ export const caseStudies: CaseStudy[] = [
     title: "AuroraEvents",
     industry: "Entertainment",
     tags: ["Evaluation and Design", "PWA", "Mobile Development"],
-    description:
-      "An AI-powered artist booking and event planning platform aimed at creating a reliable, intuitive space where event organizers can easily find and book performers.",
+    description: "An AI-powered artist booking and event planning platform aimed at creating a reliable, intuitive space where event organizers can easily find and book performers.",
     image: "/entertainment-app-dark-purple-neon.jpg",
     results: [],
   },
-
   {
     slug: "medi-sync",
     title: "MediSync",
     industry: "Healthcare",
     tags: ["AI Integration", "Image Recognition", "Clinical Trials"],
-    description:
-      "A digital health platform leveraging artificial intelligence and advanced image capture technology to improve clinical trial enrollment and monitoring.",
+    description: "A digital health platform leveraging artificial intelligence and advanced image capture technology to improve clinical trial enrollment and monitoring.",
     image: "/healthcare-app-medical-blue-technology.jpg",
     results: [],
   },

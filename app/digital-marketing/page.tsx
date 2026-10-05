@@ -18,8 +18,8 @@ import {
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { TiltCard } from "@/components/interactive/page"
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
+import { HeroDigitalMarketing } from "@/components/service-hero-visuals";
 
 const services = [
   {
@@ -149,7 +149,7 @@ const packages = [
       "Basic performance tracking",
       "Monthly recommendations",
     ],
-    popular: true,
+   
   },
   {
     name: "Growth Marketing",
@@ -179,7 +179,7 @@ const packages = [
       "Conversion tracking",
       "Campaign optimization",
     ],
-    popular: true,
+    
   },
 ]
 
@@ -281,65 +281,10 @@ export default function DigitalMarketingPage() {
     </div>
   </div>
 </ScrollReveal>
-
+ 
  
               {/* Marketing Visual */}
-              <ScrollReveal delay={150} className="hidden md:block">
-                <TiltCard className="mx-auto w-full max-w-xl">
-  <div className="relative mx-auto w-full max-w-xl">
-    <div className="grid grid-cols-5 gap-4 rounded-3xl border border-border bg-card p-5 shadow-2xl">
-      
-      {/* Left Side: Visual Funnel Breakdown (2 Columns) */}
-      <div className="col-span-2 rounded-2xl bg-background border border-border/60 p-4 flex flex-col justify-between items-center min-h-[160px]">
-        {/* Funnel Tier 1 (Top / Awareness) */}
-        <div className="w-full h-5 rounded-lg bg-primary border border-primary/20 flex items-center justify-center">
-          <div className="h-1.5 w-1/3 rounded-full bg-background/40" />
-        </div>
-        {/* Funnel Tier 2 (Middle / Consideration) */}
-        <div className="w-4/5 h-5 rounded-lg bg-primary/70 border border-primary/10 flex items-center justify-center">
-          <div className="h-1.5 w-1/4 rounded-full bg-background/30" />
-        </div>
-        {/* Funnel Tier 3 (Bottom / Conversion) */}
-        <div className="w-3/5 h-5 rounded-lg bg-primary/40 border border-primary/5 flex items-center justify-center">
-          <div className="h-1.5 w-1/5 rounded-full bg-background/20" />
-        </div>
-        {/* Funnel Core Indicator */}
-        <div className="h-2 w-2 rounded-full bg-primary animate-ping mt-1" />
-      </div>
-
-      {/* Right Side: Analytics Spike & Insights (3 Columns) */}
-      <div className="col-span-3 flex flex-col justify-between rounded-2xl bg-background border border-border/60 p-4">
-        {/* Compact Header Block */}
-        <div className="flex justify-between items-center w-full">
-          <div className="h-3 w-16 rounded bg-muted" />
-          <div className="h-4 w-10 rounded-full bg-primary/10 border border-primary/20" />
-        </div>
-
-        {/* Upward Conversion Spike Graph */}
-        <div className="flex items-end gap-1.5 h-16 my-4 w-full px-1">
-          <div className="h-[20%] w-full bg-muted rounded-t-sm" />
-          <div className="h-[25%] w-full bg-muted rounded-t-sm" />
-          <div className="h-[40%] w-full bg-primary/40 rounded-t-sm" />
-          <div className="h-[55%] w-full bg-primary/60 rounded-t-sm" />
-          <div className="h-[70%] w-full bg-primary/80 rounded-t-sm" />
-          <div className="h-[95%] w-full bg-primary rounded-t-sm relative">
-            {/* Pulsing focal point on the peak performance spike */}
-            <div className="absolute -top-1 left-1/2 -translate-x-1/2 h-2 w-2 rounded-full bg-primary border border-background" />
-          </div>
-        </div>
-
-        {/* Mini Multi-channel Segment Track */}
-        <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden flex">
-          <div className="h-full w-1/2 bg-primary" />
-          <div className="h-full w-1/3 bg-primary/60 border-l border-background" />
-          <div className="h-full w-1/6 bg-primary/30 border-l border-background" />
-        </div>
-      </div>
-
-    </div> 
-  </div>
-  </TiltCard>
-</ScrollReveal>
+              <HeroDigitalMarketing />
 
 
             </div>

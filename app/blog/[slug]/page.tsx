@@ -3,6 +3,9 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getPostBySlug, getAllPostSlugs } from "@/lib/content"
 import ArticleJsonLd from "@/components/seo/json-ld"
+import { ParallaxProvider } from "@/components/parallax-provider"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 
 export const revalidate = 60 // ISR: revalidate every 60s
 
@@ -51,7 +54,7 @@ function renderInlineMarkdown(text: string) {
 
   return parts.map((part, index) => {
     if (part.startsWith("**") && part.endsWith("**")) {
-      return <strong key={`${part}-${index}`}>{part.slice(2, -2)}</strong>
+      return <strong key={`${part}-${index}`} className="text-foreground">{part.slice(2, -2)}</strong>
     }
 
     if (part.startsWith("*") && part.endsWith("*")) {
@@ -61,7 +64,11 @@ function renderInlineMarkdown(text: string) {
     const linkMatch = part.match(/^\[([^\]]+)\]\(([^\)]+)\)$/)
     if (linkMatch) {
       return (
-        <a key={`${part}-${index}`} href={linkMatch[2]} className="text-primary underline-offset-4 hover:underline">
+        <a 
+          key={`${part}-${index}`} 
+          href={linkMatch[2]} 
+          className="text-primary font-semibold underline-offset-4 hover:underline transition-colors hover:text-primary/80"
+        >
           {linkMatch[1]}
         </a>
       )
@@ -82,7 +89,9 @@ function renderMarkdownContent(content: string) {
 
     if (lines[0]?.startsWith("## ")) {
       return (
-        <h2 key={`${block}-${index}`} className="text-2xl font-semibold mt-8 mb-4 text-foreground">
+        <h2 key={`${block}-${index}`} className="group text-2xl font-bold mt-12 mb-4 text-foreground transition-transform duration-300 hover:translate-x-1 flex items-center gap-3">
+          {/* Aesthetic developer "#" symbol appearing on hover */}
+          <span className="text-primary/40 text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -ml-6 absolute hidden sm:block">#</span>
           {renderInlineMarkdown(lines[0].replace(/^##\s*/, ""))}
         </h2>
       )
@@ -90,7 +99,7 @@ function renderMarkdownContent(content: string) {
 
     if (lines[0]?.startsWith("### ")) {
       return (
-        <h3 key={`${block}-${index}`} className="text-xl font-semibold mt-6 mb-3 text-foreground">
+        <h3 key={`${block}-${index}`} className="text-xl font-semibold mt-8 mb-3 text-foreground transition-colors duration-300 hover:text-primary/90">
           {renderInlineMarkdown(lines[0].replace(/^###\s*/, ""))}
         </h3>
       )
@@ -98,16 +107,21 @@ function renderMarkdownContent(content: string) {
 
     if (lines.every((line) => line.startsWith("- "))) {
       return (
-        <ul key={`${block}-${index}`} className="list-disc space-y-2 pl-6 mb-6 text-muted-foreground">
+        <ul key={`${block}-${index}`} className="list-none space-y-3 mb-8 text-muted-foreground">
           {lines.map((line, lineIndex) => (
-            <li key={`${line}-${lineIndex}`}>{renderInlineMarkdown(line.replace(/^[-]\s*/, ""))}</li>
+            <li key={`${line}-${lineIndex}`} className="flex items-start gap-3 group">
+              <span className="text-primary/50 mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/50 transition-transform group-hover:scale-150 flex-shrink-0" />
+              <span className="transition-colors group-hover:text-foreground/90">
+                {renderInlineMarkdown(line.replace(/^[-]\s*/, ""))}
+              </span>
+            </li>
           ))}
         </ul>
       )
     }
 
     return (
-      <p key={`${block}-${index}`} className="mb-5 leading-8 text-muted-foreground">
+      <p key={`${block}-${index}`} className="mb-6 leading-8 text-muted-foreground transition-colors hover:text-foreground/90">
         {renderInlineMarkdown(lines.join(" "))}
       </p>
     )
@@ -119,30 +133,70 @@ export default function BlogPostPage({ params }: Props) {
   if (!post) return notFound()
 
   return (
-    <main className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
-      <article>
-        <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-        <p className="text-sm text-muted-foreground mb-6">{post.date} - {post.readTime}</p>
-        {post.image && (
-          <div className="relative w-full h-64 mb-6 rounded-lg overflow-hidden">
-            <Image
-              src={post.image}
-              alt={`${post.title} - frontend developer and backend developer insights`}
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-        )}
-
-        <div className="prose max-w-none text-muted-foreground mb-8">
-          <p className="text-lg leading-8 mb-8">{post.excerpt}</p>
-          {post.content ? renderMarkdownContent(post.content) : null}
+    <ParallaxProvider>
+      <Header />
+      <main className="relative overflow-hidden py-20 lg:py-28">
+        
+        {/* Ambient background glows */}
+        <div className="pointer-events-none absolute left-0 top-0 -z-10 h-full w-full overflow-hidden">
+          <div className="absolute -left-1/4 top-1/4 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="absolute -right-1/4 top-2/3 h-[600px] w-[600px] rounded-full bg-primary/5 blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '12s' }} />
         </div>
 
-        <ArticleJsonLd title={post.title} description={post.excerpt || ""} authorName={post.author} datePublished={post.date} url={`${process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"}/blog/${post.slug}`} image={post.image} />
-      </article>
-    </main>
+        <section className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          
+          {/* Vertical reading column lines */}
+          <div className="absolute inset-y-0 left-0 w-[3px] bg-border hidden md:block" />
+<div className="absolute inset-y-0 right-0 w-[3px] bg-border hidden md:block" />
+
+          <article className="max-w-3xl mx-auto md:px-12 relative z-10">
+            {/* Header Content */}
+            <div className="mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <div className="flex items-center gap-2 mb-6">
+                <span className="text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">
+                  {post.category}
+                </span>
+                <span className="text-sm text-muted-foreground">{post.date} &bull; {post.readTime}</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+                {post.title}
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                {post.excerpt}
+              </p>
+            </div>
+
+            {/* Featured Image */}
+            {post.image && (
+              <div className="relative w-full h-[400px] mb-12 rounded-2xl overflow-hidden border border-border shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent z-10 pointer-events-none" />
+                <Image
+                  src={post.image}
+                  alt={`${post.title} - frontend developer and backend developer insights`}
+                  fill
+                  sizes="100vw"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            )}
+
+            {/* Markdown Body */}
+            <div className="prose max-w-none text-muted-foreground animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
+              {post.content ? renderMarkdownContent(post.content) : null}
+            </div>
+
+            <ArticleJsonLd 
+              title={post.title} 
+              description={post.excerpt || ""} 
+              authorName={post.author} 
+              datePublished={post.date} 
+              url={`${process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"}/blog/${post.slug}`} 
+              image={post.image} 
+            />
+          </article>
+        </section>
+      </main>
+      <Footer />
+    </ParallaxProvider>
   )
 }
-

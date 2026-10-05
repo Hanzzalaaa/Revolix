@@ -22,8 +22,8 @@ import {
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { TiltCard } from "@/components/interactive/page"
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
+import { HeroEcommerce } from "@/components/service-hero-visuals";
 
 const services = [
   {
@@ -220,7 +220,7 @@ const packages = [
       "Basic prototype",
       "Developer handoff",
     ],
-        popular: true,
+       
   },
   {
     name: "UI/UX Product design",
@@ -250,7 +250,7 @@ const packages = [
       "Figma documentation",
       "Developer handoff",
     ],
-        popular: true,
+        
   },
 ]
 
@@ -302,7 +302,7 @@ export default function UIUXPage() {
          { name: "Home", item: "https://revolixtech.com/" },
          { name: "UI/UX Design", item: "https://revolixtech.com/uiux" },
        ]} />
-
+ 
         {/* =========================
             HERO
         ========================= */}
@@ -362,155 +362,7 @@ export default function UIUXPage() {
               </ScrollReveal>
 
               {/* Design Preview */}
-<ScrollReveal delay={150} className="hidden md:block"> 
-  <TiltCard className="mx-auto w-full max-w-xl"> 
-    <div className="mx-auto w-full max-w-xl"> 
-      <div className="rounded-3xl border border-border bg-card p-5 shadow-2xl backdrop-blur-sm"> 
-        <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-inner"> 
-          
-          {/* Design App Top Bar */} 
-          <div className="flex items-center justify-between border-b border-border px-5 py-3.5 bg-muted/40"> 
-            <div className="flex items-center gap-2"> 
-              <div className="h-3 w-3 rounded-full bg-red-500/80 transition-colors hover:bg-red-500" /> 
-              <div className="h-3 w-3 rounded-full bg-yellow-500/80 transition-colors hover:bg-yellow-500" /> 
-              <div className="h-3 w-3 rounded-full bg-green-500/80 transition-colors hover:bg-green-500" /> 
-            </div> 
-            
-            {/* Project Title / Breadcrumbs */}
-            <div className="mx-4 flex h-6 max-w-[260px] flex-1 items-center justify-center rounded-md bg-muted/60 px-3 text-[10px] text-muted-foreground tracking-wider font-mono"> 
-              design-system / v2.4-wireframe 
-            </div> 
-            
-            {/* Share / Present Button Placeholder */}
-            <div className="h-6 w-12 rounded bg-primary/20 border border-primary/30 flex items-center justify-center text-[9px] text-primary font-medium tracking-wide">
-              SHARE
-            </div> 
-          </div> 
-
-          {/* Editor Workspace layout: Left Layers, Center Canvas, Right Properties */} 
-          <div className="grid min-h-[380px] grid-cols-[80px_1fr_100px]"> 
-            
-            {/* Left Toolbar & Layers Panel */} 
-            <div className="border-r border-border p-2.5 bg-muted/10 flex flex-col justify-between"> 
-              <div className="flex flex-col gap-2.5"> 
-                {/* Active Selection Tool */}
-                <div className="h-8 w-full rounded-lg bg-primary flex items-center justify-center text-primary-foreground shadow-sm"> 
-                  <div className="h-3 w-3 rotate-45 border-l-2 border-t-2 border-current" /> {/* Move Tool Icon */}
-                </div> 
-                {/* Shape / Text Tools */}
-                <div className="h-8 w-full rounded-lg bg-muted/40 hover:bg-muted transition-colors flex items-center justify-center">
-                  <div className="h-3 w-3 border-2 border-muted-foreground/60 rounded-sm" />
-                </div> 
-                <div className="h-8 w-full rounded-lg bg-muted/40 hover:bg-muted transition-colors flex items-center justify-center">
-                  <div className="h-3 w-3 border-2 border-muted-foreground/60 rounded-full" />
-                </div> 
-                <div className="h-8 w-full rounded-lg bg-muted/40 hover:bg-muted transition-colors flex items-center justify-center text-[11px] font-serif text-muted-foreground/70 font-bold">
-                  T
-                </div> 
-              </div> 
-              {/* Asset Component Indicator */}
-              <div className="h-8 w-full rounded-lg bg-muted/30 border border-dashed border-border flex items-center justify-center">
-                <div className="h-2 w-2 rotate-45 bg-purple-500/50" />
-              </div>
-            </div> 
-
-            {/* Central Canvas (Design Preview Area) */} 
-            <div className="p-5 bg-muted/5 flex flex-col justify-between relative overflow-hidden"> 
-              
-              {/* Floating Canvas Zoom Scale */}
-              <div className="absolute top-3 right-3 h-5 w-10 rounded bg-background/80 border border-border text-[9px] text-muted-foreground font-mono flex items-center justify-center backdrop-blur-xs">
-                44%
-              </div>
-
-              {/* Wireframe Canvas / Artboard */} 
-              <div className="flex-1 flex flex-col justify-center items-center">
-                {/* Device Frame Concept */}
-                <div className="w-full max-w-[180px] border border-border/80 bg-background rounded-2xl p-4 shadow-md space-y-3 relative group">
-                  {/* Fake User Avatars Floating (Collaborative Design Feature) */}
-                  <div className="absolute -top-2 -right-2 flex -space-x-1.5">
-                    <div className="h-4 w-4 rounded-full bg-blue-500 ring-2 ring-background text-[6px] font-bold text-white flex items-center justify-center">A</div>
-                    <div className="h-4 w-4 rounded-full bg-pink-500 ring-2 ring-background text-[6px] font-bold text-white flex items-center justify-center">M</div>
-                  </div>
-
-                  {/* UI Hero Frame Component */}
-                  <div className="h-16 rounded-lg bg-muted/30 border border-muted/50 flex flex-col justify-center p-2.5 space-y-1.5">
-                    <div className="h-2 w-16 rounded bg-foreground/60" />
-                    <div className="h-1.5 w-24 rounded bg-muted-foreground/35" />
-                    <div className="h-1.5 w-10 rounded bg-muted-foreground/25" />
-                  </div>
-
-                  {/* UI Grid Layout Elements */}
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="h-12 rounded-lg bg-primary/5 border border-primary/20 p-2 flex flex-col justify-between">
-                      <div className="h-1.5 w-6 rounded bg-primary/40" />
-                      <div className="h-2.5 w-8 rounded bg-primary/60" />
-                    </div>
-                    <div className="h-12 rounded-lg bg-muted/20 border border-border/40 p-2 flex flex-col justify-between">
-                      <div className="h-1.5 w-6 rounded bg-muted-foreground/30" />
-                      <div className="h-2.5 w-8 rounded bg-foreground/40" />
-                    </div>
-                  </div>
-
-                  {/* User Flow Vector Anchor Points */}
-                  <div className="absolute left-1/2 -bottom-2 h-2 w-2 rounded-full bg-blue-500 ring-2 ring-background cursor-crosshair" />
-                </div>
-              </div>
-
-              {/* Breadcrumb Layer Tracker */}
-              <div className="h-5 w-32 rounded bg-background/60 border border-border text-[9px] text-muted-foreground flex items-center px-2 gap-1 font-mono">
-                <span className="text-purple-400">◆</span> Frame 1 &gt; Card
-              </div>
-            </div> 
-
-            {/* Right Sidebar (Design Properties Panel) */}
-            <div className="border-l border-border p-2.5 bg-muted/10 flex flex-col gap-4">
-              {/* Alignment Controls */}
-              <div className="space-y-1.5">
-                <div className="h-1.5 w-10 rounded bg-muted-foreground/40" />
-                <div className="grid grid-cols-4 gap-1">
-                  <div className="h-4 rounded bg-muted/50 border border-border/60" />
-                  <div className="h-4 rounded bg-muted/50 border border-border/60" />
-                  <div className="h-4 rounded bg-muted/50 border border-border/60" />
-                  <div className="h-4 rounded bg-muted/50 border border-border/60" />
-                </div>
-              </div>
-
-              {/* Layout Coordinates */}
-              <div className="space-y-2">
-                <div className="h-1.5 w-14 rounded bg-muted-foreground/40" />
-                <div className="grid grid-cols-2 gap-1.5">
-                  <div className="h-5 rounded bg-background border border-border p-1 flex items-center justify-between"><span className="text-[8px] text-muted-foreground/50">X</span><span className="text-[8px] font-mono">140</span></div>
-                  <div className="h-5 rounded bg-background border border-border p-1 flex items-center justify-between"><span className="text-[8px] text-muted-foreground/50">Y</span><span className="text-[8px] font-mono">320</span></div>
-                  <div className="h-5 rounded bg-background border border-border p-1 flex items-center justify-between"><span className="text-[8px] text-muted-foreground/50">W</span><span className="text-[8px] font-mono">100%</span></div>
-                  <div className="h-5 rounded bg-background border border-border p-1 flex items-center justify-between"><span className="text-[8px] text-muted-foreground/50">H</span><span className="text-[8px] font-mono">Auto</span></div>
-                </div>
-              </div>
-
-              {/* Style / Color Pill */}
-              <div className="space-y-1.5 mt-2">
-                <div className="h-1.5 w-8 rounded bg-muted-foreground/40" />
-                <div className="h-6 rounded-lg bg-background border border-border p-1 flex items-center gap-1.5">
-                  <div className="h-3 w-3 rounded-sm bg-primary shadow-xs" />
-                  <div className="h-2 w-10 rounded bg-foreground/60" />
-                </div>
-              </div>
-
-              {/* Typography Preview */}
-              <div className="space-y-1.5">
-                <div className="h-1.5 w-12 rounded bg-muted-foreground/40" />
-                <div className="h-5 rounded bg-background border border-border px-1.5 flex items-center justify-between">
-                  <span className="text-[8px] font-mono">Inter</span>
-                  <span className="text-[7px] text-muted-foreground">Bold</span>
-                </div>
-              </div>
-            </div>
-
-          </div> 
-        </div> 
-      </div> 
-    </div> 
-  </TiltCard> 
-</ScrollReveal>
+              <HeroEcommerce />
 
 
             </div>

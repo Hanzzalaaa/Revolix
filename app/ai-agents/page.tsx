@@ -18,7 +18,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
-import { TiltCard } from "@/components/interactive/page"
+import { HeroAIAgents } from "@/components/service-hero-visuals";
 
 const agentServices = [
   {
@@ -86,7 +86,7 @@ const technologies = [
   "PostgreSQL",
   "Redis",
 ]
-
+ 
 export default function AIAgentsPage() {
   return (
     <>
@@ -128,35 +128,10 @@ export default function AIAgentsPage() {
             </Link> 
           </div> 
         </div> 
-      </ScrollReveal>
+      </ScrollReveal> 
 
       {/* Right Side: Simplified AI Agents Widget wrapped in its own ScrollReveal with md:block */} 
-      <ScrollReveal className="hidden md:block">
-        <TiltCard className="mx-auto w-full max-w-xl"> 
-          <div className="flex justify-center lg:justify-end"> 
-            <div className="w-full max-w-md rounded-2xl border border-border bg-card p-6 shadow-sm"> 
-              <div className="flex items-center gap-3 border-b border-border pb-4 mb-4"> 
-                <div className="h-3 w-3 rounded-full bg-emerald-500 animate-pulse" /> 
-                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">AI Systems Active</span> 
-              </div> 
-              <div className="space-y-3"> 
-                <div className="flex items-center justify-between rounded-lg bg-secondary/50 p-3 text-sm"> 
-                  <span className="font-medium">Support Agent</span> 
-                  <span className="text-xs text-primary font-medium">Answering FAQs</span> 
-                </div> 
-                <div className="flex items-center justify-between rounded-lg bg-secondary/50 p-3 text-sm"> 
-                  <span className="font-medium">Lead Qualifier</span> 
-                  <span className="text-xs text-primary font-medium">Booking Calendar</span> 
-                </div> 
-                <div className="flex items-center justify-between rounded-lg bg-secondary/50 p-3 text-sm"> 
-                  <span className="font-medium">Workflow Automator</span> 
-                  <span className="text-xs text-muted-foreground">Syncing CRM</span> 
-                </div> 
-              </div> 
-            </div> 
-          </div> 
-        </TiltCard> 
-      </ScrollReveal>
+      <HeroAIAgents/>
 
     </div> 
   </div> 

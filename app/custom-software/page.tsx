@@ -17,8 +17,8 @@ import {
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
-import { TiltCard } from "@/components/interactive/page"
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
+import { HeroCustomSoftware } from "@/components/service-hero-visuals";
 
 const services = [
   {
@@ -115,7 +115,7 @@ const process = [
       "We test the system, prepare deployment, monitor performance, and continue improving the product as requirements evolve.",
   },
 ]
-
+ 
 export default function CustomSoftwarePage() {
   return (
     <>
@@ -164,138 +164,7 @@ export default function CustomSoftwarePage() {
         </div>
       </ScrollReveal>
  
-      <ScrollReveal delay={150} className="hidden md:block">
-        <TiltCard className="mx-auto w-full max-w-xl">
-  <div className="mx-auto w-full max-w-xl">
-    <div className="rounded-3xl border border-border bg-card p-5 shadow-2xl backdrop-blur-sm">
-      <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-inner">
-        
-        {/* Browser Bar */}
-        <div className="flex items-center justify-between border-b border-border px-5 py-3.5 bg-muted/40">
-          <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full bg-red-500/80 transition-colors hover:bg-red-500" />
-            <div className="h-3 w-3 rounded-full bg-yellow-500/80 transition-colors hover:bg-yellow-500" />
-            <div className="h-3 w-3 rounded-full bg-green-500/80 transition-colors hover:bg-green-500" />
-          </div>
-          <div className="mx-4 flex h-6 max-w-[240px] flex-1 items-center justify-center rounded-md bg-muted/60 px-3 text-[10px] text-muted-foreground tracking-wider font-mono">
-            console.customcraft.dev/apps
-          </div>
-          <div className="w-10" /> {/* Spacer for symmetry */}
-        </div>
-
-        {/* Fake UI Body */}
-        <div className="grid min-h-[400px] grid-cols-[72px_1fr]">
-          
-          {/* Developer Sidebar */}
-          <div className="border-r border-border p-3.5 bg-muted/10 flex flex-col justify-between">
-            <div className="flex flex-col gap-3">
-              {/* App Selector / Logo */}
-              <div className="h-9 w-full rounded-xl bg-primary flex flex-col items-center justify-center text-primary-foreground shadow-sm gap-0.5">
-                <div className="h-2 w-5 rounded-xs bg-current opacity-90" />
-                <div className="h-2 w-3 rounded-xs bg-current opacity-60" />
-              </div>
-              {/* Sidebar Menu Code Tokens */}
-              <div className="h-9 w-full rounded-xl bg-muted/70 flex items-center justify-center">
-                <div className="h-1 w-4 rounded-full bg-foreground/30" />
-              </div>
-              <div className="h-9 w-full rounded-xl bg-muted/40 hover:bg-muted transition-colors" />
-              <div className="h-9 w-full rounded-xl bg-muted/40 hover:bg-muted transition-colors" />
-              <div className="h-9 w-full rounded-xl bg-muted/40 hover:bg-muted transition-colors" />
-            </div>
-            {/* Environment Status Badge */}
-            <div className="h-8 w-full rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-              <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
-            </div>
-          </div>
-
-          {/* Core Custom Software Workspace */}
-          <div className="p-6">
-            
-            {/* Custom App Deployment Header */}
-            <div className="flex items-center justify-between border-b border-border/50 pb-5">
-              <div className="space-y-1.5">
-                <div className="h-4 w-44 rounded-md bg-foreground/80 font-mono text-xs tracking-tight" />
-                {/* Micro Deployment Status Subtitle */}
-                <div className="flex items-center gap-1.5">
-                  <div className="h-2 w-2 rounded-full bg-primary/40" />
-                  <div className="h-2.5 w-28 rounded bg-muted-foreground/40" />
-                </div>
-              </div>
-              {/* Build Success Trigger */}
-              <div className="h-9 w-24 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center px-3 gap-1.5">
-                <div className="h-2 w-2 rounded-full bg-emerald-500" />
-                <div className="h-2.5 w-10 rounded bg-emerald-500/40" />
-              </div>
-            </div>
-
-            {/* Custom Infrastructure Micro-Services Grid */}
-            <div className="mt-5 grid gap-3.5 sm:grid-cols-3">
-              {/* Component 1: Database Instance */}
-              <div className="h-24 rounded-2xl border border-border bg-card/60 p-3.5 flex flex-col justify-between shadow-xs">
-                <div className="flex justify-between items-center">
-                  <div className="h-2.5 w-14 rounded bg-muted-foreground/40" />
-                  <div className="h-2 w-2 rounded-full bg-emerald-500" />
-                </div>
-                <div className="space-y-1">
-                  <div className="h-4 w-12 rounded bg-foreground/70" />
-                  <div className="h-2 w-16 rounded bg-muted-foreground/30" />
-                </div>
-              </div>
-              {/* Component 2: API Endpoints Health */}
-              <div className="h-24 rounded-2xl border border-border bg-card/60 p-3.5 flex flex-col justify-between shadow-xs">
-                <div className="flex justify-between items-center">
-                  <div className="h-2.5 w-10 rounded bg-muted-foreground/40" />
-                  <div className="h-2 w-2 rounded-full bg-primary" />
-                </div>
-                <div className="space-y-1">
-                  <div className="h-4 w-16 rounded bg-foreground/70" />
-                  <div className="h-2 w-8 rounded bg-primary/30" />
-                </div>
-              </div>
-              {/* Component 3: Serverless Functions Compute */}
-              <div className="h-24 rounded-2xl border border-border bg-card/60 p-3.5 flex flex-col justify-between shadow-xs">
-                <div className="flex justify-between items-center">
-                  <div className="h-2.5 w-16 rounded bg-muted-foreground/40" />
-                  <div className="h-2 w-2 rounded-full bg-yellow-500" />
-                </div>
-                <div className="space-y-1">
-                  <div className="h-4 w-10 rounded bg-foreground/70" />
-                  <div className="h-2 w-12 rounded bg-muted-foreground/30" />
-                </div>
-              </div>
-            </div>
-
-            {/* Simulated Server Live Traffic / Resource Scaler Module */}
-            <div className="mt-4 rounded-2xl border border-border bg-card/60 p-4 shadow-xs">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="h-3 w-3 rounded bg-primary/20 flex items-center justify-center text-[8px] font-mono text-primary font-bold">{`</>`}</div>
-                  <div className="h-3 w-32 rounded bg-foreground/70" />
-                </div>
-                <div className="h-2.5 w-16 rounded bg-muted-foreground/30" />
-              </div>
-              
-              {/* Live Compute Allocation Metrics Chart */}
-              <div className="mt-4 flex items-end gap-2 h-20 px-2 pb-1 border-b border-border/40">
-                <div className="h-6 w-full rounded-xs bg-muted/40 hover:bg-muted/70 transition-all" />
-                <div className="h-11 w-full rounded-xs bg-muted/40 hover:bg-muted/70 transition-all" />
-                <div className="h-16 w-full rounded-xs bg-primary/30 hover:bg-primary/50 transition-all" />
-                <div className="h-20 w-full rounded-xs bg-primary hover:bg-primary/90 transition-all shadow-xs" />
-                <div className="h-14 w-full rounded-xs bg-primary/60 hover:bg-primary/80 transition-all" />
-                <div className="h-10 w-full rounded-xs bg-primary/40 hover:bg-primary/65 transition-all" />
-                <div className="h-5 w-full rounded-xs bg-muted/30 hover:bg-muted/60 transition-all" />
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  </TiltCard>
-</ScrollReveal>
-
+        <HeroCustomSoftware />
     </div>
   </div>
 </section>

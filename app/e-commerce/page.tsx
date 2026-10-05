@@ -15,8 +15,8 @@ import {
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
-import { TiltCard } from "@/components/interactive/page"
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
+import { HeroEcommerce } from "@/components/service-hero-visuals";
 
 const services = [
   {
@@ -108,7 +108,7 @@ export default function EcommercePage() {
         <BreadcrumbJsonLd items={[
          { name: "Home", item: "https://revolixtech.com/" },
          { name: "E-commerce", item: "https://revolixtech.com/e-commerce" },
-        ]} />
+        ]} /> 
         {/* Hero */}
 <section className="relative py-24 pt-32 lg:py-32 lg:pt-40">
   <div className="absolute inset-0 -z-10 opacity-10">
@@ -147,43 +147,7 @@ export default function EcommercePage() {
       </ScrollReveal>
 
       {/* Added 'hidden lg:block' to hide on mobile/tablet and show only on desktop */}
-      <ScrollReveal delay={150}>
-        <TiltCard className="mx-auto w-full max-w-xl">
-        <div className="relative hidden lg:block">
-          <div className="rounded-3xl border border-border bg-card p-6 shadow-2xl">
-            <div className="rounded-2xl border border-border bg-background p-5">
-              <div className="mb-6 flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground"> Online Store </p>
-                  <h3 className="mt-1 text-xl font-semibold"> Your Products </h3>
-                </div>
-                <div className="rounded-xl bg-primary/10 p-3">
-                  <ShoppingCart className="h-6 w-6 text-primary" />
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-xl border border-border p-4">
-                  <p className="text-xs text-muted-foreground"> Products </p>
-                  <p className="mt-2 text-2xl font-bold">+</p>
-                </div>
-                <div className="rounded-xl border border-border p-4">
-                  <p className="text-xs text-muted-foreground"> Orders </p>
-                  <p className="mt-2 text-2xl font-bold">+</p>
-                </div>
-                <div className="col-span-2 rounded-xl border border-border p-4">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <p className="text-sm font-medium">
-                      Optimized shopping experience
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        </TiltCard>
-      </ScrollReveal>
+       <HeroEcommerce/>
     </div>
   </div>
 </section> 

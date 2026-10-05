@@ -430,7 +430,7 @@ export function HeroSection() {
                   speed={0.12}
                   mouseParallax
                   mouseIntensity={0.02}
-                  className="absolute bottom-2 right-0 z-20"
+                  className="absolute bottom-17.5 right-0 z-20"
                 >
 
                   <motion.div

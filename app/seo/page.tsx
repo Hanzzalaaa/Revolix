@@ -18,7 +18,7 @@ import {
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { TiltCard } from "@/components/interactive/page"
+import { HeroSEO } from "@/components/service-hero-visuals";
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 const services = [
@@ -219,7 +219,7 @@ const faqs = [
     answer:
       "Yes. We can audit and optimize existing websites as well as work with new websites during their development and launch.",
   },
-]
+] 
 
 export default function SEOPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
@@ -283,73 +283,7 @@ export default function SEOPage() {
               </ScrollReveal>
 
               {/* SEO Visual */}
-              <ScrollReveal delay={150} className="hidden md:block">
-                <TiltCard className="mx-auto w-full max-w-xl">
-  <div className="relative w-full max-w-sm">
-    {/* Ambient Glow Background Element */}
-    <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary/20 to-purple-500/10 opacity-70 blur-xl" />
-
-    <div className="relative rounded-3xl border border-border bg-card p-5 shadow-2xl space-y-4">
-      
-      {/* Widget Header Area */}
-      <div className="flex justify-between items-center px-1">
-        <div className="flex items-center gap-2">
-          <div className="h-6 w-6 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-            <div className="h-2 w-2 rounded-sm bg-primary" />
-          </div>
-          <div className="h-2 w-16 rounded bg-muted/60" />
-        </div>
-        <div className="h-4 w-10 rounded-full bg-primary/10 border border-primary/20" />
-      </div>
-
-      {/* Abstract SEO Layer 1: Core Architecture */}
-      <div className="space-y-2">
-        <div className="flex justify-between items-center h-3">
-          <div className="h-2 w-24 rounded bg-muted/80" />
-          <div className="h-2 w-6 rounded bg-primary/20" />
-        </div>
-        <div className="h-3 rounded-xl bg-background border border-border overflow-hidden p-0.5 flex items-center">
-          <div className="h-full w-[85%] rounded-lg bg-primary" />
-        </div>
-      </div>
-
-      {/* Abstract SEO Layer 2: Metadata Injection */}
-      <div className="space-y-2">
-        <div className="flex justify-between items-center h-3">
-          <div className="h-2 w-20 rounded bg-muted/80" />
-          <div className="h-2 w-4 rounded bg-primary/20" />
-        </div>
-        <div className="h-3 rounded-xl bg-background border border-border overflow-hidden p-0.5 flex items-center">
-          <div className="h-full w-[70%] rounded-lg bg-primary/70" />
-        </div>
-      </div>
-
-      {/* Abstract SEO Layer 3: Indexation & Performance */}
-      <div className="space-y-2">
-        <div className="flex justify-between items-center h-3">
-          <div className="h-2 w-28 rounded bg-muted/80" />
-          <div className="h-2 w-8 rounded bg-primary/20" />
-        </div>
-        <div className="h-3 rounded-xl bg-background border border-border overflow-hidden p-0.5 flex items-center">
-          <div className="h-full w-[55%] rounded-lg bg-primary/40" />
-        </div>
-      </div>
-
-      {/* Summary Performance Footer Matrix */}
-      <div className="rounded-2xl bg-primary/5 border border-primary/10 p-3 flex justify-between items-center mt-1">
-        <div className="grid grid-cols-4 gap-1 w-1/3">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className={`h-1.5 rounded-sm ${i === 0 ? 'bg-primary' : 'bg-muted'}`} />
-          ))}
-        </div>
-        <div className="h-4 w-4 rounded-full bg-background border border-border" />
-      </div>
-
-    </div>
-  </div>
-  </TiltCard>
-</ScrollReveal>
-
+            <HeroSEO />
 
             </div>
           </div>

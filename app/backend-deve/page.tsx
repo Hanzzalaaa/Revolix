@@ -19,7 +19,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
-import { TiltCard } from "@/components/interactive/page"
+import { HeroBackendDev } from "@/components/service-hero-visuals";
 
 const services = [
   {
@@ -129,67 +129,7 @@ export default function BackendDevelopmentPage() {
           </ScrollReveal>   
 
             {/* Right Side: Backend Widget Visualizer */}
-          <ScrollReveal delay={150} className="hidden md:block">
-          <TiltCard className="mx-auto w-full max-w-xl">
-            <div className="relative flex justify-center lg:justify-end">
-              <div className="w-full max-w-md rounded-xl border border-border bg-card p-6 shadow-xl backdrop-blur-sm">
-                
-                {/* Window header */}
-                <div className="mb-4 flex items-center justify-between border-b border-border pb-3">
-                  <div className="flex space-x-1.5">
-                    <span className="h-3 w-3 rounded-full bg-destructive/60" />
-                    <span className="h-3 w-3 rounded-full bg-amber-500/60" />
-                    <span className="h-3 w-3 rounded-full bg-green-500/60" />
-                  </div>
-                  <div className="flex items-center text-xs font-mono text-muted-foreground gap-1">
-                    <Terminal className="h-3 w-3" /> main_server.py
-                  </div>
-                </div>
-
-                {/* API Request Block */}
-                <div className="space-y-4 font-mono text-xs">
-                  <div className="rounded-lg bg-muted/100 p-3 border border-border/50">
-                    <div className="flex items-center justify-between">
-                      <span className="rounded bg-green-500/10 px-1.5 py-0.5 text-green-500 font-bold">POST</span>
-                      <span className="text-muted-foreground">/api/v1/users/deploy</span>
-                    </div>
-                    <div className="mt-2 text-muted-foreground/80 pl-2 border-l border-primary/30">
-                      <code>{`{ status: "200 OK", latency: "14ms" }`}</code>
-                    </div>
-                  </div>
-
-                  {/* Architecture Stats */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="flex items-center gap-3 rounded-lg border border-border/50 p-3 bg-muted/100">
-                      <Database className="h-4 w-4 text-primary" />
-                      <div>
-                        <p className="text-[10px] text-muted-foreground uppercase">Database</p>
-                        <p className="font-semibold text-card-foreground">PostgreSQL</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3 rounded-lg border border-border/50 p-3 bg-muted/100">
-                      <Shield className="h-4 w-4 text-primary" />
-                      <div>
-                        <p className="text-[10px] text-muted-foreground uppercase">Security</p>
-                        <p className="font-semibold text-card-foreground">OAuth 2.0 / JWT</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Live Console Output */}
-                  <div className="rounded-lg bg-muted/100 p-4 text-emerald-400 shadow-inner">
-                    <p className="text-muted-foreground text-[10px] mb-1">// Event Listener Active</p>
-                    <p className="text-white">&gt; npm run worker:cluster</p>
-                    <p className="mt-1 text-emerald-500">✔ [Redis] Connected to cache server</p>
-                    <p className="text-emerald-500">✔ [GraphQL] Playground running on port 4000</p>
-                    <p className="text-amber-400 animate-pulse">⚡ Spawning 4 background workers...</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </TiltCard>
-          </ScrollReveal>
+            <HeroBackendDev/>
           </div>
       </div>
     </section>

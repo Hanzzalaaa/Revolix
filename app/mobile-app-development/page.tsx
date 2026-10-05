@@ -16,7 +16,7 @@ import {
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
-import { TiltCard } from "@/components/interactive/page"
+import { HeroMobileAppDev } from "@/components/service-hero-visuals";
 
 const services = [
   {
@@ -130,7 +130,7 @@ export default function MobileAppDevelopmentPage() {
             <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,_var(--primary)_0%,_transparent_70%)]" />
           </div>
 
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mb-25">
             <div className="grid items-center gap-12 lg:grid-cols-2">
 
               <ScrollReveal>
@@ -171,39 +171,9 @@ export default function MobileAppDevelopmentPage() {
                 </div>
               </ScrollReveal>
 
-              <ScrollReveal delay={150}>
-                <TiltCard className="mx-auto w-full max-w-xl">
-  <div className="relative hidden md:block">
-    <div className="rounded-3xl border border-border bg-card p-6 shadow-2xl">
-      <div className="flex items-center justify-center rounded-2xl bg-muted p-12">
-        <Smartphone className="h-32 w-32 text-primary" />
-      </div>
+              <HeroMobileAppDev/>
 
-      <div className="mt-6 grid grid-cols-2 gap-4">
-        <div className="rounded-xl border border-border p-4">
-          <p className="text-sm text-muted-foreground">
-            Platforms
-          </p>
-          <p className="mt-1 font-semibold">
-            iOS & Android
-          </p>
-        </div> 
-
-        <div className="rounded-xl border border-border p-4">
-          <p className="text-sm text-muted-foreground">
-            Approach
-          </p>
-          <p className="mt-1 font-semibold">
-            Scalable
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
- </TiltCard>
-</ScrollReveal>
-
-            </div>
+            </div> 
           </div>
         </section>
 

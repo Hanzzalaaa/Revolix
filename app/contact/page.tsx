@@ -30,7 +30,7 @@ export default function ContactPage() {
           { name: "Contact", item: "https://revolixtech.com/contact" },
         ]} />
         <ContactHero />
-        <ContactForm />
+        <ContactForm /> 
         <ContactInfo />
       </main>
       <Footer />
