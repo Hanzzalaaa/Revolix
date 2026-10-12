@@ -155,8 +155,8 @@ const navigation = [
   },
 
   {
-    name: "Case Studies",
-    href: "/case-studies",
+    name: "Portfolio",
+    href: "/portfolio",
   },
 
   {

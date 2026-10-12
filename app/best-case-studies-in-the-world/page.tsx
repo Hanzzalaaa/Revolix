@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import CaseStudiesPage from "@/app/case-studies/page"
+import CaseStudiesPage from "@/app/portfolio/page"
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
 
