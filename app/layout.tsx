@@ -1,3 +1,4 @@
+
 import type { ReactNode } from "react"
 import type { Metadata } from "next"
 import { Suspense } from "react"
@@ -43,7 +44,8 @@ const _geistMono = Geist_Mono({
 // ============================================================
 
 const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://www.revolixtech.com"
 ).replace(/\/+$/, "")
 
 // ============================================================
@@ -72,17 +74,29 @@ export const metadata: Metadata = {
     follow: true,
   },
 
+  // OFFICIAL REVOLIX FAVICON
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
+      {
+        url: "/favicon.png",
+        type: "image/png",
+        sizes: "512x512",
+      },
+      {
+        url: "/favicon.ico",
+        type: "image/x-icon",
+        sizes: "any",
+      },
     ],
     shortcut: "/favicon.ico",
   },
 
   openGraph: {
     title: "Revolix Technologies | AI & Software Development",
+
     description:
       "We design, build, and scale intelligent digital solutions—from software and AI to automation, cloud, and business technology.",
+
     url: SITE_URL,
     siteName: "Revolix Technologies",
     locale: "en_US",
@@ -92,6 +106,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Revolix Technologies",
+
     description:
       "Building AI systems and software that actually works in production.",
   },
@@ -117,6 +132,7 @@ export default function RootLayout({
       {
         "@type": "Organization",
         "@id": `${SITE_URL}/#organization`,
+
         name: "Revolix Technologies",
         alternateName: "Revolix Tech",
         url: `${SITE_URL}/`,
@@ -141,6 +157,7 @@ export default function RootLayout({
       {
         "@type": "WebSite",
         "@id": `${SITE_URL}/#website`,
+
         url: `${SITE_URL}/`,
         name: "Revolix Technologies",
 
