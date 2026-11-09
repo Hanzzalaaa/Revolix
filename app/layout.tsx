@@ -79,7 +79,25 @@ export const metadata: Metadata = {
   // OFFICIAL REVOLIX FAVICON
   // Uses only the favicon.ico file inside /public.
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+      {
+        url: "/favicon.png",
+        type: "image/png",
+        sizes: "512x512",
+      },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      {
+        url: "/favicon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
 
   openGraph: {
@@ -90,6 +108,14 @@ export const metadata: Metadata = {
     siteName: "Revolix Technologies",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/favicon.png`,
+        width: 512,
+        height: 512,
+        alt: "Revolix Technologies",
+      },
+    ],
   },
 
   twitter: {
