@@ -124,6 +124,8 @@ export default function RootLayout({
         name: "Revolix Technologies",
         alternateName: "Revolix Tech",
         url: `${SITE_URL}/`,
+        logo: `${SITE_URL}/favicon.png`,
+        image: `${SITE_URL}/favicon.png`,
 
         description:
           "We design, build, and scale intelligent digital solutions from software and AI to automation, cloud, and business technology.",

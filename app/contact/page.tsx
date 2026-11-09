@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "small business",
       "contact Revolix",
     ],
-    alternates: { canonical: "https://revolixtech.com/contact" },
+    alternates: { canonical: "https://www.revolixtech.com/contact" },
   }
 }
 
@@ -26,8 +26,8 @@ export default function ContactPage() {
       <Header />
       <main>
         <BreadcrumbJsonLd items={[
-          { name: "Home", item: "https://revolixtech.com/" },
-          { name: "Contact", item: "https://revolixtech.com/contact" },
+          { name: "Home", item: "https://www.revolixtech.com/" },
+          { name: "Contact", item: "https://www.revolixtech.com/contact" },
         ]} />
         <ContactHero />
         <ContactForm /> 
