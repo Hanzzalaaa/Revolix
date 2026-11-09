@@ -1,3 +1,4 @@
+
 import type { ReactNode } from "react"
 import type { Metadata } from "next"
 import { Suspense } from "react"
@@ -23,28 +24,31 @@ import "./globals.css"
 // FONTS
 // ============================================================
 
-const _inter = Inter({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 })
 
-const _spaceGrotesk = Space_Grotesk({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
 })
 
-const _geistMono = Geist_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
 })
 
 // ============================================================
 // SITE URL
+// Keep this domain consistent across your entire website.
 // ============================================================
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://revolixtech.com"
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL?.startsWith("http")
+    ? process.env.NEXT_PUBLIC_SITE_URL
+    : "https://www.revolixtech.com"
+).replace(/\/+$/, "")
 
 // ============================================================
 // METADATA
@@ -65,7 +69,6 @@ export const metadata: Metadata = {
   ],
 
   creator: "Revolix Technologies",
-
   publisher: "Revolix Technologies",
 
   robots: {
@@ -73,48 +76,27 @@ export const metadata: Metadata = {
     follow: true,
   },
 
+  // OFFICIAL REVOLIX FAVICON
+  // Uses only the favicon.ico file inside /public.
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png", type: "image/png" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: "/apple-icon.png",
+    icon: "/favicon.ico",
   },
 
   openGraph: {
     title: "Revolix Technologies | AI & Software Development",
-
     description:
-      "We design, build, and scale intelligent digital solutions—from software and AI to automation, cloud, and business technology.",
-
+      "We design, build, and scale intelligent digital solutions — from software and AI to automation, cloud, and business technology.",
     url: SITE_URL,
-
     siteName: "Revolix Technologies",
-
-    images: [
-      {
-        url: `${SITE_URL}/image.jpg`,
-        width: 512,
-        height: 512,
-        alt: "Revolix Technologies",
-      },
-    ],
-
     locale: "en_US",
-
     type: "website",
   },
 
   twitter: {
-    card: "summary_large_image",
-
+    card: "summary",
     title: "Revolix Technologies",
-
     description:
       "Building AI systems and software that actually works in production.",
-
-    images: [`${SITE_URL}/image.jpg`],
   },
 }
 
@@ -128,7 +110,7 @@ export default function RootLayout({
   children: ReactNode
 }) {
   // ==========================================================
-  // ORGANIZATION + WEBSITE SCHEMA
+  // ORGANIZATION + WEBSITE STRUCTURED DATA
   // ==========================================================
 
   const SCHEMA_ORG_GRAPH = {
@@ -137,30 +119,11 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Organization",
-
         "@id": `${SITE_URL}/#organization`,
 
         name: "Revolix Technologies",
-
         alternateName: "Revolix Tech",
-
         url: `${SITE_URL}/`,
-
-        logo: {
-          "@type": "ImageObject",
-
-          "@id": `${SITE_URL}/#logo`,
-
-          url: `${SITE_URL}/icon.png`,
-
-          width: 512,
-
-          height: 512,
-        },
-
-        image: {
-          "@id": `${SITE_URL}/#logo`,
-        },
 
         description:
           "We design, build, and scale intelligent digital solutions from software and AI to automation, cloud, and business technology.",
@@ -174,20 +137,16 @@ export default function RootLayout({
 
         address: {
           "@type": "PostalAddress",
-
           addressLocality: "Karachi",
-
           addressCountry: "PK",
         },
       },
 
       {
         "@type": "WebSite",
-
         "@id": `${SITE_URL}/#website`,
 
         url: `${SITE_URL}/`,
-
         name: "Revolix Technologies",
 
         publisher: {
@@ -209,15 +168,12 @@ export default function RootLayout({
         className={`
           font-sans
           antialiased
-          ${_inter.variable}
-          ${_spaceGrotesk.variable}
-          ${_geistMono.variable}
+          ${inter.variable}
+          ${spaceGrotesk.variable}
+          ${geistMono.variable}
         `}
       >
-        {/* ====================================================
-            STRUCTURED DATA
-        ==================================================== */}
-
+        {/* STRUCTURED DATA */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -225,50 +181,31 @@ export default function RootLayout({
           }}
         />
 
-        {/* ====================================================
-            GOOGLE TAG MANAGER
-        ==================================================== */}
-
+        {/* GOOGLE TAG MANAGER */}
         <GTM />
 
-        {/* ====================================================
-            PAGE VIEW TRACKING
-        ==================================================== */}
-
+        {/* PAGE VIEW TRACKING */}
         <Suspense fallback={null}>
           <TrackPageView />
         </Suspense>
 
-        {/* ====================================================
-            CURSOR
-        ==================================================== */}
-
+        {/* CUSTOM CURSOR */}
         <CursorWrapper />
 
-        {/* ====================================================
-            SMOOTH SCROLL
-        ==================================================== */}
-
+        {/* SMOOTH SCROLL */}
         <SmoothScrollProvider>
           <ScrollToTop />
-
           {children}
         </SmoothScrollProvider>
 
-        {/* ====================================================
-            VURSELL CHAT WIDGET
-        ==================================================== */}
-
+        {/* VURSELL CHAT WIDGET */}
         <Script
           src="https://vursell.duckdns.org/widget/widget.js"
           data-bot-id="52487262-bb7d-4e51-beb0-9032efe42d85"
           strategy="afterInteractive"
         />
 
-        {/* ====================================================
-            VERCEL ANALYTICS
-        ==================================================== */}
-
+        {/* VERCEL ANALYTICS */}
         <Analytics />
       </body>
     </html>

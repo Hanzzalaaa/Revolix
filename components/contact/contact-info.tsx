@@ -2,63 +2,160 @@
 
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
-import { MapPin, Mail, Phone, Clock } from "lucide-react"
+import { Mail, Phone, Clock } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export function ContactInfo() {
   return (
-    <section className="py-16 md:py-24 bg-card relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-card/40 relative overflow-hidden">
       <ParallaxSection speed={0.15} className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[700px] h-[350px] sm:h-[700px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Get In Touch</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Get In Touch</h2>
+            <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+              Connect directly with our team across our USA headquarters and Pakistan operations.
+            </p>
           </div>
         </ScrollReveal>
 
-        {/* Responsive Grid Layout */}
-        <div className="mb-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-69 max-w-md mx-auto md:max-w-none">
+        {/* 2-Column Balanced Grid: Left (Company & Offices) | Right (Active Hours + Call Us below it) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          <ScrollReveal>
-            <div className="flex gap-4 p-4 rounded-xl transition-colors hover:bg-muted/100">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                <Mail className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold mb-1 text-base">Email Us</h3>
-                <p className="text-sm text-muted-foreground break-all">hello@revolix.com</p>
-                <p className="text-sm text-muted-foreground break-all">support@revolix.com</p>
-              </div>
-            </div>
-          </ScrollReveal>
+          {/* Left Column: Email & Offices Card (Spacious and Big) */}
+          <div className="lg:col-span-7 flex">
+            <ScrollReveal className="w-full">
+              <div className="h-full p-8 sm:p-10 lg:p-12 rounded-3xl bg-card border border-border shadow-xl space-y-8 hover:border-primary/50 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="flex items-start gap-5 mb-8">
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                      <Mail className="w-7 h-7 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-2xl sm:text-3xl text-foreground">Revolix Technologies</h3>
+                      <a
+                        href="mailto:info@revolixtech.com"
+                        className="text-base sm:text-lg text-primary hover:underline font-semibold break-all block mt-1.5"
+                      >
+                        info@revolixtech.com
+                      </a>
+                    </div>
+                  </div>
 
-          <ScrollReveal delay={100}>
-            <div className="flex gap-4 p-4 rounded-xl transition-colors hover:bg-muted/100">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                <Phone className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold mb-1 text-base">Call Us</h3>
-                <p className="text-sm text-muted-foreground whitespace-nowrap">‪+92 313 8062538‬</p>
-                
-              </div>
-            </div>
-          </ScrollReveal>
+                  <div className="space-y-6">
+                    {/* USA Office */}
+                    <div className="pt-6 border-t border-border/80 space-y-3">
+                      <h4 className="font-bold text-sm sm:text-base text-foreground uppercase tracking-wider">
+                        USA office
+                      </h4>
+                      <div className="flex flex-wrap sm:flex-nowrap items-start gap-3.5">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          className="h-8 px-3.5 text-xs font-semibold shrink-0 border-primary/30 text-primary bg-primary/5 hover:bg-primary/10 rounded-lg pointer-events-none"
+                        >
+                          head office
+                        </Button>
+                        <p className="text-base text-muted-foreground leading-relaxed">
+                          30 N Gould St, Ste 68264, Sheridan WY 82801, United States
+                        </p>
+                      </div>
+                    </div>
 
-          <ScrollReveal delay={200}>
-            <div className="flex gap-4 p-4 rounded-xl transition-colors hover:bg-muted/100">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                <Clock className="w-6 h-6 text-primary" />
+                    {/* Pakistan Office */}
+                    <div className="pt-6 border-t border-border/80 space-y-3">
+                      <h4 className="font-bold text-sm sm:text-base text-foreground uppercase tracking-wider">
+                        PAKISTAN office
+                      </h4>
+                      <div className="flex flex-wrap sm:flex-nowrap items-start gap-3.5">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          className="h-8 px-3.5 text-xs font-semibold shrink-0 border-primary/30 text-primary bg-primary/5 hover:bg-primary/10 rounded-lg pointer-events-none"
+                        >
+                          Karachi
+                        </Button>
+                        <p className="text-base text-muted-foreground leading-relaxed">
+                          74600, iqbal, karachi Abdullah college, Allama, Allama Iqbal Rd, near orange line brt station, Allama Iqbal Town Block W town, Karachi, 74600
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold mb-1 text-base">Business Hours</h3>
-                <p className="text-sm text-muted-foreground">Mon - Fri : 24/7</p>
-                <p className="text-sm text-muted-foreground">Weekend: By appointment</p>
+            </ScrollReveal>
+          </div>
+
+          {/* Right Column: Active Hours (Top) and Call Us (Moved Below Active Hours) */}
+          <div className="lg:col-span-5 flex flex-col gap-8">
+            {/* Active Hours (Business Hours) */}
+            <ScrollReveal delay={100} className="flex-1">
+              <div className="h-full p-8 sm:p-10 rounded-3xl bg-card border border-border shadow-xl space-y-6 hover:border-primary/50 transition-all flex flex-col justify-center">
+                <div className="flex items-center gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <Clock className="w-7 h-7 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-2xl text-foreground">Active Hours</h3>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold mt-0.5">Business Schedule</p>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-border/80 space-y-2 text-base text-muted-foreground">
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-foreground">Monday – Friday:</span>
+                    <span className="text-primary font-semibold">24 / 7</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-foreground">Weekend:</span>
+                    <span>By appointment</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+
+            {/* Call Us - Moved below Active Hours */}
+            <ScrollReveal delay={200} className="flex-1">
+              <div className="h-full p-8 sm:p-10 rounded-3xl bg-card border border-border shadow-xl space-y-6 hover:border-primary/50 transition-all flex flex-col justify-center">
+                <div className="flex items-center gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <Phone className="w-7 h-7 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-2xl text-foreground">Call Us</h3>
+                    <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mt-0.5">Pakistan Line</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <a
+                      href="tel:+923138062538"
+                      className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap block"
+                    >
+                      +92 313 8062538
+                    </a>
+                  </div>
+
+                  <div className="pt-4 border-t border-border/80">
+                    <h4 className="font-bold text-base text-foreground">
+                      usa number -{" "}
+                      <a
+                        href="tel:+13025872208"
+                        className="text-primary hover:underline font-semibold whitespace-nowrap"
+                      >
+                        +1 302-587-2208
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
 
         </div>
       </div>
