@@ -26,14 +26,6 @@ const teamMembers = [
     github: "",
   },
   {
-    name: "Abdullah Usman",
-    role: "AI Automation",
-    specialization: "AI systems, LLM applications & automation",
-    image: image1,
-    linkedin: "https://www.linkedin.com/in/abdullah-usman-7b29223a5/",
-    github: "",
-  },
-  {
     name: "Umer Imran",
     role: "UI/UX Designer",
     specialization: "Social media manager, interfaces & user experiences",
@@ -41,6 +33,15 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/muhammad-umer-0a3664400/",
     github: "",
   },
+  {
+    name: "Abdullah Usman",
+    role: "AI Automation",
+    specialization: "AI systems, LLM applications & automation",
+    image: image1,
+    linkedin: "https://www.linkedin.com/in/abdullah-usman-7b29223a5/",
+    github: "",
+  },
+  
   {
     name: "Muhammad Ahsan",
     role: "Dev-ops developer",
