@@ -21,9 +21,11 @@ import { BreadcrumbJsonLd, FAQJsonLd } from '@/components/seo/json-ld';
 import Script from "next/script";
 
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.startsWith('http')
-  ? process.env.NEXT_PUBLIC_SITE_URL
-  : 'https://revolixtech.com';
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL?.startsWith('http')
+    ? process.env.NEXT_PUBLIC_SITE_URL
+    : 'https://www.revolixtech.com'
+).replace(/\/+$/, '');
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

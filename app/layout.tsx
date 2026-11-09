@@ -24,28 +24,30 @@ import "./globals.css"
 // FONTS
 // ============================================================
 
-const _inter = Inter({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 })
 
-const _spaceGrotesk = Space_Grotesk({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
 })
 
-const _geistMono = Geist_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
 })
 
 // ============================================================
 // SITE URL
+// Keep this domain consistent across your entire website.
 // ============================================================
 
 const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://www.revolixtech.com"
+  process.env.NEXT_PUBLIC_SITE_URL?.startsWith("http")
+    ? process.env.NEXT_PUBLIC_SITE_URL
+    : "https://www.revolixtech.com"
 ).replace(/\/+$/, "")
 
 // ============================================================
@@ -75,28 +77,15 @@ export const metadata: Metadata = {
   },
 
   // OFFICIAL REVOLIX FAVICON
+  // Uses only the favicon.ico file inside /public.
   icons: {
-    icon: [
-      {
-        url: "/favicon.png",
-        type: "image/png",
-        sizes: "512x512",
-      },
-      {
-        url: "/favicon.ico",
-        type: "image/x-icon",
-        sizes: "any",
-      },
-    ],
-    shortcut: "/favicon.ico",
+    icon: "/favicon.ico",
   },
 
   openGraph: {
     title: "Revolix Technologies | AI & Software Development",
-
     description:
-      "We design, build, and scale intelligent digital solutions—from software and AI to automation, cloud, and business technology.",
-
+      "We design, build, and scale intelligent digital solutions — from software and AI to automation, cloud, and business technology.",
     url: SITE_URL,
     siteName: "Revolix Technologies",
     locale: "en_US",
@@ -106,7 +95,6 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Revolix Technologies",
-
     description:
       "Building AI systems and software that actually works in production.",
   },
@@ -122,7 +110,7 @@ export default function RootLayout({
   children: ReactNode
 }) {
   // ==========================================================
-  // ORGANIZATION + WEBSITE SCHEMA
+  // ORGANIZATION + WEBSITE STRUCTURED DATA
   // ==========================================================
 
   const SCHEMA_ORG_GRAPH = {
@@ -180,9 +168,9 @@ export default function RootLayout({
         className={`
           font-sans
           antialiased
-          ${_inter.variable}
-          ${_spaceGrotesk.variable}
-          ${_geistMono.variable}
+          ${inter.variable}
+          ${spaceGrotesk.variable}
+          ${geistMono.variable}
         `}
       >
         {/* STRUCTURED DATA */}
@@ -201,7 +189,7 @@ export default function RootLayout({
           <TrackPageView />
         </Suspense>
 
-        {/* CURSOR */}
+        {/* CUSTOM CURSOR */}
         <CursorWrapper />
 
         {/* SMOOTH SCROLL */}

@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.revolixtech.com",
   generateRobotsTxt: true,
   exclude: ["/api/*", "/graphics"],
   additionalPaths: async (config) => {
@@ -38,6 +38,7 @@ module.exports = {
         disallow: ["/api"],
       },
     ],
+    additionalSitemaps: [],
   },
 }
 
