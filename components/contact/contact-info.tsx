@@ -143,7 +143,7 @@ export function ContactInfo() {
 
                   <div className="pt-4 border-t border-border/80">
                     <h4 className="font-bold text-base text-foreground">
-                      usa number -{" "}
+                      USA number -{" "}
                       <a
                         href="tel:+13025872208"
                         className="text-primary hover:underline font-semibold whitespace-nowrap"

@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import Image from "next/image"
 import image1 from "./images/abdullahtwo.jpg"
-import image2 from "./images/abdullah.jpg"
+import image2 from "./images/ahsan.jpg"
 import image3 from "./images/abu-bakar.jpg"
 import image4 from "./images/ahmed.jpg"
 import image5 from "./images/abubakar.jpg"
@@ -18,6 +18,14 @@ import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 const teamMembers = [
   {
+    name: "Abu Bakar",
+    role: "MERN stack Developer",
+    specialization: "React, Next.js & modern web applications",
+    image: image3,
+    linkedin: "https://www.linkedin.com/in/abu-bakar-shahzad-239b1b400/",
+    github: "",
+  },
+  {
     name: "Abdullah Usman",
     role: "AI Automation",
     specialization: "AI systems, LLM applications & automation",
@@ -26,19 +34,19 @@ const teamMembers = [
     github: "",
   },
   {
-    name: "Abdullah Hammad",
-    role: "Backend developer",
-    specialization: "APIs, databases & scalable backend systems",
-    image: image2,
-    linkedin: "https://www.linkedin.com/in/abdullah-hammad-8392642ab/",
+    name: "Umer Imran",
+    role: "UI/UX Designer",
+    specialization: "Social media manager, interfaces & user experiences",
+    image: image6,
+    linkedin: "https://www.linkedin.com/in/muhammad-umer-0a3664400/",
     github: "",
   },
   {
-    name: "Abu Bakar",
-    role: "MERN stack Developer",
-    specialization: "React, Next.js & modern web applications",
-    image: image3,
-    linkedin: "https://www.linkedin.com/in/abu-bakar-shahzad-239b1b400/",
+    name: "Muhammad Ahsan",
+    role: "Dev-ops developer",
+    specialization: "Database Optimization, Cloud & Backend Infrastructure",
+    image: image2,
+    linkedin: "https://www.linkedin.com/in/muhammad-ahsan-b912a7284/",
     github: "",
   },
   {
@@ -55,14 +63,6 @@ const teamMembers = [
     specialization: "full-stack web applications using the MERN stack. ",
     image: image5,
     linkedin: "https://www.linkedin.com/in/abubakar-fullstack-dev/",
-    github: "",
-  },
-  {
-    name: "Umer Imran",
-    role: "UI/UX Designer",
-    specialization: "Social media manager, interfaces & user experiences",
-    image: image6,
-    linkedin: "https://www.linkedin.com/in/muhammad-umer-0a3664400/",
     github: "",
   },
   {
