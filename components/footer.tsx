@@ -55,6 +55,14 @@ const footerLinks = {
       href: "/about",
     },
     {
+      name: "Pricing",
+      href: "/pricing",
+    },
+    {
+      name: "NeverLoseLead (AI)",
+      href: "https://neverloselead.com",
+    },
+    {
       name: "Portfolio",
       href: "/portfolio",
     },
@@ -87,9 +95,8 @@ export function Footer() {
             </Link>
 
             <p className="text-muted-foreground mb-6 max-w-sm">
-              Your partner in leading the future with AI. We deliver
-              intelligent digital solutions designed to accelerate growth
-              and transform businesses.
+              Websites, AI automations, and custom software for US small businesses.
+              Registered entity Revolix Technologies LLC (Wyoming, USA) with our dedicated engineering hub Revolix Technologies (Private) Limited (Karachi, Pakistan).
             </p>
 
             {/* Social Links */}
@@ -203,8 +210,8 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
 
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Revolix Technologies. All rights reserved.
+          <p className="text-sm text-muted-foreground text-center md:text-left">
+            © 2026 Revolix Technologies LLC (Wyoming, USA) and Revolix Technologies (Private) Limited (Pakistan). All rights reserved.
           </p>
 
           {/* Privacy / Terms */}

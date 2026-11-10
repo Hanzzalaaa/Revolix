@@ -3,6 +3,7 @@ import { ParallaxProvider } from "@/components/parallax-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ContactHero } from "@/components/contact/contact-hero"
+import { BookingSection } from "@/components/contact/booking-section"
 import { ContactForm } from "@/components/contact/contact-form"
 import { ContactInfo } from "@/components/contact/contact-info"
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
@@ -30,6 +31,7 @@ export default function ContactPage() {
           { name: "Contact", item: "https://www.revolixtech.com/contact" },
         ]} />
         <ContactHero />
+        <BookingSection />
         <ContactForm /> 
         <ContactInfo />
       </main>

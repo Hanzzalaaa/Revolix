@@ -1,9 +1,27 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Script from 'next/script';
 
 export default function GTM() {
+  const [hasConsent, setHasConsent] = useState(false);
   const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-TGB3BJW4';
+
+  useEffect(() => {
+    const checkConsent = () => {
+      const consent = localStorage.getItem('cookie_consent');
+      if (consent === 'accepted') {
+        setHasConsent(true);
+      }
+    };
+
+    checkConsent();
+    window.addEventListener('cookie_consent_updated', checkConsent);
+    return () => window.removeEventListener('cookie_consent_updated', checkConsent);
+  }, []);
+
+  if (!hasConsent) return null;
+
   return (
     <>
       {/* GTM Script */}

@@ -61,7 +61,7 @@ const navigation = [
           },
           {
             name: "Backend Development",
-            href: "/backend-deve",
+            href: "/backend-development",
           },
           {
             name: "Custom Software",
@@ -127,6 +127,11 @@ const navigation = [
     href: "/industries",
   },
 
+  {
+    name: "Pricing",
+    href: "/pricing",
+  },
+
   // ==========================================================
   // GRAPHICS
   // ==========================================================
@@ -171,21 +176,6 @@ const navigation = [
 ]
 
 // ============================================================
-// LEGAL LINKS
-// ============================================================
-
-const legalLinks = [
-  {
-    name: "Privacy Policy",
-    href: "/privacy-policy",
-  },
-  {
-    name: "Terms & Conditions",
-    href: "/terms-conditions",
-  },
-]
-
-// ============================================================
 // HEADER
 // ============================================================
 
@@ -202,14 +192,6 @@ export function Header() {
   // Mobile dropdown
   const [openMobileDropdown, setOpenMobileDropdown] =
     useState<string | null>(null)
-
-  // Desktop legal dropdown
-  const [isLegalOpen, setIsLegalOpen] =
-    useState(false)
-
-  // Mobile legal dropdown
-  const [isMobileLegalOpen, setIsMobileLegalOpen] =
-    useState(false)
 
   const pathname = usePathname()
 
@@ -238,8 +220,6 @@ export function Header() {
     setIsMobileMenuOpen(false)
     setOpenMobileDropdown(null)
     setOpenDropdown(null)
-    setIsLegalOpen(false)
-    setIsMobileLegalOpen(false)
   }, [pathname])
 
   // ==========================================================
@@ -252,7 +232,7 @@ export function Header() {
     "/ai-automation",
     "/ai-agents",
     "/web-development",
-    "/backend-deve",
+    "/backend-development",
     "/custom-software",
     "/mobile-app-development",
     "/gohighlevel",
@@ -274,14 +254,6 @@ export function Header() {
     pathname === "/industries"
 
   // ==========================================================
-  // LEGAL
-  // ==========================================================
-
-  const isLegalActive = legalLinks.some(
-    (link) => link.href === pathname
-  )
-
-  // ==========================================================
   // TOGGLE MOBILE MENU
   // ==========================================================
 
@@ -290,7 +262,6 @@ export function Header() {
 
     if (isMobileMenuOpen) {
       setOpenMobileDropdown(null)
-      setIsMobileLegalOpen(false)
     }
   }
 
@@ -596,110 +567,16 @@ export function Header() {
           </nav>
 
           {/* ==================================================
-              DESKTOP LEGAL TERMS DROPDOWN
+              DESKTOP PRIMARY CTA
           ================================================== */}
 
-          <div
-            className="relative hidden lg:flex"
-            onMouseEnter={() =>
-              setIsLegalOpen(true)
-            }
-            onMouseLeave={() =>
-              setIsLegalOpen(false)
-            }
-          >
-
-            <button
-              type="button"
-              onClick={() =>
-                setIsLegalOpen(
-                  (previous) => !previous
-                )
-              }
-              className={`relative flex items-center gap-1 rounded-lg bg-primary px-4 py-2 text-sm font-medium transition-colors ${
-                isLegalActive
-                  ? "text-muted"
-                  : "text-muted"
-              }`}
-              aria-expanded={isLegalOpen}
-              aria-haspopup="true"
+          <div className="relative hidden lg:flex items-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-all duration-200 hover:opacity-90 hover:shadow-primary/25"
             >
-
-              Legal Terms
-
-              <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
-                  isLegalOpen
-                    ? "rotate-180"
-                    : ""
-                }`}
-              />
-
-              {isLegalActive && (
-                <motion.div
-                  layoutId="activeNav"
-                  className="absolute inset-0 -z-10 rounded-lg bg-primary/10"
-                />
-              )}
-
-            </button>
-
-            <AnimatePresence>
-
-              {isLegalOpen && (
-
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: -10,
-                    scale: 0.98,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    y: -10,
-                    scale: 0.98,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                  }}
-                  className="absolute right-0 top-full w-56 pt-3"
-                >
-
-                  <div className="rounded-2xl border border-border bg-background/95 p-2 shadow-2xl backdrop-blur-xl">
-
-                    {legalLinks.map((link) => {
-
-                      const active =
-                        pathname ===
-                        link.href
-
-                      return (
-                        <Link
-                          key={link.name}
-                          href={link.href}
-                          className={`block rounded-lg px-4 py-2.5 text-sm transition-colors ${
-                            active
-                              ? "bg-primary/10 text-primary"
-                              : "text-muted-foreground hover:bg-secondary hover:text-foreground"
-                          }`}
-                        >
-                          {link.name}
-                        </Link>
-                      )
-                    })}
-
-                  </div>
-
-                </motion.div>
-              )}
-
-            </AnimatePresence>
-
+              Book a free call
+            </Link>
           </div>
 
           {/* ==================================================
@@ -1083,102 +960,17 @@ export function Header() {
                 )}
 
                 {/* ==================================================
-                    MOBILE LEGAL TERMS
+                    MOBILE CTA BUTTON
                 ================================================== */}
 
-                <div className="mt-1">
-
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setIsMobileLegalOpen(
-                        (previous) => !previous
-                      )
-                    }
-                    className={`flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-medium transition-colors ${
-                      isLegalActive
-                        ? "bg-primary/10 text-primary"
-                        : "text-muted-foreground hover:bg-secondary hover:text-foreground"
-                    }`}
-                    aria-expanded={isMobileLegalOpen}
-                    aria-haspopup="true"
+                <div className="mt-4 pt-2">
+                  <Link
+                    href="/contact"
+                    onClick={() => setIsOpen(false)}
+                    className="flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 text-center text-base font-semibold text-primary-foreground shadow-sm transition-opacity hover:opacity-90"
                   >
-
-                    <span>
-                      Legal Terms
-                    </span>
-
-                    <ChevronDown
-                      className={`h-5 w-5 shrink-0 transition-transform duration-200 ${
-                        isMobileLegalOpen
-                          ? "rotate-180"
-                          : ""
-                      }`}
-                    />
-
-                  </button>
-
-                  <AnimatePresence>
-
-                    {isMobileLegalOpen && (
-
-                      <motion.div
-                        initial={{
-                          opacity: 0,
-                          height: 0,
-                        }}
-                        animate={{
-                          opacity: 1,
-                          height: "auto",
-                        }}
-                        exit={{
-                          opacity: 0,
-                          height: 0,
-                        }}
-                        transition={{
-                          duration: 0.2,
-                        }}
-                        className="overflow-hidden"
-                      >
-
-                        <div className="ml-3 mt-1 border-l-2 border-border pl-3">
-
-                          {legalLinks.map(
-                            (link) => {
-
-                              const active =
-                                pathname ===
-                                link.href
-
-                              return (
-                                <Link
-                                  key={
-                                    link.name
-                                  }
-                                  href={
-                                    link.href
-                                  }
-                                  className={`block rounded-lg px-4 py-3 text-sm transition-colors ${
-                                    active
-                                      ? "bg-primary/10 text-primary"
-                                      : "text-muted-foreground hover:bg-secondary hover:text-foreground"
-                                  }`}
-                                >
-                                  {
-                                    link.name
-                                  }
-                                </Link>
-                              )
-                            }
-                          )}
-
-                        </div>
-
-                      </motion.div>
-                    )}
-
-                  </AnimatePresence>
-
+                    Book a free call
+                  </Link>
                 </div>
 
               </nav>

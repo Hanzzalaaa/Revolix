@@ -464,7 +464,7 @@ const capabilityLinks: Record<string, string> = {
   "Workflow & Business Automation": "/gohighlevel",
   "Custom Software": "/custom-software",
   "Mobile Applications": "/mobile-app-development",
-  'APIs & Integrations': "/backend-deve",
+  'APIs & Integrations': "/backend-development",
 }
 
 export default function PortfolioPage() {
@@ -526,11 +526,11 @@ export default function PortfolioPage() {
           items={[
             {
               name: "Home",
-              item: "https://revolixtech.com/",
+              item: "https://www.revolixtech.com/",
             },
             {
               name: "Case Studies",
-              item: "https://revolixtech.com/case-studies",
+              item: "https://www.revolixtech.com/case-studies",
             },
           ]}
         />

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import AboutPage from "@/app/about/page"
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.revolixtech.com"
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

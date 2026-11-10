@@ -9,9 +9,9 @@ import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Industries We Serve | Revolix",
-    description: "Industries we serve: healthcare, fintech, e-commerce, and manufacturing with AI and software solutions.",
-    alternates: { canonical: "https://revolixtech.com/industries" },
+    title: "Industries We Serve | Revolix Technologies",
+    description: "Industries we serve: HVAC & trade contractors, healthcare clinics, law firms, real estate, and e-commerce with websites, automations, and software.",
+    alternates: { canonical: "https://www.revolixtech.com/industries" },
   }
 }
 
@@ -21,8 +21,8 @@ export default function IndustriesPage() {
       <Header />
       <main>
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "Industries", item: "https://revolixtech.com/industries" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "Industries", item: "https://www.revolixtech.com/industries" },
     ]} />
         <IndustriesHero />
         <IndustriesGrid /> 

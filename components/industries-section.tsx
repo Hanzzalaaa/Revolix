@@ -1,34 +1,41 @@
 "use client"
 
+import Link from "next/link"
 import { ScrollReveal } from "./scroll-reveal"
 import { ParallaxSection } from "./parallax-section"
 import { Button } from "@/components/ui/button"
-import { Heart, ShoppingCart, Building2, Briefcase, ArrowRight } from "lucide-react"
+import { Heart, ShoppingCart, Building2, Wrench, Scale, ArrowRight } from "lucide-react"
 
 const industries = [
   {
-    icon: ShoppingCart,
-    title: "Ecommerce",
-    description: "High-converting ecommerce platforms, product catalogs and checkout flows built to scale.",
-    href: "/industries#ecommerce",
-  },
-  {
-    icon: Building2,
-    title: "Real Estate",
-    description: "Property listings, lead generation and CRM-ready websites for real estate teams.",
-    href: "/industries#real-estate",
+    icon: Wrench,
+    title: "HVAC & Trade Contractors",
+    description: "Speed-to-lead automations, missed call text-back, and booking funnels that win jobs before competitors reply.",
+    href: "/industries#hvac",
   },
   {
     icon: Heart,
-    title: "Healthcare",
-    description: "HIPAA-aware digital experiences for modern clinics, labs and healthcare startups.",
+    title: "Dental & Medical Clinics",
+    description: "HIPAA-compliant infrastructure architectures, online patient scheduling, and digital intake automations.",
     href: "/industries#healthcare",
   },
   {
-    icon: Briefcase,
-    title: "Business Websites",
-    description: "Professional, high-converting business websites that build trust, authority, and qualified leads.",
-    href: "/industries#business-websites",
+    icon: Scale,
+    title: "Law Firms & Practices",
+    description: "High-trust websites and automated client intake systems that screen and pre-qualify cases 24/7.",
+    href: "/industries#legal",
+  },
+  {
+    icon: Building2,
+    title: "Real Estate Agencies",
+    description: "Property listings, automated lead routing, and CRM-ready websites for top-producing teams.",
+    href: "/industries#realestate",
+  },
+  {
+    icon: ShoppingCart,
+    title: "Ecommerce Brands",
+    description: "High-converting online storefronts, abandoned checkout recovery, and custom integrations built to scale.",
+    href: "/industries#ecommerce",
   },
 ]
 
@@ -36,7 +43,7 @@ export function IndustriesSection() {
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden">
       <ParallaxSection speed={0.15} className="absolute left-0 top-0 w-1/3 h-full opacity-5">
-        <div className="w-full h-full `bg-[linear-gradient(135deg,_var(--accent)_25%,_transparent_25%,_transparent_75%,_var(--accent)_75%)] bg-[size:80px_80px]`" />
+        <div className="w-full h-full bg-[linear-gradient(135deg,_var(--accent)_25%,_transparent_25%,_transparent_75%,_var(--accent)_75%)] bg-[size:80px_80px]" />
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -51,16 +58,15 @@ export function IndustriesSection() {
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <p className="text-muted-foreground text-lg mb-8">
-                We specialize in tailor-made software solutions designed to enhance the growth and advancement of
-                businesses across various industries globally.
+                We build dedicated digital solutions, follow-up automations, and custom software for US small businesses and growing teams.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={300}>
               <Button size="lg" variant="outline" className="group" asChild>
-                <a href="/industries">
+                <Link href="/industries">
                   Explore All Industries
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
               </Button>
             </ScrollReveal>
           </div>
@@ -70,7 +76,7 @@ export function IndustriesSection() {
             <div className="grid sm:grid-cols-2 gap-4">
               {industries.map((industry, index) => (
                 <ScrollReveal key={industry.title} delay={index * 75}>
-                  <a href={industry.href} className="group block">
+                  <Link href={industry.href} className="group block">
                     <div className="p-6 rounded-2xl bg-card border border-border h-full transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10">
                       <div className="flex items-start gap-4">
                         <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
@@ -84,7 +90,7 @@ export function IndustriesSection() {
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </ScrollReveal>
               ))}
             </div>

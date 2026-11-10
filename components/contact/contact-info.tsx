@@ -81,7 +81,7 @@ export function ContactInfo() {
                           Karachi
                         </Button>
                         <p className="text-base text-muted-foreground leading-relaxed">
-                          74600, iqbal, karachi Abdullah college, Allama, Allama Iqbal Rd, near orange line brt station, Allama Iqbal Town Block W town, Karachi, 74600
+                          Block W, Allama Iqbal Town, Near Orange Line BRT Station &amp; Abdullah College, Allama Iqbal Rd, Karachi 74600, Pakistan
                         </p>
                       </div>
                     </div>
@@ -105,15 +105,18 @@ export function ContactInfo() {
                     <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold mt-0.5">Business Schedule</p>
                   </div>
                 </div>
-                <div className="pt-4 border-t border-border/80 space-y-2 text-base text-muted-foreground">
-                  <div className="flex items-center justify-between">
+                <div className="pt-4 border-t border-border/80 space-y-3 text-base text-muted-foreground">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                     <span className="font-medium text-foreground">Monday – Friday:</span>
-                    <span className="text-primary font-semibold">24 / 7</span>
+                    <span className="text-primary font-semibold">9 AM – 6 PM US Eastern (ET)</span>
                   </div>
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                     <span className="font-medium text-foreground">Weekend:</span>
                     <span>By appointment</span>
                   </div>
+                  <p className="pt-2 text-xs text-muted-foreground border-t border-border/50">
+                    We aim to reply to emails within one business day.
+                  </p>
                 </div>
               </div>
             </ScrollReveal>

@@ -106,8 +106,8 @@ export default function EcommercePage() {
 
       <main className="overflow-hidden">
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "E-commerce", item: "https://revolixtech.com/e-commerce" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "E-commerce", item: "https://www.revolixtech.com/e-commerce" },
         ]} /> 
         {/* Hero */}
 <section className="relative py-24 pt-32 lg:py-32 lg:pt-40">

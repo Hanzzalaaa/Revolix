@@ -16,7 +16,7 @@ const capabilities = [
     icon: Brain,
     title: "AI & Automation",
     description:
-      "We delivers tailored machine learning models and intelligent AI agents to automate complex workflows and drive scalable business growth.",
+      "We deliver tailored machine learning models and intelligent AI agents to automate complex workflows and drive scalable business growth.",
     points: [
       "AI & Machine Learning",
       "AI Automation",
@@ -27,7 +27,7 @@ const capabilities = [
     icon: Code2,
     title: "Software Development",
     description:
-      "We engineers high-performance custom software, building robust, scalable digital solutions that streamline operations and accelerate your business growth.",
+      "We engineer high-performance custom software, building robust, scalable digital solutions that streamline operations and accelerate your business growth.",
     points: [
       "Web Development",
       "Backend Development",
@@ -38,7 +38,7 @@ const capabilities = [
     icon: Workflow,
     title: "Business Automation",
     description:
-      "We optimizes corporate efficiency by deploying intelligent automated systems that eliminate repetitive tasks, reduce costs, and maximize operational productivity.",
+      "We optimize corporate efficiency by deploying intelligent automated systems that eliminate repetitive tasks, reduce costs, and maximize operational productivity.",
     points: [
       "GoHighLevel",
       "CRM Automation",
@@ -49,7 +49,7 @@ const capabilities = [
     icon: Megaphone,
     title: "SEO & Digital Marketing",
     description:
-      "We accelerates online visibility and drives targeted traffic through data-backed SEO strategies and high-converting digital marketing campaigns.",
+      "We accelerate online visibility and drive targeted traffic through data-backed SEO strategies and high-converting digital marketing campaigns.",
     points: [
       "SEO Services",
       "Digital Marketing",
@@ -60,7 +60,7 @@ const capabilities = [
     icon: Palette,
     title: "Design & Digital Experience",
     description:
-      "We crafts intuitive user interfaces and immersive digital experiences that captivate audiences, elevate brands, and optimize user engagement.",
+      "We craft intuitive user interfaces and immersive digital experiences that captivate audiences, elevate brands, and optimize user engagement.",
     points: [
       "UI/UX Design",
       "Graphic Design",
@@ -71,7 +71,7 @@ const capabilities = [
     icon: Cloud,
     title: "Cloud & Technical Solutions",
     description:
-      "We engineers secure cloud infrastructure and robust technical frameworks, ensuring seamless data integration, high availability, and effortless system scalability.",
+      "We engineer secure cloud infrastructure and robust technical frameworks, ensuring seamless data integration, high availability, and effortless system scalability.",
     points: [
       "Cloud & DevOps",
       "Deployment",

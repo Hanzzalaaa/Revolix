@@ -94,8 +94,8 @@ export default function AIAgentsPage() {
 
       <main className="overflow-hidden">
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "AI-Agents", item: "https://revolixtech.com/ai-agents" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "AI Agents", item: "https://www.revolixtech.com/ai-agents" },
         ]} />
 
         {/* ================= HERO ================= */}
@@ -265,6 +265,63 @@ export default function AIAgentsPage() {
 
           </div>
 
+        </section>
+
+        {/* ================= FEATURED PRODUCT: NEVERLOSELEAD ================= */}
+        <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 via-card/40 to-background py-20 border-t border-border">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-3xl border border-primary/30 bg-card/60 p-8 sm:p-12 backdrop-blur-xl relative overflow-hidden">
+              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+              <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center relative z-10">
+                <div>
+                  <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary uppercase tracking-wider mb-4">
+                    Our Flagship AI Product
+                  </span>
+                  <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+                    NeverLoseLead — Speed-to-Lead Automation for Service Businesses
+                  </h3>
+                  <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                    Built and maintained by Revolix Technologies, NeverLoseLead connects directly to your phone systems, inbound forms, and lead generation channels. When an inquiry comes in, it instantly texts back, qualifies the lead with conversational AI, and books the appointment directly onto your calendar in under 60 seconds.
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-4">
+                    <a
+                      href="https://neverloselead.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                    >
+                      Visit NeverLoseLead.com
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                    <Link
+                      href="/contact?service=neverloselead"
+                      className="inline-flex items-center rounded-lg border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-secondary"
+                    >
+                      Request a Demo
+                    </Link>
+                  </div>
+                </div>
+                <div className="space-y-3 rounded-2xl border border-border/80 bg-background/50 p-6 shadow-xl">
+                  <div className="flex items-center justify-between border-b border-border pb-3 text-xs text-muted-foreground">
+                    <span>Missed Call Inbound</span>
+                    <span className="text-primary font-medium">0.0s</span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-border pb-3 text-xs text-muted-foreground">
+                    <span>Instant SMS Dispatched</span>
+                    <span className="text-primary font-medium">&lt; 15s</span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-border pb-3 text-xs text-muted-foreground">
+                    <span>AI Qualification &amp; Needs Analysis</span>
+                    <span className="text-primary font-medium">&lt; 45s</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs text-muted-foreground">
+                    <span>Calendar Appointment Booked</span>
+                    <span className="text-emerald-400 font-semibold">&lt; 60s Done</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* ================= USE CASES ================= */}

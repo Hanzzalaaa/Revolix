@@ -8,63 +8,91 @@ import { ParallaxSection } from "@/components/parallax-section"
 
 const serviceSections = [
   // ============================================================
-  // 01 — WEBSITE DEVELOPMENT
+  // 01 — WEBSITES THAT BRING IN LEADS
   // ============================================================
   {
-    title: "Website Development",
+    title: "Websites That Bring In Leads",
     description:
-      "Professional website solutions built for performance, usability, SEO, and conversions.",
+      "High-converting, bespoke websites built for US small businesses. Fast loading, mobile-first, and engineered to turn visitors into booked inquiries.",
     href: "/web-development",
-    linkLabel: "View Website Development",
+    linkLabel: "Explore Website Development",
     items: [
       {
-        title: "Business Website",
+        title: "Service Business Websites",
         detail:
-          "Corporate and service websites built to establish credibility and generate qualified leads.",
+          "Websites engineered specifically for trade contractors, professional practices, clinics, and local services to capture inbound leads.",
       },
       {
-        title: "Ecommerce Website",
+        title: "Ecommerce & Product Catalogs",
         detail:
-          "Conversion-focused online stores with secure checkout, product catalogs, and scalable architecture.",
+          "Conversion-focused online stores with frictionless checkout, inventory syncing, and automated cart abandonment follow-up.",
       },
       {
-        title: "Custom Website",
+        title: "Custom Web Applications",
         detail:
-          "Unique, feature-rich websites designed around your business model, workflows, and goals.",
+          "Unique, high-performance web applications built on Next.js, tailored around your exact business model and workflows.",
       },
     ],
   },
 
   // ============================================================
-  // 02 — WEB & SOFTWARE DEVELOPMENT
+  // 02 — AI AUTOMATIONS & GOHIGHLEVEL FOLLOW-UP
   // ============================================================
   {
-    title: "Software Development",
+    title: "AI Automations & GoHighLevel Follow-up",
     description:
-      "Scalable software solutions designed around your business processes and technical requirements.",
-    href: "/custom-software",
-    linkLabel: "View Software Development",
+      "Automated speed-to-lead systems that text back missed calls, nurture new leads in seconds, and book appointments onto your team's calendar.",
+    href: "/gohighlevel",
+    linkLabel: "Explore GoHighLevel & Automations",
     items: [
       {
-        title: "Frontend Development",
+        title: "Instant Speed-to-Lead Workflows",
         detail:
-          "Modern responsive interfaces built with React, Next.js, and scalable frontend architecture.",
+          "Never lose another customer. Automated SMS replies, missed-call text-back, and immediate follow-up sequences in under 60 seconds.",
       },
       {
-        title: "Backend Development",
+        title: "GoHighLevel CRM Implementation",
         detail:
-          "Secure APIs, databases, authentication, and backend systems built for reliable performance.",
+          "Full setup of pipelines, calendars, booking funnels, automated review requests, and custom snapshots tailored to your industry.",
       },
       {
-        title: "Custom Software",
+        title: "AI Chat & Voice Agents",
         detail:
-          "Business-specific software designed to streamline workflows and solve complex operational needs.",
+          "Intelligent AI agents that answer common customer questions, qualify intent, and book appointments directly into your calendar.",
       },
     ],
   },
 
   // ============================================================
-  // 03 — AI & MACHINE LEARNING
+  // 03 — CUSTOM SOFTWARE & INTEGRATIONS
+  // ============================================================
+  {
+    title: "Custom Software & Integrations",
+    description:
+      "Custom internal tools, secure backend architectures, APIs, and third-party software integrations built to eliminate bottlenecks and scale operations.",
+    href: "/custom-software",
+    linkLabel: "Explore Custom Software",
+    items: [
+      {
+        title: "API & System Integrations",
+        detail:
+          "Connect your CRM, scheduling tools, accounting software, and payment processors into one unified operational ecosystem.",
+      },
+      {
+        title: "Scalable Backend Architectures",
+        detail:
+          "Robust Node.js, Python, PostgreSQL, and cloud backends designed for data security, uptime, and high concurrency.",
+      },
+      {
+        title: "Internal Portals & Dashboards",
+        detail:
+          "Custom client portals, employee dispatch dashboards, and automated reporting systems built specifically for your team.",
+      },
+    ],
+  },
+
+  // ============================================================
+  // 04 — AI & MACHINE LEARNING
   // ============================================================
   {
     title: "AI & Machine Learning",
@@ -87,62 +115,6 @@ const serviceSections = [
         title: "AI Solutions",
         detail:
           "AI-powered applications designed to improve productivity, customer experiences, and business operations.",
-      },
-    ],
-  },
-
-  // ============================================================
-  // 04 — AI AUTOMATION
-  // ============================================================
-  {
-    title: "AI Automation",
-    description:
-      "Intelligent automation systems that reduce repetitive work and improve business efficiency.",
-    href: "/ai-automation",
-    linkLabel: "View AI Automation",
-    items: [
-      {
-        title: "Workflow Automation",
-        detail:
-          "Automated workflows that connect tools, teams, and repetitive business processes.",
-      },
-      {
-        title: "AI Agents",
-        detail:
-          "AI-powered agents designed to answer questions, qualify leads, handle tasks, and support customers.",
-      },
-      {
-        title: "No-Code Automation",
-        detail:
-          "Zapier, Make, and similar automation systems that connect your existing tools without complex development.",
-      },
-    ],
-  },
-
-  // ============================================================
-  // 05 — GOHIGHLEVEL
-  // ============================================================
-  {
-    title: "GoHighLevel",
-    description:
-      "Complete GoHighLevel setup, CRM automation, funnels, workflows, and AI integrations built to turn leads into customers.",
-    href: "/gohighlevel",
-    linkLabel: "View GoHighLevel",
-    items: [
-      {
-        title: "GHL Setup & Configuration",
-        detail:
-          "Account and sub-account setup, pipelines, calendars, forms, funnels, and custom snapshots.",
-      },
-      {
-        title: "CRM & Workflow Automation",
-        detail:
-          "Automated lead follow-ups, missed-call text-back, appointment reminders, and speed-to-lead workflows.",
-      },
-      {
-        title: "AI Agents & Integrations",
-        detail:
-          "AI chat and voice agents connected with GoHighLevel to qualify leads, answer questions, and book appointments.",
       },
     ],
   },

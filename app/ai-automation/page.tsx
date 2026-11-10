@@ -301,8 +301,8 @@ export default function AIAutomationPage() {
 
       <main>
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "AI Automation", item: "https://revolixtech.com/ai-automation" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "AI Automation", item: "https://www.revolixtech.com/ai-automation" },
        ]} />
 
         {/* =========================

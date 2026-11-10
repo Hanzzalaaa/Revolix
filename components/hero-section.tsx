@@ -113,7 +113,7 @@ export function HeroSection() {
                 <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary animate-pulse" />
 
                 <span className="text-xs md:text-sm text-primary font-medium">
-                  AI-Powered Solutions
+                  US Small Business Solutions
                 </span>
               </motion.div>
             </ScrollReveal>
@@ -121,24 +121,31 @@ export function HeroSection() {
             {/* Main heading */}
             <ScrollReveal delay={100}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.1] mb-6 text-balance">
-                Innovating Tech. Scaling What&apos;s Possible.
+                Websites, AI automations and custom software for US small businesses.
               </h1>
             </ScrollReveal>
 
             {/* Description */}
             <ScrollReveal delay={200}>
               <p className="text-lg lg:text-xl text-muted-foreground mb-8 max-w-xl leading-relaxed">
-                We design, build, and scale intelligent digital
-                solutions from software and AI to automation,
-                cloud, and business technology.
+                We build your website, automate your follow-up, and create the tools your team needs, so more inquiries turn into booked jobs. US company, dedicated team, a fixed quote after one call.
               </p>
             </ScrollReveal>
 
-            {/* Small supporting text */}
+            {/* Product Highlight: NeverLoseLead */}
             <ScrollReveal delay={220}>
-              <p className="text-sm text-muted-foreground mb-6 max-w-xl">
-                If you are comparing, we are built for results and speed.
-              </p>
+              <div className="mb-8">
+                <a
+                  href="https://neverloselead.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-3.5 py-1.5 text-xs sm:text-sm text-primary transition-colors hover:border-primary/60 hover:bg-primary/10"
+                >
+                  <span className="font-semibold text-foreground">Featured Product:</span>
+                  NeverLoseLead — AI Speed-to-Lead Follow-up
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
             </ScrollReveal>
 
             {/* =====================================================
@@ -176,7 +183,7 @@ export function HeroSection() {
             >
 
               {/* =================================================
-                  CONSULTATION BUTTON
+                  PRIMARY CTA BUTTON
               ================================================= */}
 
               <motion.div
@@ -193,19 +200,16 @@ export function HeroSection() {
                   className="group relative overflow-hidden"
                 >
                   <Link href="/contact">
-
                     <span className="relative z-10 flex items-center">
-                      Book a Free Consultation
-
+                      Book a free call
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
-
                   </Link>
                 </Button>
               </motion.div>
 
               {/* =================================================
-                  VIEW OUR WORK BUTTON
+                  SECONDARY CTA BUTTON
               ================================================= */}
 
               <motion.div
@@ -217,11 +221,10 @@ export function HeroSection() {
                 }}
               >
                 <Link
-                  href="/portfolio"
+                  href="/services"
                   className="inline-flex items-center justify-center rounded-lg border border-border px-6 py-3 text-sm font-medium transition-all hover:bg-muted hover:border-primary/30"
                 >
-                  View Our Work
-
+                  Explore our services
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform" />
                 </Link>
               </motion.div>
@@ -411,11 +414,11 @@ export function HeroSection() {
                         delay: 1.2,
                       }}
                     >
-                      +127%
+                      &lt; 1 Min
                     </motion.p>
 
                     <p className="text-sm text-muted-foreground">
-                      Growth Rate
+                      Speed-to-Lead
                     </p>
 
                   </motion.div>

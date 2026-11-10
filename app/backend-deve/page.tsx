@@ -82,8 +82,8 @@ export default function BackendDevelopmentPage() {
  
       <main className="overflow-hidden">
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "Backend Development", item: "https://revolixtech.com/backend-deve" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "Backend Development", item: "https://www.revolixtech.com/backend-deve" },
         ]} />
 
         {/* Hero */}

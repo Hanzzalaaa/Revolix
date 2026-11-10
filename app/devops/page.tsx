@@ -107,8 +107,8 @@ export default function CloudDevOpsPage() {
 
       <main className="overflow-hidden">
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "Cloud & DevOps", item: "https://revolixtech.com/devops" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "Cloud & DevOps", item: "https://www.revolixtech.com/devops" },
         ]} />
 
         {/* ================= HERO ================= */}

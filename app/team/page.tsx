@@ -6,6 +6,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import Image from "next/image"
+import image0 from "./images/hanzala.jpg"
 import image1 from "./images/abdullahtwo.jpg"
 import image2 from "./images/ahsan.jpg"
 import image3 from "./images/abu-bakar.jpg"
@@ -17,6 +18,14 @@ import image8 from "./images/shaheer.jpg"
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 const teamMembers = [
+  {
+    name: "Hanzala Kashif",
+    role: "Founder & CEO",
+    specialization: "AI Strategy, Product Architecture & Technical Leadership",
+    image: image0,
+    linkedin: "https://www.linkedin.com/in/hanzala-kashif/",
+    github: "",
+  },
   {
     name: "Abu Bakar",
     role: "MERN stack Developer",
@@ -76,7 +85,7 @@ const teamMembers = [
   },
   {
     name: "Muhammad Shaheer",
-    role: "Upwork Manager & Agency Lead",
+    role: "Client Partnerships Lead",
     specialization: "Business development, client acquisition & project management",
     image: image8,
     linkedin: "https://www.linkedin.com/in/muhammad-shaheer-14761639b/",
@@ -117,8 +126,8 @@ export default function TeamPage() {
       <main>
         <BreadcrumbJsonLd
           items={[
-            { name: "Home", item: "https://revolixtech.com/" },
-            { name: "Team", item: "https://revolixtech.com/team" },
+            { name: "Home", item: "https://www.revolixtech.com/" },
+            { name: "Team", item: "https://www.revolixtech.com/team" },
           ]}
         />
 

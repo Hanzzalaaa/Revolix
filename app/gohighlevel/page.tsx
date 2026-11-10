@@ -45,7 +45,8 @@ const ghlFaqs = [
 const ghlPackages = [
   {
     title: "Launch Setup",
-    price: "Starting at $750",
+    price: "$750",
+    slug: "launch-setup",
     features: [
       "CRM Setup",
       "Pipelines",
@@ -55,7 +56,8 @@ const ghlPackages = [
   },
   {
     title: "Speed-to-Lead",
-    price: "Starting at $1,000",
+    price: "$1,000",
+    slug: "speed-to-lead",
     features: [
       "Missed Call Text Back",
       "Lead Notifications",
@@ -65,7 +67,8 @@ const ghlPackages = [
   },
   {
     title: "AI Chat Agent",
-    price: "Starting at $1,500",
+    price: "$1,500",
+    slug: "ai-chat-agent",
     features: [
       "GPT Chatbot",
       "Knowledge Base",
@@ -73,7 +76,6 @@ const ghlPackages = [
       "CRM Integration",
     ],
   },
- 
 ]
 
 const ghlServices = [
@@ -97,10 +99,10 @@ export default function GoHighLevelPage() {
       <main className="w-full overflow-x-clip">
         <BreadcrumbJsonLd
           items={[
-            { name: "Home", item: "https://revolixtech.com/" },
+            { name: "Home", item: "https://www.revolixtech.com/" },
             {
               name: "GoHighLevel",
-              item: "https://revolixtech.com/gohighlevel",
+              item: "https://www.revolixtech.com/gohighlevel",
             },
           ]}
         />
@@ -312,7 +314,7 @@ export default function GoHighLevelPage() {
               asChild
               className="mt-10 w-full"
             >
-              <Link href="/contact/contact-form">
+              <Link href={`/contact?service=gohighlevel&package=${pkg.slug}#contact-form`}>
                 Get Started
               </Link>
             </Button>

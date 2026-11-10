@@ -178,8 +178,8 @@ export default function WebDevelopmentPage() {
 
       <main>
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "Web Development", item: "https://revolixtech.com/web-development" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "Web Development", item: "https://www.revolixtech.com/web-development" },
        ]} />
 
         {/* hero */}
@@ -412,16 +412,15 @@ export default function WebDevelopmentPage() {
             <ScrollReveal>
               <div className="text-center">
                 <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
-                  Packages
+                  Tailored Proposals
                 </p>
 
                 <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                  Choose the Right Starting Point
+                  Custom Website Solutions
                 </h2>
 
                 <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-                  Every project is different. These packages provide a
-                  starting point and can be customized around your needs.
+                  Every business has different requirements. Tell us what you need, and we&apos;ll prepare a tailored proposal.
                 </p>
               </div>
             </ScrollReveal>
@@ -477,11 +476,14 @@ export default function WebDevelopmentPage() {
                     </div>
 
                     <Link
-                      href="/contact"
-                      className="mt-8 inline-flex w-full items-center justify-center rounded-lg border border-border px-5 py-3 text-sm font-medium transition-colors hover:bg-muted"
+                      href="/contact?service=web-development#contact-form"
+                      className="mt-8 inline-flex w-full items-center justify-center rounded-lg bg-primary/10 border border-primary/30 px-5 py-3 text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-primary-foreground"
                     >
-                      Discuss Your Project
+                      Get a custom quote
                     </Link>
+                    <p className="mt-2.5 text-xs text-center text-muted-foreground">
+                      Free 20-minute discovery call
+                    </p>
 
                   </div>
                 </ScrollReveal>

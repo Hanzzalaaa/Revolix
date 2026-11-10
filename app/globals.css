@@ -270,5 +270,11 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* Prevent horizontal overflow on mobile viewports */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
  
  

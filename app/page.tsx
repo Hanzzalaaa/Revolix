@@ -18,7 +18,6 @@ import { ProcessSection } from '@/components/process-section';
 import Portfoliosection from "@/components/portfolio-section";
 import { AboutTeam } from "@/components/about-team";
 import { BreadcrumbJsonLd, FAQJsonLd } from '@/components/seo/json-ld';
-import Script from "next/script";
 
 
 const SITE_URL = (
@@ -30,14 +29,14 @@ const SITE_URL = (
 export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(SITE_URL), 
-    title: 'Revolix Technologies — AI Systems, CRM Automation & Custom Software',
-    description: 'We build production AI agents, GoHighLevel automation, and backend infrastructure.',
+    title: 'Websites, AI Automations & Custom Software | Revolix Technologies',
+    description: 'We build your website, automate your follow-up, and create the tools your team needs, so more inquiries turn into booked jobs. US company, dedicated team, a fixed quote after one call.',
     alternates: {
       canonical: '/',
     },
     openGraph: {
-      title: 'Revolix Technologies — AI Systems, CRM Automation & Custom Software',
-      description: 'We build production AI agents, GoHighLevel automation, and backend infrastructure.',
+      title: 'Websites, AI Automations & Custom Software | Revolix Technologies',
+      description: 'We build your website, automate your follow-up, and create the tools your team needs, so more inquiries turn into booked jobs. US company, dedicated team, a fixed quote after one call.',
       url: '/',
       siteName: 'Revolix Technologies',
       type: 'website',
@@ -68,11 +67,6 @@ export default function HomePage() {
           }
           providerName="Revolix Technologies"
         /> 
-        <Script
-          src="https://vursell.duckdns.org/widget/widget.js"
-          data-bot-id="52487262-bb7d-4e51-beb0-9032efe42d85"
-          strategy="afterInteractive"
-        />
         <HeroSection />
         {/* <TrustedBySection /> */}
         <ServicesSection />

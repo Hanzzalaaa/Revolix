@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Terms & Conditions | Revolix Technologies",
     description:
       "The terms and conditions governing your use of the Revolix Technologies website and our services.",
-    alternates: { canonical: "https://revolixtech.com/terms-and-conditions" },
+    alternates: { canonical: "https://www.revolixtech.com/terms-conditions" },
     robots: { index: true, follow: true },
   }
 }
@@ -188,12 +188,14 @@ const SECTIONS: TermSection[] = [
     body: (
       <p>
         These Terms and any dispute or claim arising out of or in connection with them
-        or their subject matter are governed by and construed in accordance with the laws
-        of the <span className="text-foreground font-semibold">Islamic Republic of Pakistan</span>,
-        without regard to conflict-of-law principles. Any legal action or proceeding shall
-        be subject to the exclusive jurisdiction of the competent courts located in{" "}
-        <span className="text-foreground font-semibold">Karachi, Pakistan</span>, unless otherwise
-        agreed in a signed project contract.
+        or their subject matter are governed by applicable law based on the contracting entity.
+        For clients engaging with <span className="text-foreground font-semibold">Revolix Technologies LLC</span> (Wyoming, USA),
+        these Terms are governed by and construed in accordance with the laws of the{" "}
+        <span className="text-foreground font-semibold">State of Wyoming, United States</span>.
+        For clients engaging with <span className="text-foreground font-semibold">Revolix Technologies (Private) Limited</span> (Pakistan),
+        these Terms are governed by the laws of the{" "}
+        <span className="text-foreground font-semibold">Islamic Republic of Pakistan</span>,
+        with jurisdiction in Karachi, Pakistan, unless explicitly specified otherwise in a signed client agreement.
       </p>
     ),
   },
@@ -215,12 +217,8 @@ const SECTIONS: TermSection[] = [
     body: (
       <p>
         If you have questions about these Terms & Conditions, contact us at{" "}
-        <a href="mailto:hello@revolix.com" className="text-foreground font-semibold hover:text-primary transition-colors">
-          hello@revolix.com
-        </a>{" "}
-        or{" "}
-        <a href="mailto:support@revolix.com" className="text-foreground font-semibold hover:text-primary transition-colors">
-          support@revolix.com
+        <a href="mailto:info@revolixtech.com" className="text-foreground font-semibold hover:text-primary transition-colors">
+          info@revolixtech.com
         </a>
         .
       </p>
@@ -241,8 +239,8 @@ export default function TermsAndConditionsPage() {
 
         <BreadcrumbJsonLd
           items={[
-            { name: "Home", item: "https://revolixtech.com/" },
-            { name: "Terms & Conditions", item: "https://revolixtech.com/terms-and-conditions" },
+            { name: "Home", item: "https://www.revolixtech.com/" },
+            { name: "Terms & Conditions", item: "https://www.revolixtech.com/terms-conditions" },
           ]}
         />
 

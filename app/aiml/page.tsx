@@ -298,8 +298,8 @@ export default function AIMLPage() {
 
       <main>
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "AI & Machine Learning", item: "https://revolixtech.com/aiml" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "AI & Machine Learning", item: "https://www.revolixtech.com/aiml" },
         ]} />
 
         {/* =========================

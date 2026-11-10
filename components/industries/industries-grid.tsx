@@ -18,27 +18,83 @@ import {
   GraduationCap,
   Leaf,
   ArrowRight,
+  Wrench,
+  Scale,
 } from "lucide-react"
 import Link from "next/link"
 
 const industries = [
   {
+    id: "hvac",
+    icon: Wrench,
+    title: "HVAC, Plumbing & Electrical",
+    shortDesc: "Automated booking & speed-to-lead for trade contractors",
+    description:
+      "Revolix equips home service contractors with high-converting websites, missed call text-back, instant lead dispatch, and GoHighLevel job booking workflows so you never lose a job to a competitor.",
+    solutions: [
+      "Instant missed-call text back",
+      "Online estimate request funnels",
+      "Emergency service dispatch automation",
+      "Automated review requests & Google maps rank",
+      "GoHighLevel CRM & calendar sync",
+      "Jobber & ServiceTitan integrations",
+    ],
+    image: "/manufacturing-factory-dark-industrial.jpg",
+    color: "from-blue-500/20 to-cyan-500/20",
+  },
+  {
     id: "healthcare",
     icon: Heart,
-    title: "Healthcare",
-    shortDesc: "AI-powered healthcare solutions",
+    title: "Dental & Medical Clinics",
+    shortDesc: "Secure patient acquisition & clinic automation",
     description:
-      "Revolix AI brings AI to healthcare, cutting costs, boosting care quality, securing patient data, and streamlining systems for smarter, faster, and more personalized patient experiences.",
+      "Revolix builds patient-friendly clinic websites and automated intake workflows on HIPAA-compliant infrastructure architectures with BAA-eligible cloud configurations to streamline appointments and patient follow-up.",
     solutions: [
-      "Clinical decision support systems",
-      "Medical imaging AI",
-      "Patient engagement platforms",
-      "Healthcare analytics",
-      "Telemedicine solutions",
-      "EHR optimization",
+      "Online patient appointment scheduling",
+      "Digital intake form automations",
+      "HIPAA-compliant infrastructure architectures",
+      "Automated appointment SMS reminders",
+      "Reputation & Google review automation",
+      "Doctor bio & service directories",
     ],
     image: "/healthcare-technology-abstract-dark.jpg",
     color: "from-rose-500/20 to-pink-500/20",
+  },
+  {
+    id: "legal",
+    icon: Scale,
+    title: "Law Firms & Legal Practices",
+    shortDesc: "High-trust websites & automated intake",
+    description:
+      "Revolix develops high-authority law firm websites and client qualification systems that capture high-intent inquiries and screen cases 24/7 before they reach your calendar.",
+    solutions: [
+      "Automated case intake & pre-qualification",
+      "High-trust attorney profile websites",
+      "Secure client inquiry routing",
+      "Consultation booking & calendar sync",
+      "Practice area landing page funnels",
+      "Confidential CRM record management",
+    ],
+    image: "/legal-tech-app-scales-justice-dark.jpg",
+    color: "from-amber-500/20 to-yellow-500/20",
+  },
+  {
+    id: "realestate",
+    icon: Home,
+    title: "Real Estate",
+    shortDesc: "Intelligent property solutions",
+    description:
+      "Revolix helps real estate professionals price smart, predict demand, personalize buyer journeys, and market properties faster and smoother regardless of market mood.",
+    solutions: [
+      "Property valuation AI",
+      "Market prediction",
+      "Virtual property tours",
+      "Lead scoring",
+      "Portfolio management",
+      "Smart building systems",
+    ],
+    image: "/real-estate-cityscape-dark-night.jpg",
+    color: "from-cyan-500/20 to-blue-500/20",
   },
   {
     id: "ecommerce",
@@ -46,35 +102,17 @@ const industries = [
     title: "eCommerce",
     shortDesc: "Intelligent retail experiences",
     description:
-      "We fuel your eCommerce growth with AI, fight fraud, streamline operations, personalize customer journeys, and scale fast. Smarter tech means happier customers and bigger wins.",
+      "We fuel your eCommerce growth with conversion-optimized store design, abandoned cart follow-ups, inventory automation, and seamless checkout experiences that turn visitors into repeat buyers.",
     solutions: [
-      "Personalization engines",
-      "Fraud detection systems",
-      "Inventory optimization",
-      "Dynamic pricing",
-      "Customer analytics",
-      "Chatbot integration",
+      "High-converting Shopify & Next.js stores",
+      "Automated abandoned checkout recovery",
+      "Inventory & order management integrations",
+      "Dynamic pricing & bundle funnels",
+      "Customer lifetime value analytics",
+      "AI chat customer support",
     ],
     image: "/ecommerce-shopping-dark-neon.jpg",
     color: "from-amber-500/20 to-orange-500/20",
-  },
-  {
-    id: "energy",
-    icon: Zap,
-    title: "Energy",
-    shortDesc: "Smart grid & sustainability",
-    description:
-      "Revolix AI powers the energy shift with AI tech stack. We optimize grids, cut emissions, predict demand, and build smarter, cleaner, and more secure energy systems for a sustainable future.",
-    solutions: [
-      "Smart grid management",
-      "Energy demand forecasting",
-      "Renewable optimization",
-      "Asset monitoring",
-      "Carbon tracking",
-      "Grid security",
-    ],
-    image: "/energy-power-grid-dark-blue.jpg",
-    color: "from-yellow-500/20 to-amber-500/20",
   },
   {
     id: "fintech",
@@ -82,11 +120,11 @@ const industries = [
     title: "Fintech",
     shortDesc: "Secure financial innovation",
     description:
-      "Revolix AI powers fintech with AI. It smartly improves processes, boosts security, personalizes experiences, ensures compliance, and delivers seamless digital journeys that earn trust and drive growth.",
+      "Revolix powers fintech with reliable software architectures, robust security, streamlined compliance workflows, and digital user journeys that earn trust and drive growth.",
     solutions: [
       "Risk assessment models",
       "Fraud prevention",
-      "Algorithmic trading",
+      "Algorithmic workflows",
       "Regulatory compliance",
       "Digital banking platforms",
       "Payment processing",
@@ -95,12 +133,30 @@ const industries = [
     color: "from-emerald-500/20 to-teal-500/20",
   },
   {
+    id: "energy",
+    icon: Zap,
+    title: "Energy & Utilities",
+    shortDesc: "Smart grid & sustainability",
+    description:
+      "Revolix powers the energy shift with modern software. We optimize systems, predict demand, and build smarter, cleaner, and more secure energy platforms for a sustainable future.",
+    solutions: [
+      "Smart grid management",
+      "Energy demand forecasting",
+      "Renewable optimization",
+      "Asset monitoring",
+      "Carbon tracking",
+      "System security",
+    ],
+    image: "/energy-power-grid-dark-blue.jpg",
+    color: "from-yellow-500/20 to-amber-500/20",
+  },
+  {
     id: "hospitality",
     icon: Hotel,
     title: "Hospitality",
     shortDesc: "Elevated guest experiences",
     description:
-      "Revolix AI uses AI to transform hospitality, streamline operations, personalize stays, cut costs, and deliver eco-smart and guest-first experiences that keep customers coming back.",
+      "Revolix transforms hospitality operations, personalizes guest stays, cuts overhead, and delivers eco-smart and guest-first experiences that keep customers coming back.",
     solutions: [
       "Revenue management",
       "Guest personalization",
@@ -118,10 +174,10 @@ const industries = [
     title: "Manufacturing",
     shortDesc: "Industry 4.0 solutions",
     description:
-      "Revolix AI powers smart manufacturing with AI. It can optimize supply chains, boost uptime, secure operations, and drive sustainability without slowing production.",
+      "Revolix powers smart manufacturing with modern software and automation. We optimize supply chains, boost uptime, and secure industrial workflows without slowing production.",
     solutions: [
       "Predictive maintenance",
-      "Quality control AI",
+      "Quality control automation",
       "Supply chain optimization",
       "Production scheduling",
       "IoT integration",
@@ -131,30 +187,12 @@ const industries = [
     color: "from-slate-500/20 to-gray-500/20",
   },
   {
-    id: "realestate",
-    icon: Home,
-    title: "Real Estate",
-    shortDesc: "Intelligent property solutions",
-    description:
-      "Revolix AI helps real estate professionals price smart, predict demand, and personalize buyer journeys, and market properties faster and smoother regardless of market mood.",
-    solutions: [
-      "Property valuation AI",
-      "Market prediction",
-      "Virtual property tours",
-      "Lead scoring",
-      "Portfolio management",
-      "Smart building systems",
-    ],
-    image: "/real-estate-cityscape-dark-night.jpg",
-    color: "from-cyan-500/20 to-blue-500/20",
-  },
-  {
     id: "logistics",
     icon: Truck,
-    title: "Logistics",
+    title: "Logistics & Supply Chain",
     shortDesc: "Optimized supply chains",
     description:
-      "Revolix AI brings AI to the logistics industry. We optimize routes, forecast workforce needs, and build resilient supply chains that move faster, waste less, and deliver every time.",
+      "Revolix brings modern digital solutions to the logistics industry. We optimize routes, forecast dispatch needs, and build resilient supply chains that move faster and deliver on time.",
     solutions: [
       "Route optimization",
       "Warehouse automation",
@@ -170,12 +208,12 @@ const industries = [
     id: "oil-gas",
     icon: Droplet,
     title: "Oil & Gas",
-    shortDesc: "Upstream to downstream AI",
+    shortDesc: "Upstream to downstream software",
     description:
-      "Revolix AI applies AI to oil and gas industry. It predicts failures, optimizes exploration, streamlines logistics, and improves safety across upstream, midstream, and downstream operations.",
+      "Revolix applies modern engineering to oil and gas operations. We predict maintenance needs, streamline logistics, and improve safety across industrial workflows.",
     solutions: [
       "Predictive maintenance",
-      "Exploration optimization",
+      "Logistics optimization",
       "Pipeline monitoring",
       "Safety systems",
       "Production forecasting",
@@ -185,30 +223,12 @@ const industries = [
     color: "from-stone-500/20 to-zinc-500/20",
   },
   {
-    id: "entertainment",
-    icon: Gamepad2,
-    title: "Entertainment",
-    shortDesc: "Content & engagement AI",
-    description:
-      "Revolix AI brings AI to entertainment. We predict trends, personalize content, streamline production, and boost audience engagement with data that steals the spotlight.",
-    solutions: [
-      "Content recommendation",
-      "Audience analytics",
-      "Production optimization",
-      "Trend prediction",
-      "Engagement platforms",
-      "Rights management",
-    ],
-    image: "/entertainment-gaming-dark-neon.jpg",
-    color: "from-pink-500/20 to-rose-500/20",
-  },
-  {
     id: "education",
     icon: GraduationCap,
     title: "Education",
     shortDesc: "Adaptive learning solutions",
     description:
-      "Transform education with AI-powered learning platforms, adaptive assessments, and intelligent tutoring systems that personalize the learning journey for every student.",
+      "Transform education with modern learning platforms, adaptive assessments, and intelligent student portals that personalize the learning journey for every student.",
     solutions: [
       "Adaptive learning platforms",
       "Automated grading",
@@ -219,24 +239,6 @@ const industries = [
     ],
     image: "/education-learning-dark-digital.jpg",
     color: "from-indigo-500/20 to-violet-500/20",
-  },
-  {
-    id: "agriculture",
-    icon: Leaf,
-    title: "Agriculture",
-    shortDesc: "Precision farming AI",
-    description:
-      "Enhance agricultural operations with AI solutions that deliver personalized farming insights, optimize crop yields, and drive sustainable practices for modern agriculture.",
-    solutions: [
-      "Crop monitoring",
-      "Yield prediction",
-      "Smart irrigation",
-      "Pest detection",
-      "Supply chain tracking",
-      "Sustainability metrics",
-    ],
-    image: "/agriculture-farming-dark-tech.jpg",
-    color: "from-green-500/20 to-emerald-500/20",
   },
 ]
 

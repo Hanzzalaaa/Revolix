@@ -1,7 +1,8 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect, Suspense } from "react"
+import { useSearchParams } from "next/navigation"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
 import { Button } from "@/components/ui/button"
@@ -13,31 +14,67 @@ interface FormData {
   first_name: string
   last_name: string
   email: string
+  phone: string
   company: string
   service: string
-  budget: string
   about: string
 }
 
-export function ContactForm() {
+const SERVICE_OPTIONS = [
+  "Website Development",
+  "AI Automations & Follow-up",
+  "GoHighLevel Implementation",
+  "Custom Software & APIs",
+  "SEO & Growth",
+  "E-Commerce Solutions",
+  "Other / Custom Project",
+]
+
+function ContactFormInner() {
+  const searchParams = useSearchParams()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [selectedService, setSelectedService] = useState("")
-  const [selectedBudget, setSelectedBudget] = useState("")
 
   const [formData, setFormData] = useState<FormData>({
     first_name: "",
     last_name: "",
     email: "",
+    phone: "",
     company: "",
     service: "",
-    budget: "",
     about: "",
   })
 
+  // Prepopulate from URL parameters (e.g., from GoHighLevel pricing cards or other services)
+  useEffect(() => {
+    const serviceParam = searchParams.get("service")
+    const packageParam = searchParams.get("package")
+
+    if (serviceParam || packageParam) {
+      let matchedService = ""
+      if (serviceParam === "gohighlevel") matchedService = "GoHighLevel Implementation"
+      else if (serviceParam === "web-development") matchedService = "Website Development"
+      else if (serviceParam === "ai-automation" || serviceParam === "ai-agents" || serviceParam === "neverloselead") {
+        matchedService = "AI Automations & Follow-up"
+      } else if (serviceParam === "custom-software" || serviceParam === "backend-development") {
+        matchedService = "Custom Software & APIs"
+      } else if (serviceParam === "seo") {
+        matchedService = "SEO & Growth"
+      }
+
+      setFormData((prev) => ({
+        ...prev,
+        service: matchedService || prev.service,
+        about: packageParam
+          ? `Inquiring about package: ${packageParam.replace(/-/g, " ").toUpperCase()}.\n\n`
+          : prev.about,
+      }))
+    }
+  }, [searchParams])
+
   // INPUT & TEXTAREA HANDLER
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target
     setFormData((prev) => ({
@@ -50,20 +87,18 @@ export function ContactForm() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    const payload = {
-      ...formData,
-      service: selectedService,
-      budget: selectedBudget,
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+    } catch (err) {
+      console.error("Submission error:", err)
+    } finally {
+      setIsSubmitting(false)
+      setIsSubmitted(true)
     }
-
-    await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    })
-
-    setIsSubmitting(false)
-    setIsSubmitted(true)
   }
 
   if (isSubmitted) {
@@ -75,9 +110,9 @@ export function ContactForm() {
               <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                 <Check className="w-10 h-10 text-primary" />
               </div>
-              <p className="text-3xl font-bold mb-4">Thank You!</p>
-              <p className="text-lg text-muted-foreground">
-                We&apos;ve received your message and will get back to you within 24 hours.
+              <h2 className="text-3xl font-bold mb-4">Thank You!</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
+                Thank you. We review inquiries within one business day and will reply to confirm details.
               </p>
             </div>
           </ScrollReveal>
@@ -100,74 +135,133 @@ export function ContactForm() {
             <ScrollReveal>
               <div className="p-8 sm:p-10 lg:p-12 rounded-3xl bg-card/90 border border-border shadow-xl backdrop-blur-sm">
                 <div className="mb-10">
-                  <h2 className="text-3xl sm:text-4xl font-bold mb-3 tracking-tight">Free Consultation</h2>
+                  <h2 className="text-3xl sm:text-4xl font-bold mb-3 tracking-tight">
+                    Prefer to write? Send us a message.
+                  </h2>
                   <p className="text-base text-muted-foreground leading-relaxed">
-                    Share your goals and we will propose a plan that fits your business.
+                    Share your goals and we&apos;ll reply with a clear, tailored proposal within one business day.
                   </p>
                 </div>
-                <form onSubmit={handleSubmit} className="space-y-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Name Row */}
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold mb-2.5">First Name *</label>
+                      <label htmlFor="first_name" className="block text-sm font-semibold mb-2.5">
+                        First Name <span className="text-primary">*</span>
+                      </label>
                       <Input
+                        id="first_name"
                         name="first_name"
                         value={formData.first_name}
                         onChange={handleChange}
                         required
+                        aria-required="true"
                         placeholder="John"
-                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border"
+                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border focus-visible:ring-primary"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold mb-2.5">Last Name *</label>
+                      <label htmlFor="last_name" className="block text-sm font-semibold mb-2.5">
+                        Last Name <span className="text-primary">*</span>
+                      </label>
                       <Input
+                        id="last_name"
                         name="last_name"
                         value={formData.last_name}
                         onChange={handleChange}
                         required
+                        aria-required="true"
                         placeholder="Doe"
-                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border"
+                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border focus-visible:ring-primary"
                       />
                     </div>
                   </div>
 
+                  {/* Email & Phone Row */}
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold mb-2.5">Email *</label>
+                      <label htmlFor="email" className="block text-sm font-semibold mb-2.5">
+                        Email Address <span className="text-primary">*</span>
+                      </label>
                       <Input
+                        id="email"
                         name="email"
                         type="email"
                         value={formData.email}
                         onChange={handleChange}
                         required
+                        aria-required="true"
                         placeholder="john@company.com"
-                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border"
+                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border focus-visible:ring-primary"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold mb-2.5">Company</label>
+                      <label htmlFor="phone" className="block text-sm font-semibold mb-2.5">
+                        Phone Number <span className="text-xs text-muted-foreground font-normal">(Optional)</span>
+                      </label>
                       <Input
-                        name="company"
-                        value={formData.company}
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
                         onChange={handleChange}
-                        placeholder="Your Company"
-                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border"
+                        placeholder="+1 (555) 000-0000"
+                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border focus-visible:ring-primary"
                       />
                     </div>
                   </div>
 
+                  {/* Company & Service Row */}
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="company" className="block text-sm font-semibold mb-2.5">
+                        Company Name <span className="text-xs text-muted-foreground font-normal">(Optional)</span>
+                      </label>
+                      <Input
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        placeholder="Your Business Name"
+                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border focus-visible:ring-primary"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="service" className="block text-sm font-semibold mb-2.5">
+                        Service Needed
+                      </label>
+                      <select
+                        id="service"
+                        name="service"
+                        value={formData.service}
+                        onChange={handleChange}
+                        className="w-full h-13 px-4 text-base rounded-xl bg-background/80 border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                      >
+                        <option value="">Select a service...</option>
+                        {SERVICE_OPTIONS.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Project Details */}
                   <div>
-                    <label className="block text-sm font-semibold mb-2.5">
-                      Tell us about your project *
+                    <label htmlFor="about" className="block text-sm font-semibold mb-2.5">
+                      Tell us about your project <span className="text-primary">*</span>
                     </label>
                     <Textarea
+                      id="about"
                       name="about"
                       value={formData.about}
                       onChange={handleChange}
                       required
-                      rows={8}
-                      placeholder="Describe your project, timeline, goals, and any specific requirements..."
-                      className="min-h-[200px] p-4 text-base rounded-xl bg-background/80 border-border resize-none leading-relaxed"
+                      aria-required="true"
+                      rows={6}
+                      placeholder="Describe your project, timeline, current systems, and what success looks like for your business..."
+                      className="min-h-[160px] p-4 text-base rounded-xl bg-background/80 border-border resize-none leading-relaxed focus-visible:ring-primary"
                     />
                   </div>
 
@@ -218,19 +312,16 @@ export function ContactForm() {
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
-                    allowFullScreen
+                    allowFullScreen={false}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Revolix Technologies Karachi Office Google Map"
+                    title="Revolix Technologies Karachi Office Map"
                   />
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  74600, iqbal, karachi Abdullah college, Allama, Allama Iqbal Rd, near orange line brt station, Allama Iqbal Town Block W town, Karachi, 74600
-                </p>
               </div>
             </ScrollReveal>
 
-            {/* Map 2: USA Office - Sheridan, WY */}
+            {/* Map 2: 30 N Gould St, Sheridan, WY, USA (Head Office) */}
             <ScrollReveal delay={200}>
               <div className="p-6 sm:p-7 rounded-3xl bg-card/90 border border-border shadow-lg flex flex-col gap-4 backdrop-blur-sm">
                 <div className="flex items-center justify-between gap-2">
@@ -239,8 +330,8 @@ export function ContactForm() {
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg text-foreground">USA Office</h3>
-                      <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Head Office · Sheridan, WY</p>
+                      <h3 className="font-semibold text-lg text-foreground">USA Headquarters</h3>
+                      <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Sheridan, Wyoming, USA</p>
                     </div>
                   </div>
                   <Button variant="outline" size="sm" asChild className="h-8 text-xs gap-1.5 shrink-0 rounded-lg">
@@ -256,24 +347,29 @@ export function ContactForm() {
                 </div>
                 <div className="w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-border/80">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2831.169916269879!2d-106.9574119!3d44.7977257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5335fabc2a655551%3A0x7d0215852acbacda!2s30%20N%20Gould%20St%2C%20Sheridan%2C%20WY%2082801%2C%20USA!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2836.8778696803274!2d-106.9574119!3d44.7977257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5335fabc2a655551%3A0x7d0215852acbacda!2s30%20N%20Gould%20St%2C%20Sheridan%2C%20WY%2082801%2C%20USA!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
-                    allowFullScreen
+                    allowFullScreen={false}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Revolix Technologies USA Office Google Map"
+                    title="USA Headquarters 30 N Gould St Sheridan Map"
                   />
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  30 N Gould St, Ste 68264, Sheridan WY 82801, United States
-                </p>
               </div>
             </ScrollReveal>
           </div>
         </div>
       </div>
     </section>
+  )
+}
+
+export function ContactForm() {
+  return (
+    <Suspense fallback={<div className="py-20 text-center text-muted-foreground">Loading contact form...</div>}>
+      <ContactFormInner />
+    </Suspense>
   )
 }

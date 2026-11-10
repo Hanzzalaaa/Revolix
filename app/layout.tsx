@@ -1,7 +1,13 @@
 
 import type { ReactNode } from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Suspense } from "react"
+
+export const viewport: Viewport = {
+  themeColor: "#070B14",
+  width: "device-width",
+  initialScale: 1,
+}
 import Script from "next/script"
 
 import {
@@ -17,6 +23,7 @@ import { ScrollToTop } from "@/components/scroll-to-top"
 import CursorWrapper from "@/components/CursorWrapper"
 import GTM from "@/components/GTM"
 import TrackPageView from "@/components/TrackPageView"
+import { CookieConsent } from "@/components/cookie-consent"
 
 import "./globals.css"
 
@@ -101,28 +108,29 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Revolix Technologies | AI & Software Development",
+    title: "Revolix Technologies — Websites, AI Automations & Custom Software",
     description:
-      "We design, build, and scale intelligent digital solutions — from software and AI to automation, cloud, and business technology.",
+      "Websites, AI automations, and custom software for US small businesses. US company, dedicated engineering team, fixed quote after one call.",
     url: SITE_URL,
     siteName: "Revolix Technologies",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/favicon.png`,
-        width: 512,
-        height: 512,
-        alt: "Revolix Technologies",
+        url: `${SITE_URL}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "Revolix Technologies — Websites, AI Automations & Custom Software",
       },
     ],
   },
 
   twitter: {
-    card: "summary",
-    title: "Revolix Technologies",
+    card: "summary_large_image",
+    title: "Revolix Technologies — Websites, AI Automations & Custom Software",
     description:
-      "Building AI systems and software that actually works in production.",
+      "Websites, AI automations, and custom software for US small businesses.",
+    images: [`${SITE_URL}/og-image.png`],
   },
 }
 
@@ -226,15 +234,11 @@ export default function RootLayout({
           {children}
         </SmoothScrollProvider>
 
-        {/* VURSELL CHAT WIDGET */}
-        <Script
-          src="https://vursell.duckdns.org/widget/widget.js"
-          data-bot-id="52487262-bb7d-4e51-beb0-9032efe42d85"
-          strategy="afterInteractive"
-        />
-
         {/* VERCEL ANALYTICS */}
         <Analytics />
+
+        {/* COOKIE CONSENT BANNER */}
+        <CookieConsent />
       </body>
     </html>
   )
