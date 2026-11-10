@@ -9,7 +9,7 @@ import { Footer } from "@/components/footer"
 
 export const revalidate = 60 // ISR: revalidate every 60s
 
-type Props = { params: { slug: string } }
+type Props = { params: Promise<{ slug: string }> }
 
 const clampMeta = (value: string, maxLength: number) => {
   if (value.length <= maxLength) return value
@@ -17,7 +17,8 @@ const clampMeta = (value: string, maxLength: number) => {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = getPostBySlug(params.slug)
+  const { slug } = await params
+  const post = getPostBySlug(slug)
   if (!post) return { title: "Post not found" }
 
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.revolixtech.com"
@@ -139,8 +140,9 @@ function renderMarkdownContent(content: string) {
   })
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = getPostBySlug(params.slug)
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
   if (!post) return notFound()
 
   return (

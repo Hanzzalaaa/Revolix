@@ -39,6 +39,14 @@ module.exports = {
   robotsTxtOptions: {
     policies: [
       {
+        userAgent: "Googlebot",
+        allow: ["/", "/favicon.ico", "/favicon.png"],
+      },
+      {
+        userAgent: "Googlebot-Image",
+        allow: ["/", "/favicon.ico", "/favicon.png", "/og-image.png"],
+      },
+      {
         userAgent: "*",
         allow: "/",
         disallow: ["/api"],

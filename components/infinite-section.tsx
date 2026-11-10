@@ -127,7 +127,7 @@ function ServiceCard({
   icon: Icon,
 }: {
   name: string
-  icon: React.ElementType
+  icon: React.ComponentType<{ className?: string }>
 }) {
   return (
     <div

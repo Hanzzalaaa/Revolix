@@ -120,8 +120,9 @@ export function HeroSection() {
 
             {/* Main heading */}
             <ScrollReveal delay={100}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.1] mb-6 text-balance">
-                Websites, AI automations and custom software for US small businesses.
+              <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-display font-bold leading-[1.15] mb-6 text-balance">
+                Websites, AI &amp; Software for{" "}
+                <span className="text-primary">US Small Businesses.</span>
               </h1>
             </ScrollReveal>
 

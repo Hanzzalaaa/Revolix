@@ -19,7 +19,24 @@ const SHOW_GRAPHICS =
 // NAVIGATION
 // ============================================================
 
-const navigation = [
+interface NavDropdownItem {
+  name: string
+  href: string
+}
+
+interface NavSection {
+  title: string
+  items: NavDropdownItem[]
+}
+
+interface NavigationItem {
+  name: string
+  href: string
+  dropdownSections?: NavSection[]
+  dropdown?: NavDropdownItem[]
+}
+
+const navigation: NavigationItem[] = [
   {
     name: "Home",
     href: "/",
@@ -899,7 +916,7 @@ export function Header() {
 
                                       {item.dropdown?.map(
                                         (
-                                          dropdownItem
+                                          dropdownItem: NavDropdownItem
                                         ) => (
 
                                           <Link
@@ -966,7 +983,7 @@ export function Header() {
                 <div className="mt-4 pt-2">
                   <Link
                     href="/contact"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className="flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 text-center text-base font-semibold text-primary-foreground shadow-sm transition-opacity hover:opacity-90"
                   >
                     Book a free call

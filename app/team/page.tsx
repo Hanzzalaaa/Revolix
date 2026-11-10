@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import Image from "next/image"
-import image0 from "./images/hanzala.jpg"
+import image0 from "./images/hassan.jpg"
 import image1 from "./images/abdullahtwo.jpg"
 import image2 from "./images/ahsan.jpg"
 import image3 from "./images/abu-bakar.jpg"
@@ -19,11 +19,11 @@ import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 const teamMembers = [
   {
-    name: "Hanzala Kashif",
-    role: "Founder & CEO",
-    specialization: "AI Strategy, Product Architecture & Technical Leadership",
+    name: "Hassan Kashif",
+    role: "Co-founder & CTO",
+    specialization: "Building autonomous multi-agent systems that automate real workflows for founders",
     image: image0,
-    linkedin: "https://www.linkedin.com/in/hanzala-kashif/",
+    linkedin: "https://www.linkedin.com/in/hassankashif1751/",
     github: "",
   },
   {
@@ -214,9 +214,25 @@ export default function TeamPage() {
             </ScrollReveal>
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {teamMembers.map((member, index) => (
-                <ScrollReveal key={index} delay={index * 75}>
-                  <div className="hover-lift group relative aspect-[4/5] overflow-hidden rounded-xl bg-card shadow-lg ring-1 ring-border transition-shadow duration-200 ease-[var(--ease-out)] hover:shadow-xl hover:ring-primary/30">
+              {teamMembers.map((member, index) => {
+                const isLast = index === teamMembers.length - 1
+                return (
+                  <ScrollReveal
+                    key={index}
+                    delay={index * 75}
+                    className={
+                      isLast
+                        ? "sm:col-span-2 sm:flex sm:justify-center lg:col-span-1 lg:block xl:col-span-4 xl:flex xl:justify-center"
+                        : ""
+                    }
+                  >
+                    <div
+                      className={`hover-lift group relative aspect-[4/5] overflow-hidden rounded-xl bg-card shadow-lg ring-1 ring-border transition-shadow duration-200 ease-[var(--ease-out)] hover:shadow-xl hover:ring-primary/30 ${
+                        isLast
+                          ? "w-full sm:w-[calc(50%-12px)] lg:w-full xl:w-[calc(25%-18px)]"
+                          : "w-full"
+                      }`}
+                    >
                     {/* Image */}
                     {member.image ? (
                       <Image
@@ -285,7 +301,8 @@ export default function TeamPage() {
                     </div>
                   </div>
                 </ScrollReveal>
-              ))}
+              )
+            })}
             </div>
           </div>
         </section>
