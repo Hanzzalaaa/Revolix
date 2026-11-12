@@ -119,9 +119,9 @@ export function ServicesHero() {
 
             <h1 className="mb-6 text-balance text-4xl font-display font-bold sm:text-5xl lg:text-6xl">
 
-              Digital Solutions Built
+              AI & Software Engineering
               <span className="block text-primary">
-                For Modern Businesses
+                Built for Modern Businesses
               </span>
 
             </h1>

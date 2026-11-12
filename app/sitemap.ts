@@ -56,6 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Core AI & Service Pages
     {
+      url: `${baseUrl}/vursell`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/ai-software-development-company`,
       lastModified: new Date(),
       changeFrequency: 'weekly',

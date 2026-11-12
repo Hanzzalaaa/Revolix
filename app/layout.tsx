@@ -18,7 +18,7 @@ import CursorWrapper from "@/components/CursorWrapper"
 import GTM from "@/components/GTM"
 import TrackPageView from "@/components/TrackPageView"
 
-import "./globals.css"
+import  "./globals.css"
 
 // ============================================================
 // FONTS
@@ -148,24 +148,36 @@ export default function RootLayout({
         "@id": `${SITE_URL}/#organization`,
 
         name: "Revolix Technologies",
+        legalName: "Revolix Technologies LLC",
         alternateName: "Revolix Tech",
         url: `${SITE_URL}/`,
         logo: `${SITE_URL}/favicon.png`,
         image: `${SITE_URL}/favicon.png`,
 
         description:
-          "We design, build, and scale intelligent digital solutions from software and AI to automation, cloud, and business technology.",
+          "Revolix Technologies builds production AI agents, RAG systems, voice AI and CRM automation for startups and SMBs.",
+
+        email: "info@revolixtech.com",
+        telephone: "+92 313 8062538",
+
+        founder: {
+          "@type": "Person",
+          name: "Hanzala Kashif",
+        },
 
         sameAs: [
           "https://www.linkedin.com/company/revolix-technology",
           "https://www.facebook.com/Revolixtech",
           "https://www.instagram.com/revolixtechnologies/",
           "https://x.com/Revolixtech",
+          "https://www.crunchbase.com/organization/revolix-technologies",
         ],
 
         address: {
           "@type": "PostalAddress",
+          streetAddress: "B-163, Block W, Allama Iqbal Town, North Nazimabad",
           addressLocality: "Karachi",
+          postalCode: "74600",
           addressCountry: "PK",
         },
       },

@@ -9,14 +9,16 @@ import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Contact Revolix | Free AI Consultation",
-    description: "Contact Revolix for a free AI consultation on web development, SEO, and growth.",
+    title: "Contact Revolix Technologies | Book a Free AI Consultation",
+    description: "Connect with Revolix Technologies in Karachi & USA. Book a free consultation to discuss custom AI agents, voice AI, GoHighLevel automation, and software engineering.",
     keywords: [
-      "starting a business",
-      "small business",
-      "contact Revolix",
+      "Contact Revolix Technologies",
+      "Hire AI developers",
+      "AI development company Karachi",
+      "Free AI consultation",
+      "AI engineering agency contact",
     ],
-    alternates: { canonical: "https://www.revolixtech.com/contact" },
+    alternates: { canonical: "https://revolixtech.com/contact" },
   }
 }
 

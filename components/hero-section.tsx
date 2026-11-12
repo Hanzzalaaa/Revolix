@@ -369,58 +369,6 @@ export function HeroSection() {
 
                 </motion.div>
 
-                {/* =================================================
-                    FLOATING STATS CARD
-                ================================================= */}
-
-                <ParallaxSection
-                  speed={0.35}
-                  direction="down"
-                  mouseParallax
-                  mouseIntensity={0.04}
-                >
-
-                  <motion.div
-                    className="absolute top-4 right-2 w-48 p-4 rounded-xl glass shadow-xl"
-                    initial={{
-                      opacity: 0,
-                      y: -30,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    transition={{
-                      duration: 0.6,
-                      delay: 0.8,
-                    }}
-                    whileHover={{
-                      scale: 1.05,
-                    }}
-                  >
-
-                    <motion.p
-                      className="text-2xl font-display font-bold text-primary"
-                      initial={{
-                        opacity: 0,
-                      }}
-                      animate={{
-                        opacity: 1,
-                      }}
-                      transition={{
-                        delay: 1.2,
-                      }}
-                    >
-                      +127%
-                    </motion.p>
-
-                    <p className="text-sm text-muted-foreground">
-                      Growth Rate
-                    </p>
-
-                  </motion.div>
-
-                </ParallaxSection>
 
                 {/* =================================================
                     PROJECT COMPLETED

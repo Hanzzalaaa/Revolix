@@ -1,0 +1,21 @@
+# Revolix Technologies
+> AI agents and automation that ship to production.
+
+## About Revolix Technologies
+Revolix Technologies is an AI engineering company based in Karachi, Pakistan, with a registered office in Wyoming, USA (Revolix Technologies LLC). Our team of around 20 engineers builds production AI systems, including multi-agent workflows, retrieval-augmented generation (RAG), voice AI receptionists, and CRM automation.
+
+## Core Capabilities
+- **AI Agents & Multi-Agent Workflows:** Autonomous agents built on LangGraph, CrewAI, and custom orchestration.
+- **AI Voice Agents:** Inbound and outbound conversational voice agents for appointment booking and customer support (HVAC, healthcare, home services).
+- **RAG & Knowledge Assistants:** Custom retrieval-augmented generation over enterprise documents and internal databases.
+- **CRM & Marketing Automation:** Advanced GoHighLevel (GHL) workflows, custom webhooks, and sales funnels.
+- **Custom Software & Cloud:** FastAPI, Node.js, Next.js, AWS, Azure, GCP, Docker, and Kubernetes.
+- **Proprietary Product (Vursell):** Multi-channel AI sales platform for WhatsApp, voice, web chat, and LinkedIn.
+
+## Key URLs
+- Website: https://www.revolixtech.com
+- Vursell (AI Sales Product): https://www.revolixtech.com/vursell
+- Services: https://www.revolixtech.com/services
+- AI Development: https://www.revolixtech.com/ai-software-development-company
+- Portfolio: https://www.revolixtech.com/portfolio
+- Contact: https://www.revolixtech.com/contact
