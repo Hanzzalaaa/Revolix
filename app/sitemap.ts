@@ -1,44 +1,127 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://www.revolixtech.com'
+
   return [
+    // Main Pages
     {
-      url: 'https://www.revolixtech.com/',
+      url: `${baseUrl}`,
       lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1.0,
     },
     {
-      url: 'https://www.revolixtech.com/services',
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
     {
-      url: 'https://www.revolixtech.com/industries',
+      url: `${baseUrl}/services`,
       lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
     },
     {
-      url: 'https://www.revolixtech.com/blog',
+      url: `${baseUrl}/portfolio`,
       lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
-      url: 'https://www.revolixtech.com/contact',
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/industries`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/team`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
 
-    // SEO Pages
+    // Core AI & Service Pages
     {
-      url: 'https://www.revolixtech.com/best-institute-for-web-development',
+      url: `${baseUrl}/ai-software-development-company`,
       lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
     },
     {
-      url: 'https://www.revolixtech.com/ai-software-development-company',
+      url: `${baseUrl}/gohighlevel`,
       lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
     },
     {
-      url: 'https://www.revolixtech.com/backend-developer',
+      url: `${baseUrl}/custom-software`,
       lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
-      url: 'https://www.revolixtech.com/frontend-developer',
+      url: `${baseUrl}/mobile-app-development`,
       lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/web-development`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/uiux`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/devops`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/e-commerce`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/case-studies-in-ai`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+
+    // Legal
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/terms-conditions`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.5,
     },
   ]
 }

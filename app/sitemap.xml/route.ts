@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 import { posts, caseStudies } from "@/lib/content"
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolix.example"
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.revolixtech.com"
 
 function formatUrl(path: string, lastmod?: string) {
   return `  <url>\n    <loc>${SITE_URL}${path}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ""}\n  </url>`
