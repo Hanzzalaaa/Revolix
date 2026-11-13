@@ -1,4 +1,4 @@
-const SITE_URL = "https://revolixtech.com"
+const SITE_URL = "https://www.revolixtech.com"
 
 export default function Head() {
   const json = {

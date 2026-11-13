@@ -55,6 +55,14 @@ const footerLinks = {
       href: "/about",
     },
     {
+      name: "Pricing",
+      href: "/pricing",
+    },
+    {
+      name: "NeverLoseLead (AI)",
+      href: "https://neverloselead.com",
+    },
+    {
       name: "Portfolio",
       href: "/portfolio",
     },
@@ -75,10 +83,10 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="bg-[#060A12] border-t border-white/5">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12">
 
           {/* Brand */}
           <div className="lg:col-span-2">
@@ -87,9 +95,7 @@ export function Footer() {
             </Link>
 
             <p className="text-muted-foreground mb-6 max-w-sm">
-              Your partner in leading the future with AI. We deliver
-              intelligent digital solutions designed to accelerate growth
-              and transform businesses.
+              Websites, AI automations, and custom software for US small businesses. Revolix Technologies LLC.
             </p>
 
             {/* Social Links */}
@@ -203,8 +209,8 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
 
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Revolix Technologies. All rights reserved.
+          <p className="text-sm text-muted-foreground text-center md:text-left">
+            © 2026 Revolix Technologies LLC. All rights reserved.
           </p>
 
           {/* Privacy / Terms */}

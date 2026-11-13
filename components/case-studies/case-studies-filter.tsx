@@ -6,7 +6,6 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import Image from "next/image"
 import { ParallaxSection } from "@/components/parallax-section"
 import { ArrowUpRight } from "lucide-react"
-import { InternalLinksRow } from "@/components/internal-links-row"
 
 const categories = ["All", "Healthcare", "Fintech", "Entertainment", "eCommerce", "Education", "Legal Tech", "Gaming"]
 
@@ -117,11 +116,6 @@ export function CaseStudiesFilter() {
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Internal Links */}
-        <ScrollReveal>
-          <InternalLinksRow className="justify-center mb-6" />
-        </ScrollReveal>
-
         {/* Filter Tabs */}
         <ScrollReveal>
           <div className="flex flex-wrap justify-center gap-2 mb-12">

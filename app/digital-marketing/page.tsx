@@ -235,8 +235,8 @@ export default function DigitalMarketingPage() {
 
       <main>
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "Digital Marketing", item: "https://revolixtech.com/digital-marketing" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "Digital Marketing", item: "https://www.revolixtech.com/digital-marketing" },
        ]} />
 
         {/* ==================================================

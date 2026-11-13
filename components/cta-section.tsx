@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { ScrollReveal } from "./scroll-reveal"
 import { ParallaxSection } from "./parallax-section"
 import dynamic from "next/dynamic"
-import { ArrowRight, Rocket } from "lucide-react"
 
 const FloatingParticles = dynamic(
   () =>
@@ -19,9 +18,11 @@ const FloatingParticles = dynamic(
   }
 )
 
+type TagType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div"
+
 type CTASectionProps = {
-  headingAs?: ElementType
-  subheadingAs?: ElementType
+  headingAs?: TagType
+  subheadingAs?: TagType
 }
 
 export function CTASection({
@@ -29,7 +30,7 @@ export function CTASection({
   subheadingAs: SubheadingTag = "h3",
 }: CTASectionProps) {
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
+    <section className="py-24 lg:py-32 relative overflow-hidden bg-[#060A12]">
       <FloatingParticles count={25} />
 
       {/* Enhanced parallax backgrounds */}
@@ -82,25 +83,6 @@ export function CTASection({
       </ParallaxSection>
 
       <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-        {/* Badge */}
-        <ScrollReveal direction="scale">
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
-            whileHover={{ scale: 1.05 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{
-              duration: 3,
-              repeat: Number.POSITIVE_INFINITY,
-            }}
-          >
-          <Rocket className="w-4 h-4 text-primary" />
-
-            <span className="text-sm text-primary font-medium">
-              Start Your Journey
-            </span>
-          </motion.div>
-        </ScrollReveal>
-
         {/* Heading */}
         <ScrollReveal>
           <HeadingTag className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-6 text-balance">
@@ -126,11 +108,12 @@ export function CTASection({
 
         {/* Buttons */}
         <ScrollReveal delay={200}>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             {/* Contact Button */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto"
               transition={{
                 type: "spring",
                 stiffness: 400,
@@ -140,13 +123,11 @@ export function CTASection({
               <Button
                 size="lg"
                 asChild
-                className="group relative overflow-hidden"
+                className="w-full sm:w-auto group relative overflow-hidden"
               >
                 <Link href="/contact">
-                  <span className="relative z-10 flex items-center">
+                  <span className="relative z-10 flex items-center justify-center">
                     Let&apos;s Discuss Your Idea
-
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </span>
 
                   <motion.div
@@ -163,6 +144,7 @@ export function CTASection({
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto"
               transition={{
                 type: "spring",
                 stiffness: 400,
@@ -173,7 +155,7 @@ export function CTASection({
                 size="lg"
                 variant="outline"
                 asChild
-                className="glass border-primary/30 hover:bg-primary/10 bg-transparent"
+                className="w-full sm:w-auto glass border-primary/30 hover:bg-primary/10 bg-transparent"
               >
                 <Link href="/portfolio">
                   View Our Work

@@ -12,20 +12,20 @@ import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Web Development, SEO Services & AI Software | Revolix",
+    title: "Services | Websites, AI Automations & Custom Software | Revolix Technologies",
     description:
-      "Web development, SEO services, and AI software built to drive qualified leads and measurable growth.",
+      "Websites that bring in leads, AI follow-up automations, GoHighLevel systems, and custom software for US small businesses.",
     keywords: [
       "best data science companies",
       "best security companies",
       "ai software development company",
     ],
-    alternates: { canonical: "https://revolixtech.com/services" },
+    alternates: { canonical: "https://www.revolixtech.com/services" },
   }
 }
 
 export default function ServicesPage() {
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.revolixtech.com"
   const SHOW_GRAPHICS = process.env.NEXT_PUBLIC_SHOW_GRAPHICS === "true"
 
   return (
@@ -33,8 +33,8 @@ export default function ServicesPage() {
       <Header />
       <main>
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "Services", item: "https://revolixtech.com/services" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "Services", item: "https://www.revolixtech.com/services" },
         ]} />
         <ServiceJsonLd
           name="Web Development, SEO & Digital Marketing Services"

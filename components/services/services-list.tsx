@@ -1,665 +1,249 @@
 "use client"
 
+import { useState, useRef } from "react"
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { ParallaxSection } from "@/components/parallax-section"
+interface EditorialService {
+  title: string
+  shortName: string
+  description: string
+  href: string
+  image: string
+  alt: string
+}
 
-const serviceSections = [
-  // ============================================================
-  // 01 — WEBSITE DEVELOPMENT
-  // ============================================================
+const editorialServices: EditorialService[] = [
   {
-    title: "Website Development",
+    title: "WEBSITE DEVELOPMENT",
+    shortName: "Websites",
     description:
-      "Professional website solutions built for performance, usability, SEO, and conversions.",
+      "High-converting, bespoke websites built for US small businesses. Fast-loading, mobile-first, and engineered to turn visitors into booked inquiries.",
     href: "/web-development",
-    linkLabel: "View Website Development",
-    items: [
-      {
-        title: "Business Website",
-        detail:
-          "Corporate and service websites built to establish credibility and generate qualified leads.",
-      },
-      {
-        title: "Ecommerce Website",
-        detail:
-          "Conversion-focused online stores with secure checkout, product catalogs, and scalable architecture.",
-      },
-      {
-        title: "Custom Website",
-        detail:
-          "Unique, feature-rich websites designed around your business model, workflows, and goals.",
-      },
-    ],
+    image: "/web-deve.png",
+    alt: "3D precision website development model with modern responsive architecture",
   },
-
-  // ============================================================
-  // 02 — WEB & SOFTWARE DEVELOPMENT
-  // ============================================================
   {
-    title: "Software Development",
+    title: "ECOMMERCE DEVELOPMENT",
+    shortName: "Ecommerce",
     description:
-      "Scalable software solutions designed around your business processes and technical requirements.",
-    href: "/custom-software",
-    linkLabel: "View Software Development",
-    items: [
-      {
-        title: "Frontend Development",
-        detail:
-          "Modern responsive interfaces built with React, Next.js, and scalable frontend architecture.",
-      },
-      {
-        title: "Backend Development",
-        detail:
-          "Secure APIs, databases, authentication, and backend systems built for reliable performance.",
-      },
-      {
-        title: "Custom Software",
-        detail:
-          "Business-specific software designed to streamline workflows and solve complex operational needs.",
-      },
-    ],
-  },
-
-  // ============================================================
-  // 03 — AI & MACHINE LEARNING
-  // ============================================================
-  {
-    title: "AI & Machine Learning",
-    description:
-      "AI and machine learning solutions that automate processes, analyze data, and improve decision-making.",
-    href: "/aiml",
-    linkLabel: "View AI & Machine Learning",
-    items: [
-      {
-        title: "Machine Learning",
-        detail:
-          "Model design, training, and deployment for practical business use cases and intelligent systems.",
-      },
-      {
-        title: "Data Pipelines",
-        detail:
-          "Reliable data ingestion, transformation, processing, and analytics workflows.",
-      },
-      {
-        title: "AI Solutions",
-        detail:
-          "AI-powered applications designed to improve productivity, customer experiences, and business operations.",
-      },
-    ],
-  },
-
-  // ============================================================
-  // 04 — AI AUTOMATION
-  // ============================================================
-  {
-    title: "AI Automation",
-    description:
-      "Intelligent automation systems that reduce repetitive work and improve business efficiency.",
-    href: "/ai-automation",
-    linkLabel: "View AI Automation",
-    items: [
-      {
-        title: "Workflow Automation",
-        detail:
-          "Automated workflows that connect tools, teams, and repetitive business processes.",
-      },
-      {
-        title: "AI Agents",
-        detail:
-          "AI-powered agents designed to answer questions, qualify leads, handle tasks, and support customers.",
-      },
-      {
-        title: "No-Code Automation",
-        detail:
-          "Zapier, Make, and similar automation systems that connect your existing tools without complex development.",
-      },
-    ],
-  },
-
-  // ============================================================
-  // 05 — GOHIGHLEVEL
-  // ============================================================
-  {
-    title: "GoHighLevel",
-    description:
-      "Complete GoHighLevel setup, CRM automation, funnels, workflows, and AI integrations built to turn leads into customers.",
-    href: "/gohighlevel",
-    linkLabel: "View GoHighLevel",
-    items: [
-      {
-        title: "GHL Setup & Configuration",
-        detail:
-          "Account and sub-account setup, pipelines, calendars, forms, funnels, and custom snapshots.",
-      },
-      {
-        title: "CRM & Workflow Automation",
-        detail:
-          "Automated lead follow-ups, missed-call text-back, appointment reminders, and speed-to-lead workflows.",
-      },
-      {
-        title: "AI Agents & Integrations",
-        detail:
-          "AI chat and voice agents connected with GoHighLevel to qualify leads, answer questions, and book appointments.",
-      },
-    ],
-  },
-
-  // ============================================================
-  // 06 — SEO
-  // ============================================================
-  {
-    title: "SEO Services",
-    description:
-      "Full-spectrum SEO strategies designed to improve visibility, rankings, and high-intent organic traffic.",
-    href: "/seo",
-    linkLabel: "View SEO Services",
-    items: [
-      {
-        title: "On-Page SEO",
-        detail:
-          "Keyword alignment, metadata, internal linking, content structure, and page optimization.",
-      },
-      {
-        title: "Off-Page SEO",
-        detail:
-          "Authority building through quality backlinks, brand mentions, and strategic outreach.",
-      },
-      {
-        title: "Technical SEO",
-        detail:
-          "Site speed, crawlability, indexing, structured data, and technical performance improvements.",
-      },
-    ],
-  },
-
-  // ============================================================
-  // 07 — DIGITAL MARKETING
-  // ============================================================
-  {
-    title: "Digital Marketing",
-    description:
-      "Growth-focused marketing strategies across organic, paid, social, and content channels.",
-    href: "/digital-marketing",
-    linkLabel: "View Digital Marketing",
-    items: [
-      {
-        title: "Social Media Management",
-        detail:
-          "Content planning, publishing, engagement, and social campaigns designed to grow your audience.",
-      },
-      {
-        title: "Paid Ad Management",
-        detail:
-          "Google Ads and paid advertising campaigns focused on reaching high-intent customers.",
-      },
-      {
-        title: "Email Marketing",
-        detail:
-          "Email campaigns, sequences, automation, and lead-nurturing systems built around customer journeys.",
-      },
-    ],
-  },
-
-  // ============================================================
-  // 08 — ECOMMERCE
-  // ============================================================
-  {
-    title: "E-Commerce Solutions",
-    description:
-      "Complete e-commerce solutions designed to create better shopping experiences and increase online sales.",
+      "Conversion-focused online stores with frictionless checkout, inventory synchronization, and scalable shopping experiences across Shopify, WooCommerce, and custom headless storefronts.",
     href: "/e-commerce",
-    linkLabel: "View E-Commerce Solutions",
-    items: [
-      {
-        title: "Shopify Stores",
-        detail:
-          "Professional Shopify stores with optimized layouts, product organization, and conversion-focused experiences.",
-      },
-      {
-        title: "WooCommerce Stores",
-        detail:
-          "Flexible WordPress-based e-commerce solutions built around your products and business requirements.",
-      },
-      {
-        title: "E-Commerce Optimization",
-        detail:
-          "Improvements to product pages, navigation, checkout, performance, and overall shopping experience.",
-      },
-    ],
+    image: "/E-Commerce.png",
+    alt: "Sculptural metallic digital storefront interface and retail checkout systems",
   },
-
-  // ============================================================
-  // 09 — UI/UX DESIGN
-  // ============================================================
   {
-    title: "UI/UX Design",
+    title: "CUSTOM WEB APPLICATIONS",
+    shortName: "Custom Apps",
     description:
-      "User-centric design solutions that transform complex workflows into intuitive and engaging digital experiences.",
-    href: "/uiux",
-    linkLabel: "View UI/UX Design",
-    items: [
-      {
-        title: "Figma Prototyping",
-        detail:
-          "Interactive wireframes, high-fidelity mockups, and scalable design systems for seamless development.",
-      },
-      {
-        title: "Illustrator Assets",
-        detail:
-          "Custom vector iconography, illustrations, and unique branding elements tailored for digital products.",
-      },
-      {
-        title: "Photoshop Enhancements",
-        detail:
-          "Advanced image composition, creative asset manipulation, and polished visual graphics for interfaces.",
-      },
-    ],
+      "Unique, high-performance web applications, APIs, and scalable backend architectures built around your exact operational workflows.",
+    href: "/custom-software",
+    image: "/backend.png",
+    alt: "Sculptural custom software backend architecture and high-throughput systems",
   },
-
-  // ============================================================
-  // 10 — GRAPHIC DESIGN & BRANDING
-  // ============================================================
   {
-    title: "Graphic Design & Branding",
+    title: "AI SYSTEMS & AGENTS",
+    shortName: "AI Systems",
     description:
-      "Creative visual solutions that help businesses build recognizable and consistent brands.",
-    href: "/uiux",
-    linkLabel: "View Graphic Design & Branding",
-    items: [
-      {
-        title: "Logo Design",
-        detail:
-          "Professional logo concepts designed around your company's identity, audience, and positioning.",
-      },
-      {
-        title: "Brand Identity",
-        detail:
-          "Complete visual identity systems including typography, colors, imagery, and brand guidelines.",
-      },
-      {
-        title: "Marketing Graphics",
-        detail:
-          "Social media graphics, promotional materials, advertisements, and digital marketing assets.",
-      },
-    ],
+      "Production AI agents, RAG pipelines, voice AI, and intelligent multi-agent workflows seamlessly integrated into real business operations.",
+    href: "/ai-agents",
+    image: "/ai-agents-main service.png",
+    alt: "Futuristic titanium AI processor core representing autonomous multi-agent intelligence",
   },
-
-  // ============================================================
-  // 11 — CONTENT & CREATIVE
-  // NO DEDICATED PAGE → CONTACT
-  // ============================================================
   {
-    title: "Content & Creative Services",
+    title: "CRM & MARKETING AUTOMATION",
+    shortName: "Automations",
     description:
-      "Creative content services that help businesses communicate clearly and consistently across digital channels.",
-    href: "/contact",
-    linkLabel: "Discuss Content & Creative Services",
-    items: [
-      {
-        title: "Content Writing",
-        detail:
-          "Website, blog, and marketing content written around your audience, brand, and business objectives.",
-      },
-      {
-        title: "Copywriting",
-        detail:
-          "Conversion-focused copy for landing pages, advertisements, emails, and marketing campaigns.",
-      },
-      {
-        title: "Video & Reels Editing",
-        detail:
-          "Short-form video editing for Reels, TikTok, YouTube Shorts, advertisements, and promotional content.",
-      },
-    ],
+      "GoHighLevel setup, custom webhook orchestration, automated speed-to-lead follow-up, and omnichannel client nurturing systems.",
+    href: "/gohighlevel",
+    image: "/building process.png",
+    alt: "3D build process laptop representing automated CRM workflows and lead management systems",
   },
-
-  // ============================================================
-  // 12 — CLOUD & DEVOPS
-  // ============================================================
   {
-    title: "Cloud & DevOps",
+    title: "CLOUD & DEVOPS",
+    shortName: "Cloud & DevOps",
     description:
-      "Cloud infrastructure and DevOps solutions designed for reliable deployments, scalability, and performance.",
+      "Modern cloud and DevOps practices used to deploy, maintain, and run reliable software applications with automated CI/CD pipelines.",
     href: "/devops",
-    linkLabel: "View Cloud & DevOps",
-    items: [
-      {
-        title: "Cloud Infrastructure",
-        detail:
-          "Cloud setup and infrastructure planning across modern hosting and cloud environments.",
-      },
-      {
-        title: "Deployment & CI/CD",
-        detail:
-          "Automated development and deployment workflows that make releases faster and more reliable.",
-      },
-      {
-        title: "Domain & Hosting",
-        detail:
-          "Domain, hosting, DNS, deployment, and technical configuration support for websites and applications.",
-      },
-    ],
+    image: "/Glossy Chrome Cloud Icon.png",
+    alt: "Glossy chrome cloud infrastructure icon representing high-availability DevOps deployment",
   },
-
-  // ============================================================
-  // 13 — DATA, QA & CYBERSECURITY
-  // NO DEDICATED PAGE → CONTACT
-  // ============================================================
   {
-    title: "Data, QA & Cybersecurity",
+    title: "UI/UX DESIGN",
+    shortName: "Design",
     description:
-      "Technical services that help businesses maintain reliable systems, clean data, and safer digital operations.",
-    href: "/contact",
-    linkLabel: "Discuss Data, QA & Cybersecurity",
-    items: [
-      {
-        title: "Data Analysis",
-        detail:
-          "Business data analysis and reporting designed to turn information into useful insights.",
-      },
-      {
-        title: "Software QA Testing",
-        detail:
-          "Functional and usability testing designed to identify issues before software reaches users.",
-      },
-      {
-        title: "Cybersecurity Auditing",
-        detail:
-          "Security reviews for small setups to identify common risks and opportunities for improvement.",
-      },
-    ],
-  },
-
-  // ============================================================
-  // 14 — IT & TECH SUPPORT
-  // NO DEDICATED PAGE → CONTACT
-  // ============================================================
-  {
-    title: "IT & Tech Support",
-    description:
-      "Practical technical support that helps businesses troubleshoot problems and maintain reliable digital operations.",
-    href: "/contact",
-    linkLabel: "Discuss IT & Tech Support",
-    items: [
-      {
-        title: "IT Troubleshooting",
-        detail:
-          "Technical troubleshooting and guidance for common software, systems, and digital workflow issues.",
-      },
-      {
-        title: "Technical Consultation",
-        detail:
-          "Technology guidance to help businesses select, configure, and improve their digital tools.",
-      },
-      {
-        title: "System Maintenance",
-        detail:
-          "Ongoing technical checks and support to keep websites, applications, and digital systems running smoothly.",
-      },
-    ],
-  },
-
-  // ============================================================
-  // 15 — BUSINESS & OPERATIONAL SUPPORT
-  // NO DEDICATED PAGE → CONTACT
-  // ============================================================
-  {
-    title: "Business & Operational Support",
-    description:
-      "Flexible business support services that help teams handle research, operations, administration, and growth tasks.",
-    href: "/contact",
-    linkLabel: "Discuss Business Support",
-    items: [
-      {
-        title: "Virtual Assistant Support",
-        detail:
-          "Remote administrative assistance for research, organization, scheduling, and routine business tasks.",
-      },
-      {
-        title: "Lead Generation & Research",
-        detail:
-          "Lead research, prospect identification, market research, and competitor analysis to support business growth.",
-      },
-      {
-        title: "Customer Support",
-        detail:
-          "Live chat and customer support assistance designed to improve response times and customer experience.",
-      },
-    ],
+      "Modern interfaces, product design, wireframes, design systems, and responsive digital experiences optimized for conversion and usability.",
+    href: "/uiux",
+    image: "/design.png",
+    alt: "Sculptural digital design model representing human-centric interface architectures",
   },
 ]
 
 export function ServicesList() {
+  const [activeIndex, setActiveIndex] = useState<number>(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+
   return (
-    <section className="relative overflow-hidden py-24">
+    <section
+      ref={containerRef}
+      className="relative w-full bg-[#060A12] text-[#F2F2EF] py-24 sm:py-32 lg:py-36 overflow-hidden"
+      aria-label="Editorial Services Showcase"
+    >
+      {/* Background Subtle Atmosphere */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-teal-500/[0.03] blur-[180px]" />
+        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-cyan-500/[0.025] blur-[160px]" />
+      </div>
 
-      {/* ==================================================
-          BACKGROUND
-      ================================================== */}
-
-      <ParallaxSection
-        speed={0.1}
-        className="absolute inset-0 opacity-5"
-      >
-        <div className="h-full w-full bg-[linear-gradient(45deg,_var(--primary)_25%,_transparent_25%,_transparent_75%,_var(--primary)_75%)] bg-[size:120px_120px]" />
-      </ParallaxSection>
-
-      <div className="relative mx-auto max-w-6xl space-y-16 px-4 sm:px-6 lg:px-8">
-
-        {serviceSections.map((section, sectionIndex) => (
-          <ScrollReveal
-            key={section.title}
-            delay={sectionIndex * 100}
-          >
-
-            <div className="rounded-2xl border border-border bg-card p-8 lg:p-10">
-
-              {/* ==================================================
-                  SECTION HEADING
-              ================================================== */}
-
-              <h2 className="mb-4 text-3xl font-bold sm:text-4xl">
-                {section.title}
-              </h2>
-
-              <p className="mb-6 text-lg text-muted-foreground">
-                {section.description}
-              </p>
-
-              {/* ==================================================
-                  SERVICE ITEMS
-              ================================================== */}
-
-              <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
-                {section.items.map((item) => (
-                  <div
-                    key={item.title}
-                    className="
-                      rounded-xl
-                      border
-                      border-border
-                      bg-background
-                      p-5
-                      transition-all
-                      duration-300
-                      hover:border-primary/40
-                      hover:shadow-lg
-                    "
-                  >
-
-                    <h3 className="mb-2 text-lg font-semibold">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-sm leading-relaxed text-muted-foreground">
-                      {item.detail}
-                    </p>
-
-                  </div>
-                ))}
-
-              </div>
-
-              {/* ==================================================
-                  SERVICE PAGE / CONTACT LINK
-              ================================================== */}
-
-              <div className="mt-8">
-
-                <Link
-                  href={section.href}
-                  className="
-                    group
-                    inline-flex
-                    items-center
-                    text-sm
-                    font-medium
-                    text-primary
-                    transition-colors
-                    hover:text-primary/80
-                  "
-                >
-
-                  {section.linkLabel}
-
-                  <ArrowRight
-                    className="
-                      ml-2
-                      h-4
-                      w-4
-                      transition-transform
-                      duration-300
-                      group-hover:translate-x-1
-                    "
-                  />
-
-                </Link>
-
-              </div>
-
-            </div>
-
-          </ScrollReveal>
-        ))}
-
-        {/* ==================================================
-            LONG-FORM SERVICES CONTENT
-        ================================================== */}
-
-        <div className="rounded-2xl border border-border bg-card p-8 lg:p-10">
-
-          <p className="mb-6 text-lg text-muted-foreground">
-            Revolix Technologies provides a broad range of digital, technology,
-            creative, and business services designed to help organizations build,
-            improve, and grow their digital presence. Our services cover everything
-            from websites and software development to AI automation, SEO,
-            cybersecurity, marketing, design, and technical support.
-          </p>
-
-          <div className="space-y-4 text-muted-foreground">
-
-            <p>
-              Our digital and technology services include custom website design,
-              web development, mobile app consultation, e-commerce solutions,
-              search engine optimization, paid advertising, email marketing,
-              social media management, and no-code automation. We combine strategy,
-              design, development, and technology to create practical solutions
-              that support real business goals.
-            </p>
-
-            <p>
-              For businesses that need a stronger digital presence, we provide
-              content writing and copywriting, graphic design, logo and brand
-              identity design, video editing for short-form content, and other
-              creative services. These services help businesses maintain a
-              consistent visual identity and communicate their products or services
-              more effectively across websites and digital platforms.
-            </p>
-
-            <p>
-              Our technology services also extend into software quality assurance,
-              data analysis, data entry and cleanup, cybersecurity auditing for
-              small setups, IT troubleshooting, and domain and hosting management
-              consulting. These services are designed to help businesses maintain
-              reliable digital operations while identifying opportunities for
-              improvement.
-            </p>
-
-            <p>
-              We also support business and operational needs through services such
-              as virtual assistance, bookkeeping support, payroll processing
-              management, business plan preparation, pitch deck creation, lead
-              generation research, customer support outsourcing, recruitment
-              assistance, market research, competitor analysis, and business
-              coaching.
-            </p>
-
-            <p>
-              For marketing and creative teams, Revolix can provide product and
-              event photography, promotional video production, public relations
-              support, influencer outreach, press release preparation, brand voice
-              consulting, proofreading, scriptwriting, subtitles and captions,
-              motion graphics, presentation design, and community management.
-            </p>
-
-            <p>
-              Our approach is flexible because every business has different
-              requirements. Some clients may need a complete website and SEO
-              strategy, while others may need automation, design, content,
-              technical support, or individual business services. We can provide
-              focused support for a specific requirement or combine multiple
-              services into a larger digital growth strategy.
-            </p>
-
-            <ul className="list-disc space-y-2 pl-6">
-
-              <li>
-                Digital services including web development, SEO, PPC, e-commerce,
-                email marketing, and social media management.
-              </li>
-
-              <li>
-                Technology services including software development, QA testing,
-                cybersecurity auditing, data analysis, automation, and IT support.
-              </li>
-
-              <li>
-                Creative services including graphic design, branding, video editing,
-                copywriting, presentations, motion graphics, and marketing content.
-              </li>
-
-              <li>
-                Business support services including virtual assistance, research,
-                bookkeeping support, lead generation, customer support, and
-                operational assistance.
-              </li>
-
-            </ul>
-
-            <p>
-              By bringing these capabilities together, Revolix reduces the need for
-              businesses to coordinate multiple providers for every digital and
-              operational requirement. Our goal is to make the process simpler,
-              maintain consistent quality, and provide services that can adapt as
-              the business grows.
-            </p>
-
-            <p>
-              Whether you are launching a new business, improving an existing
-              website, expanding your online marketing, automating repetitive
-              processes, strengthening your digital operations, or looking for
-              creative and business support, Revolix Technologies provides a
-              flexible service ecosystem built around your specific needs.
-            </p>
-
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
+        {/* =========================================================
+            1. SECTION HEADER
+            - Small clean "OUR SERVICES"
+            - Thin horizontal divider
+            - Introductory statement
+        ========================================================= */}
+        <div className="mb-16 sm:mb-20 lg:mb-24">
+          {/* Header Tag */}
+          <div className="text-xs sm:text-sm font-mono tracking-[0.22em] uppercase text-[#F2F2EF]/90 font-medium">
+            OUR SERVICES
           </div>
 
+          {/* Thin Horizontal Divider extending across width */}
+          <div className="w-full h-[1px] bg-[#343434] my-6 sm:my-8" />
+
+          {/* Introductory Text Block */}
+          <p className="text-2xl sm:text-3xl lg:text-[2.25rem] font-sans font-normal tracking-tight text-[#F2F2EF] max-w-[650px] leading-[1.38]">
+            Digital experiences and intelligent systems designed to help
+            ambitious businesses grow, operate, and stand out.
+          </p>
         </div>
 
+        {/* =========================================================
+            2. EDITORIAL SERVICE ROWS
+            - No numbers / markings
+            - Each image appears inside its own row area
+            - Unboxed 3D models with natural drop-shadow
+        ========================================================= */}
+        <div className="relative">
+          {/* Top Divider Line */}
+          <div className="w-full h-[1px] bg-[#343434]" />
+
+          {/* Service Rows */}
+          <div className="divide-y divide-[#343434]">
+            {editorialServices.map((service, index) => {
+              const isActive = activeIndex === index
+
+              return (
+                <div
+                  key={service.title}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onFocus={() => setActiveIndex(index)}
+                  className="relative group transition-colors duration-300"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    aria-expanded={isActive}
+                    className="w-full text-left py-10 sm:py-14 lg:py-16 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-400"
+                  >
+                    {/* Row Content Container: Title & Description on Left, Image inside its own right area */}
+                    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-12">
+                      {/* Left Side: Oversized Title & Dynamic Description */}
+                      <div className="flex-1 max-w-full lg:max-w-[62%] xl:max-w-[65%]">
+                        {/* Oversized Service Title (No numbers, responsive sizing) */}
+                        <h3
+                          className={`text-xl sm:text-3xl md:text-5xl lg:text-[3.35rem] xl:text-[3.85rem] font-sans tracking-tight leading-[1.1] uppercase transition-colors duration-300 break-words ${
+                            isActive
+                              ? "text-[#F2F2EF] font-medium"
+                              : "text-[#515151] font-normal group-hover:text-[#858585]"
+                          }`}
+                        >
+                          {service.title}
+                        </h3>
+
+                        {/* Active Service Description */}
+                        <AnimatePresence initial={false}>
+                          {isActive && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                              animate={{
+                                opacity: 1,
+                                height: "auto",
+                                marginTop: 16,
+                              }}
+                              exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                              transition={{
+                                duration: 0.35,
+                                ease: [0.22, 1, 0.36, 1],
+                              }}
+                              className="overflow-hidden"
+                            >
+                              <p className="text-sm sm:text-base text-[#858585] leading-relaxed max-w-xl font-normal">
+                                {service.description}
+                              </p>
+
+                              {/* Interactive Explore Link */}
+                              <div className="pt-4 flex items-center gap-2">
+                                <Link
+                                  href={service.href}
+                                  className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-teal-400 hover:text-teal-300 transition-colors"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  <span>Explore {service.shortName}</span>
+                                  <span className="transition-transform duration-200 group-hover:translate-x-1">
+                                    →
+                                  </span>
+                                </Link>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+
+                      {/* Right Side: The Service's Own 3D Model Image (Inside its row area, unboxed) */}
+                      <div
+                        className={`w-full lg:w-[320px] xl:w-[360px] shrink-0 items-center justify-center ${
+                          isActive
+                            ? "flex h-[200px] sm:h-[240px] lg:h-[260px] mt-4 lg:mt-0"
+                            : "hidden lg:flex lg:h-[260px] pointer-events-none"
+                        }`}
+                      >
+                        <AnimatePresence mode="wait">
+                          {isActive && (
+                            <motion.div
+                              key={service.title}
+                              initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                              animate={{ opacity: 1, scale: 1, y: 0 }}
+                              exit={{ opacity: 0, scale: 0.92, y: -8 }}
+                              transition={{
+                                duration: 0.35,
+                                ease: [0.22, 1, 0.36, 1],
+                              }}
+                              className="relative w-full h-full flex items-center justify-center -rotate-1 select-none pointer-events-none"
+                            >
+                              <Image
+                                src={service.image}
+                                alt={service.alt}
+                                width={360}
+                                height={260}
+                                priority={index < 2}
+                                className="w-auto h-full max-h-[200px] sm:max-h-[240px] lg:max-h-[260px] object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.85)]"
+                              />
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Bottom Divider Line */}
+          <div className="w-full h-[1px] bg-[#343434]" />
+        </div>
       </div>
     </section>
   )

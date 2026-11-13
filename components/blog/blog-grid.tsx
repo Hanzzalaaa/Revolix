@@ -142,16 +142,16 @@ export function BlogGrid() {
                 </div>
 
                 {/* Featured content */}
-                <div className="flex flex-col justify-center p-8 lg:p-10">
+                <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-10">
                   <span className="mb-3 text-sm font-medium text-primary">
                     {featuredPost.category}
                   </span>
 
-                  <h3 className="mb-4 text-2xl font-bold transition-colors group-hover:text-primary lg:text-3xl">
+                  <h3 className="mb-4 text-xl sm:text-2xl font-bold transition-colors group-hover:text-primary lg:text-3xl">
                     {featuredPost.title}
                   </h3>
 
-                  <p className="mb-6 leading-relaxed text-muted-foreground">
+                  <p className="mb-6 leading-relaxed text-sm sm:text-base text-muted-foreground">
                     {featuredPost.excerpt}
                   </p>
 
@@ -215,7 +215,7 @@ export function BlogGrid() {
               POST CONTENT
           ================================================= */}
 
-          <div className="flex flex-1 flex-col p-6">
+          <div className="flex flex-1 flex-col p-5 sm:p-6">
             <span className="mb-2 text-xs font-medium text-primary">
               {post.category}
             </span>

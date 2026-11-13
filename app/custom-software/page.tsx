@@ -123,8 +123,8 @@ export default function CustomSoftwarePage() {
 
       <main className="overflow-hidden">
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "Custom Software", item: "https://revolixtech.com/custom-software" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "Custom Software", item: "https://www.revolixtech.com/custom-software" },
         ]} />
 
         {/* ================= HERO ================= */}

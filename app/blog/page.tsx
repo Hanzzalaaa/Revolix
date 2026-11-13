@@ -55,7 +55,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "software blog",
     ],
     alternates: {
-      canonical: "https://revolixtech.com/blog",
+      canonical: "https://www.revolixtech.com/blog",
     },
   }
 }
@@ -83,11 +83,11 @@ export default function BlogPage() {
             items={[
               {
                 name: "Home",
-                item: "https://revolixtech.com/",
+                item: "https://www.revolixtech.com/",
               },
               {
                 name: "Blog",
-                item: "https://revolixtech.com/blog",
+                item: "https://www.revolixtech.com/blog",
               },
             ]}
           />

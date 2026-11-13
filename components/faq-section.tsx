@@ -48,14 +48,14 @@ export function FAQSection() {
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <ScrollReveal key={index} delay={index * 100}>
+            <ScrollReveal key={index} delay={index * 50}>
               <div className="rounded-2xl border border-border bg-card overflow-hidden">
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full flex items-center justify-between p-6 text-left"
+                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left"
                   aria-expanded={openIndex === index}
                 >
-                  <h3 className="text-lg font-semibold pr-4">{faq.question}</h3>
+                  <h3 className="text-base sm:text-lg font-semibold pr-3 sm:pr-4">{faq.question}</h3>
                   <ChevronDown
                     className={`w-5 h-5 shrink-0 text-muted-foreground transition-transform duration-300 ${
                       openIndex === index ? "rotate-180" : ""
@@ -67,7 +67,7 @@ export function FAQSection() {
                     openIndex === index ? "max-h-96" : "max-h-0"
                   }`}
                 >
-                  <p className="px-6 pb-6 text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  <p className="px-4 pb-4 sm:px-6 sm:pb-6 text-sm sm:text-base text-muted-foreground leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             </ScrollReveal>

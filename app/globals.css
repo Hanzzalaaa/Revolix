@@ -5,8 +5,8 @@
 
 /* Dark theme with deep navy/charcoal tones - not pure black */
 :root {
-  /* Deep charcoal/navy base - NOT black */
-  --background: oklch(0.18 0.02 250);
+  /* Deep charcoal/navy base */
+  --background: #060A12;
   --foreground: oklch(0.95 0 0);
 
   /* Cards with subtle elevation */
@@ -63,9 +63,9 @@
 }
 
 @theme inline {
-  /* Added display font for headings */
-  --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
-  --font-display: "Space Grotesk", "Space Grotesk Fallback", system-ui, sans-serif;
+  /* Emil Kowalski / Vercel style typographic scale using Geist & Inter */
+  --font-sans: "Geist", "Inter", "Inter Fallback", system-ui, sans-serif;
+  --font-display: "Geist", "Inter", "Inter Fallback", system-ui, sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -91,10 +91,12 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -109,18 +111,19 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
     @apply bg-background text-foreground;
+    /* Design engineer polish: Crisp subpixel rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  /* Apply display font to all headings */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  /* Refined headings with tight tracking characteristic of elite UI work */
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    letter-spacing: -0.03em;
   }
 }
 
@@ -130,7 +133,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: oklch(0.18 0.02 250);
+  background: #060A12;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -144,8 +147,7 @@
 
 /* Enhanced animations */
 @keyframes float {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
@@ -154,8 +156,7 @@
 }
 
 @keyframes float-reverse {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
@@ -164,8 +165,7 @@
 }
 
 @keyframes pulse-glow {
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.5;
     transform: scale(1);
   }
@@ -197,8 +197,7 @@
 }
 
 @keyframes particle-float {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) translateX(0) scale(1);
     opacity: 0.3;
   }
@@ -270,5 +269,135 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
- 
- 
+
+/* Prevent horizontal overflow on mobile viewports */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Organic Liquid Gradient Lighting for Services Section */
+@keyframes liquidWaveFlowA {
+  0% {
+    transform: translateY(0%) scaleY(1) scaleX(1);
+  }
+  35% {
+    transform: translateY(-7%) scaleY(1.08) scaleX(1.04);
+  }
+  70% {
+    transform: translateY(5%) scaleY(0.93) scaleX(0.97);
+  }
+  100% {
+    transform: translateY(0%) scaleY(1) scaleX(1);
+  }
+}
+
+@keyframes liquidWaveFlowB {
+  0% {
+    transform: translateY(3%) scaleY(0.95) scaleX(1.02);
+  }
+  40% {
+    transform: translateY(-8%) scaleY(1.07) scaleX(0.96);
+  }
+  75% {
+    transform: translateY(6%) scaleY(0.97) scaleX(1.03);
+  }
+  100% {
+    transform: translateY(3%) scaleY(0.95) scaleX(1.02);
+  }
+}
+
+@keyframes liquidMorphBlob1 {
+  0% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+    transform: translate(-10%, 0%) scale(1);
+  }
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+    transform: translate(15%, -12%) scale(1.15);
+  }
+  67% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: translate(-15%, 8%) scale(0.92);
+  }
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+    transform: translate(-10%, 0%) scale(1);
+  }
+}
+
+@keyframes liquidMorphBlob2 {
+  0% {
+    border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+    transform: translate(12%, 5%) scale(0.95);
+  }
+  38% {
+    border-radius: 35% 65% 60% 40% / 60% 35% 65% 40%;
+    transform: translate(-12%, -10%) scale(1.18);
+  }
+  72% {
+    border-radius: 50% 50% 35% 65% / 40% 50% 50% 60%;
+    transform: translate(8%, 10%) scale(1.02);
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+    transform: translate(12%, 5%) scale(0.95);
+  }
+}
+
+.liquid-wave-a-1 { animation: liquidWaveFlowA 14s ease-in-out infinite; }
+.liquid-wave-b-1 { animation: liquidWaveFlowB 17s ease-in-out infinite; }
+.liquid-blob-1a { animation: liquidMorphBlob1 13s ease-in-out infinite; }
+.liquid-blob-1b { animation: liquidMorphBlob2 16s ease-in-out infinite; }
+
+.liquid-wave-a-2 { animation: liquidWaveFlowA 16s ease-in-out infinite; }
+.liquid-wave-b-2 { animation: liquidWaveFlowB 19s ease-in-out infinite; }
+.liquid-blob-2a { animation: liquidMorphBlob1 15s ease-in-out infinite; }
+.liquid-blob-2b { animation: liquidMorphBlob2 18s ease-in-out infinite; }
+
+.liquid-wave-a-3 { animation: liquidWaveFlowA 15s ease-in-out infinite reverse; }
+.liquid-wave-b-3 { animation: liquidWaveFlowB 18s ease-in-out infinite reverse; }
+.liquid-blob-3a { animation: liquidMorphBlob1 14s ease-in-out infinite; }
+.liquid-blob-3b { animation: liquidMorphBlob2 17s ease-in-out infinite; }
+
+.liquid-wave-a-4 { animation: liquidWaveFlowA 17s ease-in-out infinite; }
+.liquid-wave-b-4 { animation: liquidWaveFlowB 15s ease-in-out infinite; }
+.liquid-blob-4a { animation: liquidMorphBlob1 16s ease-in-out infinite; }
+.liquid-blob-4b { animation: liquidMorphBlob2 14s ease-in-out infinite; }
+
+.liquid-wave-a-5 { animation: liquidWaveFlowA 18s ease-in-out infinite reverse; }
+.liquid-wave-b-5 { animation: liquidWaveFlowB 16s ease-in-out infinite reverse; }
+.liquid-blob-5a { animation: liquidMorphBlob1 17s ease-in-out infinite; }
+.liquid-blob-5b { animation: liquidMorphBlob2 15s ease-in-out infinite; }
+
+.liquid-wave-a-6 { animation: liquidWaveFlowA 15s ease-in-out infinite; }
+.liquid-wave-b-6 { animation: liquidWaveFlowB 20s ease-in-out infinite; }
+.liquid-blob-6a { animation: liquidMorphBlob1 18s ease-in-out infinite; }
+.liquid-blob-6b { animation: liquidMorphBlob2 16s ease-in-out infinite; }
+
+/* Infinite Capability Marquee */
+@keyframes marqueeScrollLeft {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeScrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee-left {
+  animation: marqueeScrollLeft 32s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marqueeScrollRight 36s linear infinite;
+}
+
+.marquee-container:hover .animate-marquee-left,
+.marquee-container:hover .animate-marquee-right,
+.marquee-container:focus-within .animate-marquee-left,
+.marquee-container:focus-within .animate-marquee-right {
+  animation-play-state: paused;
+}
+

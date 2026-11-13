@@ -54,11 +54,21 @@ import goHighLevel2 from "./images/Project Go high level (2).png"
 import goHighLevel3 from "./images/Project Go high level (3).png"
 import goHighLevel4 from "./images/Project Go high level (4).png"
 
-// ================= ALPHA MALE =================
-import alphaMale from "./images/project alpha male.png"
-import alphaMale2 from "./images/project alpha male (2).png"
-import alphaMale3 from "./images/project alpha male (3).png"
-import alphaMale4 from "./images/project alpha male (4).png"
+// ================= TSM =================
+import tsm from "./images/Frame 2230.png"
+import tsm1 from "./images/Frame 2231.png"
+import tsm2 from "./images/Frame 2232.png"
+import tsm3 from "./images/Frame 2233.png"
+import tsm4 from "./images/Frame 2234.png"
+import tsm5 from "./images/Frame 2235.png"
+
+// ================= VURSELL =================
+import vursell from "./images/Screenshot1.png"
+import vursell2 from "./images/Screenshot2.png"
+import vursell3 from "./images/Screenshot3.png"
+import vursell4 from "./images/Screenshot4.png"
+import vursell5 from "./images/Screenshot5.png"
+import vursell6 from "./images/Screenshot6.png"
 
 // ================= N8N CHATBOT =================
 import n8nChatbot from "./images/N8N Chatbot.png"
@@ -89,6 +99,11 @@ import bms from "./images/BMS.png"
 import bms2 from "./images/BMS-2.png"
 import bms3 from "./images/BMS-3.png"
 import bms4 from "./images/BMS-4.png"
+
+// ======================= NLL ============================
+import nll from "./images/Frame 2243.png"
+import nll2 from "./images/Frame 2244 (1).png"
+import nll3 from "./images/Frame 2245.png"
 
 
 // ======================= LOGOS ==========================
@@ -196,6 +211,86 @@ const techStack = [
 
 const projects = [
   {
+    title: "Never lose lead",
+    category: "AI Automation",
+    description:
+      "NeverLoseLeadis an AI-powered after-hours phone assistant and call-booking platform built specifically for heating and cooling (HVAC) contractor",
+    technologies: [
+      "AI Phone Assistant",
+      "UI/UX Design",
+      "Product Catalog Management",
+      "AI Automation",
+    ],
+    image: nll,
+    images: [
+      nll,
+      nll2,
+      nll3,
+    ],
+  },
+   {
+title: "Building Management System",
+
+category: "Custom Software",
+
+description:
+"A Building Management System designed to streamline property operations, tenant management, bookings, financial accounts, inventory, and complaint workflows through a centralized platform.",
+
+technologies: [
+"Web Application",
+"Role-Based Access",
+"Property Management",
+"Financial Management",
+"Inventory Management",
+"Workflow Automation",
+],
+
+image: bms,
+
+images: [bms, bms2, bms3, bms4],
+},
+  {
+    title: "The Shirts maker",
+    category: "E-commerce",
+    description:
+      "The Shirts Maker is a contemporary clothing brand dedicated to crafting timeless, everyday shirts with an emphasis on precision tailoring and high-grade fabrics.",
+    technologies: [
+      "E-commerce Platform",
+      "UI/UX Design",
+      "Product Catalog Management",
+      "Order Processing",
+    ],
+    image: tsm,
+    images: [
+      tsm,
+      tsm1,
+      tsm2,
+      tsm3,
+      tsm4,
+      tsm5,
+    ],
+  },
+  {
+    title: "Vursell",
+    category: "Custom Software",
+    description:
+      "Most AI chatbots are just a single channel wrapped in a nice widget. Vursell is what happens when you build the other 90%. Featuring one unified AI agent across six customer channels, Vursell consolidates every interaction into a single lead identity.",
+    technologies: [
+      "vursell",
+      "AI Chatbot",
+      "API Automation",
+      "Workflow Automation",
+    ],
+    image: vursell,
+    images: [
+      vursell2,
+      vursell3,
+      vursell4,
+      vursell5,
+      vursell6,
+    ],
+  },
+  {
     title: "Crave Express",
     category: "UI/UX Design",
     description:
@@ -271,6 +366,7 @@ const projects = [
       n8nChatbot4,
     ],
   },
+  
   {
     title: "GoHighLevel",
     category: "Business & Automation",
@@ -307,27 +403,7 @@ const projects = [
     image: zakat,
     images: [zakat, zakat2, zakat3, zakat4],
   }, 
-  {
-title: "Building Management System",
-
-category: "Custom Software",
-
-description:
-"A Building Management System designed to streamline property operations, tenant management, bookings, financial accounts, inventory, and complaint workflows through a centralized platform.",
-
-technologies: [
-"Web Application",
-"Role-Based Access",
-"Property Management",
-"Financial Management",
-"Inventory Management",
-"Workflow Automation",
-],
-
-image: bms,
-
-images: [bms, bms2, bms3, bms4],
-},
+ 
 
   // {
   //   title: "Alpha Male",
@@ -464,7 +540,7 @@ const capabilityLinks: Record<string, string> = {
   "Workflow & Business Automation": "/gohighlevel",
   "Custom Software": "/custom-software",
   "Mobile Applications": "/mobile-app-development",
-  'APIs & Integrations': "/backend-deve",
+  'APIs & Integrations': "/backend-development",
 }
 
 export default function PortfolioPage() {
@@ -526,11 +602,11 @@ export default function PortfolioPage() {
           items={[
             {
               name: "Home",
-              item: "https://revolixtech.com/",
+              item: "https://www.revolixtech.com/",
             },
             {
               name: "Case Studies",
-              item: "https://revolixtech.com/case-studies",
+              item: "https://www.revolixtech.com/case-studies",
             },
           ]}
         />
@@ -552,7 +628,7 @@ export default function PortfolioPage() {
                   Our Work
                 </div>
 
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                <h1 className="text-3xl min-[400px]:text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
                   Selected{" "}
                   <span className="text-primary">Projects</span>
                 </h1>
@@ -595,7 +671,7 @@ export default function PortfolioPage() {
     ].map((stat) => (
       <div
         key={stat.label}
-        className="min-w-[150px] px-5 text-center"
+        className="min-w-[120px] sm:min-w-[150px] px-3 sm:px-5 py-2 sm:py-0 text-center"
       >
         <p className="text-2xl font-bold text-foreground sm:text-3xl">
           {stat.value}
@@ -1193,7 +1269,7 @@ export default function PortfolioPage() {
               {/* Thumbnails */}
               {selectedProject.images.length > 1 && (
                 <div className="border-t border-border bg-card/70 px-4 py-3">
-                  <div className="flex justify-center gap-2 overflow-x-auto">
+                  <div className="flex justify-start sm:justify-center gap-2 overflow-x-auto py-1">
                     {selectedProject.images.map((image, index) => (
                       <button
                         key={index}

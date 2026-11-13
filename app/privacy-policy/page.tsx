@@ -25,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Privacy Policy | Revolix Technologies",
     description:
       "Learn how Revolix Technologies collects, uses, shares, and protects your information when you use our website and services.",
-    alternates: { canonical: "https://revolixtech.com/privacy-policy" },
+    alternates: { canonical: "https://www.revolixtech.com/privacy-policy" },
     robots: { index: true, follow: true },
   }
 }
@@ -112,8 +112,8 @@ export default function PrivacyPolicyPage() {
 
         <BreadcrumbJsonLd
           items={[
-            { name: "Home", item: "https://revolixtech.com/" },
-            { name: "Privacy Policy", item: "https://revolixtech.com/privacy-policy" },
+            { name: "Home", item: "https://www.revolixtech.com/" },
+            { name: "Privacy Policy", item: "https://www.revolixtech.com/privacy-policy" },
           ]}
         />
         
@@ -283,8 +283,7 @@ export default function PrivacyPolicyPage() {
                       <span className="text-foreground font-semibold">
                         Business tools (CRM, email, scheduling):
                       </span>{" "}
-                      [FILL IN — confirm which CRM/email/scheduling tool(s) process contact form
-                      and newsletter submissions].
+                      Cloud infrastructure, business communication platforms (including Google Workspace), and email delivery services used strictly to respond to client inquiries and manage customer requests.
                     </li>
                     <li>Professional advisors (legal, accounting), where necessary.</li>
                     <li>Authorities, if required by law or to protect our legal rights.</li>
@@ -301,11 +300,11 @@ export default function PrivacyPolicyPage() {
 
                 <PolicyBox number="07" title="International Data Transfers" icon={Plane}>
                   <p>
-                    Revolix is based in Karachi, Pakistan, and works with clients and service
-                    providers in other countries. Where personal information is transferred
-                    internationally, we take steps to ensure it receives an adequate level of
-                    protection consistent with this policy, including through contractual
-                    safeguards with our service providers where applicable.
+                    Revolix operates globally through Revolix Technologies LLC (registered in Wyoming,
+                    USA) and Revolix Technologies (Private) Limited (operating delivery team in
+                    Karachi, Pakistan). Where personal information is transferred internationally between
+                    our entities or to service providers, we implement robust technical safeguards,
+                    access controls, and contractual protections consistent with applicable data protection laws.
                   </p>
                 </PolicyBox>
 
@@ -322,7 +321,24 @@ export default function PrivacyPolicyPage() {
 
                 <PolicyBox number="09" title="Your Privacy Rights" icon={Scale}>
                   <h3 className="text-base font-semibold text-foreground mt-2 mb-3">
-                    9.1 If you are a resident of Pakistan
+                    9.1 If you are a resident of the United States (including California CCPA/CPRA)
+                  </h3>
+                  <p className="mb-3">
+                    Under applicable US state privacy laws including the California Consumer Privacy Act
+                    (CCPA) as amended by the California Privacy Rights Act (CPRA), you have the right to:
+                  </p>
+                  <ul className="list-disc pl-5 space-y-2 marker:text-primary">
+                    <li>Know what personal information we collect, use, and disclose about you</li>
+                    <li>Request deletion of your personal information held by us</li>
+                    <li>Request correction of inaccurate personal information</li>
+                    <li>Not receive discriminatory treatment for exercising your privacy rights</li>
+                  </ul>
+                  <p className="mt-3">
+                    We do not sell personal information or share it for cross-context behavioral advertising.
+                  </p>
+
+                  <h3 className="text-base font-semibold text-foreground mt-6 mb-3">
+                    9.2 If you are a resident of Pakistan
                   </h3>
                   <p className="mb-3">
                     In accordance with local data protection frameworks, including the Personal
@@ -344,7 +360,7 @@ export default function PrivacyPolicyPage() {
                   </ul>
 
                   <h3 className="text-base font-semibold text-foreground mt-6 mb-3">
-                    9.2 All users
+                    9.3 All users
                   </h3>
                   <p>
                     You may unsubscribe from marketing emails at any time using the link in those
@@ -388,17 +404,10 @@ export default function PrivacyPolicyPage() {
                     If you have questions about this Privacy Policy or want to exercise any of the
                     rights described above, contact us at{" "}
                     <a
-                      href="mailto:hello@revolix.com"
+                      href="mailto:info@revolixtech.com"
                       className="text-foreground font-semibold hover:text-primary transition-colors"
                     >
-                      hello@revolix.com
-                    </a>{" "}
-                    or{" "}
-                    <a
-                      href="mailto:support@revolix.com"
-                      className="text-foreground font-semibold hover:text-primary transition-colors"
-                    >
-                      support@revolix.com
+                      info@revolixtech.com
                     </a>
                     .
                   </p>

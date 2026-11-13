@@ -4,7 +4,6 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { AboutHero } from "@/components/about/about-hero"
 import { AboutMission } from "@/components/about/about-mission"
-import { AboutTimeline } from "@/components/about/about-timeline"
 import { AboutTeam } from "@/components/about/about-team"
 import { AboutValues } from "@/components/about/about-values"
 import { CTASection } from "@/components/cta-section"
@@ -21,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "IT solutions company",
       "digital solutions company",
     ],
-    alternates: { canonical: "https://revolixtech.com/about" },
+    alternates: { canonical: "https://www.revolixtech.com/about" },
   }
 }
 
@@ -31,12 +30,11 @@ export default function AboutPage() {
       <Header />
       <main>
         <BreadcrumbJsonLd items={[
-          { name: "Home", item: "https://revolixtech.com/" },
-          { name: "About", item: "https://revolixtech.com/about" },
+          { name: "Home", item: "https://www.revolixtech.com/" },
+          { name: "About", item: "https://www.revolixtech.com/about" },
         ]} />
         <AboutHero />
         <AboutMission />
-        {/* <AboutTimeline /> */}
         <AboutValues />
         <AboutServices />
         <AboutTeam />

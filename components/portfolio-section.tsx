@@ -21,7 +21,7 @@ type Project = {
   category: string
   description: string
   technologies: string[]
-  icon: React.ElementType
+  icon: React.ComponentType<{ className?: string }>
   href?: string
 }
 

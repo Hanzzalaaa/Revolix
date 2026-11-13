@@ -299,8 +299,8 @@ export default function UIUXPage() {
 
       <main> 
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "UI/UX Design", item: "https://revolixtech.com/uiux" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "UI/UX Design", item: "https://www.revolixtech.com/uiux" },
        ]} />
  
         {/* =========================

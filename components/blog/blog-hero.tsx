@@ -13,11 +13,10 @@ import {
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
 import { Button } from "@/components/ui/button"
-import { InternalLinksRow } from "@/components/internal-links-row"
 
 export function BlogHero() {
   return (
-    <section className="relative overflow-hidden pt-32 pb-16">
+    <section className="relative overflow-hidden pt-24 pb-12 sm:pt-32 sm:pb-16">
       {/* =========================================================
           BACKGROUND
       ========================================================= */}
@@ -63,31 +62,28 @@ export function BlogHero() {
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-3xl min-[400px]:text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl leading-[1.14] sm:leading-[1.12]">
                 Latest SEO, Web Development &amp; Digital Marketing Blog
               </h1>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">
+              <p className="mt-6 max-w-2xl text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground">
                 Explore practical insights, guides, and ideas across
                 artificial intelligence, web development, automation,
                 SEO, digital marketing, and modern technology.
               </p>
             </ScrollReveal>
 
-            <ScrollReveal delay={220}>
-              <InternalLinksRow className="mt-6" />
-            </ScrollReveal>
-
             <ScrollReveal delay={280}>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
 
                 <Button
                   size="lg"
                   asChild
+                  className="w-full sm:w-auto"
                 >
-                  <Link href="/contact">
+                  <Link href="/contact" className="justify-center">
                     Get Content Support
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -97,9 +93,9 @@ export function BlogHero() {
                   size="lg"
                   variant="outline"
                   asChild
-                  className="glass border-primary/30 bg-transparent hover:bg-primary/10"
+                  className="w-full sm:w-auto glass border-primary/30 bg-transparent hover:bg-primary/10"
                 >
-                  <Link href="/services">
+                  <Link href="/services" className="justify-center">
                     Explore Our Services
                   </Link>
                 </Button>

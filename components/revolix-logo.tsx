@@ -48,7 +48,7 @@ export function RevolixLogo({ className = "", showText = true, size = "md" }: Re
           <circle cx="24" cy="24" r="22" fill="url(#logoGradient1)" opacity="0.15" />
 
           {/* Main R shape - stylized and modern */}
-          <motion.path
+          <path
             d="M14 12h12c5.5 0 10 4.5 10 10s-4.5 10-10 10h-2l8 8"
             stroke="url(#logoGradient1)"
             strokeWidth="3.5"
@@ -56,59 +56,38 @@ export function RevolixLogo({ className = "", showText = true, size = "md" }: Re
             strokeLinejoin="round"
             fill="none"
             filter="url(#glow)"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
           />
 
           {/* Vertical line of R */}
-          <motion.path
+          <path
             d="M14 12v28"
             stroke="url(#logoGradient1)"
             strokeWidth="3.5"
             strokeLinecap="round"
             fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
           />
 
           {/* Accent dots - innovation nodes */}
-          <motion.circle
+          <circle
             cx="38"
             cy="38"
             r="3"
             fill="url(#logoGradient2)"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, delay: 1 }}
           />
-          <motion.circle
+          <circle
             cx="26"
             cy="22"
             r="2"
             fill="url(#logoGradient2)"
             opacity="0.7"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, delay: 1.2 }}
           />
 
-          {/* Orbiting element */}
-          <motion.circle
+          {/* Accent node */}
+          <circle
             cx="36"
             cy="16"
             r="2.5"
             fill="url(#logoGradient2)"
-            animate={{
-              cx: [36, 38, 36, 34, 36],
-              cy: [16, 18, 20, 18, 16],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
           />
           </svg>
         </motion.div>

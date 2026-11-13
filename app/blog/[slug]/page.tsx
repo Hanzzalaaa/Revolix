@@ -9,7 +9,7 @@ import { Footer } from "@/components/footer"
 
 export const revalidate = 60 // ISR: revalidate every 60s
 
-type Props = { params: { slug: string } }
+type Props = { params: Promise<{ slug: string }> }
 
 const clampMeta = (value: string, maxLength: number) => {
   if (value.length <= maxLength) return value
@@ -17,10 +17,11 @@ const clampMeta = (value: string, maxLength: number) => {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = getPostBySlug(params.slug)
+  const { slug } = await params
+  const post = getPostBySlug(slug)
   if (!post) return { title: "Post not found" }
 
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.revolixtech.com"
   const title = clampMeta(post.title, 60)
   const description = clampMeta(post.excerpt || "", 160)
 
@@ -87,32 +88,43 @@ function renderMarkdownContent(content: string) {
   return blocks.map((block, index) => {
     const lines = block.split("\n").map((line) => line.trim()).filter(Boolean)
 
-    if (lines[0]?.startsWith("## ")) {
+    // Heading regex covering h1 through h6
+    const headingMatch = lines[0]?.match(/^(#{1,6})\s*(.*)$/)
+    if (headingMatch) {
+      const level = headingMatch[1].length
+      const headingText = headingMatch[2]
+
+      if (level <= 2) {
+        return (
+          <h2 key={`${block}-${index}`} className="text-2xl sm:text-3xl font-bold mt-12 mb-4 text-foreground tracking-tight">
+            {renderInlineMarkdown(headingText)}
+          </h2>
+        )
+      }
+
+      if (level === 3) {
+        return (
+          <h3 key={`${block}-${index}`} className="text-xl font-semibold mt-8 mb-3 text-foreground tracking-tight">
+            {renderInlineMarkdown(headingText)}
+          </h3>
+        )
+      }
+
       return (
-        <h2 key={`${block}-${index}`} className="group text-2xl font-bold mt-12 mb-4 text-foreground transition-transform duration-300 hover:translate-x-1 flex items-center gap-3">
-          {/* Aesthetic developer "#" symbol appearing on hover */}
-          <span className="text-primary/40 text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -ml-6 absolute hidden sm:block">#</span>
-          {renderInlineMarkdown(lines[0].replace(/^##\s*/, ""))}
-        </h2>
+        <h4 key={`${block}-${index}`} className="text-lg font-semibold mt-6 mb-2 text-foreground">
+          {renderInlineMarkdown(headingText)}
+        </h4>
       )
     }
 
-    if (lines[0]?.startsWith("### ")) {
-      return (
-        <h3 key={`${block}-${index}`} className="text-xl font-semibold mt-8 mb-3 text-foreground transition-colors duration-300 hover:text-primary/90">
-          {renderInlineMarkdown(lines[0].replace(/^###\s*/, ""))}
-        </h3>
-      )
-    }
-
-    if (lines.every((line) => line.startsWith("- "))) {
+    if (lines.every((line) => line.startsWith("- ") || line.startsWith("* "))) {
       return (
         <ul key={`${block}-${index}`} className="list-none space-y-3 mb-8 text-muted-foreground">
           {lines.map((line, lineIndex) => (
             <li key={`${line}-${lineIndex}`} className="flex items-start gap-3 group">
-              <span className="text-primary/50 mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/50 transition-transform group-hover:scale-150 flex-shrink-0" />
-              <span className="transition-colors group-hover:text-foreground/90">
-                {renderInlineMarkdown(line.replace(/^[-]\s*/, ""))}
+              <span className="text-primary mt-2 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+              <span className="transition-colors group-hover:text-foreground">
+                {renderInlineMarkdown(line.replace(/^[-*]\s*/, ""))}
               </span>
             </li>
           ))}
@@ -128,8 +140,9 @@ function renderMarkdownContent(content: string) {
   })
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = getPostBySlug(params.slug)
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
   if (!post) return notFound()
 
   return (
@@ -190,7 +203,7 @@ export default function BlogPostPage({ params }: Props) {
               description={post.excerpt || ""} 
               authorName={post.author} 
               datePublished={post.date} 
-              url={`${process.env.NEXT_PUBLIC_SITE_URL || "https://revolixtech.com"}/blog/${post.slug}`} 
+              url={`${process.env.NEXT_PUBLIC_SITE_URL || "https://www.revolixtech.com"}/blog/${post.slug}`} 
               image={post.image} 
             />
           </article>

@@ -230,8 +230,8 @@ export default function SEOPage() {
 
       <main>
         <BreadcrumbJsonLd items={[
-         { name: "Home", item: "https://revolixtech.com/" },
-         { name: "SEO", item: "https://revolixtech.com/seo" },
+         { name: "Home", item: "https://www.revolixtech.com/" },
+         { name: "SEO", item: "https://www.revolixtech.com/seo" },
         ]} />
 
         {/* hero */}
