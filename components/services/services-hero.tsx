@@ -5,9 +5,7 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
 import dynamic from "next/dynamic"
 import Link from "next/link"
-import { Sparkles, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { InternalLinksRow } from "@/components/internal-links-row"
 
 const FloatingParticles = dynamic(
   () =>
@@ -21,7 +19,7 @@ const FloatingParticles = dynamic(
 
 export function ServicesHero() {
   return (
-    <section className="relative overflow-hidden pt-32 pb-24">
+    <section className="relative overflow-hidden pt-32 pb-24 bg-[#060A12]">
 
       {/* =========================================================
           FLOATING PARTICLES
@@ -89,35 +87,12 @@ export function ServicesHero() {
         <div className="max-w-4xl">
 
           {/* =====================================================
-              BADGE
-          ===================================================== */}
-
-          <ScrollReveal direction="scale">
-
-            <motion.div
-              className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-2"
-              whileHover={{
-                scale: 1.05,
-              }}
-            >
-
-              <Sparkles className="h-4 w-4 animate-pulse text-primary" />
-
-              <span className="text-sm font-medium uppercase tracking-wider text-primary">
-                Our Services
-              </span>
-
-            </motion.div>
-
-          </ScrollReveal>
-
-          {/* =====================================================
               HEADING
           ===================================================== */}
 
           <ScrollReveal delay={100}>
 
-            <h1 className="mb-6 text-balance text-4xl font-display font-bold sm:text-5xl lg:text-6xl">
+            <h1 className="mb-6 text-balance text-4xl font-display font-bold sm:text-5xl lg:text-6xl text-foreground">
 
               Digital Solutions Built
               <span className="block text-primary">
@@ -147,34 +122,21 @@ export function ServicesHero() {
           </ScrollReveal>
 
           {/* =====================================================
-              INTERNAL LINKS
-          ===================================================== */}
-
-          <ScrollReveal delay={220}>
-
-            <InternalLinksRow className="mt-6" />
-
-          </ScrollReveal>
-
-          {/* =====================================================
               BUTTONS
           ===================================================== */}
 
           <ScrollReveal delay={280}>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
 
               <Button
                 size="lg"
                 asChild
+                className="w-full sm:w-auto"
               >
 
                 <Link href="/contact">
-
                   Book a Strategy Call
-
-                  <ArrowRight className="ml-2 h-4 w-4" />
-
                 </Link>
 
               </Button>
@@ -183,7 +145,7 @@ export function ServicesHero() {
                 size="lg"
                 variant="outline"
                 asChild
-                className="glass border-primary/30 bg-transparent hover:bg-primary/10"
+                className="w-full sm:w-auto glass border-primary/30 bg-transparent hover:bg-primary/10"
               >
 
                 <Link href="/portfolio">

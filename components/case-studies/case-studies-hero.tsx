@@ -4,7 +4,6 @@ import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
 import { Button } from "@/components/ui/button"
-import { InternalLinksRow } from "@/components/internal-links-row"
 import { ArrowRight } from "lucide-react"
 
 export function CaseStudiesHero() {
@@ -37,10 +36,6 @@ export function CaseStudiesHero() {
               Explore how we&apos;ve helped businesses across industries transform their operations, enhance customer
               experiences, and achieve remarkable growth through technology.
             </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={220}>
-            <InternalLinksRow className="mt-6" />
           </ScrollReveal>
 
           <ScrollReveal delay={280}>

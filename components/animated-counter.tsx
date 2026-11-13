@@ -28,7 +28,7 @@ export function AnimatedCounter({
           setHasStarted(true)
         }
       },
-      { threshold: 0.5 },
+      { threshold: 0.1, rootMargin: "0px 0px -20px 0px" },
     )
 
     if (ref.current) {

@@ -7,7 +7,6 @@ import { ParallaxSection } from "@/components/parallax-section"
 import { Palette, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import { InternalLinksRow } from "@/components/internal-links-row"
 
 export function GraphicsHero() {
   return (
@@ -55,8 +54,6 @@ export function GraphicsHero() {
               <br />
               Anime characters, vtuber designs, illustrations - whatever catches our imagination.
             </p>
-
-            <InternalLinksRow className="justify-center mb-6" />
 
             <p className="text-sm text-muted-foreground mb-6">
               Inspiration from{" "}

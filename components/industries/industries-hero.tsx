@@ -4,12 +4,10 @@ import Link from "next/link"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ParallaxSection } from "@/components/parallax-section"
 import { Button } from "@/components/ui/button"
-import { InternalLinksRow } from "@/components/internal-links-row"
-import { ArrowRight } from "lucide-react"
 
 export function IndustriesHero() {
   return (
-    <section className="relative pt-32 pb-24 overflow-hidden">
+    <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-24 overflow-hidden bg-[#060A12]">
       <div className="absolute inset-0">
         <ParallaxSection speed={0.2} className="absolute top-0 left-0 w-1/2 h-full opacity-10">
           <div className="w-full h-full bg-[radial-gradient(ellipse_at_top_left,_var(--primary)_0%,_transparent_50%)]" />
@@ -25,37 +23,28 @@ export function IndustriesHero() {
           
           {/* Left Column: Core Hero Text */}
           <div className="max-w-3xl">
-            <ScrollReveal>
-              <p className="text-sm text-primary font-medium uppercase tracking-wider mb-4">Industries</p>
-            </ScrollReveal>
-
             <ScrollReveal delay={100}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
+              <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance text-foreground leading-[1.14] sm:leading-[1.12]">
                 Industries We Serve for AI Software &amp; Web Development
               </h1>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed">
                 We specialize in tailor-made software solutions designed to enhance the growth and advancement of
                 businesses across various industries globally.
               </p>
             </ScrollReveal>
 
-            {/* <ScrollReveal delay={220}>
-              <InternalLinksRow className="mt-6" />
-            </ScrollReveal> */}
-
             <ScrollReveal delay={280}>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Button size="lg" asChild>
-                  <Link href="/contact">
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Button size="lg" asChild className="w-full sm:w-auto bg-primary text-primary-foreground">
+                  <Link href="/contact" className="justify-center">
                     Discuss Your Industry
-                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild className="glass border-primary/30 hover:bg-primary/10 bg-transparent">
-                  <Link href="/portfolio">See Portfolio</Link>
+                <Button size="lg" variant="outline" asChild className="w-full sm:w-auto border-teal-500/30 hover:bg-teal-500/10 text-foreground bg-transparent">
+                  <Link href="/portfolio" className="justify-center">See Portfolio</Link>
                 </Button>
               </div>
             </ScrollReveal>

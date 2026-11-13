@@ -287,8 +287,9 @@ export function Header() {
   // ==========================================================
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
+    <div className="w-full">
+      <motion.header
+        initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{
         duration: 0.6,
@@ -1000,5 +1001,6 @@ export function Header() {
       </AnimatePresence>
 
     </motion.header>
+    </div>
   )
 }

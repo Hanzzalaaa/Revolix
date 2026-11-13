@@ -4,7 +4,6 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { AboutHero } from "@/components/about/about-hero"
 import { AboutMission } from "@/components/about/about-mission"
-import { AboutTimeline } from "@/components/about/about-timeline"
 import { AboutTeam } from "@/components/about/about-team"
 import { AboutValues } from "@/components/about/about-values"
 import { CTASection } from "@/components/cta-section"
@@ -36,7 +35,6 @@ export default function AboutPage() {
         ]} />
         <AboutHero />
         <AboutMission />
-        {/* <AboutTimeline /> */}
         <AboutValues />
         <AboutServices />
         <AboutTeam />

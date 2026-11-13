@@ -1,37 +1,29 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect, Suspense } from "react"
-import { useSearchParams } from "next/navigation"
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { ParallaxSection } from "@/components/parallax-section"
+import { useState, Suspense, useRef } from "react"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Check, Loader2, MapPin, ExternalLink } from "lucide-react"
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 interface FormData {
   first_name: string
   last_name: string
   email: string
   phone: string
-  company: string
-  service: string
   about: string
 }
 
-const SERVICE_OPTIONS = [
-  "Website Development",
-  "AI Automations & Follow-up",
-  "GoHighLevel Implementation",
-  "Custom Software & APIs",
-  "SEO & Growth",
-  "E-Commerce Solutions",
-  "Other / Custom Project",
-]
-
 function ContactFormInner() {
-  const searchParams = useSearchParams()
+  const containerRef = useRef<HTMLDivElement>(null)
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -40,41 +32,43 @@ function ContactFormInner() {
     last_name: "",
     email: "",
     phone: "",
-    company: "",
-    service: "",
     about: "",
   })
 
-  // Prepopulate from URL parameters (e.g., from GoHighLevel pricing cards or other services)
-  useEffect(() => {
-    const serviceParam = searchParams.get("service")
-    const packageParam = searchParams.get("package")
-
-    if (serviceParam || packageParam) {
-      let matchedService = ""
-      if (serviceParam === "gohighlevel") matchedService = "GoHighLevel Implementation"
-      else if (serviceParam === "web-development") matchedService = "Website Development"
-      else if (serviceParam === "ai-automation" || serviceParam === "ai-agents" || serviceParam === "neverloselead") {
-        matchedService = "AI Automations & Follow-up"
-      } else if (serviceParam === "custom-software" || serviceParam === "backend-development") {
-        matchedService = "Custom Software & APIs"
-      } else if (serviceParam === "seo") {
-        matchedService = "SEO & Growth"
+  useGSAP(
+    () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return
       }
 
-      setFormData((prev) => ({
-        ...prev,
-        service: matchedService || prev.service,
-        about: packageParam
-          ? `Inquiring about package: ${packageParam.replace(/-/g, " ").toUpperCase()}.\n\n`
-          : prev.about,
-      }))
-    }
-  }, [searchParams])
+      gsap.from(".contact-form-column", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+        },
+        opacity: 0,
+        y: 25,
+        duration: 0.6,
+        ease: "power3.out",
+      })
 
-  // INPUT & TEXTAREA HANDLER
+      gsap.from(".contact-direct-call-column", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+        },
+        opacity: 0,
+        y: 25,
+        duration: 0.6,
+        delay: 0.15,
+        ease: "power3.out",
+      })
+    },
+    { scope: containerRef }
+  )
+
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target
     setFormData((prev) => ({
@@ -103,262 +97,183 @@ function ContactFormInner() {
 
   if (isSubmitted) {
     return (
-      <section className="py-20 md:py-28 relative overflow-hidden">
-        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="text-center p-12 sm:p-16 rounded-3xl bg-card border border-border shadow-xl">
-              <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                <Check className="w-10 h-10 text-primary" />
-              </div>
-              <h2 className="text-3xl font-bold mb-4">Thank You!</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
-                Thank you. We review inquiries within one business day and will reply to confirm details.
-              </p>
-            </div>
-          </ScrollReveal>
+      <section className="py-20 md:py-28 relative overflow-hidden bg-[#060A12]">
+        <div className="relative mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-left">
+          <div className="w-12 h-12 rounded-full bg-teal-500/10 flex items-center justify-center mb-6 text-teal-300 font-bold text-xl">
+            ✓
+          </div>
+          <h2 className="text-3xl font-bold font-display mb-3 text-foreground">Thank You!</h2>
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+            Your message has been received. Our leadership team reviews every enquiry within one business day and will reply to confirm project details.
+          </p>
         </div>
       </section>
     )
   }
 
   return (
-    <section id="contact-form" className="py-20 md:py-28 relative overflow-hidden">
-      {/* Diagonal checkered background on the left side only */}
-      <ParallaxSection speed={0.1} className="absolute inset-y-0 left-0 w-full lg:w-1/2 opacity-10 pointer-events-none overflow-hidden">
-        <div className="w-full h-full bg-[linear-gradient(45deg,_var(--primary)_25%,_transparent_25%,_transparent_75%,_var(--primary)_75%)] bg-[size:80px_80px] [mask-image:linear-gradient(to_right,black_70%,transparent_100%)]" />
-      </ParallaxSection>
-
+    <section
+      id="contact-form"
+      ref={containerRef}
+      className="py-16 md:py-24 relative overflow-hidden bg-[#060A12] border-t border-white/5 scroll-mt-20"
+    >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left: Consultation Form with generous padding and height */}
-          <div className="lg:col-span-7">
-            <ScrollReveal>
-              <div className="p-8 sm:p-10 lg:p-12 rounded-3xl bg-card/90 border border-border shadow-xl backdrop-blur-sm">
-                <div className="mb-10">
-                  <h2 className="text-3xl sm:text-4xl font-bold mb-3 tracking-tight">
-                    Prefer to write? Send us a message.
-                  </h2>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Share your goals and we&apos;ll reply with a clear, tailored proposal within one business day.
-                  </p>
-                </div>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name Row */}
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="first_name" className="block text-sm font-semibold mb-2.5">
-                        First Name <span className="text-primary">*</span>
-                      </label>
-                      <Input
-                        id="first_name"
-                        name="first_name"
-                        value={formData.first_name}
-                        onChange={handleChange}
-                        required
-                        aria-required="true"
-                        placeholder="John"
-                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border focus-visible:ring-primary"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="last_name" className="block text-sm font-semibold mb-2.5">
-                        Last Name <span className="text-primary">*</span>
-                      </label>
-                      <Input
-                        id="last_name"
-                        name="last_name"
-                        value={formData.last_name}
-                        onChange={handleChange}
-                        required
-                        aria-required="true"
-                        placeholder="Doe"
-                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border focus-visible:ring-primary"
-                      />
-                    </div>
-                  </div>
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* =====================================================
+              LEFT: COMPACT PROJECT ENQUIRY FORM (Upper Left Side)
+              (No heavy card box, no thick borders)
+          ===================================================== */}
+          <div className="contact-form-column lg:col-span-7">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h2 className="text-2xl sm:text-3xl font-bold font-display tracking-tight text-foreground">
+                  Prefer to write? Send us a message.
+                </h2>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  Share your goals and we&apos;ll reply with a clear, tailored proposal within one business day.
+                </p>
+              </div>
 
-                  {/* Email & Phone Row */}
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-semibold mb-2.5">
-                        Email Address <span className="text-primary">*</span>
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        aria-required="true"
-                        placeholder="john@company.com"
-                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border focus-visible:ring-primary"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold mb-2.5">
-                        Phone Number <span className="text-xs text-muted-foreground font-normal">(Optional)</span>
-                      </label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="+1 (555) 000-0000"
-                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border focus-visible:ring-primary"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Company & Service Row */}
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="company" className="block text-sm font-semibold mb-2.5">
-                        Company Name <span className="text-xs text-muted-foreground font-normal">(Optional)</span>
-                      </label>
-                      <Input
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        placeholder="Your Business Name"
-                        className="h-13 px-4 text-base rounded-xl bg-background/80 border-border focus-visible:ring-primary"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="service" className="block text-sm font-semibold mb-2.5">
-                        Service Needed
-                      </label>
-                      <select
-                        id="service"
-                        name="service"
-                        value={formData.service}
-                        onChange={handleChange}
-                        className="w-full h-13 px-4 text-base rounded-xl bg-background/80 border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                      >
-                        <option value="">Select a service...</option>
-                        {SERVICE_OPTIONS.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Project Details */}
+              <form onSubmit={handleSubmit} className="space-y-5 pt-2">
+                {/* Name Row */}
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="about" className="block text-sm font-semibold mb-2.5">
-                      Tell us about your project <span className="text-primary">*</span>
+                    <label htmlFor="first_name" className="block text-xs font-semibold mb-1.5 text-foreground uppercase tracking-wider font-mono">
+                      First Name <span className="text-teal-400">*</span>
                     </label>
-                    <Textarea
-                      id="about"
-                      name="about"
-                      value={formData.about}
+                    <Input
+                      id="first_name"
+                      name="first_name"
+                      value={formData.first_name}
                       onChange={handleChange}
                       required
                       aria-required="true"
-                      rows={6}
-                      placeholder="Describe your project, timeline, current systems, and what success looks like for your business..."
-                      className="min-h-[160px] p-4 text-base rounded-xl bg-background/80 border-border resize-none leading-relaxed focus-visible:ring-primary"
+                      placeholder="Marcus"
+                      className="h-11 px-3.5 text-sm rounded-lg bg-white/[0.02] border border-white/10 text-foreground placeholder:text-muted-foreground/40 focus-visible:border-teal-400 focus-visible:ring-1 focus-visible:ring-teal-400 transition-colors"
                     />
                   </div>
+                  <div>
+                    <label htmlFor="last_name" className="block text-xs font-semibold mb-1.5 text-foreground uppercase tracking-wider font-mono">
+                      Last Name <span className="text-teal-400">*</span>
+                    </label>
+                    <Input
+                      id="last_name"
+                      name="last_name"
+                      value={formData.last_name}
+                      onChange={handleChange}
+                      required
+                      aria-required="true"
+                      placeholder="Vance"
+                      className="h-11 px-3.5 text-sm rounded-lg bg-white/[0.02] border border-white/10 text-foreground placeholder:text-muted-foreground/40 focus-visible:border-teal-400 focus-visible:ring-1 focus-visible:ring-teal-400 transition-colors"
+                    />
+                  </div>
+                </div>
 
-                  <Button type="submit" size="lg" disabled={isSubmitting} className="h-13 px-8 text-base font-semibold rounded-xl w-full sm:w-auto">
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      "Send Message"
-                    )}
-                  </Button>
-                </form>
-              </div>
-            </ScrollReveal>
+                {/* Email & Phone Row */}
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="email" className="block text-xs font-semibold mb-1.5 text-foreground uppercase tracking-wider font-mono">
+                      Email Address <span className="text-teal-400">*</span>
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      aria-required="true"
+                      placeholder="marcus@company.com"
+                      className="h-11 px-3.5 text-sm rounded-lg bg-white/[0.02] border border-white/10 text-foreground placeholder:text-muted-foreground/40 focus-visible:border-teal-400 focus-visible:ring-1 focus-visible:ring-teal-400 transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-xs font-semibold mb-1.5 text-foreground uppercase tracking-wider font-mono">
+                      Phone Number <span className="text-xs text-muted-foreground font-normal lowercase">(optional)</span>
+                    </label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="(---) ---_----"
+                      className="h-11 px-3.5 text-sm rounded-lg bg-white/[0.02] border border-white/10 text-foreground placeholder:text-muted-foreground/40 focus-visible:border-teal-400 focus-visible:ring-1 focus-visible:ring-teal-400 transition-colors"
+                    />
+                  </div>
+                </div>
+
+                {/* Project Details */}
+                <div>
+                  <label htmlFor="about" className="block text-xs font-semibold mb-1.5 text-foreground uppercase tracking-wider font-mono">
+                    Tell us about your project <span className="text-teal-400">*</span>
+                  </label>
+                  <Textarea
+                    id="about"
+                    name="about"
+                    value={formData.about}
+                    onChange={handleChange}
+                    required
+                    aria-required="true"
+                    rows={4}
+                    placeholder="Describe your requirements, timeline, and what success looks like for your business..."
+                    className="min-h-[120px] p-3.5 text-sm rounded-lg bg-white/[0.02] border border-white/10 text-foreground placeholder:text-muted-foreground/40 resize-none leading-relaxed focus-visible:border-teal-400 focus-visible:ring-1 focus-visible:ring-teal-400 transition-colors"
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-auto h-12 px-7 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-md shadow-teal-500/10"
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
+            </div>
           </div>
 
-          {/* Right: Two Google Maps (One Above, One Below) */}
-          <div className="lg:col-span-5 flex flex-col gap-8">
-            {/* Map 1: Revolix Technologies - Pakistan Office */}
-            <ScrollReveal delay={100}>
-              <div className="p-6 sm:p-7 rounded-3xl bg-card/90 border border-border shadow-lg flex flex-col gap-4 backdrop-blur-sm">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                      <MapPin className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg text-foreground">Revolix Technologies</h3>
-                      <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Karachi, Pakistan</p>
-                    </div>
-                  </div>
-                  <Button variant="outline" size="sm" asChild className="h-8 text-xs gap-1.5 shrink-0 rounded-lg">
-                    <a
-                      href="https://www.google.com/maps/place/Revolix+Technologies/data=!4m2!3m1!1s0x0:0x882232a068645bd1?sa=X&ved=1t:2428&ictx=111"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span>Open Map</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  </Button>
-                </div>
-                <div className="w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-border/80">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115778.04006656325!2d67.1023104!3d24.9298944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x882232a068645bd1!2sRevolix%20Technologies!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen={false}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Revolix Technologies Karachi Office Map"
-                  />
-                </div>
-              </div>
-            </ScrollReveal>
+          {/* =====================================================
+              RIGHT: PREFER TO TALK FIRST?
+              (Editorial column layout - No card box)
+          ===================================================== */}
+          <div className="contact-direct-call-column lg:col-span-5 space-y-6 pt-2 lg:pl-4">
+            <div className="space-y-4">
+              <h2 className="text-2xl sm:text-3xl font-bold font-display tracking-tight text-foreground">
+                Prefer to talk first?
+              </h2>
 
-            {/* Map 2: 30 N Gould St, Sheridan, WY, USA (Head Office) */}
-            <ScrollReveal delay={200}>
-              <div className="p-6 sm:p-7 rounded-3xl bg-card/90 border border-border shadow-lg flex flex-col gap-4 backdrop-blur-sm">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                      <MapPin className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg text-foreground">USA Headquarters</h3>
-                      <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Sheridan, Wyoming, USA</p>
-                    </div>
-                  </div>
-                  <Button variant="outline" size="sm" asChild className="h-8 text-xs gap-1.5 shrink-0 rounded-lg">
-                    <a
-                      href="https://www.google.com/maps/place/30+N+Gould+St,+Sheridan,+WY+82801,+USA/@44.7977257,-106.9574119,17z/data=!3m1!4b1!4m6!3m5!1s0x5335fabc2a655551:0x7d0215852acbacda!8m2!3d44.7977257!4d-106.954837!16s%2Fg%2F11zgqwrcpn?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span>Open Map</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  </Button>
-                </div>
-                <div className="w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-border/80">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2836.8778696803274!2d-106.9574119!3d44.7977257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5335fabc2a655551%3A0x7d0215852acbacda!2s30%20N%20Gould%20St%2C%20Sheridan%2C%20WY%2082801%2C%20USA!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen={false}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="USA Headquarters 30 N Gould St Sheridan Map"
-                  />
-                </div>
-              </div>
-            </ScrollReveal>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                Book a free 20-minute strategy call with one of our team. We will ask a few questions about your business and your goals, and give you an honest read on how we can help and what that would look like in practice.
+              </p>
+
+              <p className="text-sm sm:text-base text-muted-foreground/80 leading-relaxed">
+                No deck. No sales pitch. Just a direct conversation with someone who has worked on problems like yours before.
+              </p>
+            </div>
+
+            <div className="pt-2">
+              {calendlyUrl ? (
+                <Button size="lg" asChild className="w-full sm:w-auto h-12 px-7 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-teal-500/10">
+                  <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="justify-center">
+                    <span>Book a free strategy call</span>
+                  </a>
+                </Button>
+              ) : (
+                <Button size="lg" asChild className="w-full sm:w-auto h-12 px-7 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-teal-500/10">
+                  <a href="mailto:info@revolixtech.com?subject=Strategy%20Call%20Request" className="justify-center">
+                    <span>Book a free strategy call</span>
+                  </a>
+                </Button>
+              )}
+            </div>
+
+            <div className="pt-6 border-t border-white/5 space-y-2 text-xs text-muted-foreground">
+              <p>• Zero obligation or sales pressure</p>
+              <p>• Speak directly with engineering &amp; solutions leads</p>
+              <p>• Receive fixed milestone quote after call</p>
+            </div>
           </div>
         </div>
       </div>

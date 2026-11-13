@@ -115,7 +115,7 @@ const serviceCategories = [
 
 export function TechStackSection() {
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
+    <section className="py-24 lg:py-32 relative overflow-hidden bg-[#060A12] border-t border-[#343434]/40">
 
       {/* =========================================================
           BACKGROUND

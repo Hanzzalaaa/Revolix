@@ -1,122 +1,115 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { useRef } from "react"
 import Link from "next/link"
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { ParallaxSection } from "@/components/parallax-section"
-import dynamic from "next/dynamic"
-
-const FloatingParticles = dynamic(() => import("@/components/floating-particles").then((m) => m.FloatingParticles), {
-  ssr: false,
-})
-import { Users, ArrowRight } from "lucide-react"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { InternalLinksRow } from "@/components/internal-links-row"
 
 export function AboutHero() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(
+    () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return
+      }
+
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
+
+      tl.fromTo(
+        ".about-hero-title",
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, duration: 0.8, clearProps: "opacity,transform" }
+      )
+        .fromTo(
+          ".about-hero-desc",
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.7, clearProps: "opacity,transform" },
+          "-=0.5"
+        )
+        .fromTo(
+          ".about-hero-actions",
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.6, clearProps: "opacity,transform" },
+          "-=0.3"
+        )
+        .fromTo(
+          ".about-hero-model",
+          { opacity: 0, scale: 0.92, y: 20 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.9, clearProps: "opacity,transform" },
+          "-=0.4"
+        )
+    },
+    { scope: containerRef }
+  )
+
   return (
-    <section className="relative pt-32 pb-24 overflow-hidden">
-      <FloatingParticles count={20} />
-
-      <div className="absolute inset-0">
-        <ParallaxSection
-          speed={0.3}
-          mouseParallax
-          mouseIntensity={0.02}
-          className="absolute top-0 left-1/4 w-[500px] h-[500px] opacity-15"
-        >
-          <div className="w-full h-full rounded-full bg-primary blur-3xl animate-pulse-glow" />
-        </ParallaxSection>
-        <ParallaxSection
-          speed={0.2}
-          direction="down"
-          mouseParallax
-          mouseIntensity={0.015}
-          className="absolute bottom-0 right-1/4 w-80 h-80 opacity-15"
-        >
-          <div className="w-full h-full rounded-full bg-accent blur-3xl animate-pulse-glow" />
-        </ParallaxSection>
-        <ParallaxSection speed={0.4} rotateOnScroll className="absolute top-1/2 right-10 w-40 h-40 opacity-10">
-          <div className="w-full h-full rounded-full bg-primary blur-2xl" />
-        </ParallaxSection>
-
-        <motion.div
-          className="absolute inset-0 bg-[linear-gradient(rgba(79,209,197,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(79,209,197,0.03)_1px,transparent_1px)] bg-[size:64px_64px]"
-          animate={{ backgroundPosition: ["0px 0px", "64px 64px"] }}
-          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-        />
+    <section
+      ref={containerRef}
+      className="relative pt-24 pb-16 lg:pt-40 lg:pb-28 overflow-hidden bg-[#060A12]"
+    >
+      {/* Background Architectural Subtle Grid & Glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 h-[550px] w-[800px] rounded-full bg-teal-500/8 blur-[160px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(45,212,191,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(45,212,191,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_35%,#000_60%,transparent_100%)]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <ScrollReveal direction="scale">
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
-              whileHover={{ scale: 1.05 }}
-            >
-              <Users className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-sm text-primary font-medium uppercase tracking-wider">About Us</span>
-            </motion.div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={100}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 text-balance">
-              About Revolix Tech - IT &amp; Digital Solutions Company
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          {/* Main Hero Narrative */}
+          <div className="lg:col-span-7 space-y-6">
+            <h1 className="about-hero-title text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-foreground leading-[1.14] sm:leading-[1.12]">
+              About Revolix Tech -<br/> {" "}
+              <span className="text-teal-400">
+                IT &amp; Digital Solutions
+              </span>{" "}
+              Company
             </h1>
-          </ScrollReveal>
 
-          <ScrollReveal delay={200}>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              We are a collective of curious and passionate technologists bound together by our deep tech knowledge, our
-              human-centric mindset, and a passion for using technology to drive business transformation.
+            <p className="about-hero-desc text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              We are a collective of curious and passionate technologists bound
+              together by our deep tech knowledge, our human-centric mindset,
+              and a passion for using technology to drive business transformation.
             </p>
-          </ScrollReveal>
 
-          <ScrollReveal delay={220}>
-            <InternalLinksRow className="mt-6" />
-          </ScrollReveal>
-
-
-          <ScrollReveal delay={280}>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button size="lg" asChild>
-                <Link href="/contact">
+            <div className="about-hero-actions pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
+              <Button
+                size="lg"
+                asChild
+                className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-medium shadow-lg shadow-teal-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <Link href="/contact" className="inline-flex items-center justify-center gap-2">
                   Get Free Consultation
-                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="glass border-primary/30 hover:bg-primary/10 bg-transparent">
-                <Link href="/services">View Our Services</Link>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="w-full sm:w-auto border-teal-500/30 bg-background/50 hover:bg-teal-500/10 text-foreground transition-all hover:border-teal-400/50"
+              >
+                <Link href="/services" className="inline-flex items-center justify-center">View Our Services</Link>
               </Button>
             </div>
-          </ScrollReveal>
-        </div>
+          </div>
 
-        {/* Floating team icons */}
-        <ParallaxSection
-          speed={0.45}
-          mouseParallax
-          mouseIntensity={0.04}
-          className="absolute right-10 top-32 hidden lg:block"
-        >
-          <motion.div
-            className="flex gap-2"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            {[1, 2, 3].map((i) => (
-              <motion.div
-                key={i}
-                className="w-12 h-12 rounded-full glass flex items-center justify-center"
-                animate={{ y: [0, -8 * i, 0] }}
-                transition={{ duration: 3 + i, repeat: Number.POSITIVE_INFINITY, delay: i * 0.2 }}
-              >
-                <div className="w-6 h-6 rounded-full bg-primary/30" />
-              </motion.div>
-            ))}
-          </motion.div>
-        </ParallaxSection>
+          {/* Right Visual: 3D Model Image (Unboxed) */}
+          <div className="lg:col-span-5 relative flex items-center justify-center">
+            {/* Ambient soft backlight */}
+            <div className="absolute inset-0 -m-8 rounded-full bg-teal-500/10 blur-3xl pointer-events-none" />
+            
+            <Image
+              src="/abt-page.png"
+              alt="Revolix Architecture and Digital Systems"
+              width={580}
+              height={580}
+              priority
+              className="about-hero-model relative z-10 w-full max-w-[280px] sm:max-w-md lg:max-w-lg h-auto object-contain filter drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)] transition-transform duration-700 hover:scale-[1.03]"
+            />
+          </div>
+        </div>
       </div>
     </section>
   )

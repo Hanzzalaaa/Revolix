@@ -11,7 +11,7 @@ Allow: /favicon.ico
 Allow: /favicon.png
 Allow: /og-image.png
 
-# All other crawlers
+# *
 User-agent: *
 Allow: /
 Disallow: /api

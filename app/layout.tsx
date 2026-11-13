@@ -4,7 +4,7 @@ import type { Metadata, Viewport } from "next"
 import { Suspense } from "react"
 
 export const viewport: Viewport = {
-  themeColor: "#070B14",
+  themeColor: "#060A12",
   width: "device-width",
   initialScale: 1,
 }
@@ -24,6 +24,7 @@ import CursorWrapper from "@/components/CursorWrapper"
 import GTM from "@/components/GTM"
 import TrackPageView from "@/components/TrackPageView"
 import { CookieConsent } from "@/components/cookie-consent"
+import { PageLoader } from "@/components/page-loader"
 
 import "./globals.css"
 
@@ -225,6 +226,9 @@ export default function RootLayout({
           <TrackPageView />
         </Suspense>
 
+        {/* PAGE PRELOADER */}
+        <PageLoader />
+
         {/* CUSTOM CURSOR */}
         <CursorWrapper />
 
@@ -236,6 +240,13 @@ export default function RootLayout({
 
         {/* VERCEL ANALYTICS */}
         <Analytics />
+
+        {/* VURSELL CHAT WIDGET */}
+        <Script
+          src="https://vursell.duckdns.org/widget/widget.js"
+          data-bot-id="52487262-bb7d-4e51-beb0-9032efe42d85"
+          strategy="afterInteractive"
+        />
 
         {/* COOKIE CONSENT BANNER */}
         <CookieConsent />

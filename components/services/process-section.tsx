@@ -50,7 +50,7 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section className="py-24 lg:py-32 bg-card relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-[#060A12] relative overflow-hidden border-t border-[#343434]/40">
       {/* =========================================================
           BACKGROUND
       ========================================================= */}
